@@ -1,0 +1,10 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<OfferResponse>
+	<userId_OfferReq>777</userId_OfferReq>
+	<reqId_offer>seat_upgrade_777_1</reqId_offer>
+	<offerType>SEAT_UPGRADE_OFFER</offerType>
+	<userName>Wayne Gretsky</userName>
+	<offer/><approve>true</approve>
+</OfferResponse>
+
+

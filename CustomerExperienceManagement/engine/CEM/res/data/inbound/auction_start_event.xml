@@ -1,0 +1,16 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+ <EnterpriseEvent>
+	<ent_event_id>auction123</ent_event_id>
+	<ent_event_name>AUCTION_SETUP</ent_event_name>
+	<ent_event_type>ENTERPRISE_EVENT</ent_event_type>
+	<ent_id>MLSE</ent_id>
+	<ent_app_source/>
+	<ent_user_id>admin</ent_user_id>
+	<ent_activity>AUCTION_SETUP</ent_activity>
+	<ent_activity_object>AuctionItem_HockeyJersey</ent_activity_object>
+	<ent_activity_object_uri>img/kessel_jersey.jpg</ent_activity_object_uri>
+	<ent_activity_category>AUCTION</ent_activity_category>
+	<ent_activity_context_category>SportsPlayer</ent_activity_context_category>
+	<ent_activity_context_content>Phil Kessel</ent_activity_context_content>
+</EnterpriseEvent>
+

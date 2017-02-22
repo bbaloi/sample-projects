@@ -1,0 +1,184 @@
+<?xml version='1.0'?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+    <xs:complexType name="DirectMessage">
+        <xs:sequence>
+            <xs:element name="createdAt" type="xs:string"/>
+            <xs:element name="id" type="xs:string" minOccurs="0"/>
+            <xs:element name="recipient" type="User" minOccurs="0"/>
+            <xs:element name="recipientId" type="xs:string" minOccurs="0"/>
+            <xs:element name="recipientScreenName" type="xs:string" minOccurs="0"/>
+            <xs:element name="sender" type="User" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="senderId" type="xs:string" minOccurs="0"/>
+            <xs:element name="senderScreenName" type="xs:string" minOccurs="0"/>
+            <xs:element name="text" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="GeoLocation">
+        <xs:sequence>
+            <xs:element name="latitude" type="xs:double"/>
+            <xs:element name="longitude" type="xs:double"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="GeolocationArray">
+        <xs:sequence>
+            <xs:element name="item" type="GeoLocation" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="HashTagEntities">
+        <xs:sequence>
+            <xs:element name="end" type="xs:int" minOccurs="0"/>
+            <xs:element name="start" type="xs:int" minOccurs="0"/>
+            <xs:element name="text" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="MediaEntity">
+        <xs:sequence>
+            <xs:element name="displayURL" type="xs:string" minOccurs="0"/>
+            <xs:element name="end" type="xs:int" minOccurs="0"/>
+            <xs:element name="expandedURL" type="xs:string" minOccurs="0"/>
+            <xs:element name="id" type="xs:long" minOccurs="0"/>
+            <xs:element name="mediaURL" type="xs:string" minOccurs="0"/>
+            <xs:element name="mediaURLHttps" type="xs:string" minOccurs="0"/>
+            <xs:element name="sizes" type="xs:int" minOccurs="0"/>
+            <xs:element name="start" type="xs:int" minOccurs="0"/>
+            <xs:element name="type" nillable="true" type="xs:string" minOccurs="0"/>
+            <xs:element name="URL" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Place">
+        <xs:sequence>
+            <xs:element name="boundingBoxCoordinates" type="GeolocationArray" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="boundingBoxType" type="xs:string" minOccurs="0"/>
+            <xs:element name="containedWithIn" type="Place" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="country" type="xs:string" minOccurs="0"/>
+            <xs:element name="countryCode" type="xs:string" minOccurs="0"/>
+            <xs:element name="fullName" type="xs:string" minOccurs="0"/>
+            <xs:element name="geometrycordinates" type="GeolocationArray" minOccurs="0"/>
+            <xs:element name="geometryType" type="xs:string" minOccurs="0"/>
+            <xs:element name="id" type="xs:string" minOccurs="0"/>
+            <xs:element name="name" type="xs:string" minOccurs="0"/>
+            <xs:element name="placeType" type="xs:string" minOccurs="0"/>
+            <xs:element name="streetAddress" type="xs:string" minOccurs="0"/>
+            <xs:element name="URL" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Status">
+        <xs:sequence>
+            <xs:element name="contributors" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="contributorsIDs" type="xs:long" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="createdAt" type="xs:string" minOccurs="0"/>
+            <xs:element name="favorited" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="fromUserId" type="xs:long" minOccurs="0"/>
+            <xs:element name="geoLocation" type="GeoLocation" minOccurs="0"/>
+            <xs:element name="hashtagEntities" type="HashTagEntities" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="idAsString" type="xs:string" minOccurs="0"/>
+            <xs:element name="inReplyToScreenName" type="xs:string" minOccurs="0"/>
+            <xs:element name="inReplyToStatusId" type="xs:long" minOccurs="0"/>
+            <xs:element name="inReplyToUserId" type="xs:long" minOccurs="0"/>
+            <xs:element name="isFavorited" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="isoLanguageCode" type="xs:string" minOccurs="0"/>
+            <xs:element name="isTruncated" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="location" type="xs:string" minOccurs="0"/>
+            <xs:element name="mediaEntities" type="MediaEntity" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="myRetweetedStatus" type="Status" minOccurs="0"/>
+            <xs:element name="place" type="Place" minOccurs="0"/>
+            <xs:element name="profileImageURL" type="xs:string" minOccurs="0"/>
+            <xs:element name="retweet" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="retweetCount" type="xs:long" minOccurs="0"/>
+            <xs:element name="retweetedByMe" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="retweetedStatus" type="Status" minOccurs="0"/>
+            <xs:element name="source" type="xs:string" minOccurs="0"/>
+            <xs:element name="text" type="xs:string" minOccurs="0"/>
+            <xs:element name="toUserId" type="xs:long" minOccurs="0"/>
+            <xs:element name="truncated" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="URLEntities" type="URLEntity" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="user" type="User" minOccurs="0"/>
+            <xs:element name="userMentionEntities" type="UserMentionedEntity" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="wasRetweetedByMe" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="URLEntity">
+        <xs:sequence>
+            <xs:element name="displayURL" type="xs:string" minOccurs="0"/>
+            <xs:element name="end" type="xs:int" minOccurs="0"/>
+            <xs:element name="expandedURL" type="xs:string" minOccurs="0"/>
+            <xs:element name="start" type="xs:int" minOccurs="0"/>
+            <xs:element name="URL" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="User">
+        <xs:sequence>
+            <xs:element name="contributorsEnabled" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="createdAt" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="description" type="xs:string" minOccurs="0"/>
+            <xs:element name="descriptionURLEntities" type="URLEntity" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="favouritesCount" type="xs:int" minOccurs="0"/>
+            <xs:element name="followersCount" type="xs:int" minOccurs="0"/>
+            <xs:element name="friendsCount" type="xs:int" minOccurs="0"/>
+            <xs:element name="id" type="xs:long" minOccurs="0"/>
+            <xs:element name="isContributorsEnabled" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="isFollowRequestSent" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="isGeoEnabled" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="isProtected" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="isVerified" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="language" type="xs:string" minOccurs="0"/>
+            <xs:element name="listedCount" type="xs:int" minOccurs="0"/>
+            <xs:element name="location" type="xs:string" minOccurs="0"/>
+            <xs:element name="name" type="xs:string" minOccurs="0"/>
+            <xs:element name="profileBackgroundColor" type="xs:string" minOccurs="0"/>
+            <xs:element name="profileBackgroundImageURL" type="xs:string" minOccurs="0"/>
+            <xs:element name="profileBackgroundImageURLHttps" type="xs:string" minOccurs="0"/>
+            <xs:element name="profileBackgroundTiled" type="xs:string" minOccurs="0"/>
+            <xs:element name="profileBannerImageURL" type="xs:string" minOccurs="0"/>
+            <xs:element name="profileImageURL" type="xs:string" minOccurs="0"/>
+            <xs:element name="profileImageURLHttps" type="xs:string" minOccurs="0"/>
+            <xs:element name="profileLinkColor" type="xs:string" minOccurs="0"/>
+            <xs:element name="profileSidebarBorderColor" type="xs:string" minOccurs="0"/>
+            <xs:element name="profileSidebarFillColor" type="xs:string" minOccurs="0"/>
+            <xs:element name="profileTextColor" type="xs:string" minOccurs="0"/>
+            <xs:element name="profileUseBackgroundImage" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="screenName" type="xs:string" minOccurs="0"/>
+            <xs:element name="status" type="Status" minOccurs="0"/>
+            <xs:element name="statusesCount" type="xs:int" minOccurs="0"/>
+            <xs:element name="timeZone" type="xs:string" minOccurs="0"/>
+            <xs:element name="translator" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="URL" type="xs:string" minOccurs="0"/>
+            <xs:element name="UTCOffset" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="UserMentionedEntity">
+        <xs:sequence>
+            <xs:element name="end" type="xs:int" minOccurs="0"/>
+            <xs:element name="id" type="xs:long" minOccurs="0"/>
+            <xs:element name="name" type="xs:string" minOccurs="0"/>
+            <xs:element name="screenName" type="xs:string" minOccurs="0"/>
+            <xs:element name="start" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="PublicStream">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Status" type="Status" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SiteStream">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Status" type="Status" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element name="User" type="User" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="UserStream">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="DirectMessage" type="DirectMessage" minOccurs="0"/>
+                <xs:element name="Status" type="Status" minOccurs="0"/>
+                <xs:element name="User" type="User" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.tibco.com/schemas/CEM/SharedResources/XSD/EntSchema.xsd"
+	 targetNamespace="http://www.tibco.com/schemas/CEM/SharedResources/XSD/EntSchema.xsd"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="EntertainmentProfile">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="favouriteCinemaList" minOccurs="0"/>
+				<xs:element ref="favouriteFilmList"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Film">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="filmName" minOccurs="0"/>
+				<xs:element ref="filmCategory" minOccurs="0"/>
+				<xs:element ref="filmDate" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Theater">
+		<xs:complexType/>
+	</xs:element>
+	<xs:element name="filmName" type="xs:string"/>
+	<xs:element name="filmCategory" type="xs:string"/>
+	<xs:element name="filmDate" type="xs:string"/>
+	<xs:element name="favouriteFilmList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Film" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="favouriteCinemaList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Cinema" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="cinemaName" type="xs:string"/>
+	<xs:element name="cinemaLocation" type="xs:string"/>
+	<xs:element name="Cinema">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="cinemaName" minOccurs="0"/>
+				<xs:element ref="cinemaLocation" minOccurs="0"/>
+				<xs:element ref="cinemaBrand" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="cinemaBrand">
+		<xs:complexType/>
+	</xs:element>
+</xs:schema>

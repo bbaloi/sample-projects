@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.tibco.com/schemas/CEM/SharedResources/XSD/MusicSchema.xsd"
+	 targetNamespace="http://www.tibco.com/schemas/CEM/SharedResources/XSD/MusicSchema.xsd"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="MusicProfile">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="favouriteMusicTypeList" minOccurs="0"/>
+				<xs:element ref="favouriteMusiciantList" minOccurs="0"/>
+				<xs:element ref="favouriteBandList" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Music">
+		<xs:complexType/>
+	</xs:element>
+	<xs:element name="musicType" type="xs:string"/>
+	<xs:element name="bandName" type="xs:string"/>
+	<xs:element name="favouriteMusiciantList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Musician" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Musician">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="musicianName" minOccurs="0"/>
+				<xs:element ref="musicianCountryOfOrigin" minOccurs="0"/>
+				<xs:element ref="musicianStyle" minOccurs="0"/>
+				<xs:element ref="musicType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="musicianName" type="xs:string"/>
+	<xs:element name="musicianCountryOfOrigin" type="xs:string"/>
+	<xs:element name="musicianStyle" type="xs:string"/>
+	<xs:element name="favouriteMusicTypeList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="musicType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="favouriteBandList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Band" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Band">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="bandName" minOccurs="0"/>
+				<xs:element ref="musicType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

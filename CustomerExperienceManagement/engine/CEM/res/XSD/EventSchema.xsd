@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="MobileEvent">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="eventId" minOccurs="0"/>
+				<xs:element ref="userId_event" minOccurs="0"/>
+				<xs:element ref="eventName" minOccurs="0"/>
+				<xs:element ref="eventType" minOccurs="0"/>
+				<xs:element ref="deviceId" minOccurs="0"/>
+				<xs:element ref="devicePhoneNumber" minOccurs="0"/>
+				<xs:element ref="geoLocationCoords" minOccurs="0"/>
+				<xs:element ref="locationName" minOccurs="0"/>
+				<xs:element ref="seatNumber" minOccurs="0"/>
+				<xs:element ref="PurchaseItemsList" minOccurs="0"/>
+				<xs:element ref="gameWin" minOccurs="0"/>
+				<xs:element ref="eventScorePlayer" minOccurs="0"/>
+				<xs:element ref="eventMessage" minOccurs="0"/>
+				<xs:element ref="reqId_event" minOccurs="0"/>
+				<xs:element ref="applicationSrc" minOccurs="0"/>
+				<xs:element ref="Actiity" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="eventType" type="xs:string"/>
+	<xs:element name="geoLocationCoords" type="xs:string"/>
+	<xs:element name="seatNumber" type="xs:string"/>
+	<xs:element name="deviceId" type="xs:string"/>
+	<xs:element name="devicePhoneNumber" type="xs:string"/>
+	<xs:element name="eventId" type="xs:string"/>
+	<xs:element name="locationName" type="xs:string"/>
+	<xs:element name="eventName" type="xs:string"/>
+	<xs:element name="userId_event" type="xs:string"/>
+	<xs:element name="PurchaseItemsList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="itemName" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="itemName" type="xs:string"/>
+	<xs:element name="gameWin" type="xs:boolean"/>
+	<xs:element name="eventScorePlayer" type="xs:string"/>
+	<xs:element name="eventMessage" type="xs:string"/>
+	<xs:element name="reqId_event" type="xs:string"/>
+	<xs:element name="applicationSrc" type="xs:string"/>
+	<xs:element name="Actiity">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="mobile_activity" minOccurs="0"/>
+				<xs:element ref="activity_object" minOccurs="0"/>
+				<xs:element ref="value" minOccurs="0"/>
+				<xs:element ref="category" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="mobile_activity" type="xs:string"/>
+	<xs:element name="activity_object" type="xs:string"/>
+	<xs:element name="value" type="xs:string"/>
+	<xs:element name="category" type="xs:string"/>
+	<xs:element name="EnterpriseEvent">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ent_event_id" minOccurs="0"/>
+				<xs:element ref="ent_event_name" minOccurs="0"/>
+				<xs:element ref="ent_event_type" minOccurs="0"/>
+				<xs:element ref="ent_id" minOccurs="0"/>
+				<xs:element ref="ent_app_source" minOccurs="0"/>
+				<xs:element ref="ent_user_id" minOccurs="0"/>
+				<xs:element ref="ent_activity" minOccurs="0"/>
+				<xs:element ref="ent_activity_object" minOccurs="0"/>
+				<xs:element ref="ent_activity_object_uri" minOccurs="0"/>
+				<xs:element ref="ent_activity_category" minOccurs="0"/>
+				<xs:element ref="ent_activity_context_category" minOccurs="0"/>
+				<xs:element ref="ent_activity_context_content" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ent_activity" type="xs:string"/>
+	<xs:element name="ent_activity_object" type="xs:string"/>
+	<xs:element name="ent_activity_object_uri" type="xs:string"/>
+	<xs:element name="ent_id" type="xs:string"/>
+	<xs:element name="ent_activity_category" type="xs:string"/>
+	<xs:element name="ent_app_source" type="xs:string"/>
+	<xs:element name="ent_user_id" type="xs:string"/>
+	<xs:element name="ent_event_id" type="xs:string"/>
+	<xs:element name="ent_event_name" type="xs:string"/>
+	<xs:element name="ent_event_type" type="xs:string"/>
+	<xs:element name="ent_activity_context_category" type="xs:string"/>
+	<xs:element name="ent_activity_context_content" type="xs:string"/>
+</xs:schema>

@@ -1,0 +1,13 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+  <ActivityEvent>
+	<EventID>335</EventID>
+	<UserID>777</UserID>
+	<ActivityType>Browse</ActivityType>
+	<tstamp/>
+	<BrowsedURL>file:////home/bruno/Projects/CEM/GUI/Athena/index.html</BrowsedURL>
+	<BrowsedItemName>CHILD_SKATES</BrowsedItemName>
+	<BrowsedItemCategory>Equipment</BrowsedItemCategory>
+	<BrowsedItemPrice>239.99</BrowsedItemPrice>
+	<BrowsedItemSize>S</BrowsedItemSize>
+</ActivityEvent>
+

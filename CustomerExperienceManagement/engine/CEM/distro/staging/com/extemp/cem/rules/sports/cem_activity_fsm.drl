@@ -1,0 +1,146 @@
+package com.extemp.cem.rules.sports
+ 
+import com.extemp.cem.events.MobileEvent
+import com.extemp.cem.events.SportsVenueMobileEvent
+import com.extemp.cem.profiles.CustomerProfileCBO
+import com.extemp.cem.util.FactFactory
+import com.extemp.cem.util.MessageContentUtil
+import com.extemp.cem.actions.SendNotificationAction
+import com.extemp.cem.events.Notification
+import com.extemp.cem.events.BrowseActivityEvent
+import com.extemp.cem.semantic.Intent
+import com.extemp.cem.semantic.User
+
+
+dialect "mvel"
+
+
+declare ActivityEventFSM
+	fsmId : String
+	userId : String
+	eventCounter: int
+	activityEventList : java.util.List
+	STATE : String //COLLECTION_START_STATE --> COLLECTION_END_STATE
+end
+
+
+rule "CheckCustomerProfile_ActivityEvent"
+salience 1000
+when
+	$mobile_event : BrowseActivityEvent() from entry-point BrowseActivityEventChannel	
+then
+	insert(new CheckCustomerEvent($mobile_event.userID));
+end
+
+rule "Handle_ActivityEvent_newFSM"
+no-loop true
+salience 500
+when
+	$activity_event : BrowseActivityEvent() from entry-point BrowseActivityEventChannel
+	not( exists ($activity_event_fsm : ActivityEventFSM(fsmId==$activity_event.userID+"-av")))
+then
+	System.out.println("Creating ActivytFSM for user:"+$activity_event.userID);
+	
+	ActivityEventFSM fsm = new ActivityEventFSM();	
+	fsm.setUserId($activity_event.userID);
+	fsm.setFsmId($activity_event.userID+"-av");
+	fsm.setEventCounter(1);
+	java.util.ArrayList _list = new java.util.ArrayList();
+	_list.add($activity_event);
+	fsm.setActivityEventList(_list);
+	fsm.setSTATE("COLLECTION_START_STATE");		
+	insert(fsm);
+	retract($activity_event);
+end
+
+rule "Handle_ActivityEvent_exisitingFSM"
+no-loop true
+salience 500
+when
+	$activity_event : BrowseActivityEvent() from entry-point BrowseActivityEventChannel
+	$score_card : GameScoreCard()
+	$activity_event_fsm : ActivityEventFSM(STATE=="COLLECTION_START_STATE",fsmId==$activity_event.userID+"-av",eventCounter<$score_card.eventCollectionLimit)
+	not (exists ( BrowseActivityEvent(eventID==$activity_event.eventID) from $activity_event_fsm.activityEventList))
+then
+	System.out.println("Adding Event to Activity FSM : "+$activity_event_fsm.fsmId);			
+	
+	$activity_event_fsm.eventCounter=$activity_event_fsm.eventCounter+1;
+	$activity_event_fsm.activityEventList.add($activity_event);			
+	System.out.println("Accumulated events:"+$activity_event_fsm.activityEventList.size());
+	update($activity_event_fsm);
+	retract($activity_event);
+end
+
+
+rule "Handle_ActivityEvent_exisitingFSM_END"
+no-loop true
+salience 600
+when
+	$activity_event : BrowseActivityEvent() from entry-point BrowseActivityEventChannel
+	$customer_profile : CustomerProfileCBO( userId == $activity_event.userID)	 
+	$score_card : GameScoreCard()
+	$activity_event_fsm : ActivityEventFSM(STATE=="COLLECTION_START_STATE",fsmId==$activity_event.userID+"-av",eventCounter>=$score_card.eventCollectionLimit)
+then
+	System.out.println("Last Event for Activity FSM : "+$activity_event_fsm.fsmId);
+	$activity_event_fsm.activityEventList.add($activity_event);	
+	//1) send to Semantic processor
+	java.util.List _userList = processActivityEvents($activity_event.userID,$activity_event_fsm.activityEventList);
+	//2) send recommendation	
+	String _msg = "Hello "+ $customer_profile.firstName+" "+$customer_profile.lastName+", ";
+	for(User _user : _userList){
+	
+		String _userId = _user.getUserId();
+		
+		for(Intent _intent : _user.getIntentList()){
+			String _offer = getMessage("Sports",_intent.getIntentName());
+			_msg=_msg+_offer;			
+		}
+		
+		for(BrowseActivityEvent _event : $activity_event_fsm.activityEventList){
+			
+			if(_event.getActivityType()=="ViewVideo")
+			{
+				String _itemName = _event.getBrowsedItemName();
+				
+				if(_itemName.contains("Interview") || _itemName.contains("interview"))
+				{
+					System.out.println("BrowsedItemName:"+_itemName);
+					String _playerName=_itemName.substring(0,_itemName.indexOf("_"));						
+					_msg=_msg+". As you showed interest in player "+_playerName+", we will also arrange for him to make a guest appearnce at your party ! ";
+				}
+			
+			}
+		}
+		
+		Notification _notification = new Notification();	
+		_notification.setNotificationId("321");	
+		_notification.setNotificationType("ACTIVITY_NOTIFICATION");
+		_notification.setNotificationName("ACTIVITY_NOTIFICATION_RECOMMENDATION");
+		_notification.setApplicationSource("");	
+		 _notification.setNotificationMessage(_msg);
+		_notification.setSource("MLSE");
+		_notification.setUserId($activity_event.userID);	
+		insert(_notification);	
+		
+	}
+	
+	
+	$activity_event_fsm.STATE="COLLECTION_END_STATE";	
+	update($activity_event_fsm);
+	retract($activity_event);
+end
+
+rule "Dispose_FSM"
+no-loop true
+salience 400
+when
+	//$activity_event : BrowseActivityEvent()
+	$activity_event_fsm : ActivityEventFSM(STATE=="COLLECTION_END_STATE")
+	
+then
+	System.out.println("Shutting down Activity FSM : "+$activity_event_fsm.fsmId);	
+	//retract($activity_event);
+	retract($activity_event_fsm);
+end
+
+

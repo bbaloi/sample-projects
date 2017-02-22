@@ -1,0 +1,9 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<TicketRequest>
+	<userId_ticket>777</userId_ticket>
+	<name>Wayne Gretzky</name>
+	<seat_num>Section-306:Row-10</seat_num>
+	<req_id_ticket>seat_upgrade_777_0</req_id_ticket>
+	<applicationSrc_ticket>MapleLeafs</applicationSrc_ticket>
+</TicketRequest>
+

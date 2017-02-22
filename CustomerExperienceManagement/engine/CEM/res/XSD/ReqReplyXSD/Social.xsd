@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="social_id" type="xs:string"/>
+	<xs:element name="game_id_social" type="xs:string"/>
+	<xs:element name="date" type="xs:string"/>
+	<xs:element name="message" type="xs:string"/>
+	<xs:element name="category" type="xs:string"/>
+	<xs:element name="sentiment_score" type="xs:string"/>
+	<xs:element name="num_retweets" type="xs:int"/>
+	<xs:element name="num_followers" type="xs:int"/>
+	<xs:element name="num_friends" type="xs:int"/>
+	<xs:element name="SocialFeedEvent">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="social_id" minOccurs="0"/>
+				<xs:element ref="game_id_social" minOccurs="0"/>
+				<xs:element ref="date" minOccurs="0"/>
+				<xs:element ref="message" minOccurs="0"/>
+				<xs:element ref="category" minOccurs="0"/>
+				<xs:element ref="sentiment_score" minOccurs="0"/>
+				<xs:element ref="num_retweets" minOccurs="0"/>
+				<xs:element ref="num_followers" minOccurs="0"/>
+				<xs:element ref="num_friends" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="req_id_social" type="xs:string"/>
+</xs:schema>

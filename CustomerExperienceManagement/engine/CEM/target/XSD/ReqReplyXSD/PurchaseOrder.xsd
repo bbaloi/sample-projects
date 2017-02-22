@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:include schemaLocation="PurchaseItem.xsd"/>
+	<xs:element name="order_id" type="xs:string"/>
+	<xs:element name="userId_order" type="xs:string"/>
+	<xs:element name="tstamp" type="xs:string"/>
+	<xs:element name="employee_id" type="xs:string"/>
+	<xs:element name="kiosk" type="xs:string"/>
+	<xs:element name="seat_number" type="xs:string"/>
+	<xs:element name="total_order_value" type="xs:double"/>
+	<xs:element name="tip" type="xs:double"/>
+	<xs:element name="tax" type="xs:double"/>
+	<xs:element name="payment_method" type="xs:string"/>
+	<xs:element name="payment_number" type="xs:string"/>
+	<xs:element name="loyalty_points_value" type="xs:long"/>
+	<xs:element name="PurchaseRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="order_id" minOccurs="0"/>
+				<xs:element ref="purchase_type" minOccurs="0"/>
+				<xs:element ref="userId_order" minOccurs="0"/>
+				<xs:element ref="tstamp" minOccurs="0"/>
+				<xs:element ref="employee_id" minOccurs="0"/>
+				<xs:element ref="kiosk" minOccurs="0"/>
+				<xs:element ref="seat_number" minOccurs="0"/>
+				<xs:element ref="total_order_value" minOccurs="0"/>
+				<xs:element ref="tip" minOccurs="0"/>
+				<xs:element ref="tax" minOccurs="0"/>
+				<xs:element ref="payment_method" minOccurs="0"/>
+				<xs:element ref="payment_number" minOccurs="0"/>
+				<xs:element ref="loyalty_points_value" minOccurs="0"/>
+				<xs:element ref="PurchaseItemList" minOccurs="0"/>
+				<xs:element ref="applicationSrc_order" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PurchaseReply">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="status_str" minOccurs="0"/>
+				<xs:element ref="total_order_value" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="status_str" type="xs:string"/>
+	<xs:element name="purchase_type" type="xs:string"/>
+	<xs:element name="applicationSrc_order" type="xs:string"/>
+</xs:schema>

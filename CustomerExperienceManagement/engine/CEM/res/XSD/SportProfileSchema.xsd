@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.tibco.com/schemas/CEM/SharedResources/XSD/SportsSchema.xsd"
+	 targetNamespace="http://www.tibco.com/schemas/CEM/SharedResources/XSD/SportsSchema.xsd"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="SportsProfile">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="favouriteSportList" minOccurs="0"/>
+				<xs:element ref="favouritePlayerList" minOccurs="0"/>
+				<xs:element ref="favouriteTeamList" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Sport">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="sportType" minOccurs="0"/>
+				<xs:element ref="generalGameSentiment" minOccurs="0"/>
+				<xs:element ref="numGamesAttendedSeason" minOccurs="0"/>
+				<xs:element ref="numGamesAttendedTotal" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="sportType" type="xs:string"/>
+	<xs:element name="favouritePlayerList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="SportPlayer" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="numGamesAttendedTotal" type="xs:long"/>
+	<xs:element name="numGamesAttendedSeason" type="xs:long"/>
+	<xs:element name="generalGameSentiment" type="xs:string"/>
+	<xs:element name="playerName" type="xs:string"/>
+	<xs:element name="favouriteTeamList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="SportTeam" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="teamName" type="xs:string"/>
+	<xs:element name="favouriteSportList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Sport" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SportPlayer">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="playerName" minOccurs="0"/>
+				<xs:element ref="sportType" minOccurs="0"/>
+				<xs:element ref="teamName" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SportTeam">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="teamName" minOccurs="0"/>
+				<xs:element ref="sportType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

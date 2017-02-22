@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.tibco.com/schemas/CEM/SharedResources/XSD/ShoppingSchema.xsd"
+	 targetNamespace="http://www.tibco.com/schemas/CEM/SharedResources/XSD/ShoppingSchema.xsd"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="ShoppingProfile">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="favouriteMerchandiseList" minOccurs="0"/>
+				<xs:element ref="favouriteStoreList" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Merchandise">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="merchandiseName" minOccurs="0"/>
+				<xs:element ref="merchandiseType" minOccurs="0"/>
+				<xs:element ref="merchandiseMaxPrice" minOccurs="0"/>
+				<xs:element ref="merchandiseSize" minOccurs="0"/>
+				<xs:element ref="merchandiseCategory" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="favouriteMerchandiseList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Merchandise" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="merchandiseName" type="xs:string"/>
+	<xs:element name="merchandiseType" type="xs:string"/>
+	<xs:element name="merchandiseSize" type="xs:string"/>
+	<xs:element name="merchandiseMaxPrice" type="xs:double"/>
+	<xs:element name="merchandiseCategory" type="xs:string"/>
+	<xs:element name="favouriteStoreList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Store" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="storeName" type="xs:string"/>
+	<xs:element name="storeLocation" type="xs:string"/>
+	<xs:element name="Store">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="storeName" minOccurs="0"/>
+				<xs:element ref="storeLocation" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

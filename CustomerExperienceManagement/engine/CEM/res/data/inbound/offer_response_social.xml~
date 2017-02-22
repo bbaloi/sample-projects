@@ -1,0 +1,10 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+  <OfferResponse>
+		<userId_OfferReq>777</userId_OfferReq>
+		<reqId_offer>social_feed_777_1</reqId_offer>
+		<offerType>SOCIAL_FEED_OFFER</offerType>
+		<userName>Wayne Gretsky</userName>
+		<offer>Hello Wayne Gretsky, we've noticed that you were dissatisfied with your: &lt;b&gt;HotDog&lt;/b&gt; &lt;b&gt;beer&lt;/b&gt; ; we sincerely appologise for your experience. Please accept our free complimentary offer of each item on your next visit !</offer>
+		<approve>true</approve>
+</OfferResponse>
+

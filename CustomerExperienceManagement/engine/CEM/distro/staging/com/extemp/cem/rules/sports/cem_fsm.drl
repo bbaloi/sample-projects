@@ -1,0 +1,93 @@
+package com.extemp.cem.rules.sports
+ 
+import com.extemp.cem.events.MobileEvent
+import com.extemp.cem.events.SportsVenueMobileEvent
+import com.extemp.cem.profiles.CustomerProfileCBO
+import com.extemp.cem.util.FactFactory
+import com.extemp.cem.util.MessageContentUtil
+import com.extemp.cem.actions.SendNotificationAction
+import com.extemp.cem.events.Notification
+import com.extemp.cem.events.OfferApprovalRequestEvent
+import com.extemp.cem.events.OfferApprovalResponseEvent
+import com.extemp.cem.actions.ApprovalAction
+
+
+
+dialect "mvel"
+
+
+declare ApprovalFSM
+	userId : String
+	offer : String
+	userFirstName : String
+	userLastName : String
+	approved : boolean
+	reqId : String
+	offerType : String
+	offerVerified : boolean
+	sentiment : String
+	message : String
+	applicationSource : String	
+	STATE : String // OFFER_REQUEST_SUBMITTED -> OFFER_APPROVED | OFFER_REJECTED -> OFFER_VERIFIED
+end
+
+rule "Handle_SendApprovalRequest"
+no-loop true
+salience 500
+when
+	$approval : ApprovalFSM(STATE=="OFFER_REQUEST_SUBMITTED")
+then
+	System.out.println("Sending Approval request for:"+$approval.offerType+", for user "+$approval.userId);
+	
+	OfferApprovalRequestEvent reqEvent = new OfferApprovalRequestEvent();
+	
+	reqEvent.userId = $approval.userId;
+	reqEvent.reqId= $approval.reqId;
+	reqEvent.userName = $approval.userFirstName+" "+$approval.userLastName;
+	//reqEvent.offer = $approval.message;
+	reqEvent.offer = $approval.offer;
+	reqEvent.offerType = $approval.offerType;
+	reqEvent.applicationSrc = $approval.applicationSource;	
+	ApprovalAction.sendRequestForAproval(reqEvent);
+	
+		
+end
+
+rule "Handle_ReceiveApproval_Accept"
+no-loop true
+salience 500
+when 
+	$approval_event : OfferApprovalResponseEvent(approved==true) from entry-point OfferApprovalEventChannel
+	$approval_fsm : ApprovalFSM(reqId==$approval_event.reqId, STATE=="OFFER_REQUEST_SUBMITTED")	
+then
+	System.out.println("Offer "+$approval_event.reqId+" has been approved !");
+	$approval_fsm.approved=true;
+	$approval_fsm.STATE="OFFER_APPROVED"
+	update($approval_fsm);
+	retract($approval_event);
+end
+
+rule "Handle_ReceiveApproval_Reject"
+no-loop true
+salience 500
+when
+	$approval_event : OfferApprovalResponseEvent($approval_event.approved==false) from entry-point OfferApprovalEventChannel
+	$approval_fsm : ApprovalFSM(reqId==$approval_event.reqId, STATE=="OFFER_REQUEST_SUBMITTED")	
+then
+	System.out.println("Offer "+$approval_event.reqId+" has been rejected !");
+	$approval_fsm.approved=false;
+	$approval_fsm.STATE="OFFER_REJECTED"
+	update($approval_fsm);
+	retract($approval_event);
+end
+
+
+
+rule "Remove_Approval_FSM"
+salience 500
+when
+	$approval_fsm: ApprovalFSM(STATE=="OFFER_VERIFIED")
+then
+	System.out.println("...Removing ApprovalFSM: "+$approval_fsm.reqId);
+	retract($approval_fsm);
+end

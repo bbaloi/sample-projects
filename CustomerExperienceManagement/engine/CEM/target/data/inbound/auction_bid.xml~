@@ -1,0 +1,8 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+ <AuctionBidSubmit>
+	<userId_auction>777</userId_auction>
+	<current_bid>300</current_bid>
+	<applicationSrc_auction>MapleLeafs</applicationSrc_auction>
+	<auctionObjectId>AuctionItem_HockeyJersey</auctionObjectId>
+	<running_total>0</running_total>
+</AuctionBidSubmit>

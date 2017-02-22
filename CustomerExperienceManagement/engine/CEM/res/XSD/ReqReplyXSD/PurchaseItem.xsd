@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="PurchaseItem">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="item_id" minOccurs="0"/>
+				<xs:element ref="item_name" minOccurs="0"/>
+				<xs:element ref="price" minOccurs="0"/>
+				<xs:element ref="quantity" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="item_id" type="xs:string"/>
+	<xs:element name="item_name" type="xs:string"/>
+	<xs:element name="price" type="xs:double"/>
+	<xs:element name="quantity" type="xs:int"/>
+	<xs:element name="PurchaseItemList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="PurchaseItem" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

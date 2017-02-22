@@ -1,0 +1,109 @@
+package com.extemp.cem.rules.sports
+ 
+import com.extemp.cem.events.MobileEvent
+import com.extemp.cem.events.SportsVenueMobileEvent
+import com.extemp.cem.profiles.CustomerProfileCBO
+import com.extemp.cem.util.FactFactory
+import com.extemp.cem.util.MessageContentUtil
+import com.extemp.cem.actions.SendNotificationAction
+import com.extemp.cem.actions.TicketCheckReplyAction
+import com.extemp.cem.actions.FBOfferAction
+import com.extemp.cem.events.Notification
+import com.extemp.cem.events.OfferApprovalRequestEvent
+import com.extemp.cem.events.OfferApprovalResponseEvent
+import com.extemp.cem.auction.AuctionManager
+import com.extemp.cem.events.AuctionBidSubmitEvent
+import com.extemp.cem.events.AuctionBidNotifyEvent
+import com.extemp.cem.semantic.SemanticFunctionsCatalog
+
+
+dialect "mvel"
+
+
+declare GameScoreCard
+	 gameThreshold : int
+ 	 eventCollectionLimit : int
+ 	 reqCntr : int
+ 	 auctionEventId	 : String
+ 	 eventCollectionLimit : int
+ 	 genCntr:int
+end
+
+declare FBOffer
+	userId : String
+	itemCntr : int
+	orderItemListLen : int
+	orderId : String
+	offerList : java.util.ArrayList
+end
+
+declare SocFriendList
+	userId : String
+	friendList : java.util.ArrayList
+end
+
+declare SportsVenueMobileEvent
+@role(event)
+end
+
+declare OfferApprovalRequestEvent
+@role(event)
+end
+declare OfferApprovalResponseEvent
+@role(event)
+end
+
+
+declare CheckCustomerEvent
+    userId : String    
+end
+
+
+function CustomerProfileCBO getCustomerProfile(String pUserId){
+  	CustomerProfileCBO _profile = FactFactory.createCustomerProfile(pUserId);		
+	return _profile;
+}
+
+function String getMessage(String pDomain, String pMessageType){
+	return MessageContentUtil.getMessage(pDomain,pMessageType);
+}
+
+function sendNotification(Notification pNotification){
+	SendNotificationAction.sendNotification(pNotification);
+	//SendNotificationAction.onReceive(pNotification);
+}
+function sendTicketCheckReply(String pName,String pSeat){
+	TicketCheckReplyAction.sendTicketCheckReply(pName, pSeat);
+} 
+
+function sendAuctionBidNotification(AuctionBidNotifyEvent pEvent,java.util.ArrayList pParticipantList){
+	 AuctionManager.notifyAllParticipants(pEvent, pParticipantList);
+}
+function initiateTimeManager(String pAuctionObjectId){
+	AuctionManager.startAuctionSessionCounter(pAuctionObjectId);	
+}
+function processFBOffer(FBOffer pOffer){
+
+	FBOfferAction.processOffer(pOffer.getUserId(),pOffer.getOrderId(), pOffer.getOfferList());
+}
+function java.util.List getCustomerList(){
+	return SendNotificationAction.getCustomerList();
+}
+
+function java.util.List processActivityEvents(String pUserId,java.util.List pEventList){
+	return SemanticFunctionsCatalog.getIntentsFromEvents(pUserId,pEventList);
+}
+
+
+rule "Initialise"
+salience 10000
+when
+then
+	GameScoreCard scoreCard= new GameScoreCard();
+	scoreCard.setGameThreshold(5);
+	scoreCard.setReqCntr(0);
+	scoreCard.setGenCntr(0);
+	scoreCard.setAuctionEventId("Hockey_TeamA_vs_TeamB");
+	scoreCard.setEventCollectionLimit(3);
+	insert( scoreCard);
+end

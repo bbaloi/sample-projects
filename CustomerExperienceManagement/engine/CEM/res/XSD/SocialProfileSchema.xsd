@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.tibco.com/schemas/CEM/SharedResources/XSD/SocialSchema.xsd"
+	 targetNamespace="http://www.tibco.com/schemas/CEM/SharedResources/XSD/SocialSchema.xsd"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="SocialMediaProfile">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="socialMediaAppList" minOccurs="0"/>
+				<xs:element ref="socialMediaFriendList" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SocialMediaApp">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="userId_social" minOccurs="0"/>
+				<xs:element ref="userPassword" minOccurs="0"/>
+				<xs:element ref="userRole" minOccurs="0"/>
+				<xs:element ref="socialAppName" minOccurs="0"/>
+				<xs:element ref="socialAppType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="userId_social" type="xs:string"/>
+	<xs:element name="socialAppName" type="xs:string"/>
+	<xs:element name="socialAppType" type="xs:string"/>
+	<xs:element name="userPassword" type="xs:string"/>
+	<xs:element name="userRole" type="xs:string"/>
+	<xs:element name="socialMediaFriendList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="SocialMediaFriend" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SocialMediaFriend">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="friendName" minOccurs="0"/>
+				<xs:element ref="friendSocialGroup" minOccurs="0"/>
+				<xs:element ref="socialAppName" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="friendName" type="xs:string"/>
+	<xs:element name="friendSocialGroup" type="xs:string"/>
+	<xs:element name="socialMediaAppList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="SocialMediaApp" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

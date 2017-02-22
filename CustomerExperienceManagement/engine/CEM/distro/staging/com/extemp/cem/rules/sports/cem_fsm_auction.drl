@@ -1,0 +1,189 @@
+//created on: 5-Feb-2015
+package com.extemp.cem.rules.sports
+
+import com.extemp.cem.auction.AuctionBidder
+import com.extemp.cem.events.EnterpriseActivityEvent
+import com.extemp.cem.profiles.CustomerProfileCBO
+import com.extemp.cem.auction.AuctionManager
+import com.extemp.cem.profiles.CustomerProfileCBO
+import com.extemp.cem.profiles.PreferencesList
+import com.extemp.cem.profiles.FavouriteSportList
+import com.extemp.cem.profiles.SportsProfile
+import com.extemp.cem.profiles.LoyaltyProgram
+import com.extemp.cem.profiles.Sport
+import com.extemp.cem.profiles.SportPlayer
+import com.extemp.cem.events.Notification
+import com.extemp.cem.events.AuctionBidSubmitEvent
+import com.extemp.cem.events.AuctionBidNotifyEvent
+
+
+//list any import classes here.
+
+dialect "mvel"
+
+declare AuctionBidSubmitEvent
+@role(event)
+end
+declare AuctionBidNotifyEvent
+@role(event)
+end
+declare EnterpriseActivityEvent
+@role(event)
+end
+
+
+
+declare AuctionFSM
+ @expires( 30s )
+	auctionEventId : String
+	auctionObjectId : String
+	auctionOjectName : String
+	auctionObjectURI : String
+	auctionObjectCategory : String
+	auctionContextCategory : String
+	auctionContextContent : String
+	currentBid	: double
+	currentBidderID : String
+	currentBidderName : String
+	STATE : String // AUCTION_START /AUCTION_IN_PROGRES / AUTIO_STOP
+	bidderList :  java.util.ArrayList 	
+end
+
+//------------------------------
+
+rule "EntepriseEventHandler_AuctionSetup"
+salience 500
+when
+	$ent_event : EnterpriseActivityEvent(eventName=="AUCTION_SETUP") from entry-point EntepriseEventChannel	 
+	$score_card : GameScoreCard()
+	not (exists (AuctionFSM(auctionObjectId == $ent_event.activityObject)))	
+then
+	System.out.println("Got Auction Setup Event Mobile Event:eventId="+$ent_event.eventId+",eventType="+$ent_event.eventType+",eventName="+$ent_event.eventName);
+	
+	AuctionFSM _auction = new AuctionFSM();
+	_auction.setAuctionEventId($score_card.auctionEventId);
+	_auction.setAuctionObjectId($ent_event.activityObject);
+	_auction.setAuctionObjectURI($ent_event.activityObjectURI);
+	_auction.setAuctionObjectCategory($ent_event.activityObjectCategory);
+	_auction.setAuctionContextCategory($ent_event.activityContextCategory);
+	_auction.setAuctionContextContent($ent_event.activityContextContent);
+	_auction.setCurrentBid(0);
+	_auction.setBidderList(new java.util.ArrayList());
+	_auction.setSTATE("AUCTION_START");	
+	insert(_auction);
+	retract($ent_event);
+	initiateTimeManager($ent_event.activityObject);	
+end
+
+rule "BuildRecipientList_SportsPlayer"
+no-loop
+when
+       $auction : AuctionFSM(STATE=="AUCTION_START",auctionContextCategory=="SportsPlayer")     
+       $cust_profile : CustomerProfileCBO()      
+       $sport_player: SportPlayer(playerName==$auction.auctionContextContent) from $cust_profile.preferencesList.sportsProfile.favouritePlayerList.SportPlayer  
+  
+then
+      System.out.println("Auction for Sports Player item: "+$auction.auctionObjectId+ " has been initiated ! Added participant "+$cust_profile.firstName+" "+$cust_profile.lastName);  
+      $auction.bidderList.add($cust_profile);
+       // AuctionManager.notifyParticipant($cust_profile, "auction", $auction.auctionObjectId, $auction.auctionObjectURI,$auction.auctionContextCategory,$auction.auctionContextContent );
+   
+     Notification _notification = new Notification();	
+	_notification.setNotificationId("444");	
+	_notification.setNotificationType("IN_ARENA");
+	_notification.setNotificationName("GAME_ON_AUCTION_START");
+	_notification.setApplicationSource("MLSE");	
+	 String _msg = "Hello "+ $cust_profile.firstName+" "+$cust_profile.lastName+", you have been invited to participate in an auction for item :";
+	 _msg+= $auction.auctionObjectId+", related to "+ $auction.auctionContextCategory+" : "+$auction.auctionContextContent;
+	_notification.setNotificationMessage(_msg);
+	_notification.setSource("MLSE");
+	_notification.setUserId($cust_profile.userId);	
+	 String _payload="objName="+$auction.auctionObjectId+",objUri="+$auction.auctionObjectURI;
+	_notification.setNotificationPaylod(_payload);	
+	insert(_notification);	     	
+end
+
+
+rule "MobileEventHandler_Auction_GoodBid"
+salience 500
+when
+	 $bid_event : AuctionBidSubmitEvent(eventName=="GAME_ON_IN_GAME_AUCTION_BID",currentBid>runningTotal) from entry-point AuctionEventChannel	
+	 $auction_fsm : AuctionFSM(auctionObjectId==$bid_event.auctionObjectId)	 
+then
+	System.out.println("Got Good Auction Bid Mobile Event:eventId="+$bid_event.eventId+",eventType="+$bid_event.eventType+",eventName="+$bid_event.eventName);
+
+	$auction_fsm.currentBid=$bid_event.currentBid;
+	$auction_fsm.STATE="AUCTION_IN_PROGRES";
+	$auction_fsm.currentBidderID=$bid_event.userId;
+	update($auction_fsm);
+	retract($bid_event);
+end 
+
+rule "MobileEventHandler_Auction_BadBid"
+salience 500
+when
+	 $bid_event : AuctionBidSubmitEvent(eventName=="GAME_ON_IN_GAME_AUCTION_BID",currentBid<=runningTotal) from entry-point AuctionEventChannel	
+	 $auction_fsm : AuctionFSM(auctionObjectId==$bid_event.auctionObjectId)	 
+then
+	System.out.println("Got Bad Auction Bid Mobile Event:eventId="+$bid_event.eventId+",eventType="+$bid_event.eventType+",eventName="+$bid_event.eventName);
+	AuctionBidNotifyEvent _notification = new AuctionBidNotifyEvent();
+       _notification.setUserId($auction_fsm.currentBidderID);
+       _notification.setAuctionObjectId($auction_fsm.auctionObjectId);
+       _notification.setRunningTotal($auction_fsm.currentBid);
+       _notification.setWinner("NEUTRAL");
+       _notification.setStatus("ERROR");
+       sendAuctionBidNotification(_notification, $auction_fsm.bidderList);   
+	
+	retract($bid_event);
+end 
+
+ 
+rule "Bid_In_Progress"
+salience 500
+when
+        $auction_fsm : AuctionFSM(STATE=="AUCTION_IN_PROGRES")
+then
+       AuctionBidNotifyEvent _notification = new AuctionBidNotifyEvent();
+       _notification.setUserId($auction_fsm.currentBidderID);
+       _notification.setAuctionObjectId($auction_fsm.auctionObjectId);
+       _notification.setRunningTotal($auction_fsm.currentBid);
+       _notification.setWinner("NEUTRAL");
+       _notification.setStatus("OK");
+       sendAuctionBidNotification(_notification, $auction_fsm.bidderList);    
+end
+
+rule "Bid_End"
+ salience 500
+ when
+     $ent_event : EnterpriseActivityEvent(eventName=="AUCTION_STOP") from entry-point EntepriseEventChannel	  
+     $auction_fsm: AuctionFSM(auctionObjectId == $ent_event.activityObject)  
+ then
+        System.out.println("Stopping auction for "+$auction_fsm.auctionObjectId);       
+        
+        AuctionBidNotifyEvent _bidNotification = new AuctionBidNotifyEvent();
+       _bidNotification.setUserId($auction_fsm.currentBidderID);
+       _bidNotification.setAuctionObjectId($auction_fsm.auctionObjectId);
+       _bidNotification.setRunningTotal($auction_fsm.currentBid);
+       _bidNotification.setWinner("TRUE");
+       _bidNotification.setStatus("OK");
+       sendAuctionBidNotification(_bidNotification, $auction_fsm.bidderList);     
+       
+        Notification _notification = new Notification();	
+		_notification.setNotificationId("444");	
+		_notification.setNotificationType("IN_ARENA");
+		_notification.setNotificationName("GAME_ON_AUCTION_STOP");
+		_notification.setApplicationSource("MLSE");	
+		 String _msg = "Hello userid:"+$auction_fsm.currentBidderID+", you have won the auction for item :";
+		 _msg+= $auction_fsm.auctionObjectId+", related to "+ $auction_fsm.auctionContextCategory+" : "+$auction_fsm.auctionContextContent;
+		 _msg+=" @ "+$auction_fsm.currentBid+"! The item will be delievered toyour seat at the end of the game ! Thank you for participating !"
+		_notification.setNotificationMessage(_msg);
+		_notification.setSource("MLSE");
+		_notification.setUserId($auction_fsm.currentBidderID);	
+		 String _payload="objName="+$auction_fsm.auctionObjectId+",objUri="+$auction_fsm.auctionObjectURI;
+		_notification.setNotificationPaylod(_payload);	
+		insert(_notification);	     	
+		
+       retract($ent_event);
+       retract($auction_fsm);
+end
+
+

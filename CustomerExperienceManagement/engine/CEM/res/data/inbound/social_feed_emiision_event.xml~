@@ -1,0 +1,14 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+ <MobileEvent>
+	<eventId>tweet123</eventId>
+	<userId_event>777</userId_event>
+	<eventName>GAME_ON_SOCIAL_FEED_TWEET</eventName>
+	<eventType>IN_ARENA</eventType>
+	<deviceId/>
+	<devicePhoneNumber/>
+	<geoLocationCoords/>
+	<locationName/>
+	<seatNumber/>
+	<eventMessage>My HotDog is cold and my beer is not</eventMessage>
+	<applicationSrc>MapleLeafs</applicationSrc>
+</MobileEvent>

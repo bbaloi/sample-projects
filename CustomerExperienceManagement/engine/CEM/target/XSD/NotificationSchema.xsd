@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="Notification">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="id" minOccurs="0"/>
+				<xs:element ref="userId_notification" minOccurs="0"/>
+				<xs:element ref="type" minOccurs="0"/>
+				<xs:element ref="name" minOccurs="0"/>
+				<xs:element ref="notificationMessage" minOccurs="0"/>
+				<xs:element ref="source" minOccurs="0"/>
+				<xs:element ref="reqId_notification" minOccurs="0"/>
+				<xs:element ref="applicationSrc_notification" minOccurs="0"/>
+				<xs:element ref="payload" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="type" type="xs:string"/>
+	<xs:element name="notificationMessage" type="xs:string"/>
+	<xs:element name="id" type="xs:string"/>
+	<xs:element name="source" type="xs:string"/>
+	<xs:element name="userId_notification" type="xs:string"/>
+	<xs:element name="name" type="xs:string"/>
+	<xs:element name="reqId_notification" type="xs:string"/>
+	<xs:element name="applicationSrc_notification" type="xs:string"/>
+	<xs:element name="payload" type="xs:string"/>
+</xs:schema>

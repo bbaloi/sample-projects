@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="TicketRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="userId_ticket" minOccurs="0"/>
+				<xs:element ref="name" minOccurs="0"/>
+				<xs:element ref="seat_num" minOccurs="0"/>
+				<xs:element ref="req_id_ticket" minOccurs="0"/>
+				<xs:element ref="applicationSrc_ticket" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="TicketReply">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="reply_status" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="reply_status" type="xs:string"/>
+	<xs:element name="userId_ticket" type="xs:string"/>
+	<xs:element name="name" type="xs:string"/>
+	<xs:element name="seat_num" type="xs:string"/>
+	<xs:element name="req_id_ticket" type="xs:string"/>
+	<xs:element name="applicationSrc_ticket" type="xs:string"/>
+</xs:schema>

@@ -1,0 +1,44 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+ <PurchaseRequest>
+	<order_id>123</order_id>
+	<purchase_type>F&amp;B</purchase_type>
+	<userId_order>777</userId_order>
+	<tstamp/>
+	<employee_id>N/A</employee_id>
+	<kiosk>N/A</kiosk>
+	<seat_number>32C</seat_number>
+	<total_order_value>21.96</total_order_value>
+	<tip>0</tip>
+	<tax>0</tax>
+	<payment_method>MOBILE_APP</payment_method>
+	<payment_number>777</payment_number>
+	<loyalty_points_value>22</loyalty_points_value>
+	<PurchaseItemList>
+		<PurchaseItem>
+			<item_id>555</item_id>
+			<item_name>Soft Pretzel</item_name>
+			<price>4.99</price>
+			<quantity>1</quantity>
+		</PurchaseItem>
+		<PurchaseItem>
+			<item_id>567</item_id>
+			<item_name>Planter's Peanuts</item_name>
+			<price>2.99</price>
+			<quantity>1</quantity>
+		</PurchaseItem>
+		<PurchaseItem>
+			<item_id>009</item_id>
+			<item_name>Coney Island HotDog</item_name>
+			<price>6.99</price><
+			quantity>1</quantity>
+		</PurchaseItem>
+		<PurchaseItem>
+			<item_id>007</item_id>
+			<item_name>Corona</item_name>
+			<price>6.99</price>
+			<quantity>1</quantity>
+		</PurchaseItem>
+	</PurchaseItemList>
+	<applicationSrc_order>MapleLeafs</applicationSrc_order>
+</PurchaseRequest>
+

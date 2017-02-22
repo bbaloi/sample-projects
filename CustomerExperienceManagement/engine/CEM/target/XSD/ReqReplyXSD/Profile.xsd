@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="FanProfileRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="userId_profile" minOccurs="0"/>
+				<xs:element ref="location" minOccurs="0"/>
+				<xs:element ref="twitter_id" minOccurs="0"/>
+				<xs:element ref="fb_id" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="userId_profile" type="xs:string"/>
+	<xs:element name="location" type="xs:string"/>
+	<xs:element name="twitter_id" type="xs:string"/>
+	<xs:element name="fb_id" type="xs:string"/>
+	<xs:element name="FanProfileReply">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="reply_str" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="reply_str" type="xs:string"/>
+</xs:schema>

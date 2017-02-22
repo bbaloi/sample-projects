@@ -1,0 +1,6 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+ <VoteRequest>
+	<userId_vote>777</userId_vote>
+	<game_id_vote>99-xx-786</game_id_vote>
+	<vote>good</vote>
+</VoteRequest>

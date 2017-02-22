@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.tibco.com/schemas/CEM/SharedResources/XSD/DrinkSchema.xsd"
+	 targetNamespace="http://www.tibco.com/schemas/CEM/SharedResources/XSD/DrinkSchema.xsd"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="DrinkProfile">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="favouriteDrinkList" minOccurs="0"/>
+				<xs:element ref="favouriteBarList"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Drink">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="drinkName" minOccurs="0"/>
+				<xs:element ref="drinkType" minOccurs="0"/>
+				<xs:element ref="drinkCategory" minOccurs="0"/>
+				<xs:element ref="drinkCountryofProvenance" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="drinkType" type="xs:string"/>
+	<xs:element name="drinkName" type="xs:string"/>
+	<xs:element name="drinkCategory" type="xs:string"/>
+	<xs:element name="drinkCountryofProvenance" type="xs:string"/>
+	<xs:element name="favouriteDrinkList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Drink" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Bar">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="barName" minOccurs="0"/>
+				<xs:element ref="barAddress" minOccurs="0"/>
+				<xs:element ref="serverDrinksList" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="barName" type="xs:string"/>
+	<xs:element name="barAddress" type="xs:string"/>
+	<xs:element name="favouriteBarList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Bar" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="serverDrinksList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Drink" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

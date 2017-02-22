@@ -1,0 +1,323 @@
+<?xml version="1.0"?>
+<project name="cem" default="all">
+	
+	<!-- set global properties -->	
+		<property file="build.properties"/>
+		<property file="build-deployment.xml"/>
+		<property name="src.dir" location="${root.dir}/src" />	
+		<property name="bin.dir" location="${root.dir}/bin" />
+		<property name="resource.dir" location="${root.dir}/res" />
+		<property name="lib.dir" location="${root.dir}/lib" />
+		<property name="base.dir" location="${root.dir}" />
+		<property name="build.dir" location="${base.dir}/build" />
+		<property name="dist.dir" location="${base.dir}/distro" />
+		<property name="builder" value="B2" />		
+	
+		<property name="JDK_1.7_60_dir" location="/opt/apps/java7/jdk1.7.0_60" />
+		<property name="javac1.7_c" location="${JDK_1.7_60_dir}/bin/javac" />
+		<property name="javac1.7_r" location="${JDK_1.7_60_dir}/bin/java" />
+		 		
+		<!--====Compiler properties=====-->
+		<property name="compile.debug" value="on"/>	
+		<property name="compile.optimize" value="on"/>	
+		<!--property name="compiler-jikes" value="jikes"/-->
+			
+		<target name="init">
+			<echo message="Initializing... "/>
+			<mkdir dir="${build.dir}" />
+			<mkdir dir="${build.dir}/classes" />
+			<mkdir dir="${build.dir}/unittest" />			
+			<mkdir dir="${base.dir}/distro" />
+			<mkdir dir="${base.dir}/distro/pkg" />
+			<mkdir dir="${base.dir}/distro/bin" />
+			<mkdir dir="${base.dir}/distro/docs" />
+			<mkdir dir="${base.dir}/distro/lib" />
+			<mkdir dir="${base.dir}/distro/classes" />	
+			<mkdir dir="${base.dir}/distro/conf" />	
+			<mkdir dir="${base.dir}/distro/sql" />	
+			<mkdir dir="${base.dir}/distro/res" />	
+			<mkdir dir="${base.dir}/distro/res/ont" />	
+			<mkdir dir="${base.dir}/distro/res/classifier"/>	
+		</target>
+						
+			<path id="composite.classpath">
+					<pathelement location="${lib.dir}/jena/jena-core-2.12.1.jar"/>				
+					<pathelement location="${lib.dir}/jena/jena-arq-2.12.1.jar"/>					
+					<pathelement location="${lib.dir}/jena/pellet-core.jar"/>
+					<pathelement location="${lib.dir}/jena/pellet-jena.jar"/>	
+					<pathelement location="${lib.dir}/antlr-runtime-3.5.jar"/>	
+					<pathelement location="${lib.dir}/commons-logging-1.2.jar"/>	
+					<pathelement location="${lib.dir}/drools-compiler-6.1.0.Final.jar"/>	
+					<pathelement location="${lib.dir}/drools-core-6.1.0.Final.jar"/>	
+					<pathelement location="${lib.dir}/drools-jsr94-6.1.0.Final.jar"/>	
+					<pathelement location="${lib.dir}/drools-persistence-jpa-6.1.0.Final.jar"/>	
+					<pathelement location="${lib.dir}/drools-templates-6.1.0.Final.jar"/>	
+					<pathelement location="${lib.dir}/drools-verifier-6.1.0.Final.jar"/>	
+					<pathelement location="${lib.dir}/kie-api-6.1.0.Final.jar"/>	
+					<pathelement location="${lib.dir}/kie-ci-6.1.0.Final.jar"/>	
+					<pathelement location="${lib.dir}/kie-internal-6.1.0.Final.jar"/>	
+					<pathelement location="${lib.dir}mvel2-2.2.1.Final.jar"/>	
+					<pathelement location="${lib.dir}/slf4j-api-1.7.6.jar"/>
+					<pathelement location="${lib.dir}/slf4j-log4j12-1.7.6.jar"/>	
+					<pathelement location="${lib.dir}/xstream-1.4.7.jar"/>	
+					<pathelement location="${lib.dir}/log4j-1.2.17.jar"/>				
+					<pathelement location="${lib.dir}/akka/akka-actor_2.11-2.3.9.jar"/>
+					<pathelement location="${lib.dir}/akka/akka-camel_2.11-2.3.9.jar"/>
+					<pathelement location="${lib.dir}/akka/akka-kernel_2.11-2.3.9.jar"/>
+					<pathelement location="${lib.dir}/akka/akka-remote_2.11.jar"/>
+					<pathelement location="${lib.dir}/akka/akka-slf4j_2.11-2.3.9.jar"/>
+					<pathelement location="${lib.dir}/akka/config-1.2.1.jar"/>
+					<pathelement location="${lib.dir}/amq/ativemq-all-5.10.0.jar"/>
+					<pathelement location="${lib.dir}/camel/activemq-camel-5.6.0.jar"/>
+					<pathelement location="${lib.dir}/camel/camel-core-2.14.1.jar"/>
+					<pathelement location="${lib.dir}/camel/camel-jms-2.14.1.jar"/>					
+					<pathelement location="${lib.dir}/scala/scala-library-2.11.5.jar"/>	
+					<pathelement location="${lib.dir}/lingpipe-4.1.0.jar"/>	
+					<pathelement location="${lib.dir}/nlp/jwnl-1.3.3.jar"/>	
+					<pathelement location="${lib.dir}/nlp/opennlp-maxent-3.0.3.jar"/>	
+					<pathelement location="${lib.dir}/nlp/opennlp-tools-1.5.3.jar"/>	
+					<pathelement location="${lib.dir}/nlp/opennlp-uima-1.5.3.jar"/>	
+					<pathelement location="${lib.dir}/mysql/mysql-connector-java-5.1.15.jar"/>	
+				
+					<pathelement location="${lib.dir}/spring/spring-core-4.0.3.RELEASE.jar"/>	
+					<pathelement location="${lib.dir}/spring/spring-core-4.0.3.RELEASE.jar"/>
+					<pathelement location="${lib.dir}/spring/spring-context-4.0.3.RELEASE.jar"/>
+					<pathelement location="${lib.dir}/spring/spring-beans-4.0.3.RELEASE.jar"/>
+					<pathelement location="${lib.dir}/spring/spring-tx-4.0.3.RELEASE.jar"/>
+					<pathelement location="${lib.dir}/spring/spring-jms-4.0.3.RELEASE.jar"/>
+				
+			</path>
+	
+	<!-- ======================Generate Persistence model========================== -->
+	<taskdef name="xjc" classname="com.sun.tools.xjc.XJCTask">
+	  <classpath>
+	    <fileset dir="${lib.dir}/jaxb/jaxb-ri/lib" includes="*.jar" />	  
+	  </classpath>
+	</taskdef>
+	
+	<target name="gen-code-1" depends="init">
+		<xjc package="com.extemp.cem.profiles" destdir="src/main/java">
+		  <schema  dir="res/XSD" includes="*.xsd"/>		 
+		</xjc>
+	</target>
+	<target name="gen-code-2" depends="init">
+			<xjc package="com.extemp.cem.events.payloads" destdir="src/main/java">
+			  <schema  dir="res/XSD/ReqReplyXSD" includes="*.xsd"/>		 
+			</xjc>
+		</target>
+	
+	<!--==============Compile code============= -->
+	<target name="compile-code" depends="init">
+		<echo message="Compiling source code... "/>
+		<javac includeantruntime="false" executable="${javac1.7_c}"	srcdir="${src.dir}" classpathref="composite.classpath"
+				includes = "**/com/extemp/**"
+				destdir="${build.dir}/classes" 		
+				debug="${compile.debug}" 
+				optimize="${compile.optimze}"
+				failonerror="true"/>
+		</target>		
+	
+	
+		<target name="distro">
+			
+			<copy todir="${dist.dir}/staging"> 
+	  		  		<fileset dir="${build.dir}/classes">
+	  		  			<include name = "**/com/extemp/**"/>				  		  			
+	  		  		</fileset>   					
+			</copy>
+			<copy todir="${dist.dir}/staging"> 
+				<fileset dir="src/main/resources">
+	  		  			<include name = "**"/>	  		    
+	  			 </fileset>	             
+			</copy>
+						
+				<jar jarfile="${dist.dir}/lib/cem.jar" basedir ="${dist.dir}/staging">
+					 <include name="**"/> 
+					<manifest>
+							<attribute name="Built-By" value="b2"/>		
+							<attribute name="Main-Class"  value="com.extemp.cem.CemMain"/>
+							<attribute name="Class-Path" value="jena-core-2.12.1.jar slf4j-log4j12-1.7.6.jar slf4j-api-1.7.6.jar log4j-1.2.17.jar 
+								commons-logging-1.2.jar xercesImpl-2.11.0.jar xml-apis-1.4.01.jar jena-iri-1.1.1.jar jena-arq-2.12.1.jar httpclient-4.2.6.jar 
+								httpcore-4.2.5.jar pellet-core.jar pellet-jena.jar aterm-java-1.6.jar pellet-rules.jar pellet-datatypes.jar pellet-el.jar 
+								xstream-1.4.7.jar mvel2-2.2.1.Final.jar log4j-1.2.17.jar kie-internal-6.1.0.Final.jar kie-ci-6.1.9.Final.jar kie-api-6.1.0.Final.jar 
+								drools-verifier-6.1.0.Final.jar drools-templates-6.1.0..Final.jar drools-persistence-jpa-6.1.0.Final.jar drools-jsr94-6.1.0.jar drools-core-6.1.0.Final.jar 
+								drools-decisiontables-6.1.0.Final.jar drools-compiler-6.1.0.Final.jar antlr-runtime-3.5.jar org.eclipse.jdt.core_3.9.2.v20140114-1555.jar"/>
+						</manifest>	
+
+				</jar>
+				<jar jarfile="${dist.dir}/lib/cem_akka.jar" basedir ="${dist.dir}/staging">
+								 <include name="**"/> 
+								<manifest>
+										<attribute name="Built-By" value="b2"/>		
+										<attribute name="Main-Class"  value="com.extemp.cem.CemMain_akka"/>
+										<attribute name="Class-Path" value="jena-core-2.12.1.jar slf4j-log4j12-1.7.6.jar slf4j-api-1.7.6.jar log4j-1.2.17.jar 
+											commons-logging-1.2.jar xercesImpl-2.11.0.jar xml-apis-1.4.01.jar jena-iri-1.1.1.jar jena-arq-2.12.1.jar httpclient-4.2.6.jar 
+											httpcore-4.2.5.jar pellet-core.jar pellet-jena.jar aterm-java-1.6.jar pellet-rules.jar pellet-datatypes.jar pellet-el.jar 
+											xstream-1.4.7.jar mvel2-2.2.1.Final.jar log4j-1.2.17.jar kie-internal-6.1.0.Final.jar kie-ci-6.1.9.Final.jar kie-api-6.1.0.Final.jar 
+											drools-verifier-6.1.0.Final.jar drools-templates-6.1.0..Final.jar drools-persistence-jpa-6.1.0.Final.jar drools-jsr94-6.1.0.jar drools-core-6.1.0.Final.jar 
+											drools-decisiontables-6.1.0.Final.jar drools-compiler-6.1.0.Final.jar antlr-runtime-3.5.jar org.eclipse.jdt.core_3.9.2.v20140114-1555.jar 
+										 	akka-actor_2.11-2.3.9.jar akka-camel_2.11-2.3.9.jar akka-kernel_2.11-2.3.9.jar akka-slf4j_2.11-2.3.9.jar config-1.2.1.jar activemq-all-5.10.0.jar 
+											activemq-camel-5.6.0 camel-core-2.14.1.jar camel-jms-2.14.1.jar camel-spring-2.14.1.jar scala-library-2.11.5.jar spring-core-4.0.3.RELEASE.jar 
+											spring-context-4.0.3.RELEASE.jar spring-beans-4.0.3.RELEASE.jar spring-tx-4.0.3.RELEASE.jar spring-jms-4.0.3.RELEASE.jar 
+											commons-configuration-1.6.jar commons-collections-3.2.1.jar commons-beanutils-1.7.0.jar commons-beanutils-core-1.8.0.jar commons-pool-1.6.jar 
+											lingpipe-4.1.0.jar jwnl-1.3.3.jar opennlp-maxent-3.0.3.jar opennlp-tools-1.5.3.jar opennlp-uima-1.5.3.jar mysql-connector-java-5.1.15.jar"/>
+								
+								</manifest>	
+
+							</jar>
+						
+				<copy todir="${dist.dir}/lib" flatten="true">
+			        <file file="${lib.dir}/jena/jena-core-2.12.1.jar"/>						
+					<file file="${lib.dir}/jena/xercesImpl-2.11.0.jar"/>	
+					<file file="${lib.dir}/jena/xml-apis-1.4.01.jar"/>	
+					<file file="${lib.dir}/jena/jena-iri-1.1.1.jar"/>	
+					<file file="${lib.dir}/jena/jena-arq-2.12.1.jar"/>
+					<file file="${lib.dir}/jena/httpclient-4.2.6.jar"/>
+					<file file="${lib.dir}/jena/httpcore-4.2.5.jar"/>
+					<file file="${lib.dir}/jena/pellet-core.jar"/>
+					<file file="${lib.dir}/jena/pellet-jena.jar"/>
+					<file file="${lib.dir}/jena/aterm-java-1.6.jar"/>	
+					<file file="${lib.dir}/jena/pellet-rules.jar"/>
+					<file file="${lib.dir}/jena/pellet-datatypes.jar"/>
+					<file file="${lib.dir}/jena/pellet-el.jar"/>					
+					<file file="${lib.dir}/slf4j-log4j12-1.7.6.jar"/>	
+					<file file="${lib.dir}/slf4j-api-1.7.6.jar"/>	
+					<file file="${lib.dir}/log4j-1.2.17.jar"/>	
+					<file file="${lib.dir}/commons-logging-1.2.jar"/>
+					<file file="${lib.dir}/antlr-runtime-3.5.jar"/>
+					<file file="${lib.dir}/drools-compiler-6.1.0.Final.jar"/>
+					<file file="${lib.dir}/drools-core-6.1.0.Final.jar"/>
+					<file file="${lib.dir}/drools-jsr94-6.1.0.Final.jar"/>
+					<file file="${lib.dir}/drools-persistence-jpa-6.1.0.Final.jar"/>
+					<file file="${lib.dir}/drools-templates-6.1.0.Final.jar"/>
+					<file file="${lib.dir}/drools-verifier-6.1.0.Final.jar"/>
+					<file file="${lib.dir}/kie-api-6.1.0.Final.jar"/>
+					<file file="${lib.dir}/kie-ci-6.1.0.Final.jar"/>
+					<file file="${lib.dir}/kie-internal-6.1.0.Final.jar"/>
+					<file file="${lib.dir}/mvel2-2.2.1.Final.jar"/>
+					<file file="${lib.dir}/xstream-1.4.7.jar"/>		
+					<file file="${lib.dir}/org.eclipse.jdt.core_3.9.2.v20140114-1555.jar"/>		
+					<file file="${lib.dir}/akka/akka-actor_2.11-2.3.9.jar"/>
+					<file file="${lib.dir}/akka/akka-camel_2.11-2.3.9.jar"/>
+					<file file="${lib.dir}/akka/akka-kernel_2.11-2.3.9.jar"/>
+					<file file="${lib.dir}/akka/akka-cluster_2.11.jar"/>
+					<file file="${lib.dir}/akka/akka-remote_2.11.jar"/>
+					<file file="${lib.dir}/akka/akka-slf4j_2.11-2.3.9.jar"/>
+					<file file="${lib.dir}/akka/config-1.2.1.jar"/>
+					<file file="${lib.dir}/amq/activemq-all-5.10.0.jar"/>
+					<file file="${lib.dir}/camel/activemq-camel-5.6.0.jar"/>
+					<file file="${lib.dir}/camel/camel-core-2.14.1.jar"/>
+					<file file="${lib.dir}/camel/camel-jms-2.14.1.jar"/>
+					<file file="${lib.dir}/camel/camel-spring-2.14.1.jar"/>
+					<file file="${lib.dir}/scala/scala-library-2.11.5.jar"/>					
+					<file file="${lib.dir}/spring/spring-core-4.0.3.RELEASE.jar"/>
+					<file file="${lib.dir}/spring/spring-context-4.0.3.RELEASE.jar"/>
+					<file file="${lib.dir}/spring/spring-beans-4.0.3.RELEASE.jar"/>
+					<file file="${lib.dir}/spring/spring-tx-4.0.3.RELEASE.jar"/>
+					<file file="${lib.dir}/spring/spring-jms-4.0.3.RELEASE.jar"/>
+					<file file="${lib.dir}/commons/commons-configuration-1.6.jar"/>
+					<file file="${lib.dir}/commons/commons-collections-3.2.1.jar"/>
+					<file file="${lib.dir}/commons/commons-beanutils-1.7.0.jar"/>
+					<file file="${lib.dir}/commons/commons-beanutils-core-1.8.0.jar"/>
+					<file file="${lib.dir}/commons/commons-pool-1.6.jar"/>
+					<file file="${lib.dir}/lingpipe-4.1.0.jar"/>	
+					<file file="${lib.dir}/nlp/jwnl-1.3.3.jar"/>
+					<file file="${lib.dir}/nlp/opennlp-maxent-3.0.3.jar"/>
+					<file file="${lib.dir}/nlp/opennlp-tools-1.5.3.jar"/>
+					<file file="${lib.dir}/nlp/opennlp-uima-1.5.3.jar"/>
+					<file file="${lib.dir}/mysql/mysql-connector-java-5.1.15.jar"/>				
+			   </copy>		
+			
+			<copy todir="${dist.dir}/bin" flatten="true">
+				<fileset dir="${resource.dir}/scripts" />
+			</copy>
+			<copy todir="${dist.dir}/conf" flatten="true">
+				<fileset dir="${resource.dir}" includes="cem*.properties" />
+			</copy>
+			<copy todir="${dist.dir}/res" flatten="true">
+				<fileset dir="${resource.dir}" includes="messages.*" />
+			</copy>
+			<copy todir="${dist.dir}/res/ont" flatten="true">
+				<fileset dir="${resource.dir}/ont"/>
+			</copy>
+			<copy todir="${dist.dir}/res/classifier" flatten="true">
+				<fileset dir="src/main/resources/classifier"/>
+			</copy>
+			<copy todir="${dist.dir}/sql" flatten="true">
+				<fileset dir="${resource.dir}/sql"/>
+			</copy>
+			
+			
+			<zip destfile="${dist.dir}/pkg/cem.zip">
+			    <zipfileset dir="${dist.dir}/lib" prefix="lib"/>
+				<zipfileset dir="${dist.dir}/bin" prefix="bin"/>
+				<zipfileset dir="${dist.dir}/conf" prefix="conf"/>
+				<zipfileset dir="${dist.dir}/res" prefix="res"/>
+				<zipfileset dir="${dist.dir}/sql" prefix="sql"/>
+			  </zip>
+			
+		</target>
+				
+	
+	     <target name="test_cem_engine">
+	      			   <echo>"Starting CEM Engine..."</echo>	      					
+	      		      <java jar="${dist.dir}/lib/cem.jar" fork="true" failonerror="true" maxmemory="512m">
+	      		      	 <arg value="-properties"/>
+	      		      	 <arg value="/opt/apps/eclipse/eclipse_workspace/CEM/res/cem.properties"/>
+	      		      	<!--
+	      		         <classpath>
+	      		         	<pathelement location="${dist.dir}/lib/jena-core-2.12.1.jar"/>	    
+         		         	<pathelement location="${dist.dir}/lib/slf4j-log4j12-1.7.6.jar"/>	    
+         		         	<pathelement location="${dist.dir}/lib/slf4j-api-1.7.6.jar"/>	
+         		         	<pathelement location="${dist.dir}/lib/log4j-1.2.17.jar"/>	
+         		         	<pathelement location="${dist.dir}/lib/xercesImpl-2.11.0.jar"/>
+         		         	<pathelement location="${dist.dir}/lib/xml-apis-1.4.01.jar"/>
+         		         	<pathelement location="${dist.dir}/lib/jena-iri-1.1.1.jar"/>
+         		         	<pathelement location="${dist.dir}/lib/jena-arq-2.11.0.jar"/>	  
+         		         	<pathelement location="${dist.dir}/lib/httpclient-4.2.6.jar"/>	
+         		         	<pathelement location="${dist.dir}/lib/httpcore-4.2.5.jar"/>
+         		         	<pathelement location="${dist.dir}/lib/commons-logging-1.2.jar"/>
+	      		         	<pathelement location="${dist.dir}/lib/pellet-core.jar"/>
+	      		            <pathelement location="${dist.dir}/lib/pellet-jena.jar"/>
+	      		         </classpath>
+	      		         -->
+	      		       </java>	
+	      		      
+	      		</target>
+	 	<target name="test_cem_engine_akka">
+		      			   <echo>"Starting CEM Engine..."</echo>	      					
+		      		      <java jar="${dist.dir}/lib/cem_akka.jar" fork="true" failonerror="true" maxmemory="512m">
+		      		      	 <arg value="-properties"/>
+		      		      	 <arg value="/opt/apps/eclipse/eclipse_workspace/CEM/res/cem.properties"/>
+		      		      	
+		      		         <classpath>
+		      		         	<pathelement location="${dist.dir}/lib/mysql-connector-java-5.1.15.jar"/>	    
+		      		         	<!--
+	         		         	<pathelement location="${dist.dir}/lib/slf4j-log4j12-1.7.6.jar"/>	    
+	         		         	<pathelement location="${dist.dir}/lib/slf4j-api-1.7.6.jar"/>	
+	         		         	<pathelement location="${dist.dir}/lib/log4j-1.2.17.jar"/>	
+	         		         	<pathelement location="${dist.dir}/lib/xercesImpl-2.11.0.jar"/>
+	         		         	<pathelement location="${dist.dir}/lib/xml-apis-1.4.01.jar"/>
+	         		         	<pathelement location="${dist.dir}/lib/jena-iri-1.1.1.jar"/>
+	         		         	<pathelement location="${dist.dir}/lib/jena-arq-2.11.0.jar"/>	  
+	         		         	<pathelement location="${dist.dir}/lib/httpclient-4.2.6.jar"/>	
+	         		         	<pathelement location="${dist.dir}/lib/httpcore-4.2.5.jar"/>
+	         		         	<pathelement location="${dist.dir}/lib/commons-logging-1.2.jar"/>
+		      		         	<pathelement location="${dist.dir}/lib/pellet-core.jar"/>
+		      		            <pathelement location="${dist.dir}/lib/pellet-jena.jar"/>
+		      		            -->
+		      		         </classpath>
+		      		         
+		      		       </java>	
+		      		      
+		      		</target>
+	     	
+	 <target name="clean">
+	    <delete dir="${build.dir}"/>
+	    <delete dir="${dist.dir}"/>	  	 	
+	  </target>	
+	
+	<target name="compile" depends="compile-code"/>  	
+	<target name="all" depends="gen-code-1,gen-code-2,compile-code,distro"/>
+	<!-- <target name="all" depends="gen-code-1,gen-code-2,compile-code"/> -->
+  </project>

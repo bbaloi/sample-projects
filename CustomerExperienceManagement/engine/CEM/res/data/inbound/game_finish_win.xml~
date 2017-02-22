@@ -1,0 +1,15 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+  <MobileEvent>
+		<eventId>130</eventId>
+		<userId_event>777</userId_event>
+		<eventName>GAME_ON_FINISH</eventName>
+		<eventType>IN_ARENA</eventType>
+		<deviceId>MA56899999ZAC</deviceId>
+		<devicePhoneNumber>647-274-7030</devicePhoneNumber>
+		<geoLocationCoords/>
+		<locationName/>
+		<seatNumber/>
+		<gameWin>true</gameWin>
+		<eventMessage/>
+		<applicationSrc>MapleLeafs</applicationSrc>
+</MobileEvent>

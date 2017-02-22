@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.tibco.com/schemas/CEM/SharedResources/XSD/FoodSchema.xsd"
+	 targetNamespace="http://www.tibco.com/schemas/CEM/SharedResources/XSD/FoodSchema.xsd"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="FoodProfile">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="favouriteFoodList" minOccurs="0"/>
+				<xs:element ref="favouriteRestaurantList" minOccurs="0"/>
+				<xs:element ref="favouriteChefList" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="favouriteFoodList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Food" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="foodType" type="xs:string"/>
+	<xs:element name="dishName" type="xs:string"/>
+	<xs:element name="favouriteRestaurantList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Restaurant" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="restaurantName" type="xs:string"/>
+	<xs:element name="restaurantType" type="xs:string"/>
+	<xs:element name="restaurantAddress" type="xs:string"/>
+	<xs:element name="Restaurant">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="restaurantName" minOccurs="0"/>
+				<xs:element ref="restaurantType" minOccurs="0"/>
+				<xs:element ref="restaurantAddress" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Food">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="foodType" minOccurs="0"/>
+				<xs:element ref="dishName" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="favouriteChefList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Chef" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Chef">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="chefName" minOccurs="0"/>
+				<xs:element ref="chefCountryOfOrigin" minOccurs="0"/>
+				<xs:element ref="chefCookingStyle" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="chefName" type="xs:string"/>
+	<xs:element name="chefCountryOfOrigin" type="xs:string"/>
+	<xs:element name="chefCookingStyle" type="xs:string"/>
+</xs:schema>

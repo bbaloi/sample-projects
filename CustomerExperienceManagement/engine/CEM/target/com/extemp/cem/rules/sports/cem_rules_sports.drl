@@ -1,0 +1,677 @@
+package com.extemp.cem.rules.sports
+ 
+import com.extemp.cem.events.MobileEvent
+import com.extemp.cem.events.SportsVenueMobileEvent
+import com.extemp.cem.events.Notification
+import com.extemp.cem.profiles.CustomerProfileCBO
+import com.extemp.cem.profiles.PreferencesList
+import com.extemp.cem.profiles.FavouriteSportList
+import com.extemp.cem.profiles.SportsProfile
+import com.extemp.cem.profiles.LoyaltyProgram
+import com.extemp.cem.profiles.Sport
+import com.extemp.cem.profiles.SportTeam
+import com.extemp.cem.profiles.SocialMediaFriend
+import com.extemp.cem.profiles.SocialMediaFriendList
+import com.extemp.cem.util.FactFactory
+import com.extemp.cem.profiles.Food
+import com.extemp.cem.profiles.Drink
+import com.extemp.cem.events.OrderItem
+import com.extemp.cem.actions.SentimentDetectionAction
+
+
+dialect "mvel"
+
+query "getCustomerListQuery"
+    $customer : CustomerProfileCBO()
+end
+
+//================================Cust Profile CHecking functions====================
+rule "CheckCustomerProfile"
+salience 1000
+when
+	$mobile_event : SportsVenueMobileEvent() from entry-point MobileEventChannel	
+then
+	insert(new CheckCustomerEvent($mobile_event.userId));
+end
+//-----
+rule "CustomerProfileNotExist"
+when
+	$check_customer_event: CheckCustomerEvent() 
+	not (exists (CustomerProfileCBO( userId == $check_customer_event.userId )))
+	
+then
+	System.out.println("Customer "+$check_customer_event.userId+", is  not available; loading !");
+	CustomerProfileCBO custProfile = getCustomerProfile($check_customer_event.userId);
+	insert(custProfile);	
+end
+//-----
+/*
+rule "CustomerProfileExist"
+when
+	$check_customer_event: CheckCustomerEvent() 
+	exists (CustomerProfileCBO( userId == $check_customer_event.userId ))	
+then
+	System.out.println("Customer "+$check_customer_event.userId+", hsa already been loaded !");	
+end
+*/
+//-----
+rule "CustomerProfileCreated"
+when
+	$customer_profile: CustomerProfileCBO()
+then
+	System.out.println("### Customer Profile "+ $customer_profile.userId+" created !!!" );
+end
+
+//=======================Mobile Event Handling Rules================================
+
+//------------In Arena In Parking Rules----------------
+rule "MobileEventHandler_In_Parking_Hockey_Positive"
+salience 500
+when
+ 	 $mobile_event : SportsVenueMobileEvent(eventName=="GAME_ON_PARKING") from entry-point MobileEventChannel		
+	 $customer_profile : CustomerProfileCBO( userId == $mobile_event.userId)
+	 $sport: Sport(sportType=="Hockey",generalGameSentiment=="Positive") from $customer_profile.preferencesList.sportsProfile.favouriteSportList.sport	 	
+then
+	System.out.println("***Got In Parking Mobile Event:eventId="+$mobile_event.eventId+",eventType="+$mobile_event.eventType+",eventName="+$mobile_event.eventName);	
+	//System.out.println("---Issuing Positive Game greeting !")		
+	Notification _notification = new Notification();	
+	_notification.setNotificationId("123");	
+	_notification.setNotificationType("IN_ARENA");
+	_notification.setNotificationName("GAME_ON_IN_PARKING");
+	_notification.setApplicationSource($mobile_event.applicationSource);	
+	_notification.setNotificationMessage("Hello "+ $customer_profile.firstName+" "+$customer_profile.lastName+", welcome to the game !"+getMessage("Sports","event.in.parking.in.arena.greeting.positive"));
+	_notification.setSource("MLSE");
+	_notification.setRequestId($mobile_event.requestId);
+	_notification.setUserId($mobile_event.userId);	
+	insert(_notification);	
+	//retract($mobile_event);
+	
+end
+
+rule "MobileEventHandler_In_Parking_Hockey_Negative"
+salience 500
+when
+ 	 $mobile_event : SportsVenueMobileEvent(eventName=="GAME_ON_PARKING") from entry-point MobileEventChannel		
+	 $customer_profile : CustomerProfileCBO( userId == $mobile_event.userId)
+	 $sport: Sport(sportType=="Hockey",generalGameSentiment=="Negative") from $customer_profile.preferencesList.sportsProfile.favouriteSportList.sport	 
+then
+	System.out.println("***Got In Parking Mobile Event:eventId="+$mobile_event.eventId+",eventType="+$mobile_event.eventType+",eventName="+$mobile_event.eventName);	
+	//System.out.println("---Issuing Positive Game greeting !")	
+	Notification _notification = new Notification();	
+	_notification.setNotificationId("123");	
+	_notification.setNotificationType("IN_ARENA");
+	_notification.setNotificationName("GAME_ON_IN_PARKING");
+	_notification.setApplicationSource($mobile_event.applicationSource);	
+	_notification.setNotificationMessage("Hello "+ $customer_profile.firstName+" "+$customer_profile.lastName+", welcome to the game !  "+getMessage("Sports","event.in.parking.in.arena.greeting.positive"));
+	_notification.setSource("MLSE");
+	_notification.setRequestId($mobile_event.requestId);
+	_notification.setUserId($mobile_event.userId);	
+	insert(_notification);	
+	//retract($mobile_event);
+end
+
+rule "MobileEventHandler_In_Parking_Hockey_Neutral"
+salience 500
+when
+ 	 $mobile_event : SportsVenueMobileEvent(eventName=="GAME_ON_PARKING") from entry-point MobileEventChannel		
+	 $customer_profile : CustomerProfileCBO( userId == $mobile_event.userId)
+	 $sport: Sport(sportType=="Hockey",generalGameSentiment=="Neutral") from $customer_profile.preferencesList.sportsProfile.favouriteSportList.sport	 
+then
+	System.out.println("***Got In Parking Mobile Event:eventId="+$mobile_event.eventId+",eventType="+$mobile_event.eventType+",eventName="+$mobile_event.eventName);	
+	System.out.println("---Issuing Positive Game greeting !")	
+end
+
+rule "MobileEventHandler_In_Parking_SeatUpgrade Request"
+salience 500
+when
+ 	 $mobile_event : SportsVenueMobileEvent(eventName=="GAME_ON_PARKING") from entry-point MobileEventChannel		
+	 $customer_profile : CustomerProfileCBO( userId == $mobile_event.userId)
+	 $score_card: GameScoreCard()
+	 $sport: Sport(sportType=="Hockey", numGamesAttendedSeason > $score_card.gameThreshold ) from $customer_profile.preferencesList.sportsProfile.favouriteSportList.sport	
+	 $loyalty: LoyaltyProgram(loyaltyUserId==$mobile_event.userId ,loyaltyTier=="GOLD") from $customer_profile.loyaltyProgram		
+then
+	//System.out.println("***Got In Parking Mobile Event:eventId="+$mobile_event.eventId+",eventType="+$mobile_event.eventType+",eventName="+$mobile_event.eventName);	
+	System.out.println("---This is a GOLD tier member; issuing seat upgrade request!")		
+	
+	ApprovalFSM _approval = new ApprovalFSM();
+	_approval.userId=$mobile_event.getUserId();
+	_approval.offer=getMessage("Sports","seat.upgrade.offer");
+	_approval.userFirstName=$customer_profile.firstName;
+	_approval.userLastName=$customer_profile.lastName;
+	_approval.approved=0;
+	_approval.reqId="seat_upgrade_"+$mobile_event.userId+"_"+$score_card.reqCntr;
+	 $score_card.reqCntr=$score_card.reqCntr+1;
+	_approval.offerType="SEAT_UPGRADE_OFFER";
+	_approval.applicationSource=$mobile_event.applicationSource;
+	_approval.STATE="OFFER_REQUEST_SUBMITTED";
+	insert(_approval);	
+	//retract( $mobile_event);
+end
+
+//----------------------------
+
+rule "MobileEventHandler_TicketCheck"
+salience 500
+when
+	 $mobile_event : SportsVenueMobileEvent(eventName=="GAME_ON_TICKET_CHECK") from entry-point MobileEventChannel	
+	 $customer_profile : CustomerProfileCBO( userId == $mobile_event.userId)	
+	 not (exists (ApprovalFSM(reqId==$mobile_event.requestId))) 	
+then
+	System.out.println("***Got Ticket Check Mobile Event:eventId="+$mobile_event.eventId+",eventType="+$mobile_event.eventType+",eventName="+$mobile_event.eventName);
+	//check to see if seat offer is available
+	Notification _notification = new Notification();	
+	_notification.setNotificationId("124");	
+	_notification.setNotificationType("IN_ARENA");
+	_notification.setNotificationName("GAME_ON_TICKET_CHECK");
+	_notification.setApplicationSource($mobile_event.applicationSource);	
+	_notification.setNotificationMessage("Hello "+ $customer_profile.firstName+" "+$customer_profile.lastName+"! Please proceed to your seat:"+ $mobile_event.seatNumber);
+	_notification.setSource("MLSE");
+	_notification.setRequestId($mobile_event.requestId);
+	_notification.setUserId($mobile_event.userId);	
+	sendTicketCheckReply($customer_profile.firstName+" "+$customer_profile.lastName,$mobile_event.seatNumber);	
+	insert(_notification);	
+	retract($mobile_event);
+end
+
+rule "MobileEventHandler_TicketCheck_SeatUpgrade_Approved"
+salience 500
+when
+	 $mobile_event : SportsVenueMobileEvent(eventName=="GAME_ON_TICKET_CHECK") from entry-point MobileEventChannel	
+	 $customer_profile : CustomerProfileCBO( userId == $mobile_event.userId)	 
+	 $approval_fsm: ApprovalFSM(reqId==$mobile_event.requestId,approved==true)	 
+then
+	System.out.println("***Got Ticket Check Mobile Event - Approved :eventId="+$mobile_event.eventId+",eventType="+$mobile_event.eventType+",eventName="+$mobile_event.eventName);
+	//check to see if seat offer is available
+	Notification _notification = new Notification();	
+	_notification.setNotificationId("124");	
+	_notification.setNotificationType("IN_ARENA");
+	_notification.setNotificationName("GAME_ON_TICKET_CHECK");
+	_notification.setApplicationSource($mobile_event.applicationSource);	
+	_notification.setNotificationMessage("Hello "+ $customer_profile.firstName+" "+$customer_profile.lastName+" ! Thank you for presenting your ticket. We have the following offer for you: "+getMessage("Sports","event.ticket.check.seat.upgrade.offer"));
+	_notification.setSource("MLSE");
+	_notification.setRequestId($mobile_event.requestId);
+	_notification.setUserId($mobile_event.userId);	
+	 String msg = getMessage("Sports","event.ticket.check.seat.upgrade.offer");
+	 String seat = msg.substring(msg.indexOf(":"),msg.length());
+	sendTicketCheckReply($customer_profile.firstName+" "+$customer_profile.lastName,seat);	
+	$approval_fsm.STATE="OFFER_VERIFIED";
+	update($approval_fsm);	
+	insert(_notification);	
+	retract($mobile_event);
+end
+rule "MobileEventHandler_TicketCheck_SeatUpgrade_Rejected"
+salience 500
+when
+	 $mobile_event : SportsVenueMobileEvent(eventName=="GAME_ON_TICKET_CHECK") from entry-point MobileEventChannel	
+	 $customer_profile : CustomerProfileCBO( userId == $mobile_event.userId)	 
+	 $approval_fsm: ApprovalFSM(reqId==$mobile_event.requestId,approved==false)	 
+then
+	System.out.println("***Got Ticket Check Mobile Event - Rejected :eventId="+$mobile_event.eventId+",eventType="+$mobile_event.eventType+",eventName="+$mobile_event.eventName);
+	//check to see if seat offer is available
+	Notification _notification = new Notification();	
+	_notification.setNotificationId("124");	
+	_notification.setNotificationType("IN_ARENA");
+	_notification.setNotificationName("GAME_ON_TICKET_CHECK");
+	_notification.setApplicationSource($mobile_event.applicationSource);	
+	_notification.setNotificationMessage("Hello "+ $customer_profile.firstName+" "+$customer_profile.lastName+"! Please proceed to your seat:"+ $mobile_event.seatNumber);
+	_notification.setSource("MLSE");
+	_notification.setRequestId($mobile_event.requestId);
+	_notification.setUserId($mobile_event.userId);	
+	sendTicketCheckReply($customer_profile.firstName+" "+$customer_profile.lastName,$mobile_event.seatNumber);	
+	$approval_fsm.STATE="OFFER_VERIFIED";
+	update($approval_fsm);	
+	insert(_notification);	
+	retract($mobile_event);
+end
+//-----------------------------------
+rule "MobileEventHandler_InSeat"
+salience 500
+when
+	 $mobile_event : SportsVenueMobileEvent(eventName=="GAME_ON_IN_SEAT") from entry-point MobileEventChannel		
+	 $customer_profile : CustomerProfileCBO( userId == $mobile_event.userId)	  
+then
+	System.out.println("Got In Seat Mobile Event:eventId="+$mobile_event.eventId+",eventType="+$mobile_event.eventType+",eventName="+$mobile_event.eventName);
+	 Notification _notification = new Notification();	
+	_notification.setNotificationId("123");	
+	_notification.setNotificationType($mobile_event.eventType);
+	_notification.setNotificationName($mobile_event.eventName);
+	_notification.setApplicationSource($mobile_event.applicationSource);	
+	_notification.setNotificationMessage("Hello "+ $customer_profile.firstName+" "+$customer_profile.lastName+", "+getMessage("Sports","event.in.seat.in.arena"));
+	_notification.setSource("MLSE");
+	_notification.setRequestId($mobile_event.requestId);
+	_notification.setUserId($mobile_event.userId);	
+	insert(_notification);
+	//retract($mobile_event);	
+end
+//---------------------------------------
+rule "MobileEventHandler_GameStarting"
+salience 500
+when
+	 $mobile_event : SportsVenueMobileEvent(eventName=="GAME_ON_START") from entry-point MobileEventChannel		
+	  $customer_profile : CustomerProfileCBO( userId == $mobile_event.userId)	 
+then
+	System.out.println("Got Game Starting Mobile Event:eventId="+$mobile_event.eventId+",eventType="+$mobile_event.eventType+",eventName="+$mobile_event.eventName);
+	 Notification _notification = new Notification();	
+	_notification.setNotificationId("123");	
+	_notification.setNotificationType($mobile_event.eventType);
+	_notification.setNotificationName($mobile_event.eventName);
+	_notification.setApplicationSource($mobile_event.applicationSource);	
+	_notification.setNotificationMessage("Hello "+ $customer_profile.firstName+" "+$customer_profile.lastName+", "+getMessage("Sports","event.game.start.in.arena"));
+	_notification.setSource("MLSE");
+	_notification.setRequestId($mobile_event.requestId);
+	_notification.setUserId($mobile_event.userId);	
+	insert(_notification);
+	//retract($mobile_event);	
+
+end
+//--------------------------
+rule "MobileEventHandler_GameStoppage"
+salience 500
+when
+	$mobile_event : SportsVenueMobileEvent(eventName=="GAME_ON_STOPPAGE") from entry-point MobileEventChannel	
+	$customer_profile : CustomerProfileCBO( userId == $mobile_event.userId)	 
+then
+	System.out.println("Got Game Stoppage Mobile Event:eventId="+$mobile_event.eventId+",eventType="+$mobile_event.eventType+",eventName="+$mobile_event.eventName);
+ 	Notification _notification = new Notification();	
+	_notification.setNotificationId("123");	
+	_notification.setNotificationType($mobile_event.eventType);
+	_notification.setNotificationName($mobile_event.eventName);
+	_notification.setApplicationSource($mobile_event.applicationSource);	
+	_notification.setNotificationMessage("Hello "+ $customer_profile.firstName+" "+$customer_profile.lastName+", "+getMessage("Sports","event.stoppage.vote"));
+	_notification.setSource("MLSE");
+	_notification.setRequestId($mobile_event.requestId);
+	_notification.setUserId($mobile_event.userId);	
+	insert(_notification);
+	//retract($mobile_event);	
+end
+
+//----------------------------------
+rule "MobileEventHandler_SocialFeed_Tweet"
+salience 500
+when
+	 $mobile_event : SportsVenueMobileEvent(eventName=="GAME_ON_SOCIAL_FEED_TWEET") from entry-point MobileEventChannel		
+	 $customer_profile : CustomerProfileCBO( userId == $mobile_event.userId)	  
+	 $score_card: GameScoreCard()
+	 $loyalty: LoyaltyProgram(loyaltyUserId==$mobile_event.userId ,loyaltyTier=="GOLD") from $customer_profile.loyaltyProgram
+then
+	System.out.println("Got SocialFeed Mobile Event:eventId="+$mobile_event.eventId+",eventType="+$mobile_event.eventType+",eventName="+$mobile_event.eventName);
+
+	//1) determine if the tone of the message is negative i.e. use lingpipe....
+		String value = SentimentDetectionAction.getInstance().getSentiment($mobile_event.eventMessage);
+		System.out.println("Sentiment: "+value);
+	//2) if tone negative - parse the message and obtain some data about the things that are being commented on...OpenNLP - extract entities
+		java.util.List entityList = SentimentDetectionAction.getInstance().extractEntities($mobile_event.eventMessage);
+		if(value.equals("neg")){	
+		
+			String _msg ="Hello "+ $customer_profile.firstName+" "+$customer_profile.lastName+", we've noticed that you were dissatisfied with your: ";
+			for(String _noun :  entityList){
+				_msg=_msg+"<b>"+ _noun+"</b>"+" ";				
+				}
+			_msg=_msg+"; we sincerely appologise for your experience. Please accept our free complimentary offer of each item on your next visit !";	
+						    
+			ApprovalFSM _approval = new ApprovalFSM();
+			_approval.userId=$mobile_event.getUserId();
+			_approval.offer=_msg;
+			_approval.userFirstName=$customer_profile.firstName;
+			_approval.userLastName=$customer_profile.lastName;
+			_approval.approved=0;
+			_approval.reqId="social_feed_"+$mobile_event.userId+"_"+$score_card.reqCntr;
+			 $score_card.reqCntr=$score_card.reqCntr+1;
+			_approval.offerType="SOCIAL_FEED_OFFER";
+			_approval.applicationSource=$mobile_event.applicationSource;
+			_approval.STATE="OFFER_REQUEST_SUBMITTED";
+			insert(_approval);	
+			
+		}
+		if(value.equals("pos")){
+		
+			String _msgp ="Hello "+ $customer_profile.firstName+" "+$customer_profile.lastName+", we're glad that you are happy with the service ( ";
+			for(String _noun :  entityList){
+				_msgp=_msgp+ _noun+", ";				
+				}
+			_msgp=_msgp+"). We hope you enjoy the remainder of your of the game!";	
+			
+			Notification _notification = new Notification();	
+			_notification.setNotificationId("123");	
+			_notification.setNotificationType($mobile_event.eventType);
+			_notification.setNotificationName($mobile_event.eventName);
+			_notification.setApplicationSource($mobile_event.applicationSource);	
+			_notification.setNotificationMessage(_msgp);
+			_notification.setSource("MLSE");
+			_notification.setRequestId($mobile_event.requestId);
+			_notification.setUserId($mobile_event.userId);	
+			insert(_notification);
+				
+		}	
+
+end
+
+rule "SocialFeed_offer_Approved"
+salience 600
+when
+	$approval_event : OfferApprovalResponseEvent(approved==true,offerType=="SOCIAL_FEED_OFFER") from entry-point OfferApprovalEventChannel
+	$customer_profile : CustomerProfileCBO( userId == $approval_event.userId)	 
+	$approval_fsm : ApprovalFSM(reqId==$approval_event.reqId, STATE=="OFFER_REQUEST_SUBMITTED")	
+then
+	System.out.println("***Got Social Feed offer- Approved :reqId="+$approval_event.reqId+",offerType="+$approval_event.offerType);
+	//check to see if seat offer is available
+	Notification _notification = new Notification();	
+	_notification.setNotificationId("125");	
+	_notification.setNotificationType("IN_ARENA");
+	_notification.setNotificationName("GAME_ON_SOCIAL_FEED");
+	//_notification.setApplicationSource($mobile_event.applicationSource);	
+	_notification.setNotificationMessage($approval_event.offer);
+	_notification.setSource("MLSE");
+	_notification.setRequestId($approval_event.reqId);
+	_notification.setUserId($approval_event.userId);		
+	$approval_fsm.STATE="OFFER_VERIFIED";
+	update($approval_fsm);	
+	insert(_notification);	
+	retract($approval_event);
+end
+
+rule "SocialFeed_offer_Rejected"
+salience 600
+when
+	$approval_event : OfferApprovalResponseEvent(approved==false,offerType=="SOCIAL_FEED_OFFER") from entry-point OfferApprovalEventChannel
+	$customer_profile : CustomerProfileCBO( userId == $approval_event.userId)	 
+	$approval_fsm : ApprovalFSM(reqId==$approval_event.reqId, STATE=="OFFER_REQUEST_SUBMITTED")	
+then
+	System.out.println("Social Feed Offer "+ $approval_event.reqId+", has been rejected !");
+end
+
+//---------------------------------------
+rule "MobileEventHandler_GameFinish_Win"
+salience 500
+when
+	 $mobile_event : SportsVenueMobileEvent(eventName=="GAME_ON_FINISH",gameWin==true) from entry-point MobileEventChannel	
+	 $customer_profile : CustomerProfileCBO( userId == $mobile_event.userId)	 
+	 $team : SportTeam(teamName=="Toronto Raptors") from $customer_profile.preferencesList.sportsProfile.favouriteTeamList.sportTeam	 
+then
+	System.out.println("Got Game Finish  with Win Mobile Event:eventId="+$mobile_event.eventId+",eventType="+$mobile_event.eventType+",eventName="+$mobile_event.eventName);
+
+	Notification _notification = new Notification();	
+	_notification.setNotificationId("127");	
+	_notification.setNotificationType($mobile_event.eventType);
+	_notification.setNotificationName($mobile_event.eventName);
+	_notification.setApplicationSource($mobile_event.applicationSource);	
+	  String _msg = "Hello "+ $customer_profile.firstName+" "+$customer_profile.lastName + " ! The home team has won !" ;
+	 _msg=_msg + "We noticed that you also like the Raptors. To that effect, please accept the following offer : "+getMessage("Sports","cem.game.win.offer");
+	_notification.setNotificationMessage(_msg);
+	_notification.setSource("MLSE");
+	_notification.setRequestId($mobile_event.requestId);
+	_notification.setUserId($mobile_event.userId);	
+	insert(_notification);
+
+end
+
+rule "MobileEventHandler_GameFinish_Loss_match_friends"
+salience 500
+when
+	 $mobile_event : SportsVenueMobileEvent(eventName=="GAME_ON_FINISH",gameWin==false) from entry-point MobileEventChannel	
+	 $customer_profile : CustomerProfileCBO( userId == $mobile_event.userId)	 
+	 $customerList : CustomerProfileCBO()
+	 //$socFriendList: $customer_profile.preferencesList.socialMediaProfile.socialMediaFriendList.socialMediaFriend
+	
+then
+	System.out.println("Got Game Finish with Loss Mobile Event - matched friend :eventId="+$mobile_event.eventId+",eventType="+$mobile_event.eventType+",eventName="+$mobile_event.eventName);
+	
+	java.util.ArrayList _friendList = new java.util.ArrayList();
+	java.util.List _custList = getCustomerList();
+	
+	for(SocialMediaFriend _friend : $customer_profile.preferencesList.socialMediaProfile.socialMediaFriendList.socialMediaFriend){
+		for (CustomerProfileCBO _cust : _custList){
+		
+			if(_friend.friendName==_cust.faceBookId || _friend.friendName==_cust.twitterId || _friend.friendName==_cust.linkedInId ){
+				_friendList.add(_friend.friendName);
+		}
+	  }
+	}
+	
+	String _msg = "Hello "+ $customer_profile.firstName+" "+$customer_profile.lastName + " ! Sadly, the home team has lost !" ;
+	
+	if(_friendList.size() == 0){
+		 _msg = _msg+" Please accept the following offer : "+getMessage("Sports","cem.game.loss.offer");	
+	}else{
+	 _msg=_msg +  "We noticed that some of your friends were in the audience(";
+	  for(String  _f : _friendList){	 
+	 	_msg = _msg+_f+" ";
+	 }
+	  _msg = _msg+"). To that effect, please accept the following offer : "+getMessage("Sports","cem.game.loss.offer.friends");
+	 
+	}	
+	 
+	 Notification _notification = new Notification();	
+	_notification.setNotificationId("127");	
+	_notification.setNotificationType($mobile_event.eventType);
+	_notification.setNotificationName($mobile_event.eventName);
+	_notification.setApplicationSource($mobile_event.applicationSource);	
+	_notification.setNotificationMessage(_msg);
+	_notification.setSource("MLSE");
+	_notification.setRequestId($mobile_event.requestId);
+	_notification.setUserId($mobile_event.userId);	
+	insert(_notification);
+	retract($mobile_event);
+end
+
+/*
+
+rule "MobileEventHandler_GameFinish_Loss_match_friends"
+salience 500
+when
+	 $mobile_event : SportsVenueMobileEvent(eventName=="GAME_ON_FINISH",gameWin==false) from entry-point MobileEventChannel	
+	 $customer_profile : CustomerProfileCBO( userId == $mobile_event.userId)	 
+	 $customerList : CustomerProfileCBO()
+	 $soc_friend : SocialMediaFriend(socialAppName=="Facebook",friendName == $customerList.faceBookId) from $customer_profile.preferencesList.socialMediaProfile.socialMediaFriendList.socialMediaFriend 
+	// $soc_friend : SocialMediaFriend(friendName == $customerList.faceBookId) from $customer_profile.preferencesList.socialMediaProfile.socialMediaFriendList.socialMediaFriend 
+	
+	// $soc_friend : from accumulate( (SocialMediaFriend(socialAppName=="Facebook",friendName == $customerList.faceBookId) from $customer_profile.preferencesList.socialMediaProfile.socialMediaFriendList.socialMediaFriend),count()) 
+	
+then
+	System.out.println("Got Game Finish with Loss Mobile Event - matched friend :eventId="+$mobile_event.eventId+",eventType="+$mobile_event.eventType+",eventName="+$mobile_event.eventName);
+	
+	 Notification _notification = new Notification();	
+	_notification.setNotificationId("127");	
+	_notification.setNotificationType($mobile_event.eventType);
+	_notification.setNotificationName($mobile_event.eventName);
+	_notification.setApplicationSource($mobile_event.applicationSource);	
+	  String _msg = "Hello "+ $customer_profile.firstName+" "+$customer_profile.lastName + " ! Sadly, the home team has lost !" ;
+	 _msg=_msg +  "We noticed that some of your friends were in the audience(";
+	 
+	// for(SocialMediaFriend  _friend : $soc_friend){	 
+	 //	_msg = _msg+_friend.friendName+" ";
+	 //}
+	 _msg=_msg+ $soc_friend.friendName;
+	 _msg = _msg+"). To that effect, please accept the following offer : "+getMessage("Sports","cem.game.loss.offer.friends");
+	_notification.setNotificationMessage(_msg);
+	_notification.setSource("MLSE");
+	_notification.setRequestId($mobile_event.requestId);
+	_notification.setUserId($mobile_event.userId);	
+	insert(_notification);
+	//retract($mobile_event);
+end
+rule "MobileEventHandler_GameFinish_Loss"
+salience 300
+when
+	 $mobile_event : SportsVenueMobileEvent(eventName=="GAME_ON_FINISH",gameWin==false) from entry-point MobileEventChannel	
+	 $customer_profile : CustomerProfileCBO( userId == $mobile_event.userId)	 
+then
+	System.out.println("Got Game Finish with Loss Mobile Event - matched friend :eventId="+$mobile_event.eventId+",eventType="+$mobile_event.eventType+",eventName="+$mobile_event.eventName);
+	
+	Notification _notification = new Notification();	
+	_notification.setNotificationId("127");	
+	_notification.setNotificationType($mobile_event.eventType);
+	_notification.setNotificationName($mobile_event.eventName);
+	_notification.setApplicationSource($mobile_event.applicationSource);	
+	  String _msg = "Hello "+ $customer_profile.firstName+" "+$customer_profile.lastName + " ! Sadly, the home team has lost !" ;
+	 _msg = _msg+" Please accept the following offer : "+getMessage("Sports","cem.game.loss.offer");
+	_notification.setNotificationMessage(_msg);
+	_notification.setSource("MLSE");
+	_notification.setRequestId($mobile_event.requestId);
+	_notification.setUserId($mobile_event.userId);	
+	insert(_notification);
+	retract($mobile_event);
+end
+*/
+//----------------
+rule "MobileEventHandler_GameOff_InParking"
+salience 500
+when
+	 $mobile_event : SportsVenueMobileEvent(eventName=="GAME_OFF_PARKING") from entry-point MobileEventChannel	
+	 $customer_profile : CustomerProfileCBO( userId == $mobile_event.userId)	 	 	
+then
+	System.out.println("Got Game Finish In Parking Mobile Event:eventId="+$mobile_event.eventId+",eventType="+$mobile_event.eventType+",eventName="+$mobile_event.eventName);
+	
+	 Notification _notification = new Notification();	
+	_notification.setNotificationId("133");	
+	_notification.setNotificationType($mobile_event.eventType);
+	_notification.setNotificationName($mobile_event.eventName);
+	_notification.setApplicationSource($mobile_event.applicationSource);	
+	 String _msg = "Hello "+ $customer_profile.firstName+" "+$customer_profile.lastName+" thank you for attending the event ! All off-site services are available to you !";
+	_msg=_msg+" Also, don't forget to check our Corporate Sponsors' offers in our Exclussives area of the Mobile App !";
+	_notification.setNotificationMessage(_msg);
+	_notification.setSource("MLSE");
+	_notification.setRequestId($mobile_event.requestId);
+	_notification.setUserId($mobile_event.userId);	
+	insert(_notification);
+	retract($mobile_event);
+
+end
+
+//----------------------------
+rule "MobileEventHandler_GameOn_OutOfArena"
+salience 500
+when
+	 $mobile_event : SportsVenueMobileEvent(eventName=="GAME_ON_OUT_OF_ARENA") from entry-point MobileEventChannel		 
+then
+	System.out.println("Got Game On - Out Of arena Mobile Event:eventId="+$mobile_event.eventId+",eventType="+$mobile_event.eventType+",eventName="+$mobile_event.eventName);
+end
+//-----
+rule "MobileEventHandler_GameOff_OutOfArena"
+salience 500
+when
+	 $mobile_event : SportsVenueMobileEvent(eventName=="GAME_OFF_OUT_OF_ARENA") from entry-point MobileEventChannel		 
+then
+	System.out.println("Got Game OFF - Out Of arena Mobile Event:eventId="+$mobile_event.eventId+",eventType="+$mobile_event.eventType+",eventName="+$mobile_event.eventName);
+end
+//---------F & B  Rules ---------------------
+rule "Initiate FBOffer"
+salience 700
+no-loop
+when
+	 $mobile_event : SportsVenueMobileEvent(eventName=="GAME_ON_FOOD_PURCHASE") from entry-point MobileEventChannel		 
+	 $customer_profile : CustomerProfileCBO( userId == $mobile_event.userId)	
+	 $loyalty: LoyaltyProgram(loyaltyUserId==$mobile_event.userId ,loyaltyTier=="GOLD") from $customer_profile.loyaltyProgram	
+	 $order_item : OrderItem() from  $mobile_event.gamePurchaseItemList
+	 not (exists FBOffer(orderId==$order_item.orderId))
+then
+	System.out.println("Initiaing FB Offer List for customer  "+$customer_profile.userId+", for order: "+$order_item.orderId);
+	 FBOffer _offer = new FBOffer();
+	 _offer.setUserId($customer_profile.userId);
+	_offer.setOrderItemListLen($mobile_event.gamePurchaseItemList.size());
+	_offer.setOrderId($order_item.orderId);
+	_offer.setItemCntr(1);	
+	_offer.setOfferList(new java.util.ArrayList());	
+	insert(_offer);
+end
+
+rule "Increment_offerlist"
+salience 300
+no-loop
+when
+	 $mobile_event : SportsVenueMobileEvent(eventName=="GAME_ON_FOOD_PURCHASE") from entry-point MobileEventChannel		 
+	 $customer_profile : CustomerProfileCBO( userId == $mobile_event.userId)	
+	 $loyalty: LoyaltyProgram(loyaltyUserId==$mobile_event.userId ,loyaltyTier=="GOLD") from $customer_profile.loyaltyProgram	
+	 $order_item : OrderItem() from  $mobile_event.gamePurchaseItemList
+	 $fb_offer:FBOffer(orderId==$order_item.orderId)
+then
+	System.out.println("===> OrderList Len:"+$fb_offer.orderItemListLen+", cntr="+$fb_offer.itemCntr);
+	
+	$fb_offer.itemCntr=$fb_offer.itemCntr+1;
+	
+		if( $fb_offer.itemCntr > $fb_offer.orderItemListLen){
+			System.out.println("Processed order :"+$fb_offer.orderId+" with "+ $fb_offer.offerList.size()+" offers !");
+			processFBOffer($fb_offer);
+			
+			 Notification _notification = new Notification();	
+			_notification.setNotificationId("333");	
+			_notification.setNotificationType($mobile_event.eventType);
+			_notification.setNotificationName($mobile_event.eventName);
+			_notification.setApplicationSource($mobile_event.applicationSource);				
+			
+			 String _msg = "Hello "+ $customer_profile.firstName+" "+$customer_profile.lastName+", here are a few special offers related to your recent F & B purchase: \n";
+			
+			for(String _offer : $fb_offer.offerList){
+				_msg=_msg+ "# " +_offer+" \n";
+			}
+			
+			_notification.setNotificationMessage(_msg);
+			_notification.setSource("MLSE");
+			_notification.setRequestId($mobile_event.requestId);
+			_notification.setUserId($mobile_event.userId);	
+			insert(_notification);			
+			retract($fb_offer);
+			retract($mobile_event);
+		}
+	
+	//retract($mobile_event);		
+	//update($fb_offer);	
+			
+end
+
+rule "MobileEventHandler_Food_Offer_detected"
+salience 500
+//no-loop
+when
+	 $mobile_event : SportsVenueMobileEvent(eventName=="GAME_ON_FOOD_PURCHASE") from entry-point MobileEventChannel		 
+	 $customer_profile : CustomerProfileCBO( userId == $mobile_event.userId)	
+	 $loyalty: LoyaltyProgram(loyaltyUserId==$mobile_event.userId ,loyaltyTier=="GOLD") from $customer_profile.loyaltyProgram	
+	 $order_item : OrderItem() from  $mobile_event.gamePurchaseItemList
+	 $food: Food($order_item.itemName.contains(dishName)) from $customer_profile.preferencesList.foodProfile.favouriteFoodList.food
+	 $fb_offer: FBOffer(orderId==$order_item.orderId)
+then
+	System.out.println("Got Food Purchase Mobile Event:eventId="+$mobile_event.eventId+",eventType="+$mobile_event.eventType+",eventName="+$mobile_event.eventName + "food name="+$order_item.itemName);
+	String _foffer = getMessage("Sports","cem.fb.offers."+$food.dishName);	
+	
+	$fb_offer.offerList.add(_foffer);
+	//retract($mobile_event);	
+	//update($fb_offer);	
+	
+end
+
+
+rule "MobileEventHandler_Drink"
+salience 500
+//no-loop
+when
+	 $mobile_event : SportsVenueMobileEvent(eventName=="GAME_ON_FOOD_PURCHASE") from entry-point MobileEventChannel		
+	 $customer_profile : CustomerProfileCBO( userId == $mobile_event.userId)	  
+	 $loyalty: LoyaltyProgram(loyaltyUserId==$mobile_event.userId ,loyaltyTier=="GOLD") from $customer_profile.loyaltyProgram	 
+	 $order_item : OrderItem() from  $mobile_event.gamePurchaseItemList
+	 $drink: Drink($order_item.itemName.contains(drinkName)) from $customer_profile.preferencesList.drinkProfile.favouriteDrinkList.drink
+	 $fb_offer: FBOffer(orderId==$order_item.orderId)
+then
+	System.out.println("Got Drink Purchase Mobile Event:eventId="+$mobile_event.eventId+",eventType="+$mobile_event.eventType+",eventName="+$mobile_event.eventName+",drinkName="+$order_item.itemName);
+	String _doffer = getMessage("Sports","cem.fb.offers."+$drink.drinkName);
+	
+	$fb_offer.offerList.add(_doffer);
+	//retract($mobile_event);	
+	//update($fb_offer);		
+	
+end
+
+//----- NOtification handling---------------------
+rule "Notification Handler"
+when $notification : Notification()
+then
+	sendNotification($notification);
+	retract($notification);
+end
+
+
+
+
+
+
+
+ 

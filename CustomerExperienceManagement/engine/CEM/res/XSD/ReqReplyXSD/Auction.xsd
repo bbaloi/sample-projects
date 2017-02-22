@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="userId_auction" type="xs:string"/>
+	<xs:element name="current_bid" type="xs:double"/>
+	<xs:element name="winner" type="xs:string"/>
+	<xs:element name="AuctionBidSubmit">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="userId_auction" minOccurs="0"/>
+				<xs:element ref="current_bid" minOccurs="0"/>
+				<xs:element ref="applicationSrc_auction" minOccurs="0"/>
+				<xs:element ref="auctionObjectId" minOccurs="0"/>
+				<xs:element ref="running_total" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AuctionBidReply">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="userId_auction" minOccurs="0"/>
+				<xs:element ref="running_total" minOccurs="0"/>
+				<xs:element ref="auctionObjectId" minOccurs="0"/>
+				<xs:element ref="winner" minOccurs="0"/>
+				<xs:element ref="status" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="running_total" type="xs:double"/>
+	<xs:element name="applicationSrc_auction" type="xs:string"/>
+	<xs:element name="auctionObjectId" type="xs:string"/>
+	<xs:element name="status" type="xs:string"/>
+</xs:schema>

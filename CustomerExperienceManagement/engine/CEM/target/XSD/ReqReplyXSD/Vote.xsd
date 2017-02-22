@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="userId_vote" type="xs:string"/>
+	<xs:element name="game_id_vote" type="xs:string"/>
+	<xs:element name="vote" type="xs:string"/>
+	<xs:element name="VoteRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="userId_vote" minOccurs="0"/>
+				<xs:element ref="game_id_vote" minOccurs="0"/>
+				<xs:element ref="vote" minOccurs="0"/>
+				<xs:element ref="applicationSrc_vote" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="VoteReply">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="vote_response_str" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="vote_response_str" type="xs:string"/>
+	<xs:element name="applicationSrc_vote" type="xs:string"/>
+</xs:schema>

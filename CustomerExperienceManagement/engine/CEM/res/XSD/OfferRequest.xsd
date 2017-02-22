@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="OfferRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="userId_OfferReq" minOccurs="0"/>
+				<xs:element ref="reqId_offer" minOccurs="0"/>
+				<xs:element ref="userName" minOccurs="0"/>
+				<xs:element ref="offer" minOccurs="0"/>
+				<xs:element ref="offerType" minOccurs="0"/>
+				<xs:element ref="applicationSrc_offer" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="OfferResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="userId_OfferReq" minOccurs="0"/>
+				<xs:element ref="reqId_offer" minOccurs="0"/>
+				<xs:element ref="offerType" minOccurs="0"/>
+				<xs:element ref="userName" minOccurs="0"/>
+				<xs:element ref="offer" minOccurs="0"/>
+				<xs:element ref="approve" minOccurs="0"/>
+				<xs:element ref="applicationSrc_offer" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="userId_OfferReq" type="xs:string"/>
+	<xs:element name="offer" type="xs:string"/>
+	<xs:element name="userName" type="xs:string"/>
+	<xs:element name="approve" type="xs:boolean"/>
+	<xs:element name="offerType" type="xs:string"/>
+	<xs:element name="reqId_offer" type="xs:string"/>
+	<xs:element name="applicationSrc_offer" type="xs:string"/>
+</xs:schema>

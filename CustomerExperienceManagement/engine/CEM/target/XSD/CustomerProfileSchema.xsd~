@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.tibco.com/schemas/CEM/SharedResources/XSD/CustProfileSchema.xsd"
+	 xmlns:ns0="http://www.tibco.com/schemas/CEM/SharedResources/XSD/SportsSchema.xsd"
+	 xmlns:ns1="http://www.tibco.com/schemas/CEM/SharedResources/XSD/FoodSchema.xsd"
+	 xmlns:ns2="http://www.tibco.com/schemas/CEM/SharedResources/XSD/DrinkSchema.xsd"
+	 xmlns:ns3="http://www.tibco.com/schemas/CEM/SharedResources/XSD/MusicSchema.xsd"
+	 xmlns:ns4="http://www.tibco.com/schemas/CEM/SharedResources/XSD/ShoppingSchema.xsd"
+	 xmlns:ns5="http://www.tibco.com/schemas/CEM/SharedResources/XSD/HealthSchema.xsd"
+	 xmlns:ns6="http://www.tibco.com/schemas/CEM/SharedResources/XSD/SocialSchema.xsd"
+	 xmlns:ns7="http://www.tibco.com/schemas/CEM/SharedResources/XSD/EntSchema.xsd"
+	 targetNamespace="http://www.tibco.com/schemas/CEM/SharedResources/XSD/CustProfileSchema.xsd"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.tibco.com/schemas/CEM/SharedResources/XSD/SportsSchema.xsd" schemaLocation="SportProfileSchema.xsd"/>
+	<xs:import namespace="http://www.tibco.com/schemas/CEM/SharedResources/XSD/FoodSchema.xsd" schemaLocation="FoodProfileSchema.xsd"/>
+	<xs:import namespace="http://www.tibco.com/schemas/CEM/SharedResources/XSD/DrinkSchema.xsd" schemaLocation="DrinkProfileSchema.xsd"/>
+	<xs:import namespace="http://www.tibco.com/schemas/CEM/SharedResources/XSD/MusicSchema.xsd" schemaLocation="MusicProfileSchema.xsd"/>
+	<xs:import namespace="http://www.tibco.com/schemas/CEM/SharedResources/XSD/ShoppingSchema.xsd" schemaLocation="ShoppingProfileSchema.xsd"/>
+	<xs:import namespace="http://www.tibco.com/schemas/CEM/SharedResources/XSD/HealthSchema.xsd" schemaLocation="HealthProfileSchema.xsd"/>
+	<xs:import namespace="http://www.tibco.com/schemas/CEM/SharedResources/XSD/SocialSchema.xsd" schemaLocation="SocialProfileSchema.xsd"/>
+	<xs:import namespace="http://www.tibco.com/schemas/CEM/SharedResources/XSD/EntSchema.xsd" schemaLocation="EntertainmentProfileSchema.xsd"/>
+	<xs:element name="userId" type="xs:string"/>
+	<xs:element name="firstName" type="xs:string"/>
+	<xs:element name="lastName" type="xs:string"/>
+	<xs:element name="address" type="xs:string"/>
+	<xs:element name="age" type="xs:string"/>
+	<xs:element name="paymentPrefference">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Payment" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="gender" type="xs:string"/>
+	<xs:element name="CustomerCBOList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="CustomerProfileCBO" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="dob" type="xs:string"/>
+	<xs:element name="Payment">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="cardNumber" minOccurs="0"/>
+				<xs:element ref="cardType" minOccurs="0"/>
+				<xs:element ref="issuingBank" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="cardType" type="xs:string"/>
+	<xs:element name="cardNumber" type="xs:string"/>
+	<xs:element name="issuingBank" type="xs:string"/>
+	<xs:element name="LoyaltyProgram">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="loyaltyUserId" minOccurs="0"/>
+				<xs:element ref="loyaltyProramName" minOccurs="0"/>
+				<xs:element ref="loyaltyTier" minOccurs="0"/>
+				<xs:element ref="totalAcumulatedPoints" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="loyaltyUserId" type="xs:string"/>
+	<xs:element name="loyaltyProramName" type="xs:string"/>
+	<xs:element name="totalAcumulatedPoints" type="xs:long"/>
+	<xs:element name="loyaltyTier" type="xs:string"/>
+	<xs:element name="profession" type="xs:string"/>
+	<xs:element name="languagesSpokenList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="laguageSpoken" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="laguageSpoken" type="xs:string"/>
+	<xs:element name="CustomerProfileCBO">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="userId" minOccurs="0"/>
+				<xs:element ref="firstName" minOccurs="0"/>
+				<xs:element ref="middleName" minOccurs="0"/>
+				<xs:element ref="lastName" minOccurs="0"/>
+				<xs:element ref="age" minOccurs="0"/>
+				<xs:element ref="gender" minOccurs="0"/>
+				<xs:element ref="dob" minOccurs="0"/>
+				<xs:element ref="profession" minOccurs="0"/>
+				<xs:element ref="addressList" minOccurs="0"/>
+				<xs:element ref="paymentPrefference" minOccurs="0"/>
+				<xs:element ref="LoyaltyProgram" minOccurs="0"/>
+				<xs:element ref="languagesSpokenList" minOccurs="0"/>
+				<xs:element ref="preferencesList"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="middleName" type="xs:string"/>
+	<xs:element name="addressList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Address" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="adressId" type="xs:string"/>
+	<xs:element name="Address">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="adressId" minOccurs="0"/>
+				<xs:element ref="address" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="preferencesList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ns0:SportsProfile" minOccurs="0"/>
+				<xs:element ref="ns1:FoodProfile" minOccurs="0"/>
+				<xs:element ref="ns2:DrinkProfile" minOccurs="0"/>
+				<xs:element ref="ns3:MusicProfile" minOccurs="0"/>
+				<xs:element ref="ns4:ShoppingProfile" minOccurs="0"/>
+				<xs:element ref="ns5:HealthProfile" minOccurs="0"/>
+				<xs:element ref="ns6:SocialProfile" minOccurs="0"/>
+				<xs:element ref="ns7:EntertainmentProfile" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

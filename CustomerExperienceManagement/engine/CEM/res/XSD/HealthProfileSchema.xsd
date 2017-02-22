@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.tibco.com/schemas/CEM/SharedResources/XSD/HealthSchema.xsd"
+	 targetNamespace="http://www.tibco.com/schemas/CEM/SharedResources/XSD/HealthSchema.xsd"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="HealthProfile">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="allerygyList" minOccurs="0"/>
+				<xs:element ref="illnessList" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="illnessList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Illness" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Illness">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="illnessName" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="illnessName" type="xs:string"/>
+	<xs:element name="allerygyList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="allergy" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="allergy" type="xs:string"/>
+</xs:schema>

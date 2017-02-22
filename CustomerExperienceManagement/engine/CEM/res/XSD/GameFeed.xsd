@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.tibco.com/schemas/MLSE_BW_Engage_Infrastructure/ShareResources/XSD/Schema.xsd"
+	 targetNamespace="http://www.tibco.com/schemas/MLSE_BW_Engage_Infrastructure/ShareResources/XSD/Schema.xsd"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="GameFeed">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="game_name" minOccurs="0"/>
+				<xs:element ref="play" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="game_name" type="xs:string"/>
+	<xs:element name="play">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="time" minOccurs="0"/>
+				<xs:element ref="period" minOccurs="0"/>
+				<xs:element ref="team" minOccurs="0"/>
+				<xs:element ref="detail" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="time" type="xs:string"/>
+	<xs:element name="detail" type="xs:string"/>
+	<xs:element name="period" type="xs:string"/>
+	<xs:element name="team" type="xs:string"/>
+</xs:schema>
