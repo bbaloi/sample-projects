@@ -1,0 +1,110 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<ActivityEventListFull xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation = "../XSD/ActivityEventSchema.xsd">
+<ActivityEventList>
+	<ActivityEvent>
+		<EventID>3333</EventID>
+		<UserID>12345</UserID>
+		<ActivityType>Browse</ActivityType>
+		<BrowsedURL>http;//acmesports/productcatalog/item=jersey456</BrowsedURL>
+		<BrowsedItemName>HockeyJersey</BrowsedItemName>
+		<BrowsedItemCategory>Equipment</BrowsedItemCategory>
+		<BrowsedItemID>jersey456</BrowsedItemID>
+		<BrowsedItemPrice>99.99</BrowsedItemPrice>
+		<BrowsedItemSize>S</BrowsedItemSize>
+		<BrowsedItemGender>M</BrowsedItemGender>
+	</ActivityEvent>	
+	<ActivityEvent>
+		<EventID>3334</EventID>
+		<UserID>12345</UserID>
+		<ActivityType>Browse</ActivityType>
+		<BrowsedURL>http;//acmesports/productcatalog/item=skates456</BrowsedURL>
+		<BrowsedItemName>Skates</BrowsedItemName>
+		<BrowsedItemCategory>Equipment</BrowsedItemCategory>
+		<BrowsedItemID>skates123</BrowsedItemID>
+		<BrowsedItemPrice>235.99</BrowsedItemPrice>
+		<BrowsedItemSize>S</BrowsedItemSize>
+	</ActivityEvent>	
+	<ActivityEvent>
+		<EventID>3335</EventID>
+		<UserID>12345</UserID>
+		<ActivityType>Browse</ActivityType>
+		<BrowsedURL>http;//acmesports/productcatalog/item=gc456</BrowsedURL>
+		<BrowsedItemName>GiftCertificate_HockeyEquipmentGiftCertificate</BrowsedItemName>
+		<BrowsedItemCategory>GiftCertificate</BrowsedItemCategory>
+		<BrowsedItemID>gc123</BrowsedItemID>
+		<BrowsedItemPrice>500.00</BrowsedItemPrice>
+		<ExpiryDate>2015-10-22</ExpiryDate>
+	</ActivityEvent>		
+	<ActivityEvent>
+		<EventID>3337</EventID>
+		<UserID>12345</UserID>
+		<ActivityType>ViewVideo</ActivityType>		 
+		<BrowsedURL>http;//acmesports/playervideo/item=player459</BrowsedURL>			
+		<BrowsedItemName>PhillKessel_interview_101014</BrowsedItemName>
+		<BrowsedItemCategory>VideoContent</BrowsedItemCategory>
+		<BrowsedItemID>Video123</BrowsedItemID>		
+	</ActivityEvent>	
+	<ActivityEvent>
+		<EventID>3338</EventID>
+		<UserID>12345</UserID>
+		<ActivityType>PublishContent</ActivityType>
+		<PublishedContentURL>http://twitter/acme_sports_hockey_games_questions</PublishedContentURL>
+		<PublishedContentTopic>tweet:Hockey Game Dates</PublishedContentTopic>
+		<PublishedContentCategory>PublishedContent</PublishedContentCategory>
+		<PublishedContentData>When does Phil Kessel Play next ?</PublishedContentData>
+	</ActivityEvent>	
+</ActivityEventList>
+<ActivityEventList>
+<ActivityEvent>
+		<EventID>4441</EventID>
+		<UserID>12345</UserID>
+		<ActivityType>Browse</ActivityType>
+		<BrowsedURL>http;//acmesports/productcatalog/item=box_suites</BrowsedURL>
+		<BrowsedItemName>BoxSuite</BrowsedItemName>
+		<BrowsedItemCategory>Seating</BrowsedItemCategory>
+		<BrowsedItemID>suite_345</BrowsedItemID>
+		<BrowsedItemPrice>999.99</BrowsedItemPrice>		
+	</ActivityEvent>	
+	<ActivityEvent>
+		<EventID>4442</EventID>
+		<UserID>12345</UserID>
+		<ActivityType>Browse</ActivityType>
+		<BrowsedURL>http;//acmesports/productcatalog/item=catering999</BrowsedURL>
+		<BrowsedItemName>Catering_Option_3-PremirePackage</BrowsedItemName>
+		<BrowsedItemCategory>Catering</BrowsedItemCategory>
+		<BrowsedItemID>Catering_Option3_</BrowsedItemID>
+		<BrowsedItemPrice>678.99</BrowsedItemPrice>		
+	</ActivityEvent>	
+	<ActivityEvent>
+		<EventID>4443</EventID>
+		<UserID>12345</UserID>
+		<ActivityType>Browse</ActivityType>
+		<BrowsedURL>http;//acmesports/productcatalog/item=game_sch_dec</BrowsedURL>
+		<BrowsedItemName>GameSchedule-December</BrowsedItemName>
+		<BrowsedItemCategory>GameSchedule</BrowsedItemCategory>
+		<BrowsedItemID>GameSchedule_December_1</BrowsedItemID>		
+	</ActivityEvent>		
+	<ActivityEvent>
+		<EventID>4444</EventID>
+		<UserID>12345</UserID>
+		<ActivityType>Browse</ActivityType>		 
+		<BrowsedURL>http;//acmesports/playervideo/item=ticketing</BrowsedURL>			
+		<BrowsedItemName>GroupTicket_23</BrowsedItemName>
+		<BrowsedItemCategory>Ticketing</BrowsedItemCategory>
+		<BrowsedItemID>GroupTicketing_23</BrowsedItemID>		
+	</ActivityEvent>	
+	<ActivityEvent>
+		<EventID>4445</EventID>
+		<UserID>12345</UserID>
+		<ActivityType>Browse</ActivityType>		 
+		<BrowsedURL>http;//acmesports/playervideo/item=jersey456</BrowsedURL>			
+		<BrowsedItemName>HockeyJersey</BrowsedItemName>
+		<BrowsedItemCategory>Equipment</BrowsedItemCategory>
+		<BrowsedItemID>GroupTicketing_23</BrowsedItemID>	
+		<BrowsedItemID>jersey456</BrowsedItemID>
+		<BrowsedItemPrice>99.99</BrowsedItemPrice>
+		<BrowsedItemSize>L</BrowsedItemSize>		
+	</ActivityEvent>		
+</ActivityEventList>
+
+</ActivityEventListFull>

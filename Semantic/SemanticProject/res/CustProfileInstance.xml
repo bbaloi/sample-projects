@@ -1,0 +1,144 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<CustomerCBOList xmlns = "http://www.tibco.com/schemas/MLSE_BW_Engage_Infrastructure/ShareResources/XSD/Schema.xsd2" xmlns:ns0 = "http://www.tibco.com/schemas/MLSE_BW_Engage_Infrastructure/ShareResources/XSD/Schema.xsd3" xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation = "http://www.tibco.com/schemas/MLSE_BW_Engage_Infrastructure/ShareResources/XSD/Schema.xsd2 ../../XSD/CustProfileSchema.xsd">
+	<CustomerCBO>
+		<mlse_id>12345</mlse_id>
+		<first_name>Wayne</first_name>
+		<last_name>Gretzky</last_name>
+		<address>123  7th Ave Calgary</address>
+		<age>777</age>
+		<payment_pref>CC</payment_pref>
+		<payment_num>4578992</payment_num>
+		<social_subscription_fb>wayne.gretzky</social_subscription_fb>
+		<social_subscription_twitter>wayne.gretzky</social_subscription_twitter>
+		<loyalty_tier>GOLD</loyalty_tier>
+		<loyalty_id>777</loyalty_id>
+		<general_sentiment>positive</general_sentiment>
+		<num_games_attended>10</num_games_attended>
+		<dob>1976-08-23</dob>
+		<ns0:PreferenceCBO>
+			<ns0:pref_id>333</ns0:pref_id>
+			<ns0:food_pref_list>
+				<ns0:food_pref>Coney Island Hot Dog</ns0:food_pref>
+				<ns0:food_pref>steak</ns0:food_pref>
+			</ns0:food_pref_list>
+			<ns0:drink_pref_list>
+				<ns0:drink_pref>Corona</ns0:drink_pref>
+			</ns0:drink_pref_list>
+			<ns0:favourite_player_list>
+				<ns0:favourite_player>MapleLeafs:Phil Kessel</ns0:favourite_player>
+				<ns0:favourite_player>Raptors:DeMar DeRozan</ns0:favourite_player>
+			</ns0:favourite_player_list>
+			<ns0:favourite_rivalry_list>
+				<ns0:favourite_rivalry>Chicago Blackhawks</ns0:favourite_rivalry>
+			</ns0:favourite_rivalry_list>
+			<ns0:favourite_merchandise_list>
+				<ns0:favourite_merchandise>gloves</ns0:favourite_merchandise>
+			</ns0:favourite_merchandise_list>
+			<ns0:favourite_team_list>
+				<ns0:favourite_team>Raptors</ns0:favourite_team>
+			</ns0:favourite_team_list>
+			<ns0:social_friend_list>
+				<ns0:favourite_social_friend>Alice In Wonderland</ns0:favourite_social_friend>
+				<ns0:favourite_social_friend>The Cheshire Cat</ns0:favourite_social_friend>
+			</ns0:social_friend_list>
+			<ns0:favourite_music_list>
+				<ns0:favourite_music_band>ACDC</ns0:favourite_music_band>
+			</ns0:favourite_music_list>
+		</ns0:PreferenceCBO>
+	</CustomerCBO>
+	<CustomerCBO>
+		<mlse_id>12346</mlse_id>
+		<first_name>Mats</first_name>
+		<last_name>Sundin</last_name>
+		<address>333 King St. Toronto</address>
+		<age>444</age>
+		<payment_pref>APP</payment_pref>
+		<payment_num>4578992</payment_num>
+		<social_subscription_fb>tie.domie</social_subscription_fb>
+		<social_subscription_twitter>tie.domie</social_subscription_twitter>
+		<loyalty_tier>SILVER</loyalty_tier>
+		<loyalty_id>888</loyalty_id>
+		<general_sentiment>negative</general_sentiment>
+		<num_games_attended>5</num_games_attended>
+		<dob>1977-05-05</dob>
+		<ns0:PreferenceCBO>
+			<ns0:pref_id>222</ns0:pref_id>
+			<ns0:food_pref_list>
+				<ns0:food_pref>pizza</ns0:food_pref>
+				<ns0:food_pref>pretzel</ns0:food_pref>
+			</ns0:food_pref_list>
+			<ns0:drink_pref_list>
+				<ns0:drink_pref>beer</ns0:drink_pref>
+			</ns0:drink_pref_list>
+			<ns0:favourite_player_list>
+				<ns0:favourite_player>MapleLeafs:Phil Kessel</ns0:favourite_player>
+				<ns0:favourite_player>Raptors:DeMar DeRozan</ns0:favourite_player>
+			</ns0:favourite_player_list>
+			<ns0:favourite_rivalry_list>
+				<ns0:favourite_rivalry>Boston Bruins</ns0:favourite_rivalry>
+			</ns0:favourite_rivalry_list>
+			<ns0:favourite_merchandise_list>
+				<ns0:favourite_merchandise>jersey</ns0:favourite_merchandise>
+			</ns0:favourite_merchandise_list>
+			<ns0:favourite_team_list>
+				<ns0:favourite_team>TFC</ns0:favourite_team>
+				<ns0:favourite_team>Marlies</ns0:favourite_team>
+			</ns0:favourite_team_list>
+			<ns0:social_friend_list>
+				<ns0:favourite_social_friend>Bruno Baloi</ns0:favourite_social_friend>
+				<ns0:favourite_social_friend>Inderdeep Matharoo</ns0:favourite_social_friend>
+				<ns0:favourite_social_friend>Margy Tan-Thronson</ns0:favourite_social_friend>
+				<ns0:favourite_social_friend>Alex Telyakov</ns0:favourite_social_friend>
+			</ns0:social_friend_list>
+			<ns0:favourite_music_list>
+				<ns0:favourite_music_band>Drake</ns0:favourite_music_band>
+			</ns0:favourite_music_list>
+		</ns0:PreferenceCBO>
+	</CustomerCBO>
+	<CustomerCBO>
+		<mlse_id>12347</mlse_id>
+		<first_name>Guy</first_name>
+		<last_name>Lafleur</last_name>
+		<address>567 Rue Crescent, Montreal</address>
+		<age>1000</age>
+		<payment_pref>APP</payment_pref>
+		<payment_num>457899567</payment_num>
+		<social_subscription_fb>guy.lafleur</social_subscription_fb>
+		<social_subscription_twitter>guy.lafleur</social_subscription_twitter>
+		<loyalty_tier>BASIC</loyalty_tier>
+		<loyalty_id>888</loyalty_id>
+		<general_sentiment>neutral</general_sentiment>
+		<num_games_attended>2</num_games_attended>
+		<ns0:PreferenceCBO>
+			<ns0:pref_id>789</ns0:pref_id>
+			<ns0:food_pref_list>
+				<ns0:food_pref>Hot-Dog</ns0:food_pref>
+				<ns0:food_pref>pretzel</ns0:food_pref>
+			</ns0:food_pref_list>
+			<ns0:drink_pref_list>
+				<ns0:drink_pref>Sapporo</ns0:drink_pref>
+			</ns0:drink_pref_list>
+			<ns0:favourite_player_list>
+				<ns0:favourite_player>>MapleLeafs:Phil Kessel</ns0:favourite_player>
+				<ns0:favourite_player>>MapleLeafs:Joffrey Lupul</ns0:favourite_player>
+			</ns0:favourite_player_list>
+			<ns0:favourite_rivalry_list>
+				<ns0:favourite_rivalry>Chicago Blackhaws</ns0:favourite_rivalry>
+			</ns0:favourite_rivalry_list>
+			<ns0:favourite_merchandise_list>
+				<ns0:favourite_merchandise>jersey</ns0:favourite_merchandise>
+			</ns0:favourite_merchandise_list>
+			<ns0:favourite_team_list>
+				<ns0:favourite_team>TFC</ns0:favourite_team>
+				<ns0:favourite_team>Marlees</ns0:favourite_team>
+			</ns0:favourite_team_list>
+			<ns0:social_friend_list>
+				<ns0:favourite_social_friend>Spiderman</ns0:favourite_social_friend>
+				<ns0:favourite_social_friend>The Green Goblin</ns0:favourite_social_friend>
+			</ns0:social_friend_list>
+			<ns0:favourite_music_list>
+				<ns0:favourite_music_band>Gilbert Becault</ns0:favourite_music_band>
+			</ns0:favourite_music_list>
+		</ns0:PreferenceCBO>
+	</CustomerCBO>
+</CustomerCBOList>

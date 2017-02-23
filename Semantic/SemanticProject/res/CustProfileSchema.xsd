@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.tibco.com/schemas/MLSE_BW_Engage_Infrastructure/ShareResources/XSD/Schema.xsd2"
+	 xmlns:ns0="http://www.tibco.com/schemas/MLSE_BW_Engage_Infrastructure/ShareResources/XSD/Schema.xsd3"
+	 targetNamespace="http://www.tibco.com/schemas/MLSE_BW_Engage_Infrastructure/ShareResources/XSD/Schema.xsd2"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.tibco.com/schemas/MLSE_BW_Engage_Infrastructure/ShareResources/XSD/Schema.xsd3" schemaLocation="FanPrefferencesSchema.xsd"/>
+	<xs:element name="mlse_id" type="xs:string"/>
+	<xs:element name="first_name" type="xs:string"/>
+	<xs:element name="last_name" type="xs:string"/>
+	<xs:element name="address" type="xs:string"/>
+	<xs:element name="age" type="xs:string"/>
+	<xs:element name="payment_pref" type="xs:string"/>
+	<xs:element name="payment_num" type="xs:string"/>
+	<xs:element name="social_subscription_fb" type="xs:string"/>
+	<xs:element name="social_subscription_twitter" type="xs:string"/>
+	<xs:element name="loyalty_tier" type="xs:string"/>
+	<xs:element name="loyalty_id" type="xs:string"/>
+	<xs:element name="CustomerCBO">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="mlse_id" minOccurs="0"/>
+				<xs:element ref="first_name" minOccurs="0"/>
+				<xs:element ref="last_name" minOccurs="0"/>
+				<xs:element ref="address" minOccurs="0"/>
+				<xs:element ref="age" minOccurs="0"/>
+				<xs:element ref="sex" minOccurs="0"/>
+				<xs:element ref="payment_pref" minOccurs="0"/>
+				<xs:element ref="payment_num" minOccurs="0"/>
+				<xs:element ref="social_subscription_fb" minOccurs="0"/>
+				<xs:element ref="social_subscription_twitter" minOccurs="0"/>
+				<xs:element ref="loyalty_tier" minOccurs="0"/>
+				<xs:element ref="loyalty_id" minOccurs="0"/>
+				<xs:element ref="general_sentiment" minOccurs="0"/>
+				<xs:element ref="num_games_attended" minOccurs="0"/>
+				<xs:element ref="dob" minOccurs="0"/>
+				<xs:element ref="ns0:PreferenceCBO" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Req">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="mlse_id" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Reply">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="CustomerCBO" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="sex" type="xs:string"/>
+	<xs:element name="CustomerCBOList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="CustomerCBO" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="general_sentiment" type="xs:string"/>
+	<xs:element name="num_games_attended" type="xs:string"/>
+	<xs:element name="dob" type="xs:string"/>
+</xs:schema>

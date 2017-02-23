@@ -1,0 +1,329 @@
+<?xml version="1.0"?>
+<!DOCTYPE rdf:RDF [
+     <!ENTITY rdf  "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+     <!ENTITY owl  "http://www.w3.org/2002/07/owl#" >
+     <!ENTITY xsd  "http://www.w3.org/2001/XMLSchema#" >
+     <!ENTITY rdf  "http://www.w3.org/2000/01/rdf-schema#" >
+     <!ENTITY intent "http://engage/ontology/intent#" >
+   ]>
+
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:intent="http://engage/ontology/intent#">
+  <owl:Ontology rdf:about="">
+    <rdfs:label xml:lang="EN">IntentOntology</rdfs:label>
+    <rdfs:comment xml:lang="EN">IntentOntology</rdfs:comment>
+  </owl:Ontology>
+  <owl:Class rdf:ID="IntentAudioContent">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Intent"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="IntentCorporateEventPurchase"/>
+  <owl:Class rdf:ID="IntentAdultPurchase">
+    <rdfs:subClassOf rdf:resource="#Intent"/>
+  </owl:Class>
+  <owl:Class rdf:ID="PurchaseChldItemIntent">
+    <owl:intersectionOf rdf:parseType="Collection">
+      <owl:Class rdf:ID="BrowseActivity"/>
+      <owl:Restriction rdf:ID="ChildSizeRestriction">
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >L</owl:hasValue>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >S</owl:hasValue>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="InterestProductSize"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:intersectionOf>
+    <intent:HasIntent>
+      <owl:Class rdf:ID="IntentChildPurchase"/>
+    </intent:HasIntent>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="BaseIntersection"/>
+    </rdfs:subClassOf>
+    <owl:intersectionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="#BrowseActivity"/>
+      <owl:Restriction rdf:about="#ChildSizeRestriction"/>
+    </owl:intersectionOf>
+  </owl:Class>
+  <owl:Class rdf:ID="IntentBoxSuitePurchase">
+    <rdfs:subClassOf rdf:resource="#Intent"/>
+  </owl:Class>
+  <owl:Class rdf:about="#BrowseActivity">
+    <intent:InterestGameSchedule>
+      <owl:Class rdf:ID="IntentGameAttend"/>
+    </intent:InterestGameSchedule>
+    <intent:InterestTicketing>
+      <owl:Class rdf:ID="IntentTicketPurchase"/>
+    </intent:InterestTicketing>
+    <intent:InterestCatering>
+      <owl:Class rdf:ID="IntentCateringPurchase"/>
+    </intent:InterestCatering>
+    <intent:InterestBoxSuite rdf:resource="#IntentBoxSuitePurchase"/>
+    <intent:InterestProductGift>
+      <owl:Class rdf:ID="IntentGiftPurchase"/>
+    </intent:InterestProductGift>
+    <intent:InterestAdultProduct rdf:resource="#IntentAdultPurchase"/>
+    <intent:InterestChildProduct>
+      <owl:Class rdf:about="#IntentChildPurchase"/>
+    </intent:InterestChildProduct>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Activity"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#IntentTicketPurchase">
+    <rdfs:subClassOf rdf:resource="#Intent"/>
+  </owl:Class>
+  <owl:Class rdf:ID="PurchaseForAdultBdayIntent">
+    <owl:intersectionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="#IntentAdultPurchase"/>
+      <owl:Class rdf:about="#IntentGiftPurchase"/>
+    </owl:intersectionOf>
+    <intent:HasIntent>
+      <owl:Class rdf:ID="IntentAdultBirthdayPurchase"/>
+    </intent:HasIntent>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#BaseIntersection"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="CompositeIntent"/>
+    </rdfs:subClassOf>
+    <owl:intersectionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="#IntentAdultPurchase"/>
+      <owl:Class rdf:about="#IntentGiftPurchase"/>
+    </owl:intersectionOf>
+  </owl:Class>
+  <owl:Class rdf:ID="ListenActivity">
+    <intent:InterestAudioContent rdf:resource="#IntentAudioContent"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Activity"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="PurchaseForChildBdayIntent">
+    <owl:intersectionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="#IntentChildPurchase"/>
+      <owl:Class rdf:about="#IntentGiftPurchase"/>
+    </owl:intersectionOf>
+    <intent:HasIntent>
+      <owl:Class rdf:ID="IntentChildBirthdayPurchase"/>
+    </intent:HasIntent>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#BaseIntersection"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#CompositeIntent"/>
+    </rdfs:subClassOf>
+    <owl:intersectionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="#IntentChildPurchase"/>
+      <owl:Class rdf:about="#IntentGiftPurchase"/>
+    </owl:intersectionOf>
+  </owl:Class>
+  <owl:Class rdf:about="#IntentCateringPurchase">
+    <rdfs:subClassOf rdf:resource="#Intent"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ViewActivity">
+    <intent:InterestVideoContent>
+      <owl:Class rdf:ID="IntentVideoContent"/>
+    </intent:InterestVideoContent>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Activity"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#IntentChildBirthdayPurchase">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#IntentGiftPurchase"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#IntentAdultBirthdayPurchase">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#IntentGiftPurchase"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#IntentGameAttend">
+    <rdfs:subClassOf rdf:resource="#Intent"/>
+  </owl:Class>
+  <owl:Class rdf:ID="PurchaseAdultItemIntent">
+    <owl:intersectionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="#BrowseActivity"/>
+      <owl:Restriction rdf:about="#ChildSizeRestriction"/>
+    </owl:intersectionOf>
+    <intent:HasIntent rdf:resource="#IntentAdultPurchase"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#BaseIntersection"/>
+    </rdfs:subClassOf>
+    <owl:intersectionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="#BrowseActivity"/>
+      <owl:Restriction rdf:about="#ChildSizeRestriction"/>
+    </owl:intersectionOf>
+  </owl:Class>
+  <owl:Class rdf:ID="IntentPublishedContent"/>
+  <owl:Class rdf:ID="PurchaseVideoTopicIntent">
+    <owl:intersectionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="#ViewActivity"/>
+      <owl:Restriction rdf:ID="VideoRestriction">
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Video</owl:hasValue>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="InterestProductType"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:intersectionOf>
+    <intent:HasIntent>
+      <owl:Class rdf:about="#IntentVideoContent"/>
+    </intent:HasIntent>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#BaseIntersection"/>
+    </rdfs:subClassOf>
+    <owl:intersectionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="#ViewActivity"/>
+      <owl:Restriction rdf:about="#VideoRestriction"/>
+    </owl:intersectionOf>
+  </owl:Class>
+  <owl:Class rdf:ID="IntentPersonalPurchase">
+    <rdfs:subClassOf rdf:resource="#Intent"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Activity">
+    <intent:Interest rdf:resource="#Intent"/>
+  </owl:Class>
+  <owl:Class rdf:about="#IntentGiftPurchase">
+    <rdfs:subClassOf rdf:resource="#Intent"/>
+  </owl:Class>
+  <owl:Class rdf:about="#BaseIntersection">
+    <owl:intersectionOf rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </owl:Class>
+  <owl:Class rdf:about="#CompositeIntent">
+    <rdfs:subClassOf rdf:resource="#Intent"/>
+  </owl:Class>
+  <owl:Class rdf:about="#IntentVideoContent">
+    <rdfs:subClassOf rdf:resource="#Intent"/>
+  </owl:Class>
+  <owl:Class rdf:ID="PurchaseForCorporateEvent">
+    <owl:intersectionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="#IntentBoxSuitePurchase"/>
+      <owl:Class rdf:about="#IntentCateringPurchase"/>
+      <owl:Class rdf:about="#IntentTicketPurchase"/>
+      <owl:Class rdf:about="#IntentAdultPurchase"/>
+    </owl:intersectionOf>
+    <intent:HasIntent rdf:resource="#IntentCorporateEventPurchase"/>
+    <rdfs:subClassOf rdf:resource="#BaseIntersection"/>
+    <rdfs:subClassOf rdf:resource="#CompositeIntent"/>
+    <owl:intersectionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="#IntentBoxSuitePurchase"/>
+      <owl:Class rdf:about="#IntentCateringPurchase"/>
+      <owl:Class rdf:about="#IntentTicketPurchase"/>
+      <owl:Class rdf:about="#IntentAdultPurchase"/>
+    </owl:intersectionOf>
+  </owl:Class>
+  <owl:Class rdf:ID="PurchaseGiftItemIntent">
+    <owl:intersectionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="#BrowseActivity"/>
+      <owl:Restriction rdf:ID="GiftRestriction">
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >GiftCertificate</owl:hasValue>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#InterestProductType"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:intersectionOf>
+    <intent:HasIntent rdf:resource="#IntentGiftPurchase"/>
+    <rdfs:subClassOf rdf:resource="#BaseIntersection"/>
+    <owl:intersectionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="#BrowseActivity"/>
+      <owl:Restriction rdf:about="#GiftRestriction"/>
+    </owl:intersectionOf>
+  </owl:Class>
+  <owl:Class rdf:ID="PublishActivity">
+    <intent:InterestPublishedContent rdf:resource="#IntentPublishedContent"/>
+    <rdfs:subClassOf rdf:resource="#Activity"/>
+  </owl:Class>
+  <owl:Class rdf:about="#IntentChildPurchase">
+    <rdfs:subClassOf rdf:resource="#Intent"/>
+  </owl:Class>
+  <rdf:Property rdf:ID="InterestAdultProduct">
+    <rdfs:subPropertyOf>
+      <rdf:Property rdf:ID="Interest"/>
+    </rdfs:subPropertyOf>
+  </rdf:Property>
+  <rdf:Property rdf:ID="InterestCatering">
+    <rdfs:subPropertyOf rdf:resource="#Interest"/>
+  </rdf:Property>
+  <rdf:Property rdf:ID="InterestChildProduct">
+    <intent:InterestProductCost rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >99.99</intent:InterestProductCost>
+    <intent:InterestProductGender>M</intent:InterestProductGender>
+    <intent:InterestProductName>HockeyJersey</intent:InterestProductName>
+    <intent:InterestProductCost rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >235.99</intent:InterestProductCost>
+    <intent:InterestProductName>Skates</intent:InterestProductName>
+    <intent:InterestProductType>Equipment</intent:InterestProductType>
+    <intent:InterestProductSize>S</intent:InterestProductSize>
+    <rdfs:subPropertyOf rdf:resource="#Interest"/>
+  </rdf:Property>
+  <rdf:Property rdf:ID="InterestProductGift">
+    <intent:InterestProductExpiryDate rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >2015-10-22^^http://www.w3.org/2001/XMLSchema#date</intent:InterestProductExpiryDate>
+    <intent:InterestProductCost rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >500.0</intent:InterestProductCost>
+    <intent:InterestProductName>GiftCertificate_HockeyEquipmentGiftCertificate</intent:InterestProductName>
+    <intent:InterestProductType>GiftCertificate</intent:InterestProductType>
+    <rdfs:subPropertyOf rdf:resource="#Interest"/>
+  </rdf:Property>
+  <rdf:Property rdf:ID="InterestAudioContent">
+    <rdfs:subPropertyOf rdf:resource="#Interest"/>
+  </rdf:Property>
+  <rdf:Property rdf:ID="InterestGameSchedule">
+    <rdfs:subPropertyOf rdf:resource="#Interest"/>
+  </rdf:Property>
+  <rdf:Property rdf:ID="InterestPersonalProduct">
+    <rdfs:subPropertyOf rdf:resource="#Interest"/>
+  </rdf:Property>
+  <rdf:Property rdf:ID="HasIntent"/>
+  <rdf:Property rdf:ID="InterestBoxSuite">
+    <rdfs:subPropertyOf rdf:resource="#Interest"/>
+  </rdf:Property>
+  <rdf:Property rdf:ID="InterestPublishedContent">
+    <rdfs:subPropertyOf rdf:resource="#Interest"/>
+  </rdf:Property>
+  <rdf:Property rdf:ID="InterestVideoContent">
+    <intent:InterestProductName>PhillKessel_interview_101014</intent:InterestProductName>
+    <intent:InterestProductType>VideoContent</intent:InterestProductType>
+    <rdfs:subPropertyOf rdf:resource="#Interest"/>
+  </rdf:Property>
+  <rdf:Property rdf:ID="InterestTicketing">
+    <rdfs:subPropertyOf rdf:resource="#Interest"/>
+  </rdf:Property>
+  <owl:DatatypeProperty rdf:ID="InterestVideoTopic">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Interest"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="InterestProductName">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Interest"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#InterestProductType">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Interest"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="InterestProductCost">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:domain rdf:resource="#Interest"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="InterestProductGender">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Interest"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="InterestProductExpiryDate"/>
+  <owl:DatatypeProperty rdf:ID="InterestAudioTopic">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Interest"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="InterestProductExpiry">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:domain rdf:resource="#Interest"/>
+  </owl:DatatypeProperty>
+  <rdf:Bag rdf:ID="EventStatementBag"/>
+</rdf:RDF>

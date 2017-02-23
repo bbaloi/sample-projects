@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:place="http://engage/ontology/place#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+  <owl:Ontology rdf:about="">
+    <rdfs:label xml:lang="EN">PlaceOntology</rdfs:label>
+    <rdfs:comment xml:lang="EN">Place Ontology</rdfs:comment>
+  </owl:Ontology>
+  <owl:Class rdf:ID="Country">
+    <place:placeBelongsTo>
+      <owl:Class rdf:ID="Continent"/>
+    </place:placeBelongsTo>
+    <place:hasPlace>
+      <owl:Class rdf:ID="State"/>
+    </place:hasPlace>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Place"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Place">
+    <place:hasPlace rdf:resource="#Place"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Continent">
+    <place:placeBelongsTo>
+      <owl:Class rdf:ID="Planet"/>
+    </place:placeBelongsTo>
+    <place:hasPlace rdf:resource="#Country"/>
+    <rdfs:subClassOf rdf:resource="#Place"/>
+  </owl:Class>
+  <owl:Class rdf:ID="City">
+    <place:placeBelongsTo>
+      <owl:Class rdf:about="#State"/>
+    </place:placeBelongsTo>
+    <place:placeBelongsTo>
+      <owl:Class rdf:ID="Region"/>
+    </place:placeBelongsTo>
+    <place:hasPlace>
+      <owl:Class rdf:ID="Address"/>
+    </place:hasPlace>
+    <rdfs:subClassOf rdf:resource="#Place"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Region">
+    <place:hasPlace rdf:resource="#City"/>
+    <rdfs:subClassOf rdf:resource="#Place"/>
+  </owl:Class>
+  <owl:Class rdf:about="#State">
+    <place:placeBelongsTo rdf:resource="#Country"/>
+    <place:hasPlace rdf:resource="#Region"/>
+    <rdfs:subClassOf rdf:resource="#Place"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Planet">
+    <place:hasPlace rdf:resource="#Continent"/>
+    <rdfs:subClassOf rdf:resource="#Place"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Address">
+    <place:placeBelongsTo rdf:resource="#City"/>
+    <rdfs:subClassOf rdf:resource="#Place"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="hasPlace"/>
+  <owl:ObjectProperty rdf:ID="placeBelongsTo"/>
+  <owl:DatatypeProperty rdf:ID="placeName">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Place"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="placeType">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Place"/>
+  </owl:DatatypeProperty>
+  <place:State rdf:ID="California">
+    <place:placeType>State</place:placeType>
+    <place:placeName>California</place:placeName>
+  </place:State>
+  <place:Planet rdf:ID="Earth">
+    <place:hasPlace>
+      <place:Continent rdf:ID="Asia">
+        <place:placeType>Continent</place:placeType>
+        <place:placeName>Asia</place:placeName>
+      </place:Continent>
+    </place:hasPlace>
+    <place:hasPlace>
+      <place:Continent rdf:ID="Africa">
+        <place:placeType>Continent</place:placeType>
+        <place:placeName>Africa</place:placeName>
+      </place:Continent>
+    </place:hasPlace>
+    <place:hasPlace>
+      <place:Continent rdf:ID="Europe">
+        <place:placeType>Continent</place:placeType>
+        <place:placeName>Europe</place:placeName>
+      </place:Continent>
+    </place:hasPlace>
+    <place:hasPlace>
+      <place:Continent rdf:ID="South_America">
+        <place:placeType>Continent</place:placeType>
+        <place:placeName>South America</place:placeName>
+      </place:Continent>
+    </place:hasPlace>
+    <place:hasPlace>
+      <place:Continent rdf:ID="North_America">
+        <place:hasPlace>
+          <place:Country rdf:ID="Mexico">
+            <place:placeType>Country</place:placeType>
+            <place:placeName>Mexico</place:placeName>
+          </place:Country>
+        </place:hasPlace>
+        <place:hasPlace>
+          <place:Country rdf:ID="United_States">
+            <place:placeType>Country</place:placeType>
+            <place:placeName>United States</place:placeName>
+          </place:Country>
+        </place:hasPlace>
+        <place:hasPlace>
+          <place:Country rdf:ID="Canada">
+            <place:hasPlace>
+              <place:State rdf:ID="Alberta">
+                <place:hasPlace>
+                  <place:City rdf:ID="Calgary">
+                    <place:placeType>City</place:placeType>
+                    <place:placeName>Calgary</place:placeName>
+                  </place:City>
+                </place:hasPlace>
+                <place:placeType>State</place:placeType>
+                <place:placeName>Alberta</place:placeName>
+              </place:State>
+            </place:hasPlace>
+            <place:hasPlace>
+              <place:State rdf:ID="Quebec">
+                <place:hasPlace>
+                  <place:City rdf:ID="Montreal">
+                    <place:placeType>City</place:placeType>
+                    <place:placeName>Montreal</place:placeName>
+                  </place:City>
+                </place:hasPlace>
+                <place:placeType>State</place:placeType>
+                <place:placeName>Quebec</place:placeName>
+              </place:State>
+            </place:hasPlace>
+            <place:hasPlace>
+              <place:State rdf:ID="Ontario">
+                <place:hasPlace>
+                  <place:City rdf:ID="Toronto">
+                    <place:placeType>City</place:placeType>
+                    <place:placeName>Toronto</place:placeName>
+                  </place:City>
+                </place:hasPlace>
+                <place:placeType>State</place:placeType>
+                <place:placeName>Ontario</place:placeName>
+              </place:State>
+            </place:hasPlace>
+            <place:placeType>Country</place:placeType>
+            <place:placeName>Canada</place:placeName>
+          </place:Country>
+        </place:hasPlace>
+        <place:placeType>Continent</place:placeType>
+        <place:placeName>North America</place:placeName>
+      </place:Continent>
+    </place:hasPlace>
+    <place:placeType>Planet</place:placeType>
+    <place:placeName>Earth</place:placeName>
+  </place:Planet>
+  <place:City rdf:ID="Los_Angeles">
+    <place:placeType>City</place:placeType>
+    <place:placeName>Los Angeles</place:placeName>
+  </place:City>
+</rdf:RDF>

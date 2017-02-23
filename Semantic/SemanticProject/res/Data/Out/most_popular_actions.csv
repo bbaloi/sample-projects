@@ -1,0 +1,12 @@
+http://engage/ontology/event#Tweet,1
+http://engage/ontology/event#ViewVideo,1
+http://engage/ontology/event#Browse,8
+http://engage/ontology/person360#WorksAt,8
+http://engage/ontology/person360#hasBrother,2
+http://engage/ontology/person360#hasDaughter,2
+http://engage/ontology/person360#hasSon,2
+http://engage/ontology/person360#hasFather,3
+http://engage/ontology/person360#LivesIn,7
+http://engage/ontology/person360#Owns,1
+http://engage/ontology/person360#Likes,18
+http://engage/ontology/place#hasPlace,14

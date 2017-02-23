@@ -1,0 +1,611 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY graphanalyser "http://engage/ontology/graphanalyser#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY ace_lexicon "http://attempto.ifi.uzh.ch/ace_lexicon#" >
+    <!ENTITY ont "http://www.co-ode.org/ontologies/ont.owl#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.w3.org/2002/07/owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:ont="http://www.co-ode.org/ontologies/ont.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ace_lexicon="http://attempto.ifi.uzh.ch/ace_lexicon#"
+     xmlns:graphanalyser="http://engage/ontology/graphanalyser#">
+    <Ontology rdf:about="http://engage/ontology/graphanalyser"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace_lexicon#CN_pl -->
+
+    <AnnotationProperty rdf:about="&ace_lexicon;CN_pl"/>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace_lexicon#CN_sg -->
+
+    <AnnotationProperty rdf:about="&ace_lexicon;CN_sg"/>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace_lexicon#PN_sg -->
+
+    <AnnotationProperty rdf:about="&ace_lexicon;PN_sg"/>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace_lexicon#TV_pl -->
+
+    <AnnotationProperty rdf:about="&ace_lexicon;TV_pl"/>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace_lexicon#TV_sg -->
+
+    <AnnotationProperty rdf:about="&ace_lexicon;TV_sg"/>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace_lexicon#TV_vbg -->
+
+    <AnnotationProperty rdf:about="&ace_lexicon;TV_vbg"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Edge -->
+
+    <ObjectProperty rdf:about="&ont;Edge">
+        <ace_lexicon:TV_vbg>Edged</ace_lexicon:TV_vbg>
+        <ace_lexicon:TV_sg>Edges</ace_lexicon:TV_sg>
+        <ace_lexicon:TV_pl>Edge</ace_lexicon:TV_pl>
+        <rdfs:domain>
+            <Restriction>
+                <onProperty rdf:resource="&ont;Weather"/>
+                <someValuesFrom rdf:resource="&xsd;string"/>
+            </Restriction>
+        </rdfs:domain>
+        <rdfs:domain>
+            <Restriction>
+                <onProperty rdf:resource="&ont;Distance"/>
+                <someValuesFrom rdf:resource="&xsd;double"/>
+            </Restriction>
+        </rdfs:domain>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Highway -->
+
+    <ObjectProperty rdf:about="&ont;Highway">
+        <ace_lexicon:TV_pl>Highway</ace_lexicon:TV_pl>
+        <ace_lexicon:TV_vbg>Highwayed</ace_lexicon:TV_vbg>
+        <ace_lexicon:TV_sg>Highways</ace_lexicon:TV_sg>
+        <rdfs:subPropertyOf rdf:resource="&ont;Route"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Road -->
+
+    <ObjectProperty rdf:about="&ont;Road">
+        <ace_lexicon:TV_pl>Road</ace_lexicon:TV_pl>
+        <ace_lexicon:TV_sg>Roads</ace_lexicon:TV_sg>
+        <ace_lexicon:TV_vbg>Roaded</ace_lexicon:TV_vbg>
+        <rdfs:subPropertyOf rdf:resource="&ont;Route"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Route -->
+
+    <ObjectProperty rdf:about="&ont;Route">
+        <ace_lexicon:TV_sg>Routes</ace_lexicon:TV_sg>
+        <ace_lexicon:TV_pl>Route</ace_lexicon:TV_pl>
+        <ace_lexicon:TV_vbg>Routed</ace_lexicon:TV_vbg>
+        <rdfs:subPropertyOf rdf:resource="&ont;Edge"/>
+        <rdfs:range>
+            <Restriction>
+                <onProperty rdf:resource="&ont;Weather"/>
+                <someValuesFrom rdf:resource="&xsd;double"/>
+            </Restriction>
+        </rdfs:range>
+        <rdfs:range>
+            <Restriction>
+                <onProperty rdf:resource="&ont;Distance"/>
+                <someValuesFrom rdf:resource="&xsd;double"/>
+            </Restriction>
+        </rdfs:range>
+    </ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://engage/ontology/graphanalyser#Status -->
+
+    <DatatypeProperty rdf:about="&graphanalyser;Status">
+        <ace_lexicon:TV_vbg>Statused</ace_lexicon:TV_vbg>
+        <ace_lexicon:TV_pl>Status</ace_lexicon:TV_pl>
+        <ace_lexicon:TV_sg>Statuses</ace_lexicon:TV_sg>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://engage/ontology/graphanalyser#Weight -->
+
+    <DatatypeProperty rdf:about="&graphanalyser;Weight">
+        <ace_lexicon:TV_vbg>Weighted</ace_lexicon:TV_vbg>
+        <ace_lexicon:TV_sg>Weights</ace_lexicon:TV_sg>
+        <ace_lexicon:TV_pl>Weight</ace_lexicon:TV_pl>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Distance -->
+
+    <DatatypeProperty rdf:about="&ont;Distance">
+        <ace_lexicon:TV_pl>Distance</ace_lexicon:TV_pl>
+        <ace_lexicon:TV_sg>Distances</ace_lexicon:TV_sg>
+        <ace_lexicon:TV_vbg>Distanced</ace_lexicon:TV_vbg>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Weather -->
+
+    <DatatypeProperty rdf:about="&ont;Weather">
+        <ace_lexicon:TV_sg>Weathers</ace_lexicon:TV_sg>
+        <ace_lexicon:TV_pl>Weather</ace_lexicon:TV_pl>
+        <ace_lexicon:TV_vbg>Weathered</ace_lexicon:TV_vbg>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#City -->
+
+    <Class rdf:about="&ont;City">
+        <rdfs:subClassOf rdf:resource="&ont;Location"/>
+        <ace_lexicon:CN_pl>Cities</ace_lexicon:CN_pl>
+        <ace_lexicon:CN_sg>City</ace_lexicon:CN_sg>
+    </Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Location -->
+
+    <Class rdf:about="&ont;Location">
+        <rdfs:subClassOf rdf:resource="&ont;Node"/>
+        <ace_lexicon:CN_sg>Location</ace_lexicon:CN_sg>
+        <ace_lexicon:CN_pl>Locations</ace_lexicon:CN_pl>
+    </Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Node -->
+
+    <Class rdf:about="&ont;Node">
+        <ace_lexicon:CN_sg>Node</ace_lexicon:CN_sg>
+        <ace_lexicon:CN_pl>Nodes</ace_lexicon:CN_pl>
+    </Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Town -->
+
+    <Class rdf:about="&ont;Town">
+        <rdfs:subClassOf rdf:resource="&ont;Location"/>
+        <ace_lexicon:CN_pl>Towns</ace_lexicon:CN_pl>
+        <ace_lexicon:CN_sg>Town</ace_lexicon:CN_sg>
+    </Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#A -->
+
+    <NamedIndividual rdf:about="&ont;A">
+        <rdf:type rdf:resource="&ont;Node"/>
+        <graphanalyser:Weight rdf:datatype="&xsd;integer">100</graphanalyser:Weight>
+        <ace_lexicon:PN_sg>A</ace_lexicon:PN_sg>
+        <graphanalyser:Status>OK</graphanalyser:Status>
+        <ont:Edge rdf:resource="&ont;B"/>
+        <ont:Edge rdf:resource="&ont;E"/>
+        <ont:Edge rdf:resource="&ont;J"/>
+        <ont:Edge rdf:resource="&ont;K"/>
+        <ont:Edge rdf:resource="&ont;L"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#B -->
+
+    <NamedIndividual rdf:about="&ont;B">
+        <rdf:type rdf:resource="&ont;Node"/>
+        <graphanalyser:Weight rdf:datatype="&xsd;integer">100</graphanalyser:Weight>
+        <graphanalyser:Status>OK</graphanalyser:Status>
+        <ace_lexicon:PN_sg>B</ace_lexicon:PN_sg>
+        <ont:Edge rdf:resource="&ont;C"/>
+        <ont:Edge rdf:resource="&ont;E"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#C -->
+
+    <NamedIndividual rdf:about="&ont;C">
+        <rdf:type rdf:resource="&ont;Node"/>
+        <graphanalyser:Weight rdf:datatype="&xsd;integer">100</graphanalyser:Weight>
+        <ace_lexicon:PN_sg>C</ace_lexicon:PN_sg>
+        <graphanalyser:Status>OK</graphanalyser:Status>
+        <ont:Edge rdf:resource="&ont;D"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Chicago -->
+
+    <NamedIndividual rdf:about="&ont;Chicago">
+        <rdf:type rdf:resource="&ont;City"/>
+        <ace_lexicon:PN_sg>Chicago</ace_lexicon:PN_sg>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Cincinaty -->
+
+    <NamedIndividual rdf:about="&ont;Cincinaty">
+        <rdf:type rdf:resource="&ont;City"/>
+        <ace_lexicon:PN_sg>Cincinaty</ace_lexicon:PN_sg>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Columbus -->
+
+    <NamedIndividual rdf:about="&ont;Columbus">
+        <rdf:type rdf:resource="&ont;Town"/>
+        <ace_lexicon:PN_sg>Columbus</ace_lexicon:PN_sg>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#D -->
+
+    <NamedIndividual rdf:about="&ont;D">
+        <rdf:type rdf:resource="&ont;Node"/>
+        <graphanalyser:Weight rdf:datatype="&xsd;integer">100</graphanalyser:Weight>
+        <ace_lexicon:PN_sg>D</ace_lexicon:PN_sg>
+        <graphanalyser:Status>OK</graphanalyser:Status>
+        <ont:Edge rdf:resource="&ont;Z"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#DeMoines -->
+
+    <NamedIndividual rdf:about="&ont;DeMoines">
+        <rdf:type rdf:resource="&ont;City"/>
+        <ace_lexicon:PN_sg>DeMoines</ace_lexicon:PN_sg>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Denver -->
+
+    <NamedIndividual rdf:about="&ont;Denver">
+        <rdf:type rdf:resource="&ont;City"/>
+        <ace_lexicon:PN_sg>Denver</ace_lexicon:PN_sg>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Detroit -->
+
+    <NamedIndividual rdf:about="&ont;Detroit">
+        <rdf:type rdf:resource="&ont;City"/>
+        <ace_lexicon:PN_sg>Detroit</ace_lexicon:PN_sg>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#E -->
+
+    <NamedIndividual rdf:about="&ont;E">
+        <rdf:type rdf:resource="&ont;Node"/>
+        <graphanalyser:Weight rdf:datatype="&xsd;integer">100</graphanalyser:Weight>
+        <ace_lexicon:PN_sg>E</ace_lexicon:PN_sg>
+        <graphanalyser:Status>OK</graphanalyser:Status>
+        <ont:Edge rdf:resource="&ont;Z"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#F -->
+
+    <NamedIndividual rdf:about="&ont;F">
+        <rdf:type rdf:resource="&ont;Node"/>
+        <graphanalyser:Weight rdf:datatype="&xsd;integer">100</graphanalyser:Weight>
+        <graphanalyser:Status>OK</graphanalyser:Status>
+        <ace_lexicon:PN_sg>F</ace_lexicon:PN_sg>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#G -->
+
+    <NamedIndividual rdf:about="&ont;G">
+        <rdf:type rdf:resource="&ont;Node"/>
+        <graphanalyser:Weight rdf:datatype="&xsd;integer">100</graphanalyser:Weight>
+        <graphanalyser:Status>OK</graphanalyser:Status>
+        <ace_lexicon:PN_sg>G</ace_lexicon:PN_sg>
+        <ont:Edge rdf:resource="&ont;Z"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#H -->
+
+    <NamedIndividual rdf:about="&ont;H">
+        <rdf:type rdf:resource="&ont;Node"/>
+        <graphanalyser:Weight rdf:datatype="&xsd;integer">100</graphanalyser:Weight>
+        <ace_lexicon:PN_sg>H</ace_lexicon:PN_sg>
+        <graphanalyser:Status>OK</graphanalyser:Status>
+        <ont:Edge rdf:resource="&ont;Z"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Hamilton -->
+
+    <NamedIndividual rdf:about="&ont;Hamilton">
+        <rdf:type rdf:resource="&ont;Town"/>
+        <ace_lexicon:PN_sg>Hamilton</ace_lexicon:PN_sg>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#I -->
+
+    <NamedIndividual rdf:about="&ont;I">
+        <rdf:type rdf:resource="&ont;Node"/>
+        <graphanalyser:Weight rdf:datatype="&xsd;integer">100</graphanalyser:Weight>
+        <ace_lexicon:PN_sg>I</ace_lexicon:PN_sg>
+        <graphanalyser:Status>OK</graphanalyser:Status>
+        <ont:Edge rdf:resource="&ont;G"/>
+        <ont:Edge rdf:resource="&ont;H"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#J -->
+
+    <NamedIndividual rdf:about="&ont;J">
+        <rdf:type rdf:resource="&ont;Node"/>
+        <graphanalyser:Weight rdf:datatype="&xsd;integer">100</graphanalyser:Weight>
+        <ace_lexicon:PN_sg>J</ace_lexicon:PN_sg>
+        <graphanalyser:Status>OK</graphanalyser:Status>
+        <ont:Edge rdf:resource="&ont;I"/>
+        <ont:Edge rdf:resource="&ont;K"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#K -->
+
+    <NamedIndividual rdf:about="&ont;K">
+        <rdf:type rdf:resource="&ont;Node"/>
+        <graphanalyser:Weight rdf:datatype="&xsd;integer">100</graphanalyser:Weight>
+        <ace_lexicon:PN_sg>K</ace_lexicon:PN_sg>
+        <graphanalyser:Status>OK</graphanalyser:Status>
+        <ont:Edge rdf:resource="&ont;G"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#KansasCity -->
+
+    <NamedIndividual rdf:about="&ont;KansasCity">
+        <rdf:type rdf:resource="&ont;City"/>
+        <ace_lexicon:PN_sg>KansasCity</ace_lexicon:PN_sg>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#L -->
+
+    <NamedIndividual rdf:about="&ont;L">
+        <rdf:type rdf:resource="&ont;Node"/>
+        <graphanalyser:Weight rdf:datatype="&xsd;integer">100</graphanalyser:Weight>
+        <ace_lexicon:PN_sg>L</ace_lexicon:PN_sg>
+        <graphanalyser:Status>OK</graphanalyser:Status>
+        <ont:Edge rdf:resource="&ont;Z"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#London -->
+
+    <NamedIndividual rdf:about="&ont;London">
+        <rdf:type rdf:resource="&ont;Town"/>
+        <ace_lexicon:PN_sg>London</ace_lexicon:PN_sg>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Lousiville -->
+
+    <NamedIndividual rdf:about="&ont;Lousiville">
+        <rdf:type rdf:resource="&ont;Town"/>
+        <ace_lexicon:PN_sg>Lousiville</ace_lexicon:PN_sg>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Montreal -->
+
+    <NamedIndividual rdf:about="&ont;Montreal">
+        <rdf:type rdf:resource="&ont;City"/>
+        <ace_lexicon:PN_sg>Montreal</ace_lexicon:PN_sg>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Root -->
+
+    <NamedIndividual rdf:about="&ont;Root">
+        <rdf:type rdf:resource="&ont;Node"/>
+        <ace_lexicon:PN_sg>Root</ace_lexicon:PN_sg>
+        <graphanalyser:Status>OK</graphanalyser:Status>
+        <ont:Edge rdf:resource="&ont;A"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Sacramento -->
+
+    <NamedIndividual rdf:about="&ont;Sacramento">
+        <rdf:type rdf:resource="&ont;City"/>
+        <ace_lexicon:PN_sg>Sacramento</ace_lexicon:PN_sg>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#SaltLakeCity -->
+
+    <NamedIndividual rdf:about="&ont;SaltLakeCity">
+        <rdf:type rdf:resource="&ont;City"/>
+        <ace_lexicon:PN_sg>SaltLakeCity</ace_lexicon:PN_sg>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#SanFrancisco -->
+
+    <NamedIndividual rdf:about="&ont;SanFrancisco">
+        <rdf:type rdf:resource="&ont;City"/>
+        <ace_lexicon:PN_sg>SanFrancisco</ace_lexicon:PN_sg>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Toronto -->
+
+    <NamedIndividual rdf:about="&ont;Toronto">
+        <rdf:type rdf:resource="&ont;City"/>
+        <ace_lexicon:PN_sg>Toronto</ace_lexicon:PN_sg>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Vancouver -->
+
+    <NamedIndividual rdf:about="&ont;Vancouver">
+        <rdf:type rdf:resource="&ont;City"/>
+        <ace_lexicon:PN_sg>Vancouver</ace_lexicon:PN_sg>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#X -->
+
+    <NamedIndividual rdf:about="&ont;X">
+        <rdf:type rdf:resource="&ont;Node"/>
+        <graphanalyser:Weight rdf:datatype="&xsd;integer">100</graphanalyser:Weight>
+        <ace_lexicon:PN_sg>X</ace_lexicon:PN_sg>
+        <graphanalyser:Status>OK</graphanalyser:Status>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Y -->
+
+    <NamedIndividual rdf:about="&ont;Y">
+        <rdf:type rdf:resource="&ont;Node"/>
+        <graphanalyser:Weight rdf:datatype="&xsd;integer">100</graphanalyser:Weight>
+        <graphanalyser:Status>OK</graphanalyser:Status>
+        <ace_lexicon:PN_sg>Y</ace_lexicon:PN_sg>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Z -->
+
+    <NamedIndividual rdf:about="&ont;Z">
+        <rdf:type rdf:resource="&ont;Node"/>
+        <graphanalyser:Weight rdf:datatype="&xsd;integer">100</graphanalyser:Weight>
+        <graphanalyser:Status>OK</graphanalyser:Status>
+        <ace_lexicon:PN_sg>Z</ace_lexicon:PN_sg>
+        <ont:Edge rdf:resource="&ont;X"/>
+        <ont:Edge rdf:resource="&ont;Y"/>
+    </NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+

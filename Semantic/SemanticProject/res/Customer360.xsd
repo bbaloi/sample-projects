@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/Customer360" xmlns:tns="http://www.example.org/Customer360" elementFormDefault="qualified">
+
+    <element name="demographics" type="tns:Demographics"></element>
+    
+    <complexType name="Demographics">
+    	<sequence>
+    		<element name="first_name" type="string"></element>
+    		<element name="last_name" type="string"></element>
+    		<element name="address" type="string"></element>
+    		<element name="age" type="int"></element>
+    		<element name="city" type="string"></element>
+    		<element name="state_prov" type="string"></element>
+    		<element name="country" type="string"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="preferences" type="tns:Preferences"></element>
+    
+    <element name="NewElement" type="string"></element>
+
+    <complexType name="Preferences">
+    	<sequence>
+    		<element name="Drinks" type="string"></element>
+    		<element name="Food" type="string"></element>
+    		<element name="Sports" type="string"></element>
+    		<element name="Products" type="string"></element>
+    	</sequence>
+    </complexType>
+</schema>

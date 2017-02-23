@@ -1,0 +1,20 @@
+Buildfile: /opt/apps/eclipse/eclipse_workspace/SemanticProject/build.xml
+
+test_algo:
+     [echo] "Starting Semantic Engine..."
+     [java] log4j:WARN No appenders could be found for logger (org.apache.jena.riot.RDFLanguages).
+     [java] log4j:WARN Please initialize the log4j system properly.
+     [java] log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+     [java] ---[http://www.co-ode.org/ontologies/ont.owl#A, http://www.co-ode.org/ontologies/ont.owl#Edge, http://www.co-ode.org/ontologies/ont.owl#L]-----
+     [java] ---[http://www.co-ode.org/ontologies/ont.owl#A, http://www.co-ode.org/ontologies/ont.owl#Edge, http://www.co-ode.org/ontologies/ont.owl#K]-----
+     [java] ---[http://www.co-ode.org/ontologies/ont.owl#A, http://www.co-ode.org/ontologies/ont.owl#Edge, http://www.co-ode.org/ontologies/ont.owl#J]-----
+     [java] ---[http://www.co-ode.org/ontologies/ont.owl#A, http://www.co-ode.org/ontologies/ont.owl#Edge, http://www.co-ode.org/ontologies/ont.owl#E]-----
+     [java] ---[http://www.co-ode.org/ontologies/ont.owl#A, http://www.co-ode.org/ontologies/ont.owl#Edge, http://www.co-ode.org/ontologies/ont.owl#B]-----
+     [java] java.lang.NullPointerException
+     [java] 	at com.extemp.semantic.algo.RouteOptimisationAlgo.showAllPaths(RouteOptimisationAlgo.java:138)
+     [java] 	at com.extemp.semantic.algo.RouteOptimisationAlgo.getShortestPath_2(RouteOptimisationAlgo.java:88)
+     [java] 	at com.extemp.semantic.algo.AlgoMainController.runRouteOpt(AlgoMainController.java:78)
+     [java] 	at com.extemp.semantic.algo.AlgoMainController.main(AlgoMainController.java:32)
+
+BUILD SUCCESSFUL
+Total time: 1 second

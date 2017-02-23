@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<catalog name="SemanticFunctionsCatalog">
+    <category>
+        <name>SemanticOntology</name>
+		<function>
+			<name>getIntentsFromEvents</name>
+	            <class>com.extemp.semantic.be.BEInterface</class>
+	            <args>pEventList</args>
+	            <async>false</async>
+	            <helpUrl/>
+                <tooltip>
+                    <synopsis>Get Intents from Event Bag</synopsis>
+                    <args>
+						<paramdesc name='pEventList' type='SimpleEvent'>List of Events collected over a period of time</paramdesc>                                              
+                    </args>
+                    <returns type='String'>pIntentList</returns>               
+                </tooltip>
+		</function>
+		<function>
+			<name>getUser</name>
+			   <class>com.extemp.semantic.be.BEInterface</class>
+			     <args>pUserID</args>
+			      <async>false</async>
+			       <helpUrl/>
+		           <tooltip>
+		               <synopsis>Get a Customer 360 profile from the Semantic Tripple Store</synopsis>
+		                <args>
+		               		<paramdesc name='pUserID' type='String'>User ID</paramdesc>	 
+		               </args>
+		               <returns type='String'>pUser</returns>               
+		           </tooltip>
+		</function>			
+	</category>
+</catalog>

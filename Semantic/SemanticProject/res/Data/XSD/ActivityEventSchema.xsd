@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="ActivityEvent">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="EventID" minOccurs="0"/>
+				<xs:element ref="UserID" minOccurs="0"/>
+				<xs:element ref="ActivityType" minOccurs="0"/>
+				<xs:element ref="tsamtp" minOccurs="0"/>
+				<xs:element ref="BrowsedURL" minOccurs="0"/>
+				<xs:element ref="BrowsedItemName" minOccurs="0"/>
+				<xs:element ref="BrowsedItemCategory" minOccurs="0"/>
+				<xs:element ref="BrowseditemID" minOccurs="0"/>
+				<xs:element ref="BrowsedItemBrand" minOccurs="0"/>
+				<xs:element ref="BrowsedItemPrice" minOccurs="0"/>
+				<xs:element ref="BrowsedItemSize" minOccurs="0"/>
+				<xs:element ref="BrowsedItemGender" minOccurs="0"/>
+				<xs:element ref="PublishedContenCategory" minOccurs="0"/>
+				<xs:element ref="PublishedContentTopic" minOccurs="0"/>
+				<xs:element ref="PublishedContentURL" minOccurs="0"/>
+				<xs:element ref="PublishedContentID" minOccurs="0"/>
+				<xs:element ref="PublishedContentData" minOccurs="0"/>
+				<xs:element ref="ExpiryDate" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="EventID" type="xs:string"/>
+	<xs:element name="UserID" type="xs:string"/>
+	<xs:element name="ActivityType" type="xs:string"/>
+	<xs:element name="tsamtp" type="xs:string"/>
+	<xs:element name="BrowsedURL" type="xs:string"/>
+	<xs:element name="BrowsedItemName" type="xs:string"/>
+	<xs:element name="BrowsedItemCategory" type="xs:string"/>
+	<xs:element name="BrowseditemID" type="xs:string"/>
+	<xs:element name="BrowsedItemBrand" type="xs:string"/>
+	<xs:element name="BrowsedItemPrice" type="xs:double"/>
+	<xs:element name="BrowsedItemSize" type="xs:string"/>
+	<xs:element name="BrowsedItemGender" type="xs:string"/>
+	<xs:element name="PublishedContentURL" type="xs:string"/>
+	<xs:element name="PublishedContenCategory" type="xs:string"/>
+	<xs:element name="PublishedContentID" type="xs:string"/>
+	<xs:element name="PublishedContentData" type="xs:string"/>
+	<xs:element name="ActivityEventList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ActivityEvent" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Intent">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="IntentName" minOccurs="0"/>
+				<xs:element ref="IntentId" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="IntentName" type="xs:string"/>
+	<xs:element name="IntentList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Intent" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="IntentId" type="xs:string"/>
+	<xs:element name="PublishedContentTopic" type="xs:date"/>
+	<xs:element name="ExpiryDate" type="xs:string"/>
+	<xs:element name="IntentList2">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="User" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="User">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="UserID"/>
+				<xs:element ref="Intent" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ActivityEventListFull">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ActivityEventList" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

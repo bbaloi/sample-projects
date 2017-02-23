@@ -1,0 +1,328 @@
+<?xml version="1.0"?>
+<project name="engage.semantics" default="all">
+	
+	<!-- set global properties -->	
+		<property file="build.properties"/>
+		<property file="build-deployment.xml"/>
+		<property name="src.dir" location="${root.dir}/src" />		
+		<property name="bin.dir" location="${root.dir}/bin" />
+		<property name="resource.dir" location="${root.dir}/res" />
+		<property name="lib.dir" location="${root.dir}/lib" />
+		<property name="base.dir" location="${root.dir}" />
+		<property name="build.dir" location="${base.dir}/build" />
+		<property name="dist.dir" location="${base.dir}/distro" />
+		<property name="builder" value="B2" />		
+	
+		<property name="JDK_1.7_60_dir" location="/opt/apps/java7/jdk1.7.0_60" />
+		<property name="javac1.7_c" location="${JDK_1.7_60_dir}/bin/javac" />
+		<property name="javac1.7_r" location="${JDK_1.7_60_dir}/bin/java" />
+		 		
+		<!--====Compiler properties=====-->
+		<property name="compile.debug" value="on"/>	
+		<property name="compile.optimize" value="on"/>	
+		<!--property name="compiler-jikes" value="jikes"/-->
+			
+		<target name="init">
+			<echo message="Initializing... "/>
+			<mkdir dir="${build.dir}" />
+			<mkdir dir="${build.dir}/classes" />
+			<mkdir dir="${build.dir}/unittest" />			
+			<mkdir dir="${base.dir}/distro" />
+			<mkdir dir="${base.dir}/distro/pkg" />
+			<mkdir dir="${base.dir}/distro/bin" />
+			<mkdir dir="${base.dir}/distro/docs" />
+			<mkdir dir="${base.dir}/distro/lib" />
+			<mkdir dir="${base.dir}/distro/classes" />
+		</target>
+						
+			<path id="composite.classpath">
+					<pathelement location="${lib.dir}/jena-core-2.12.1.jar"/>				
+					<pathelement location="${lib.dir}/log4j-1.2.17.jar"/>
+					<pathelement location="${lib.dir}/jena-arq-2.12.1.jar"/>
+					<pathelement location="${lib.dir}/be-functions.jar"/>
+				    <pathelement location="${lib.dir}/cep-common.jar"/>
+					<pathelement location="${lib.dir}/cep-base.jar"/>
+					<pathelement location="${lib.dir}/cep-kernel.jar"/>	
+					<pathelement location="${lib.dir}/TIBCOxml.jar"/>
+					<pathelement location="${lib.dir}/pellet-core.jar"/>
+					<pathelement location="${lib.dir}/pellet-jena.jar"/>
+			</path>
+	<!--==============Compile code============= -->
+	<target name="compile-code" depends="init">
+		<echo message="Compiling source code... "/>
+		<javac includeantruntime="false" executable="${javac1.7_c}"	srcdir="${src.dir}" classpathref="composite.classpath"
+				includes = "**/com/extemp/**"
+				destdir="${build.dir}/classes" 		
+				debug="${compile.debug}" 
+				optimize="${compile.optimze}"
+				failonerror="true"/>
+		</target>		
+	
+	
+		<target name="distro">
+			
+			<copy todir="${dist.dir}/staging"> 
+	  		  		<fileset dir="${build.dir}/classes">
+	  		  			<include name = "**/com/extemp/**"/>				  		  			
+	  		  		</fileset>   
+					<fileset dir="${resource.dir}/be">
+			  		  			<include name = "functions.catalog"/>	  		    
+			  		 </fileset>	             
+			</copy>
+			
+				<jar jarfile="${dist.dir}/lib/extemp.engage.algo.jar" basedir ="${dist.dir}/staging">
+					 <include name="**/com/extemp/semantic/algo/**"/> 
+					 <include name="**/com/extemp/semantic/util/**"/> 
+					<manifest>
+							<attribute name="Built-By" value="b2"/>		
+							<attribute name="Main-Class"  value="com.extemp.semantic.algo.AlgoMainController"/>
+							<attribute name="Class-Path" value="jena-core-2.12.1.jar slf4j-log4j12-1.7.6.jar slf4j-api-1.7.6.jar log4j-1.2.17.jar commons-logging-1.2.jar xercesImpl-2.11.0.jar xml-apis-1.4.01.jar jena-iri-1.1.1.jar jena-arq-2.12.1.jar httpclient-4.2.6.jar httpcore-4.2.5.jar pellet-core.jar pellet-jena.jar aterm-java-1.6.jar pellet-rules.jar pellet-datatypes.jar pellet-el.jar"/>
+						</manifest>	
+
+				</jar>
+				<jar jarfile="${dist.dir}/lib/extemp.engage.jar" basedir="${dist.dir}/staging">
+			        <include name="**/com/extemp/**"/> 			
+					<include name="functions.catalog"/>
+					<manifest>
+						<attribute name="Built-By" value="b2"/>		
+						<attribute name="Main-Class"  value="com.extemp.semantic.control.EngageMain"/>
+						<attribute name="Class-Path" value="jena-core-2.12.1.jar slf4j-log4j12-1.7.6.jar slf4j-api-1.7.6.jar log4j-1.2.17.jar commons-logging-1.2.jar xercesImpl-2.11.0.jar xml-apis-1.4.01.jar jena-iri-1.1.1.jar jena-arq-2.12.1.jar httpclient-4.2.6.jar httpcore-4.2.5.jar pellet-core.jar pellet-jena.jar aterm-java-1.6.jar pellet-rules.jar pellet-datatypes.jar pellet-el.jar"/>
+					</manifest>								
+			    </jar>
+			
+				<copy todir="${dist.dir}/lib" flatten="true">
+			          <file file="${lib.dir}/jena-core-2.12.1.jar"/>	
+					  <file file="${lib.dir}/slf4j-log4j12-1.7.6.jar"/>	
+					 <file file="${lib.dir}/slf4j-api-1.7.6.jar"/>	
+					 <file file="${lib.dir}/log4j-1.2.17.jar"/>	
+					<file file="${lib.dir}/commons-logging-1.2.jar"/>	
+					<file file="${lib.dir}/xercesImpl-2.11.0.jar"/>	
+					<file file="${lib.dir}/xml-apis-1.4.01.jar"/>	
+					<file file="${lib.dir}/jena-iri-1.1.1.jar"/>	
+					<file file="${lib.dir}/jena-arq-2.12.1.jar"/>
+					<file file="${lib.dir}/httpclient-4.2.6.jar"/>
+					<file file="${lib.dir}/httpcore-4.2.5.jar"/>
+					<file file="${lib.dir}/pellet-core.jar"/>
+					<file file="${lib.dir}/pellet-jena.jar"/>
+					<file file="${lib.dir}/aterm-java-1.6.jar"/>	
+					<file file="${lib.dir}/pellet-rules.jar"/>
+					<file file="${lib.dir}/pellet-datatypes.jar"/>
+					<file file="${lib.dir}/pellet-el.jar"/>
+			   </copy>		
+		</target>
+			
+
+	<target name="test_ont_build">
+		   <echo>"Starting Semantic Engine..."</echo>
+				
+	      <java jar="${dist.dir}/lib/extemp.engage.jar" fork="true" failonerror="true" maxmemory="512m">
+	      	 <arg value="-mode"/>
+	      	 <arg value="build"/>
+	         <arg value="-props"/>
+	       	 <arg value="res/semantic_events.properties"/>
+	         <classpath>
+	         	<pathelement location="${dist.dir}/lib/jena-core-2.12.1.jar"/>	    
+	         	<pathelement location="${dist.dir}/lib/slf4j-log4j12-1.7.6.jar"/>	    
+	         	<pathelement location="${dist.dir}/lib/slf4j-api-1.7.6.jar"/>	
+	         	<pathelement location="${dist.dir}/lib/log4j-1.2.17.jar"/>	
+	         	<pathelement location="${dist.dir}/lib/xercesImpl-2.11.0.jar"/>
+	         	<pathelement location="${dist.dir}/lib/xml-apis-1.4.01.jar"/>
+	         	<pathelement location="${dist.dir}/lib/jena-iri-1.1.1.jar"/>
+	         	<pathelement location="${dist.dir}/lib/jena-arq-2.11.0.jar"/>	  
+	         	<pathelement location="${dist.dir}/lib/httpclient-4.2.6.jar"/>	
+	         	<pathelement location="${dist.dir}/lib/httpcore-4.2.5.jar"/>
+	         	<pathelement location="${dist.dir}/lib/commons-logging-1.2.jar"/>
+	         	<pathelement location="${dist.dir}/lib/pellet-core.jar"/>
+	         	<pathelement location="${dist.dir}/lib/pellet-jena.jar"/>
+	         </classpath>
+	       </java>	
+		</target>
+	     <target name="test_ont_inference">
+	      			   <echo>"Starting Semantic Engine..."</echo>
+	      					
+	      		      <java jar="${dist.dir}/lib/extemp.engage.jar" fork="true" failonerror="true" maxmemory="512m">
+	      		      	 <arg value="-mode"/>
+	      		      	 <arg value="infer"/>
+	      		         <arg value="-props"/>
+	      		       	 <arg value="res/semantic_events.properties"/>
+	      		         <classpath>
+	      		         	<pathelement location="${dist.dir}/lib/jena-core-2.12.1.jar"/>	    
+         		         	<pathelement location="${dist.dir}/lib/slf4j-log4j12-1.7.6.jar"/>	    
+         		         	<pathelement location="${dist.dir}/lib/slf4j-api-1.7.6.jar"/>	
+         		         	<pathelement location="${dist.dir}/lib/log4j-1.2.17.jar"/>	
+         		         	<pathelement location="${dist.dir}/lib/xercesImpl-2.11.0.jar"/>
+         		         	<pathelement location="${dist.dir}/lib/xml-apis-1.4.01.jar"/>
+         		         	<pathelement location="${dist.dir}/lib/jena-iri-1.1.1.jar"/>
+         		         	<pathelement location="${dist.dir}/lib/jena-arq-2.11.0.jar"/>	  
+         		         	<pathelement location="${dist.dir}/lib/httpclient-4.2.6.jar"/>	
+         		         	<pathelement location="${dist.dir}/lib/httpcore-4.2.5.jar"/>
+         		         	<pathelement location="${dist.dir}/lib/commons-logging-1.2.jar"/>
+	      		         	<pathelement location="${dist.dir}/lib/pellet-core.jar"/>
+	      		            <pathelement location="${dist.dir}/lib/pellet-jena.jar"/>
+	      		         </classpath>
+	      		       </java>	
+	      		</target>
+	 		<target name="test_ont_intent">
+		      			   <echo>"Starting Semantic Engine..."</echo>
+		      					
+		      		      <java jar="${dist.dir}/lib/extemp.engage.jar" fork="true" failonerror="true" maxmemory="512m">
+		      		      	 <arg value="-mode"/>
+		      		      	 <arg value="intent"/>
+		      		         <arg value="-props"/>
+		      		       	 <arg value="res/semantic_events.properties"/>
+		      		         <classpath>
+		      		         	<pathelement location="${dist.dir}/lib/jena-core-2.12.1.jar"/>	    
+	         		         	<pathelement location="${dist.dir}/lib/slf4j-log4j12-1.7.6.jar"/>	    
+	         		         	<pathelement location="${dist.dir}/lib/slf4j-api-1.7.6.jar"/>	
+	         		         	<pathelement location="${dist.dir}/lib/log4j-1.2.17.jar"/>	
+	         		         	<pathelement location="${dist.dir}/lib/xercesImpl-2.11.0.jar"/>
+	         		         	<pathelement location="${dist.dir}/lib/xml-apis-1.4.01.jar"/>
+	         		         	<pathelement location="${dist.dir}/lib/jena-iri-1.1.1.jar"/>
+	         		         	<pathelement location="${dist.dir}/lib/jena-arq-2.11.0.jar"/>	  
+	         		         	<pathelement location="${dist.dir}/lib/httpclient-4.2.6.jar"/>	
+	         		         	<pathelement location="${dist.dir}/lib/httpcore-4.2.5.jar"/>
+	         		         	<pathelement location="${dist.dir}/lib/commons-logging-1.2.jar"/>
+		      		         	<pathelement location="${dist.dir}/lib/pellet-core.jar"/>
+	         		         	<pathelement location="${dist.dir}/lib/pellet-jena.jar"/>
+		      		         </classpath>
+		      		       </java>	
+		      		</target>
+			<target name="test_ont_intent_be">
+			      			   <echo>"Starting Semantic Engine..."</echo>
+			      					
+			      		      <java jar="${dist.dir}/lib/extemp.engage.jar" fork="true" failonerror="true" maxmemory="512m">
+			      		      	<arg value="-mode"/>
+			      		     	<arg value="intent_sample"/> 
+			      		      	<arg value="-event_sample"/>
+			      		       	 <arg value="/opt/apps/eclipse/eclipse_workspace/SemanticProject/res/Data/ActivityEventSample.xml"/>
+			      		      	 <arg value="-props"/>
+			      		      	<arg value="res/semantic_events.properties"/>
+			      		      	
+			      		         <classpath>
+			      		         	<pathelement location="${dist.dir}/lib/jena-core-2.12.1.jar"/>	    
+  		         		         	<pathelement location="${dist.dir}/lib/slf4j-log4j12-1.7.6.jar"/>	    
+  		         		         	<pathelement location="${dist.dir}/lib/slf4j-api-1.7.6.jar"/>	
+  		         		         	<pathelement location="${dist.dir}/lib/log4j-1.2.17.jar"/>	
+  		         		         	<pathelement location="${dist.dir}/lib/xercesImpl-2.11.0.jar"/>
+  		         		         	<pathelement location="${dist.dir}/lib/xml-apis-1.4.01.jar"/>
+  		         		         	<pathelement location="${dist.dir}/lib/jena-iri-1.1.1.jar"/>
+  		         		         	<pathelement location="${dist.dir}/lib/jena-arq-2.11.0.jar"/>	  
+  		         		         	<pathelement location="${dist.dir}/lib/httpclient-4.2.6.jar"/>	
+  		         		         	<pathelement location="${dist.dir}/lib/httpcore-4.2.5.jar"/>
+  		         		         	<pathelement location="${dist.dir}/lib/commons-logging-1.2.jar"/>
+			      		         	<pathelement location="${dist.dir}/lib/pellet-core.jar"/>
+  		         		         	<pathelement location="${dist.dir}/lib/pellet-jena.jar"/>
+			      		         </classpath>
+			      		       </java>	
+			      		</target>
+				<target name="test_ont_intent_be_full">
+				      			   <echo>"Starting Semantic Engine..."</echo>
+				      					
+				      		      <java jar="${dist.dir}/lib/extemp.engage.jar" fork="true" failonerror="true" maxmemory="512m">
+				      		      	<arg value="-mode"/>
+				      		     	<arg value="intent_sample_full"/> 
+				      		      	<arg value="-event_sample"/>
+				      		       	 <arg value="/opt/apps/eclipse/eclipse_workspace/SemanticProject/res/Data/ActivityEventSample_Full.xml"/>
+				      		      	 <arg value="-props"/>
+				      		      	<arg value="res/semantic_events.properties"/>
+				      		      	
+				      		         <classpath>
+				      		         	<pathelement location="${dist.dir}/lib/jena-core-2.12.1.jar"/>	    
+      		         		         	<pathelement location="${dist.dir}/lib/slf4j-log4j12-1.7.6.jar"/>	    
+      		         		         	<pathelement location="${dist.dir}/lib/slf4j-api-1.7.6.jar"/>	
+      		         		         	<pathelement location="${dist.dir}/lib/log4j-1.2.17.jar"/>	
+      		         		         	<pathelement location="${dist.dir}/lib/xercesImpl-2.11.0.jar"/>
+      		         		         	<pathelement location="${dist.dir}/lib/xml-apis-1.4.01.jar"/>
+      		         		         	<pathelement location="${dist.dir}/lib/jena-iri-1.1.1.jar"/>
+      		         		         	<pathelement location="${dist.dir}/lib/jena-arq-2.11.0.jar"/>	  
+      		         		         	<pathelement location="${dist.dir}/lib/httpclient-4.2.6.jar"/>	
+      		         		         	<pathelement location="${dist.dir}/lib/httpcore-4.2.5.jar"/>
+      		         		         	<pathelement location="${dist.dir}/lib/commons-logging-1.2.jar"/>
+				      		         	<pathelement location="${dist.dir}/lib/pellet-core.jar"/>
+      		         		         	<pathelement location="${dist.dir}/lib/pellet-jena.jar"/>
+				      		         </classpath>
+				      		       </java>	
+				   </target>
+	
+						<target name="test_route_opt">
+						      			   <echo>"Starting Semantic Engine..."</echo>	 		
+							
+						      		      <java jar="${dist.dir}/lib/extemp.engage.algo.jar" fork="true" failonerror="true" maxmemory="512m">
+						      		      <arg value="-mode"/>		
+						      		      <arg value="route_opt"/>  
+						      		      <arg value="-OntFile"/>
+						      		      <arg value="/opt/apps/eclipse/eclipse_workspace/SemanticProject/res/Ontologies/path_test_owl.rdf"/>
+						      		      <arg value="-maxHops"/>
+						      		      <arg value="5"/>
+						      		      <arg value="-startNode"/>
+						      		      <arg value="A"/>
+						      		      <arg value="-endNode"/>
+						      		  	  <arg value="Z"/>				      		      	
+						      		      <arg value="-props"/>
+						      		      <arg value="res/semantic_events.properties"/>
+						      		      	
+						      		         <classpath>
+						      		         	<pathelement location="${dist.dir}/lib/jena-core-2.12.1.jar"/>	    
+		      		         		         	<pathelement location="${dist.dir}/lib/slf4j-log4j12-1.7.6.jar"/>	    
+		      		         		         	<pathelement location="${dist.dir}/lib/slf4j-api-1.7.6.jar"/>	
+		      		         		         	<pathelement location="${dist.dir}/lib/log4j-1.2.17.jar"/>	
+		      		         		         	<pathelement location="${dist.dir}/lib/xercesImpl-2.11.0.jar"/>
+		      		         		         	<pathelement location="${dist.dir}/lib/xml-apis-1.4.01.jar"/>
+		      		         		         	<pathelement location="${dist.dir}/lib/jena-iri-1.1.1.jar"/>
+		      		         		         	<pathelement location="${dist.dir}/lib/jena-arq-2.11.0.jar"/>	  
+		      		         		         	<pathelement location="${dist.dir}/lib/httpclient-4.2.6.jar"/>	
+		      		         		         	<pathelement location="${dist.dir}/lib/httpcore-4.2.5.jar"/>
+		      		         		         	<pathelement location="${dist.dir}/lib/commons-logging-1.2.jar"/>
+						      		         	<pathelement location="${dist.dir}/lib/pellet-core.jar"/>
+		      		         		         	<pathelement location="${dist.dir}/lib/pellet-jena.jar"/>
+						      		         </classpath>
+						      		       </java>	
+						      		      
+						   </target>
+							<target name="test_impact">
+							      			   <echo>"Starting Semantic Engine..."</echo>	 										
+							      		      <java jar="${dist.dir}/lib/extemp.engage.algo.jar" fork="true" failonerror="true" maxmemory="512m">
+							      		      <arg value="-mode"/>		
+							      		      <arg value="impact_analysis"/>  
+							      		      <arg value="-OntFile"/>
+							      		      <arg value="/opt/apps/eclipse/eclipse_workspace/SemanticProject/res/Ontologies/path_test_impact_owl.rdf"/>
+							      		      <arg value="-maxHops"/>
+							      		      <arg value="2"/>
+							      		      <arg value="-startNode"/>
+							      		      <arg value="A"/>
+							      		      <arg value="-endNode"/>
+							      			  <arg value="Z"/>				      		      	
+							      			 <arg value="-props"/>							      		    	      	
+							      		      <arg value="-props"/>
+							      		      <arg value="res/sestartmantic_events.properties"/>
+							      		      	
+							      		         <classpath>
+							      		         	<pathelement location="${dist.dir}/lib/jena-core-2.12.1.jar"/>	    
+			      		         		         	<pathelement location="${dist.dir}/lib/slf4j-log4j12-1.7.6.jar"/>	    
+			      		         		         	<pathelement location="${dist.dir}/lib/slf4j-api-1.7.6.jar"/>	
+			      		         		         	<pathelement location="${dist.dir}/lib/log4j-1.2.17.jar"/>	
+			      		         		         	<pathelement location="${dist.dir}/lib/xercesImpl-2.11.0.jar"/>
+			      		         		         	<pathelement location="${dist.dir}/lib/xml-apis-1.4.01.jar"/>
+			      		         		         	<pathelement location="${dist.dir}/lib/jena-iri-1.1.1.jar"/>
+			      		         		         	<pathelement location="${dist.dir}/lib/jena-arq-2.11.0.jar"/>	  
+			      		         		         	<pathelement location="${dist.dir}/lib/httpclient-4.2.6.jar"/>	
+			      		         		         	<pathelement location="${dist.dir}/lib/httpcore-4.2.5.jar"/>
+			      		         		         	<pathelement location="${dist.dir}/lib/commons-logging-1.2.jar"/>
+							      		         	<pathelement location="${dist.dir}/lib/pellet-core.jar"/>
+			      		         		         	<pathelement location="${dist.dir}/lib/pellet-jena.jar"/>
+							      		         </classpath>
+							      		       </java>	
+							      		      
+							   </target>
+
+
+
+	   
+	 <target name="clean">
+	    <delete dir="${build.dir}"/>
+	    <delete dir="${dist.dir}"/>	  	 	
+	  </target>	
+	
+	<target name="compile" depends="compile-code"/>  	
+	<target name="all" depends="compile-code,distro"/>
+  </project>

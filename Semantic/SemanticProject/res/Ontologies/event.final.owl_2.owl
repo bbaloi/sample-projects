@@ -1,0 +1,1140 @@
+<rdf:RDF
+    xmlns:place="http://engage/ontology/place#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:event="http://engage/ontology/event#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:person="http://engage/ontology/person360#"
+    xmlns:product="http://engage/ontology/product#"
+    xmlns:j.0="http://engage/ontology/base#"
+  xml:base="http://engage/ontology/event#">
+  <owl:Ontology rdf:about="">
+    <rdfs:label xml:lang="EN">EventOntology</rdfs:label>
+    <rdfs:comment xml:lang="EN">EventOntology</rdfs:comment>
+  </owl:Ontology>
+  <owl:Ontology rdf:about="person360">
+    <rdfs:label xml:lang="EN">PersonOtology</rdfs:label>
+    <rdfs:comment xml:lang="EN">Person Ontology</rdfs:comment>
+  </owl:Ontology>
+  <owl:Ontology rdf:about="product">
+    <rdfs:label xml:lang="EN">Product Otology</rdfs:label>
+    <rdfs:comment xml:lang="EN">Consumable Product Ontology</rdfs:comment>
+  </owl:Ontology>
+  <owl:Ontology rdf:about="place">
+    <rdfs:label xml:lang="EN">PlaceOntology</rdfs:label>
+    <rdfs:comment xml:lang="EN">Place Ontology</rdfs:comment>
+  </owl:Ontology>
+  <owl:Ontology rdf:about="base">
+    <rdfs:comment xml:lang="EN">BaseOntology</rdfs:comment>
+    <rdfs:label xml:lang="EN">BaseOntology</rdfs:label>
+  </owl:Ontology>
+  <owl:Class rdf:about="person360#BrowsingPerson">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="person360#Person"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="product#Drink">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="product#Product"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="base#BaseClass"/>
+  <owl:Class rdf:about="product#FootWear">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="product#Clothing"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="person360#WorkPlace"/>
+  <owl:Class rdf:about="product#SportsEquipment">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="product#Equipment"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="product#Motorcyle">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="product#Product"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="product#Spirit">
+    <j.0:ClassCounter rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+    >1</j.0:ClassCounter>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="product#Alcoholic"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="product#Clothing">
+    <j.0:ClassCounter rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+    >1</j.0:ClassCounter>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="product#Product"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="product#CasualWear">
+    <rdfs:subClassOf rdf:resource="product#Clothing"/>
+  </owl:Class>
+  <owl:Class rdf:about="product#Dairy">
+    <j.0:ClassCounter rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+    >2</j.0:ClassCounter>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="product#Food"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="BrowsedContent">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="product#Product"/>
+    </rdfs:subClassOf>
+    <event:hasProduct>
+      <owl:Class rdf:about="product#Product"/>
+    </event:hasProduct>
+  </owl:Class>
+  <owl:Class rdf:about="product#Sedan">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="product#Car"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="product#Meat">
+    <j.0:ClassCounter rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+    >3</j.0:ClassCounter>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="product#Food"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="product#Food">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="product#Product"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="product#BeachWear">
+    <rdfs:subClassOf rdf:resource="product#Clothing"/>
+  </owl:Class>
+  <owl:Class rdf:about="place#Address">
+    <place:placeBelongsTo>
+      <owl:Class rdf:about="place#City"/>
+    </place:placeBelongsTo>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="place#PlaceType"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="product#Blonde">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="product#Beer"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="product#Pasta">
+    <rdfs:subClassOf rdf:resource="product#Food"/>
+  </owl:Class>
+  <owl:Class rdf:about="place#Region">
+    <place:hasPlace>
+      <owl:Class rdf:about="place#City"/>
+    </place:hasPlace>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="place#PlaceType"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="product#Stout">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="product#Beer"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="product#Equipment">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="product#Product"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="product#Khakis">
+    <rdfs:subClassOf rdf:resource="product#CasualWear"/>
+  </owl:Class>
+  <owl:Class rdf:about="product#OutdoorsWear">
+    <rdfs:subClassOf rdf:resource="product#Clothing"/>
+  </owl:Class>
+  <owl:Class rdf:about="product#Beer">
+    <j.0:ClassCounter rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+    >4</j.0:ClassCounter>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="product#Alcoholic"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="product#Vehicle">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="product#Product"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="product#SportsCar">
+    <j.0:ClassCounter rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+    >2</j.0:ClassCounter>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="product#Car"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="place#State">
+    <j.0:ClassCounter rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+    >3</j.0:ClassCounter>
+    <place:placeBelongsTo>
+      <owl:Class rdf:about="place#Country"/>
+    </place:placeBelongsTo>
+    <place:hasPlace rdf:resource="place#Region"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="place#PlaceType"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="product#Cheese">
+    <rdfs:subClassOf rdf:resource="product#Dairy"/>
+  </owl:Class>
+  <owl:Class rdf:about="product#Stove">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="product#Appliance"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="product#Appliance">
+    <j.0:ClassCounter rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+    >2</j.0:ClassCounter>
+    <product:ProductMadeIn>US</product:ProductMadeIn>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="product#Product"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="product#Fridge">
+    <rdfs:subClassOf rdf:resource="product#Appliance"/>
+  </owl:Class>
+  <owl:Class rdf:about="product#Drier">
+    <rdfs:subClassOf rdf:resource="product#Appliance"/>
+  </owl:Class>
+  <owl:Class rdf:about="product#Bread">
+    <rdfs:subClassOf rdf:resource="product#Food"/>
+  </owl:Class>
+  <owl:Class rdf:about="product#Car">
+    <rdfs:subClassOf rdf:resource="product#Vehicle"/>
+  </owl:Class>
+  <owl:Class rdf:about="product#Washer">
+    <rdfs:subClassOf rdf:resource="product#Appliance"/>
+  </owl:Class>
+  <owl:Class rdf:about="product#Truck">
+    <j.0:ClassCounter rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+    >1</j.0:ClassCounter>
+    <rdfs:subClassOf rdf:resource="product#Car"/>
+  </owl:Class>
+  <owl:Class rdf:about="product#Fruits">
+    <rdfs:subClassOf rdf:resource="product#Food"/>
+  </owl:Class>
+  <owl:Class rdf:about="place#Country">
+    <j.0:ClassCounter rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+    >4</j.0:ClassCounter>
+    <place:placeBelongsTo>
+      <owl:Class rdf:about="place#Continent"/>
+    </place:placeBelongsTo>
+    <place:hasPlace rdf:resource="place#State"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="place#PlaceType"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="product#GiftCertificate">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="product#Product"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Event">
+    <event:HasPerson>
+      <owl:Class rdf:about="person360#Person"/>
+    </event:HasPerson>
+  </owl:Class>
+  <owl:Class rdf:about="place#Continent">
+    <j.0:ClassCounter rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+    >5</j.0:ClassCounter>
+    <place:placeBelongsTo>
+      <owl:Class rdf:about="place#Planet"/>
+    </place:placeBelongsTo>
+    <place:hasPlace rdf:resource="place#Country"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="place#PlaceType"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="PublishedContent">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="product#Product"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="product#FormalWear">
+    <rdfs:subClassOf rdf:resource="product#Clothing"/>
+  </owl:Class>
+  <owl:Class rdf:about="product#Product">
+    <rdfs:subClassOf rdf:resource="base#BaseClass"/>
+  </owl:Class>
+  <owl:Class rdf:about="product#Soda">
+    <j.0:ClassCounter rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+    >2</j.0:ClassCounter>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="product#NonAlcoholic"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="AudioContent">
+    <rdfs:subClassOf rdf:resource="#BrowsedContent"/>
+  </owl:Class>
+  <owl:Class rdf:about="product#Juice">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="product#NonAlcoholic"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="VideoContent">
+    <rdfs:subClassOf rdf:resource="#BrowsedContent"/>
+  </owl:Class>
+  <owl:Class rdf:about="place#City">
+    <j.0:ClassCounter rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+    >4</j.0:ClassCounter>
+    <place:placeBelongsTo rdf:resource="place#State"/>
+    <place:placeBelongsTo rdf:resource="place#Region"/>
+    <place:hasPlace rdf:resource="place#Address"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="place#PlaceType"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="product#Denim">
+    <rdfs:subClassOf rdf:resource="product#CasualWear"/>
+  </owl:Class>
+  <owl:Class rdf:about="product#Boat">
+    <rdfs:subClassOf rdf:resource="product#Product"/>
+  </owl:Class>
+  <owl:Class rdf:about="product#Vegetables">
+    <rdfs:subClassOf rdf:resource="product#Food"/>
+  </owl:Class>
+  <owl:Class rdf:about="person360#Person">
+    <person:LivesIn>
+      <owl:Class rdf:about="place#Planet"/>
+    </person:LivesIn>
+    <event:ListenAudio rdf:resource="#AudioContent"/>
+    <person:Owns rdf:resource="product#Product"/>
+    <event:PublishContent>
+      <rdf:Property rdf:ID="Tweet"/>
+    </event:PublishContent>
+    <person:FamilyRelationship rdf:resource="person360#Person"/>
+    <person:LivesIn rdf:resource="place#Country"/>
+    <person:LivesIn rdf:resource="place#City"/>
+    <event:Browse rdf:resource="#BrowsedContent"/>
+    <person:Likes rdf:resource="person360#Person"/>
+    <person:LivesIn rdf:resource="place#Address"/>
+    <person:Likes rdf:resource="product#Product"/>
+    <event:ViewVideo rdf:resource="#VideoContent"/>
+    <person:worksAt rdf:resource="person360#WorkPlace"/>
+    <person:LivesIn rdf:resource="place#Continent"/>
+    <person:LivesIn rdf:resource="place#State"/>
+  </owl:Class>
+  <owl:Class rdf:about="product#Alcoholic">
+    <rdfs:subClassOf rdf:resource="product#Drink"/>
+  </owl:Class>
+  <owl:Class rdf:about="product#Confectionary">
+    <rdfs:subClassOf rdf:resource="product#Food"/>
+  </owl:Class>
+  <owl:Class rdf:about="product#Pilsener">
+    <rdfs:subClassOf rdf:resource="product#Beer"/>
+  </owl:Class>
+  <owl:Class rdf:about="product#NonAlcoholic">
+    <rdfs:subClassOf rdf:resource="product#Drink"/>
+  </owl:Class>
+  <owl:Class rdf:about="product#Fish">
+    <j.0:ClassCounter rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+    >1</j.0:ClassCounter>
+    <rdfs:subClassOf rdf:resource="product#Food"/>
+  </owl:Class>
+  <owl:Class rdf:about="place#PlaceType">
+    <place:hasPlace rdf:resource="place#PlaceType"/>
+    <rdfs:subClassOf rdf:resource="base#BaseClass"/>
+  </owl:Class>
+  <owl:Class rdf:about="product#ConstructionEquipment">
+    <rdfs:subClassOf rdf:resource="product#Equipment"/>
+  </owl:Class>
+  <owl:Class rdf:about="place#Planet">
+    <j.0:ClassCounter rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+    >1</j.0:ClassCounter>
+    <place:hasPlace rdf:resource="place#Continent"/>
+    <rdfs:subClassOf rdf:resource="place#PlaceType"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="person360#hasMother">
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="person360#hasParent"/>
+    </rdfs:subPropertyOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="person360#hasIllness"/>
+  <owl:ObjectProperty rdf:about="person360#hasChild">
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="person360#FamilyRelationship"/>
+    </rdfs:subPropertyOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="person360#hasFriend">
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="person360#hasAquaintance"/>
+    </rdfs:subPropertyOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="person360#hasRelative">
+    <rdfs:subPropertyOf rdf:resource="person360#FamilyRelationship"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="place#hasPlace">
+    <j.0:PropertyCounter rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+    >14</j.0:PropertyCounter>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="person360#hasParent">
+    <rdfs:subPropertyOf rdf:resource="person360#FamilyRelationship"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="person360#Peer">
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="person360#WorkRelationship"/>
+    </rdfs:subPropertyOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="person360#worksAt">
+    <rdfs:domain rdf:resource="person360#Person"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="person360#Coleague">
+    <owl:sameAs rdf:resource="person360#Peer"/>
+    <rdfs:subPropertyOf rdf:resource="person360#WorkRelationship"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="person360#LivesIn"/>
+  <owl:ObjectProperty rdf:about="person360#hasSister">
+    <rdfs:subPropertyOf>
+      <owl:SymmetricProperty rdf:about="person360#hasSibling"/>
+    </rdfs:subPropertyOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="person360#hasAunt">
+    <rdfs:subPropertyOf rdf:resource="person360#hasRelative"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="person360#hasCousin">
+    <rdfs:subPropertyOf rdf:resource="person360#hasRelative"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="person360#hasAquaintance">
+    <rdfs:subPropertyOf rdf:resource="person360#FamilyRelationship"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="person360#Owns"/>
+  <owl:ObjectProperty rdf:about="person360#hasSon">
+    <rdfs:subPropertyOf rdf:resource="person360#hasChild"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="person360#hasDoctor"/>
+  <owl:ObjectProperty rdf:about="person360#hasUncle">
+    <rdfs:subPropertyOf rdf:resource="person360#hasRelative"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="person360#Likes"/>
+  <owl:ObjectProperty rdf:about="person360#hasFather">
+    <rdfs:subPropertyOf rdf:resource="person360#hasParent"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="person360#hasBrother">
+    <rdfs:subPropertyOf>
+      <owl:SymmetricProperty rdf:about="person360#hasSibling"/>
+    </rdfs:subPropertyOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="person360#hasDaughter">
+    <rdfs:subPropertyOf rdf:resource="person360#hasChild"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="person360#ReportsTo">
+    <rdfs:subPropertyOf rdf:resource="person360#WorkRelationship"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="person360#Manager">
+    <rdfs:subPropertyOf rdf:resource="person360#WorkRelationship"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="person360#hasAlergy"/>
+  <owl:ObjectProperty rdf:about="place#placeBelongsTo"/>
+  <rdf:Property rdf:ID="HasPerson"/>
+  <rdf:Property rdf:about="base#BaseProperty"/>
+  <rdf:Property rdf:about="#Tweet">
+    <rdfs:subPropertyOf>
+      <rdf:Property rdf:ID="PublishContent"/>
+    </rdfs:subPropertyOf>
+  </rdf:Property>
+  <rdf:Property rdf:ID="hasProduct"/>
+  <rdf:Property rdf:ID="EventActivity"/>
+  <rdf:Property rdf:ID="ListenAudio">
+    <rdfs:subPropertyOf>
+      <rdf:Property rdf:ID="ConsumeContent"/>
+    </rdfs:subPropertyOf>
+  </rdf:Property>
+  <rdf:Property rdf:ID="ViewVideo">
+    <rdfs:subPropertyOf>
+      <rdf:Property rdf:about="#ConsumeContent"/>
+    </rdfs:subPropertyOf>
+  </rdf:Property>
+  <rdf:Property rdf:about="#ConsumeContent">
+    <rdfs:subPropertyOf rdf:resource="#EventActivity"/>
+  </rdf:Property>
+  <rdf:Property rdf:ID="Browse">
+    <rdfs:subPropertyOf rdf:resource="#ConsumeContent"/>
+  </rdf:Property>
+  <rdf:Property rdf:about="#PublishContent">
+    <rdfs:subPropertyOf rdf:resource="#EventActivity"/>
+  </rdf:Property>
+  <owl:DatatypeProperty rdf:ID="AudioTopic">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#VideoContent"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="person360#profession">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="person360#Person"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="BrowsedItemCategory">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#BrowsedContent"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="PublishedContentTopic">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#PublishedContent"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="PublishedContentCategory">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#PublishedContentCategory"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="person360#CompanyAddress">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="person360#WorkPlace"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="VideoURL">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#VideoContent"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="person360#workTitle">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="person360#BrowsingPerson"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="person360#BrowsingProcessed"/>
+  <owl:DatatypeProperty rdf:ID="BrowsedURL">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#BrowsedContent"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="place#placeName">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="place#PlaceType"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="AudioURL">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#VideoContent"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="BrowsedItemName">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#BrowsedContent"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="EventID">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Event"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="VideoTopic"/>
+  <owl:DatatypeProperty rdf:about="product#ProductSerialNumber">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="product#Product"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="person360#age">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:domain rdf:resource="person360#Person"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="BrowsedItemID">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#BrowsedContent"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="product#ProductDiscount">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="product#Product"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="product#ProductBrand">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="product#Product"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="product#ProductMadeIn">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="product#Product"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="place#placeType">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="place#PlaceType"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="base#ClassCounter">
+    <rdfs:domain rdf:resource="base#BaseClass"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="product#ProductPrice">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:domain rdf:resource="product#Product"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="PublishedContentData">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#PublishedContent"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="product#ProductExpiryDate">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:domain rdf:resource="product#Product"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="product#ProductName">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="product#Product"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="person360#name">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="person360#Person"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="TimeStamp">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:domain rdf:resource="#Event"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="PublishedContentURL">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#PublishedContent"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="person360#CompanyName">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="person360#WorkPlace"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="base#PropertyCounter">
+    <rdfs:domain rdf:resource="base#BaseClass"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="person360#ID">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="person360#Person"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="person360#hasEducation">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="person360#Person"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="product#ItemSize">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="product#Clothing"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="product#ItemGender">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="product#Clothing"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="person360#gender">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="person360#Person"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="person360#speaksLanguage">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="person360#Person"/>
+  </owl:DatatypeProperty>
+  <owl:SymmetricProperty rdf:about="person360#hasSibling">
+    <rdfs:subPropertyOf rdf:resource="person360#FamilyRelationship"/>
+  </owl:SymmetricProperty>
+  <person:BrowsingPerson rdf:about="person360#12345-2014:10:22-20:58:42">
+    <person:ID>12345</person:ID>
+    <event:Browse>
+      <event:BrowsedContent rdf:ID="BoxSuite-4441">
+        <event:TimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+        >Wed Oct 22 20:58:41 EDT 2014</event:TimeStamp>
+        <event:BrowsedItemID>suite_345</event:BrowsedItemID>
+        <event:BrowsedItemCategory>Seating</event:BrowsedItemCategory>
+        <event:BrowsedItemName>BoxSuite</event:BrowsedItemName>
+        <event:BrowsedURL>http;//acmesports/productcatalog/item=box_suites</event:BrowsedURL>
+        <product:ProductPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >999.99</product:ProductPrice>
+        <product:ProductName>BoxSuite</product:ProductName>
+      </event:BrowsedContent>
+    </event:Browse>
+    <event:Browse>
+      <event:BrowsedContent rdf:ID="HockeyJersey-4445">
+        <product:ItemGender>M</product:ItemGender>
+        <product:ProductPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >99.99</product:ProductPrice>
+        <product:ProductName>HockeyJersey</product:ProductName>
+        <event:BrowsedItemID>jersey459</event:BrowsedItemID>
+        <event:BrowsedItemName>HockeyJersey</event:BrowsedItemName>
+        <event:TimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+        >Wed Oct 22 20:58:41 EDT 2014</event:TimeStamp>
+        <event:BrowsedItemCategory>Equipment</event:BrowsedItemCategory>
+        <product:ItemSize>L</product:ItemSize>
+        <event:BrowsedURL>http;//acmesports/playervideo/item=jersey456</event:BrowsedURL>
+      </event:BrowsedContent>
+    </event:Browse>
+    <event:Browse>
+      <event:BrowsedContent rdf:ID="Catering_Option_3-PremirePackage-4442">
+        <event:TimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+        >Wed Oct 22 20:58:41 EDT 2014</event:TimeStamp>
+        <event:BrowsedItemID>Catering_Option3</event:BrowsedItemID>
+        <event:BrowsedItemCategory>Catering</event:BrowsedItemCategory>
+        <event:BrowsedItemName>Catering_Option_3-PremirePackage</event:BrowsedItemName>
+        <event:BrowsedURL>http;//acmesports/catering/item=full_catering333</event:BrowsedURL>
+        <product:ProductPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >678.99</product:ProductPrice>
+        <product:ProductName>Catering_Option_3-PremirePackage</product:ProductName>
+      </event:BrowsedContent>
+    </event:Browse>
+    <event:Browse>
+      <event:BrowsedContent rdf:ID="GameSchedule_December-4443">
+        <event:TimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+        >Wed Oct 22 20:58:41 EDT 2014</event:TimeStamp>
+        <event:BrowsedItemID>GameSchedule_December_1</event:BrowsedItemID>
+        <event:BrowsedItemCategory>GameSchedule</event:BrowsedItemCategory>
+        <event:BrowsedItemName>GameSchedule_December</event:BrowsedItemName>
+        <event:BrowsedURL>http;//acmesports/productcatalog/item=game_sch_dec</event:BrowsedURL>
+        <product:ProductName>GameSchedule_December</product:ProductName>
+      </event:BrowsedContent>
+    </event:Browse>
+    <event:Browse>
+      <event:BrowsedContent rdf:ID="GroupTicket_23-4444">
+        <event:TimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+        >Wed Oct 22 20:58:41 EDT 2014</event:TimeStamp>
+        <event:BrowsedItemID>GroupTicketing_23</event:BrowsedItemID>
+        <event:BrowsedItemCategory>Ticketing</event:BrowsedItemCategory>
+        <event:BrowsedItemName>GroupTicket_23</event:BrowsedItemName>
+        <event:BrowsedURL>http;//acmesports/playervideo/item=ticketing</event:BrowsedURL>
+        <product:ProductName>GroupTicket_23</product:ProductName>
+      </event:BrowsedContent>
+    </event:Browse>
+    <person:BrowsingProcessed>true</person:BrowsingProcessed>
+  </person:BrowsingPerson>
+  <product:Dairy rdf:about="product#Milk">
+    <product:ProductPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >2.99</product:ProductPrice>
+    <product:ProductExpiryDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+    >2014-12-06</product:ProductExpiryDate>
+    <product:ProductMadeIn>US</product:ProductMadeIn>
+    <product:ProductSerialNumber>12345</product:ProductSerialNumber>
+    <product:ProductBrand>GayLea</product:ProductBrand>
+    <product:ProductName>Milk</product:ProductName>
+    <rdfs:subClassOf rdf:resource="product#Dairy"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </product:Dairy>
+  <place:Planet rdf:about="place#Earth">
+    <place:hasPlace>
+      <place:Continent rdf:about="place#Asia">
+        <place:placeType>Continent</place:placeType>
+        <place:placeName>Asia</place:placeName>
+      </place:Continent>
+    </place:hasPlace>
+    <place:hasPlace>
+      <place:Continent rdf:about="place#Africa">
+        <place:placeType>Continent</place:placeType>
+        <place:placeName>Africa</place:placeName>
+      </place:Continent>
+    </place:hasPlace>
+    <place:hasPlace>
+      <place:Continent rdf:about="place#Europe">
+        <place:placeType>Continent</place:placeType>
+        <place:placeName>Europe</place:placeName>
+      </place:Continent>
+    </place:hasPlace>
+    <place:hasPlace>
+      <place:Continent rdf:about="place#South_America">
+        <place:placeType>Continent</place:placeType>
+        <place:placeName>South America</place:placeName>
+      </place:Continent>
+    </place:hasPlace>
+    <place:hasPlace>
+      <place:Continent rdf:about="place#North_America">
+        <place:hasPlace>
+          <place:Country rdf:about="place#Mexico">
+            <place:placeType>Country</place:placeType>
+            <place:placeName>Mexico</place:placeName>
+          </place:Country>
+        </place:hasPlace>
+        <place:hasPlace>
+          <place:Country rdf:about="place#United_States">
+            <place:placeType>Country</place:placeType>
+            <place:placeName>United States</place:placeName>
+          </place:Country>
+        </place:hasPlace>
+        <place:hasPlace>
+          <place:Country rdf:about="place#Canada">
+            <place:hasPlace>
+              <place:State rdf:about="place#Alberta">
+                <place:hasPlace>
+                  <place:City rdf:about="place#Calgary">
+                    <place:placeType>City</place:placeType>
+                    <place:placeName>Calgary</place:placeName>
+                  </place:City>
+                </place:hasPlace>
+                <place:placeType>State</place:placeType>
+                <place:placeName>Alberta</place:placeName>
+              </place:State>
+            </place:hasPlace>
+            <place:hasPlace>
+              <place:State rdf:about="place#Quebec">
+                <place:hasPlace>
+                  <place:City rdf:about="place#Montreal">
+                    <place:placeType>City</place:placeType>
+                    <place:placeName>Montreal</place:placeName>
+                  </place:City>
+                </place:hasPlace>
+                <place:placeType>State</place:placeType>
+                <place:placeName>Quebec</place:placeName>
+              </place:State>
+            </place:hasPlace>
+            <place:hasPlace>
+              <place:State rdf:about="place#Ontario">
+                <place:hasPlace>
+                  <place:City rdf:about="place#Toronto">
+                    <place:placeType>City</place:placeType>
+                    <place:placeName>Toronto</place:placeName>
+                  </place:City>
+                </place:hasPlace>
+                <place:placeType>State</place:placeType>
+                <place:placeName>Ontario</place:placeName>
+              </place:State>
+            </place:hasPlace>
+            <place:placeType>Country</place:placeType>
+            <place:placeName>Canada</place:placeName>
+          </place:Country>
+        </place:hasPlace>
+        <place:placeType>Continent</place:placeType>
+        <place:placeName>North America</place:placeName>
+      </place:Continent>
+    </place:hasPlace>
+    <place:placeType>Planet</place:placeType>
+    <place:placeName>Earth</place:placeName>
+  </place:Planet>
+  <person:BrowsingPerson rdf:about="person360#12345-2014:10:22-20:58:41">
+    <person:ID>12345</person:ID>
+    <event:Browse>
+      <event:BrowsedContent rdf:ID="HockeyJersey-3333">
+        <product:ItemGender>M</product:ItemGender>
+        <event:BrowsedItemID>jersey456</event:BrowsedItemID>
+        <event:BrowsedItemName>HockeyJersey</event:BrowsedItemName>
+        <event:BrowsedItemCategory>Equipment</event:BrowsedItemCategory>
+        <product:ProductName>HockeyJersey</product:ProductName>
+        <event:BrowsedURL>http;//acmesports/productcatalog/item=jersey456</event:BrowsedURL>
+        <product:ProductPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >99.99</product:ProductPrice>
+        <event:TimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+        >Wed Oct 22 20:58:40 EDT 2014</event:TimeStamp>
+        <product:ItemSize>S</product:ItemSize>
+      </event:BrowsedContent>
+    </event:Browse>
+    <event:Tweet>
+      <event:PublishedContent rdf:ID="PUB-EVENT-3338">
+        <event:TimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+        >Wed Oct 22 20:58:40 EDT 2014</event:TimeStamp>
+        <event:PublishedContentData>When does Phil Kessel Play next ?</event:PublishedContentData>
+        <event:PublishedContentCategory>PublishedContent</event:PublishedContentCategory>
+        <event:PublishedContentTopic>tweet:Hockey Game Dates</event:PublishedContentTopic>
+        <event:PublishedContentURL>http://twitter/acme_sports_hockey_games_questions</event:PublishedContentURL>
+        <event:BrowsedItemID>PUB-EVENT</event:BrowsedItemID>
+      </event:PublishedContent>
+    </event:Tweet>
+    <event:Browse>
+      <event:BrowsedContent rdf:ID="Skates-3334">
+        <event:TimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+        >Wed Oct 22 20:58:40 EDT 2014</event:TimeStamp>
+        <event:BrowsedItemID>skates123</event:BrowsedItemID>
+        <event:BrowsedItemCategory>Equipment</event:BrowsedItemCategory>
+        <event:BrowsedItemName>Skates</event:BrowsedItemName>
+        <event:BrowsedURL>http;//acmesports/productcatalog/item=skates456</event:BrowsedURL>
+        <product:ProductPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >235.99</product:ProductPrice>
+        <product:ItemSize>S</product:ItemSize>
+        <product:ProductName>Skates</product:ProductName>
+      </event:BrowsedContent>
+    </event:Browse>
+    <event:Browse>
+      <event:BrowsedContent rdf:ID="GiftCertificate_HockeyEquipmentGiftCertificate-3335">
+        <event:TimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+        >Wed Oct 22 20:58:40 EDT 2014</event:TimeStamp>
+        <product:ProductExpiryDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+        >2015-10-22</product:ProductExpiryDate>
+        <event:BrowsedItemID>gc123</event:BrowsedItemID>
+        <event:BrowsedItemCategory>GiftCertificate</event:BrowsedItemCategory>
+        <event:BrowsedItemName>GiftCertificate_HockeyEquipmentGiftCertificate</event:BrowsedItemName>
+        <event:BrowsedURL>http;//acmesports/productcatalog/item=gc456</event:BrowsedURL>
+        <product:ProductPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >500.0</product:ProductPrice>
+        <product:ProductName>GiftCertificate_HockeyEquipmentGiftCertificate</product:ProductName>
+      </event:BrowsedContent>
+    </event:Browse>
+    <event:ViewVideo>
+      <event:VideoContent rdf:ID="PhillKessel_interview_101014-3337">
+        <event:TimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+        >Wed Oct 22 20:58:40 EDT 2014</event:TimeStamp>
+        <event:BrowsedItemID>Video123</event:BrowsedItemID>
+        <event:BrowsedItemCategory>VideoContent</event:BrowsedItemCategory>
+        <event:BrowsedItemName>PhillKessel_interview_101014</event:BrowsedItemName>
+        <event:BrowsedURL>http;//acmesports/playervideo/item=player459</event:BrowsedURL>
+        <product:ProductName>PhillKessel_interview_101014</product:ProductName>
+      </event:VideoContent>
+    </event:ViewVideo>
+    <person:BrowsingProcessed>true</person:BrowsingProcessed>
+  </person:BrowsingPerson>
+  <product:Drier rdf:about="product#GE-34-D">
+    <product:ProductMadeIn>US</product:ProductMadeIn>
+    <product:ProductSerialNumber>12yyy</product:ProductSerialNumber>
+    <product:ProductBrand>GeneralElectric</product:ProductBrand>
+    <product:ProductName>GE 34 D</product:ProductName>
+  </product:Drier>
+  <product:Denim rdf:about="product#Levis501">
+    <product:ProductMadeIn>US</product:ProductMadeIn>
+    <product:ProductSerialNumber>lv501</product:ProductSerialNumber>
+    <product:ProductBrand>Levi Strauss</product:ProductBrand>
+    <product:ProductName>Levis 501</product:ProductName>
+  </product:Denim>
+  <product:Washer rdf:about="product#GE-34-W">
+    <product:ProductSerialNumber>123xxx</product:ProductSerialNumber>
+    <product:ProductBrand>GeneralElectric</product:ProductBrand>
+    <product:ProductName>GE 34 W</product:ProductName>
+  </product:Washer>
+  <product:Soda rdf:about="product#Pepsi">
+    <product:ProductExpiryDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+    >2014-12-06</product:ProductExpiryDate>
+    <product:ProductMadeIn>US</product:ProductMadeIn>
+    <product:ProductSerialNumber>1234zc4</product:ProductSerialNumber>
+    <product:ProductBrand>Pepsi</product:ProductBrand>
+    <product:ProductName>Pepsi</product:ProductName>
+  </product:Soda>
+  <product:Meat rdf:about="product#Italian_Saussage">
+    <product:ProductDiscount rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+    >10</product:ProductDiscount>
+    <product:ProductPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >10.99</product:ProductPrice>
+    <product:ProductExpiryDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+    >2014-12-06</product:ProductExpiryDate>
+    <product:ProductMadeIn>Canada</product:ProductMadeIn>
+    <product:ProductSerialNumber>33-22-rt</product:ProductSerialNumber>
+    <product:ProductBrand>MapleLeaf Farms</product:ProductBrand>
+    <product:ProductName>ChorizoSaussage</product:ProductName>
+  </product:Meat>
+  <product:Soda rdf:about="product#Coke">
+    <product:ProductMadeIn>US</product:ProductMadeIn>
+    <product:ProductSerialNumber>1234zrt</product:ProductSerialNumber>
+    <product:ProductBrand>CocaCola</product:ProductBrand>
+    <product:ProductName>Coke</product:ProductName>
+  </product:Soda>
+  <product:Pilsener rdf:about="product#Labatts">
+    <product:ProductDiscount rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+    >15</product:ProductDiscount>
+    <product:ProductExpiryDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+    >2014-12-06</product:ProductExpiryDate>
+    <product:ProductMadeIn>Canada</product:ProductMadeIn>
+    <product:ProductSerialNumber>1234y4xx</product:ProductSerialNumber>
+    <product:ProductBrand>Labatts Brewery</product:ProductBrand>
+    <product:ProductName>Labatts</product:ProductName>
+  </product:Pilsener>
+  <place:State rdf:about="place#California">
+    <place:placeType>State</place:placeType>
+    <place:placeName>California</place:placeName>
+  </place:State>
+  <product:Pilsener rdf:about="product#Uruquell">
+    <product:ProductExpiryDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+    >2014-12-06</product:ProductExpiryDate>
+    <product:ProductMadeIn>CZ</product:ProductMadeIn>
+    <product:ProductSerialNumber>1234y4</product:ProductSerialNumber>
+    <product:ProductBrand>PivoVar</product:ProductBrand>
+    <product:ProductName>Uruquell</product:ProductName>
+  </product:Pilsener>
+  <person:Person rdf:about="person360#Wayne_Gretsky">
+    <person:worksAt>
+      <person:WorkPlace rdf:about="place#Calgary_Flames"/>
+    </person:worksAt>
+    <person:age rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+    >55</person:age>
+    <person:hasSon>
+      <person:Person rdf:about="person360#Carl_Gretsky">
+        <person:LivesIn rdf:resource="place#Calgary"/>
+        <person:hasFather rdf:resource="person360#Wayne_Gretsky"/>
+        <person:speaksLanguage>English</person:speaksLanguage>
+        <person:worksAt>
+          <person:WorkPlace rdf:about="place#University_Of_Calgary"/>
+        </person:worksAt>
+        <person:profession>Student</person:profession>
+        <person:gender>M</person:gender>
+        <person:age rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+        >18</person:age>
+        <person:name>Carl_Gretsky</person:name>
+      </person:Person>
+    </person:hasSon>
+    <person:gender>M</person:gender>
+    <person:speaksLanguage>English</person:speaksLanguage>
+    <person:Likes>
+      <person:Person rdf:about="person360#Matts_Sundin">
+        <person:hasDaughter>
+          <person:Person rdf:about="person360#Artemisia_Sundin">
+            <person:age rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+            >19</person:age>
+            <person:worksAt>
+              <person:WorkPlace rdf:about="place#University_Of_Toroto"/>
+            </person:worksAt>
+            <person:gender>F</person:gender>
+            <person:profession>Student</person:profession>
+            <person:speaksLanguage>English</person:speaksLanguage>
+            <person:LivesIn rdf:resource="place#Toronto"/>
+            <person:name>Artemisia_Sundin</person:name>
+            <person:hasFather rdf:resource="person360#Matts_Sundin"/>
+            <person:speaksLanguage>Finnish</person:speaksLanguage>
+          </person:Person>
+        </person:hasDaughter>
+        <person:worksAt>
+          <person:WorkPlace rdf:about="place#Toronto_Maple_Leafs"/>
+        </person:worksAt>
+        <person:gender>M</person:gender>
+        <person:age rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+        >50</person:age>
+        <person:profession>Hockey Player</person:profession>
+        <person:name>Matts_Sundin</person:name>
+        <person:Owns>
+          <product:SportsCar rdf:about="product#TestaRosa">
+            <product:ProductMadeIn>IT</product:ProductMadeIn>
+            <product:ProductSerialNumber>1234zc4vb444</product:ProductSerialNumber>
+            <product:ProductBrand>Ferrarri</product:ProductBrand>
+            <product:ProductName>TestaRosa</product:ProductName>
+          </product:SportsCar>
+        </person:Owns>
+        <person:speaksLanguage>Finish</person:speaksLanguage>
+        <person:LivesIn rdf:resource="place#Toronto"/>
+        <person:Likes>
+          <product:Meat rdf:about="product#Chorizo_Saussage">
+            <product:ProductPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+            >10.99</product:ProductPrice>
+            <product:ProductExpiryDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+            >2014-12-06</product:ProductExpiryDate>
+            <product:ProductMadeIn>Canada</product:ProductMadeIn>
+            <product:ProductSerialNumber>33-22-rt</product:ProductSerialNumber>
+            <product:ProductBrand>MapleLeaf Farms</product:ProductBrand>
+            <product:ProductName>ChorizoSaussage</product:ProductName>
+          </product:Meat>
+        </person:Likes>
+        <person:Likes rdf:resource="person360#Wayne_Gretsky"/>
+        <person:Likes>
+          <product:Meat rdf:about="product#HotDog">
+            <product:ProductDiscount rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+            >25</product:ProductDiscount>
+            <product:ProductPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+            >4.99</product:ProductPrice>
+            <product:ProductExpiryDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+            >2014-12-06</product:ProductExpiryDate>
+            <product:ProductMadeIn>Canada</product:ProductMadeIn>
+            <product:ProductSerialNumber>33-22-ht</product:ProductSerialNumber>
+            <product:ProductBrand>MapleLeaf Farms</product:ProductBrand>
+            <product:ProductName>Hot Dog</product:ProductName>
+          </product:Meat>
+        </person:Likes>
+        <person:speaksLanguage>English</person:speaksLanguage>
+        <person:Likes>
+          <product:Spirit rdf:about="product#Vodka_Finlandia">
+            <product:ProductMadeIn>FIN</product:ProductMadeIn>
+            <product:ProductSerialNumber>1234y-vf</product:ProductSerialNumber>
+            <product:ProductBrand>ABS</product:ProductBrand>
+            <product:ProductName>Vodka Finlandia</product:ProductName>
+          </product:Spirit>
+        </person:Likes>
+      </person:Person>
+    </person:Likes>
+    <person:LivesIn rdf:resource="place#Calgary"/>
+    <person:Likes rdf:resource="product#Chorizo_Saussage"/>
+    <person:Owns>
+      <product:Truck rdf:about="product#DodgeRAM">
+        <product:ProductMadeIn>US</product:ProductMadeIn>
+        <product:ProductSerialNumber>1234zc4vb333</product:ProductSerialNumber>
+        <product:ProductBrand>Tata</product:ProductBrand>
+        <product:ProductName>Jaguar XS</product:ProductName>
+      </product:Truck>
+    </person:Owns>
+    <person:name>Wayne_Gretsky</person:name>
+    <person:Likes rdf:resource="product#HotDog"/>
+    <person:Likes>
+      <product:Stout rdf:about="product#Guiness">
+        <product:ProductExpiryDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+        >2014-12-06</product:ProductExpiryDate>
+        <product:ProductMadeIn>EU</product:ProductMadeIn>
+        <product:ProductSerialNumber>1234y4</product:ProductSerialNumber>
+        <product:ProductBrand>Guiness</product:ProductBrand>
+        <product:ProductName>Guiness</product:ProductName>
+      </product:Stout>
+    </person:Likes>
+    <person:hasBrother>
+      <person:Person rdf:about="person360#Bill_Gretsky">
+        <person:hasBrother rdf:resource="person360#Wayne_Gretsky"/>
+        <person:LivesIn>
+          <place:City rdf:about="place#Los_Angeles">
+            <place:placeType>City</place:placeType>
+            <place:placeName>Los Angeles</place:placeName>
+          </place:City>
+        </person:LivesIn>
+        <person:speaksLanguage>English</person:speaksLanguage>
+        <person:worksAt>
+          <person:WorkPlace rdf:about="place#AT&amp;T"/>
+        </person:worksAt>
+        <person:profession>Electrical Engineer</person:profession>
+        <person:gender>M</person:gender>
+        <person:age rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+        >45</person:age>
+        <person:name>Bill_Gretsky</person:name>
+      </person:Person>
+    </person:hasBrother>
+    <person:profession>Hockey Player</person:profession>
+  </person:Person>
+  <person:Person rdf:about="person360#Mario_Lemieux">
+    <person:Owns>
+      <product:SportsCar rdf:about="product#Jaguar_XS">
+        <product:ProductMadeIn>UK</product:ProductMadeIn>
+        <product:ProductSerialNumber>1234zc4vb333</product:ProductSerialNumber>
+        <product:ProductBrand>Tata</product:ProductBrand>
+        <product:ProductName>Jaguar XS</product:ProductName>
+      </product:SportsCar>
+    </person:Owns>
+    <person:profession>Hockey Player</person:profession>
+    <person:gender>M</person:gender>
+    <person:hasSon>
+      <person:Person rdf:about="person360#Jean_Lemieux">
+        <person:age rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+        >20</person:age>
+        <person:speaksLanguage>English</person:speaksLanguage>
+        <person:speaksLanguage>French</person:speaksLanguage>
+        <person:profession>Student</person:profession>
+        <person:name>Jean_Lemieux</person:name>
+        <person:gender>M</person:gender>
+        <person:hasFather rdf:resource="person360#Mario_Lemieux"/>
+        <person:worksAt>
+          <person:WorkPlace rdf:about="place#University_McGill"/>
+        </person:worksAt>
+        <person:LivesIn rdf:resource="place#Montreal"/>
+      </person:Person>
+    </person:hasSon>
+    <person:Likes>
+      <product:Cheese rdf:about="product#Camembert">
+        <product:ProductPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >15.99</product:ProductPrice>
+        <product:ProductExpiryDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+        >2014-12-07</product:ProductExpiryDate>
+        <product:ProductMadeIn>France</product:ProductMadeIn>
+        <product:ProductSerialNumber>12345tg</product:ProductSerialNumber>
+        <product:ProductBrand>President</product:ProductBrand>
+        <product:ProductName>Camembert</product:ProductName>
+      </product:Cheese>
+    </person:Likes>
+    <person:Likes>
+      <product:Blonde rdf:about="product#Cheval_Blanc">
+        <product:ProductDiscount rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+        >15</product:ProductDiscount>
+        <product:ProductExpiryDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+        >2014-12-06</product:ProductExpiryDate>
+        <product:ProductMadeIn>Canada</product:ProductMadeIn>
+        <product:ProductSerialNumber>1234y4xcb</product:ProductSerialNumber>
+        <product:ProductBrand>Brewpub</product:ProductBrand>
+        <product:ProductName>ChevalBlanc</product:ProductName>
+      </product:Blonde>
+    </person:Likes>
+    <person:age rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+    >51</person:age>
+    <person:speaksLanguage>English</person:speaksLanguage>
+    <person:name>Mario Lemieux</person:name>
+    <person:hasDaughter>
+      <person:Person rdf:about="person360#Marie_Lemieux">
+        <person:speaksLanguage>French</person:speaksLanguage>
+        <person:LivesIn rdf:resource="place#Montreal"/>
+        <person:age rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+        >15</person:age>
+        <person:gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >F</person:gender>
+        <person:worksAt>
+          <person:WorkPlace rdf:about="place#Davis_College"/>
+        </person:worksAt>
+        <person:name>Marie_Lemieux</person:name>
+        <person:hasFather rdf:resource="person360#Mario_Lemieux"/>
+        <person:speaksLanguage>English</person:speaksLanguage>
+        <person:profession>Student</person:profession>
+      </person:Person>
+    </person:hasDaughter>
+    <person:Likes>
+      <product:Fish rdf:about="product#Sockeye_Salmon">
+        <product:ProductExpiryDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+        >2014-12-06</product:ProductExpiryDate>
+        <product:ProductMadeIn>Canada</product:ProductMadeIn>
+        <product:ProductSerialNumber>33-22-xv</product:ProductSerialNumber>
+        <product:ProductBrand>MapleLeaf Farms</product:ProductBrand>
+        <product:ProductName>Sockeye Salmon</product:ProductName>
+      </product:Fish>
+    </person:Likes>
+    <person:speaksLanguage>French</person:speaksLanguage>
+    <person:worksAt>
+      <person:WorkPlace rdf:about="place#Montreal_Canadiens"/>
+    </person:worksAt>
+    <person:LivesIn rdf:resource="place#Montreal"/>
+  </person:Person>
+</rdf:RDF>
