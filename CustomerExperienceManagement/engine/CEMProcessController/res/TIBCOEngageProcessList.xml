@@ -1,0 +1,65 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<ProcessList xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation = "../../XSD/ProcessSchema.xsd">
+		<Process>
+		<process_name>BE-Process</process_name>
+		<process_executable>C:\tibco_be\be\5.1\bin\be-engine.exe</process_executable>
+		<status>stopped</status>
+		<start_phrase>BE Engine BBALOI-W520.na.tibco.com started</start_phrase>
+		<end_phrase></end_phrase>
+		<attribute_list>
+			<process_attribute>
+				<attribute_name>-u</attribute_name>
+				<attribute_value>default</attribute_value>
+			</process_attribute>		
+			<process_attribute>
+				<attribute_name>-c</attribute_name>
+				<attribute_value>c:\Bruno\TIBCO\workspaces\be\MLSE\Deployments\MLSE_core.cdd</attribute_value>
+			</process_attribute>				
+			<process_attribute>
+				<attribute_name></attribute_name>
+				<attribute_value>c:\Bruno\TIBCO\TIBCO-Clients\MLSE\BE_Files\MLSE.ear</attribute_value>			
+			</process_attribute>								
+		</attribute_list>
+	</Process>	
+	<Process>
+		<process_name>BW-Process</process_name>
+		<process_executable>C:\tibco\bw\5.10\bin\bwengine.exe</process_executable>
+		<status>stopped</status>
+		<start_phrase>Engine MLSE_BW_Engage_Infrastructure-Process_Archive started</start_phrase>
+		<end_phrase>Engine MLSE_BW_Engage_Infrastructure Process_Archive terminating</end_phrase>
+		<attribute_list>
+			<process_attribute>
+				<attribute_name>--run</attribute_name>
+				<attribute_value></attribute_value>
+			</process_attribute>
+			<process_attribute>
+				<attribute_name>--propFile</attribute_name>
+				<attribute_value>C:\tibco\tra\domain\bbaloi-lenovow520\application\MLSE_BW_Engage_Infrastructure\MLSE_BW_Engage_Infrastructure-Process_Archive.tra</attribute_value>
+			</process_attribute>
+		</attribute_list>
+	</Process>	
+	<Process>
+		<process_name>AS-Process</process_name> 
+		<process_executable>C:\tibco_64\as\2.0\bin\as-agent.exe</process_executable>
+		<status>stopped</status>
+		<start_phrase></start_phrase>
+		<end_phrase></end_phrase>
+		<attribute_list>
+			<process_attribute>
+				<attribute_name>-remote_listen</attribute_name>
+				<attribute_value>tcp://localhost:8765</attribute_value>
+			</process_attribute>
+		</attribute_list>
+	</Process>			
+	<jms>
+		<connect_url>tcp://localhost:7222</connect_url>
+		<jms_user>admin</jms_user>
+		<jms_pass></jms_pass>
+		<in_dest_name>in.proc.ctrl.queue</in_dest_name>
+		<in_dest_type>queue</in_dest_type>		
+		<out_dest_name>out.proc.ctrl.queue</out_dest_name>
+		<out_dest_type>queue</out_dest_type>
+	</jms>
+	<log_to_console>true</log_to_console>
+	<wait_for_process_end_milis>20000</wait_for_process_end_milis>
+</ProcessList>

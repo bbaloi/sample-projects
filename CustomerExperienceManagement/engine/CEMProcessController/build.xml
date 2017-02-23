@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<project name="cem.process.controller" default="all">
+	
+	<!-- set global properties -->	
+		<property file="build.properties"/>
+		<property file="build-deployment.xml"/>
+		<property name="src.dir" location="${root.dir}/src" />		
+		<property name="bin.dir" location="${root.dir}/bin" />
+		<property name="resource.dir" location="${root.dir}/res" />
+		<property name="lib.dir" location="${root.dir}/lib" />
+		<property name="base.dir" location="${root.dir}" />
+		<property name="build.dir" location="${base.dir}/build" />
+		<property name="dist.dir" location="${base.dir}/distro" />
+		<property name="builder" value="B2" />		
+	
+		 		
+		<!--====Compiler properties=====-->
+		<property name="compile.debug" value="on"/>	
+		<property name="compile.optimize" value="on"/>	
+		<!--property name="compiler-jikes" value="jikes"/-->
+			
+		<target name="init">
+			<echo message="Initializing... "/>
+			<mkdir dir="${build.dir}" />
+			<mkdir dir="${build.dir}/classes" />
+			<mkdir dir="${build.dir}/unittest" />			
+			<mkdir dir="${base.dir}/distro" />
+			<mkdir dir="${base.dir}/distro/pkg" />
+			<mkdir dir="${base.dir}/distro/bin" />
+			<mkdir dir="${base.dir}/distro/docs" />
+			<mkdir dir="${base.dir}/distro/lib" />
+			<mkdir dir="${base.dir}/distro/pkg" />
+			<mkdir dir="${base.dir}/distro/res" />
+			<mkdir dir="${base.dir}/distro/classes" />
+		</target>
+						
+			<path id="composite.classpath">
+					<pathelement location="${lib.dir}/jms.jar"/>
+					<pathelement location="${lib.dir}/activemq-all-5.10.0.jar"/>
+					<pathelement location="${lib.dir}/jna-4.1.0.jar"/>
+					<pathelement location="${lib.dir}/jna-platform-4.1.0.jar"/>
+			</path>
+	<!--==============Compile code============= -->
+	<target name="compile-code" depends="init">
+		<echo message="Compiling source code... "/>
+		<javac srcdir="${src.dir}" classpathref="composite.classpath"		
+				includes = "**/com/extemp/cem/**"
+				destdir="${build.dir}/classes" 		
+				debug="${compile.debug}" 
+				optimize="${compile.optimze}"
+				failonerror="true"/>
+		</target>		
+
+		<target name="distro">
+			<jar jarfile="${dist.dir}/lib/process.ctrl.jar" basedir="${build.dir}/classes">
+			        <include name="**/com/extemp/cem/**"/> 			 	
+					<manifest>
+						<attribute name="Built-By" value="b2"/>		
+						<attribute name="Main-Class"  value="com.extemp.cem.process.ProcessControllerMain"/>
+					  	<attribute name="Class-Path" value="jms.jar activemq-all-5.10.0.jar jna-platform-4.1.0.jar jna-4.1.0.jar"/>
+					</manifest>								
+			    </jar>
+				<copy todir="${dist.dir}/lib" flatten="true">
+			          <file file="${lib.dir}/jms.jar"/>
+			          <file file="${lib.dir}/activemq-all-5.10.0.jar"/>	
+			           <file file="${lib.dir}/jna-4.1.0.jar"/>	
+			          <file file="${lib.dir}/jna-platform-4.1.0.jar"/>	
+					 <file file="${lib.dir}/mqtt-client-1.10.jar"/>	
+			   </copy>
+				<copy todir="${dist.dir}/bin" flatten="true">
+					 <file file="${resource.dir}/CEMEngageProcessList.xml"/>	
+					 <file file="${resource.dir}/CEMEngageProcessList_deploy.xml"/>	
+					 <file file="${resource.dir}/start_proc_ctrl_engine.sh"/>		
+				</copy>
+			
+				<zip destfile="${dist.dir}/pkg/cem.proc.ctrl.zip">
+						    <zipfileset dir="${dist.dir}/lib" prefix="lib"/>
+							<zipfileset dir="${dist.dir}/bin" prefix="bin"/>
+							<zipfileset dir="${dist.dir}/res" prefix="res"/>							
+			 </zip>
+		</target>
+			
+
+	<target name="run_proc_ctrl">
+		   <echo>"Starting Process Controller Engine..."</echo>
+				
+	      <java jar="${dist.dir}/lib/process.ctrl.jar" fork="true" failonerror="true" maxmemory="256m">
+	         <arg value="-propsFile"/>
+	       	 <arg value="res/CEMEngageProcessList.xml"/>	      	
+	         
+	       </java>	
+	</target>
+	
+	
+	 <target name="clean">
+	    <delete dir="${build.dir}"/>
+	    <delete dir="${dist.dir}"/>	  	 	
+	  </target>	
+	
+	<target name="compile" depends="compile-code"/>  	
+	<target name="all" depends="compile-code,distro"/>
+  </project>

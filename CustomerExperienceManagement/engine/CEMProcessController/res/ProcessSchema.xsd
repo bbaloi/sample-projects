@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="ProcessList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Process" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="jms" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="process_name" type="xs:string"/>
+	<xs:element name="process_executable" type="xs:string"/>
+	<xs:element name="process_executable_stop" type="xs:string"/>	
+	<xs:element name="pid" type="xs:string"/>
+	<xs:element name="Process">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="process_name" minOccurs="0"/>
+				<xs:element ref="process_executable" minOccurs="0"/>
+				<xs:element ref="process_executable_stop" minOccurs="0"/>
+				<xs:element ref="pid" minOccurs="0"/>
+				<xs:element ref="status" minOccurs="0"/>
+				<xs:element ref="start_phrase" minOccurs="0"/>
+				<xs:element ref="end_phrase" minOccurs="0"/>
+				<xs:element ref="wait_for_end_in_millis" minOccurs="0"/>
+				<xs:element ref="attribute_list" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="process_atribute">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="attribute_name" minOccurs="0"/>
+				<xs:element ref="attribute_value" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="attribute_name" type="xs:string"/>
+	<xs:element name="attribute_value" type="xs:string"/>
+	<xs:element name="attribute_list">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="process_atribute" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="status" type="xs:string"/>
+	<xs:element name="start_phrase" type="xs:string"/>
+	<xs:element name="end_phrase" type="xs:string"/>
+	<xs:element name="wait_for_end_in_millis" type="xs:string"/>
+	<xs:element name="jms">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="connect_url"/>
+				<xs:element ref="jms_user" minOccurs="0"/>
+				<xs:element ref="jms_pass" minOccurs="0"/>
+				<xs:element ref="in_dest_name" minOccurs="0"/>
+				<xs:element ref="in_dest_type" minOccurs="0"/>
+				<xs:element ref="out_dest_name"/>
+				<xs:element ref="out_dest_type"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="connect_url" type="xs:string"/>
+	<xs:element name="in_dest_name" type="xs:string"/>
+	<xs:element name="in_dest_type" type="xs:string"/>
+	<xs:element name="out_dest_name" type="xs:string"/>
+	<xs:element name="out_dest_type" type="xs:string"/>
+	<xs:element name="jms_user" type="xs:string"/>
+	<xs:element name="jms_pass" type="xs:string"/>
+</xs:schema>

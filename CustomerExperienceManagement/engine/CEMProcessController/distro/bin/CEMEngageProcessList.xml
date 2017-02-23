@@ -1,0 +1,52 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<ProcessList xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation = "../../XSD/ProcessSchema.xsd">
+	
+	<Process>
+		<process_name>CEM_Core</process_name>
+		<process_executable>java -jar /home/bruno/Projects/CEM/CEM_PKG/lib/cem_akka.jar</process_executable>
+		<status>stopped</status>
+		<start_phrase>Successfully started Akka</start_phrase>
+		<end_phrase>NA</end_phrase>	
+		<wait_for_end_in_millis>5000</wait_for_end_in_millis>
+		<attribute_list>					
+			<process_attribute>	
+				<attribute_name>-properties </attribute_name>
+				<attribute_value>/home/bruno/Projects/CEM/CEM_PKG/conf/cem.deploy.properties</attribute_value>
+			</process_attribute>																							
+		</attribute_list>		
+	</Process>			
+	<Process>		 
+		<process_name>CEM_Mule</process_name>
+		<process_executable>/opt/apps/mule/run-time/mule-standalone-3.6.1/bin/mule start</process_executable>
+		<process_executable_stop>/opt/apps/mule/run-time/mule-standalone-3.6.1/bin/mule stop</process_executable_stop>
+		<status>stopped</status>
+		<start_phrase>Starting Mule</start_phrase>
+		<end_phrase>Stopped Mule</end_phrase>		
+	</Process>	
+	<!-- 
+	<Process>
+		<process_name>AS-Process</process_name> 
+		<process_executable>C:\tibco_64\as\2.0\bin\as-agent.exe</process_executable>
+		<status>stopped</status>
+		<start_phrase></start_phrase>
+		<end_phrase></end_phrase>
+		<attribute_list>
+			<process_attribute>
+				<attribute_name>-remote_listen</attribute_name>
+				<attribute_value>tcp://localhost:8765</attribute_value>
+			</process_attribute>
+		</attribute_list>
+	</Process>			
+	-->
+	<jms>
+		<connect_url>tcp://localhost:61616</connect_url>
+		<jms_user>admin</jms_user>
+		<jms_pass>admin</jms_pass>
+		<in_dest_name>in.proc.ctrl.topic</in_dest_name>
+		<in_dest_type>topic</in_dest_type>		
+		<out_dest_name>out.proc.ctrl.topic</out_dest_name>
+		<out_dest_type>topic</out_dest_type>
+	</jms>
+	<log_to_console>true</log_to_console>
+	<wait_for_process_end_milis>20000</wait_for_process_end_milis>
+</ProcessList>
