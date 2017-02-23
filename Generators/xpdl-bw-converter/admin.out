@@ -1,0 +1,27 @@
+Buildfile: build.xml
+
+clean-deployment:
+   [delete] Deleting: C:\temp\Cingular\Deployment.xml
+   [delete] Deleting: C:\temp\Cingular\Deployment.ear
+
+ear:
+     [exec] Starting up...
+     [exec] Enterprise Archive File has built correctly.
+     [exec] Ear created in: C:\temp\Cingular\Deployment.ear
+
+dpconfiguration:
+     [exec] Initializing ...
+     [exec] Finished initialization
+     [exec] Exporting application configuration ...
+     [exec] Finished exporting application
+     [exec] Finished successfully in 1 seconds
+
+assignMachine:
+  [replace] Replaced 1 occurrences in 1 files.
+
+admin:
+     [exec] Checking if master server is responding ...
+     [exec] Finished checking
+     [exec] Initializing ...
+     [exec] Finished initialization
+Terminate batch job (Y/N)? Terminate batch job (Y/N)? Terminate batch job (Y/N)? 

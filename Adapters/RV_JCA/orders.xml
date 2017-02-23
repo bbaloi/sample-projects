@@ -1,0 +1,287 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<repository xmlns:xsi = "http://www.w3.org/2000/10/XMLSchema-instance" xsi:schemaLocation = "http://www.tibco.com/namespaces/Repository file:Repository.xsd" xmlns = "http://www.tibco.com/namespaces/Repository">
+	<globalVariables>
+		<globalVariable>
+			<name>Deployment</name>
+			<value>Orders</value>
+		</globalVariable>
+		<globalVariable>
+			<name>DirLedger</name>
+			<value>.</value>
+		</globalVariable>
+		<globalVariable>
+			<name>DirTrace</name>
+			<value>.</value>
+		</globalVariable>
+		<globalVariable>
+			<name>Domain</name>
+			<value>halcyon</value>
+		</globalVariable>
+		<globalVariable>
+			<name>Env</name>
+			<value>DEV</value>
+		</globalVariable>
+		<globalVariable>
+			<name>HawkEnabled</name>
+			<value>false</value>
+		</globalVariable>
+		<globalVariable>
+			<name>RemoteRvDaemon</name>
+			<value></value>
+		</globalVariable>
+		<globalVariable>
+			<name>RvDaemon</name>
+			<value></value>
+		</globalVariable>
+		<globalVariable>
+			<name>RvNetwork</name>
+			<value></value>
+		</globalVariable>
+		<globalVariable>
+			<name>RvService</name>
+			<value>7500</value>
+		</globalVariable>
+		<globalVariable>
+			<name>RvaHost</name>
+			<value></value>
+		</globalVariable>
+		<globalVariable>
+			<name>RvaPort</name>
+			<value></value>
+		</globalVariable>
+		<globalVariable>
+			<name>TIBHawkDaemon</name>
+			<value></value>
+		</globalVariable>
+		<globalVariable>
+			<name>TIBHawkNetwork</name>
+			<value></value>
+		</globalVariable>
+		<globalVariable>
+			<name>TIBHawkService</name>
+			<value></value>
+		</globalVariable>
+	</globalVariables>
+	<scalar xmlns = "http://www.tibco.com/namespaces/AESchema" name = "i4" family = "ae" globalName = "i4">
+		<javaClass>java.lang.Integer</javaClass>
+	</scalar>
+	<scalar xmlns = "http://www.tibco.com/namespaces/AESchema" name = "boolean" family = "ae" globalName = "boolean">
+		<javaClass>java.lang.Boolean</javaClass>
+	</scalar>
+	<scalar xmlns = "http://www.tibco.com/namespaces/AESchema" name = "string" family = "ae" globalName = "string">
+		<javaClass>java.lang.String</javaClass>
+	</scalar>
+	<class xmlns = "http://www.tibco.com/namespaces/AESchema" name = "BillingService" family = "ae" globalName = "TibOrdersAdapter/OrdersMainSchema/BillingService">
+		<attribute>
+			<name>name</name>
+			<attributeType isRef = "true">string</attributeType>
+		</attribute>
+		<attribute>
+			<name>acct</name>
+			<attributeType isRef = "true">TibOrdersAdapter/OrdersClasses/AccountInfo</attributeType>
+		</attribute>
+		<attribute>
+			<name>order</name>
+			<attributeType isRef = "true">TibOrdersAdapter/OrdersClasses/OrderInfo</attributeType>
+		</attribute>
+		<attribute>
+			<name>id</name>
+			<attributeType isRef = "true">i4</attributeType>
+		</attribute>
+	</class>
+	<class xmlns = "http://www.tibco.com/namespaces/AESchema" name = "OrdersService" family = "ae" globalName = "TibOrdersAdapter/OrdersMainSchema/OrdersService">
+		<attribute>
+			<name>name</name>
+			<attributeType isRef = "true">string</attributeType>
+		</attribute>
+		<attribute>
+			<name>acct</name>
+			<attributeType isRef = "true">TibOrdersAdapter/OrdersClasses/AccountInfo</attributeType>
+		</attribute>
+		<attribute>
+			<name>order</name>
+			<attributeType isRef = "true">TibOrdersAdapter/OrdersClasses/OrderInfo</attributeType>
+		</attribute>
+		<attribute>
+			<name>id</name>
+			<attributeType isRef = "true">i4</attributeType>
+		</attribute>
+	</class>
+	<class xmlns = "http://www.tibco.com/namespaces/AESchema" name = "OrderInfo" family = "ae" globalName = "TibOrdersAdapter/OrdersClasses/OrderInfo">
+		<attribute>
+			<name>id</name>
+			<attributeType isRef = "true">i4</attributeType>
+		</attribute>
+		<attribute>
+			<name>acctId</name>
+			<attributeType isRef = "true">i4</attributeType>
+		</attribute>
+		<attribute>
+			<name>orderItem</name>
+			<attributeType isRef = "true">string</attributeType>
+		</attribute>
+		<attribute>
+			<name>otherInfo</name>
+			<attributeType isRef = "true">string</attributeType>
+		</attribute>
+	</class>
+	<class xmlns = "http://www.tibco.com/namespaces/AESchema" name = "AccountInfo" family = "ae" globalName = "TibOrdersAdapter/OrdersClasses/AccountInfo">
+		<attribute>
+			<name>id</name>
+			<attributeType isRef = "true">i4</attributeType>
+		</attribute>
+		<attribute>
+			<name>name</name>
+			<attributeType isRef = "true">string</attributeType>
+		</attribute>
+		<attribute>
+			<name>otherInfo</name>
+			<attributeType isRef = "true">string</attributeType>
+		</attribute>
+	</class>
+	<class xmlns = "http://www.tibco.com/namespaces/AESchema" name = "OrderOperations" family = "ae" globalName = "TibOrdersAdapter/OrdersMainSchema/OrderOperations">
+		<operation>
+			<name>ModifyAccount</name>
+			<returnType isRef = "true">boolean</returnType>
+			<oneway>false</oneway>
+			<parameter>
+				<name>acct</name>
+				<direction>in</direction>
+				<parameterType isRef = "true">TibOrdersAdapter/OrdersClasses/AccountInfo</parameterType>
+			</parameter>
+			<raises>
+				<name>OrdersException</name>
+				<raisesType isRef = "true">TibOrdersAdapter/OrdersMainSchema/OrdersExceptionClass</raisesType>
+			</raises>
+		</operation>
+		<operation>
+			<name>DeleteAccount</name>
+			<returnType isRef = "true">boolean</returnType>
+			<oneway>false</oneway>
+			<parameter>
+				<name>id</name>
+				<direction>in</direction>
+				<parameterType isRef = "true">i4</parameterType>
+			</parameter>
+			<raises>
+				<name>OrdersException</name>
+				<raisesType isRef = "true">TibOrdersAdapter/OrdersMainSchema/OrdersExceptionClass</raisesType>
+			</raises>
+		</operation>
+		<operation>
+			<name>CreateOrder</name>
+			<returnType isRef = "true">i4</returnType>
+			<oneway>false</oneway>
+			<parameter>
+				<name>order</name>
+				<direction>in</direction>
+				<parameterType isRef = "true">TibOrdersAdapter/OrdersClasses/OrderInfo</parameterType>
+			</parameter>
+			<raises>
+				<name>OrdersException</name>
+				<raisesType isRef = "true">TibOrdersAdapter/OrdersMainSchema/OrdersExceptionClass</raisesType>
+			</raises>
+		</operation>
+		<operation>
+			<name>ModifyOrder</name>
+			<returnType isRef = "true">boolean</returnType>
+			<oneway>false</oneway>
+			<parameter>
+				<name>order</name>
+				<direction>in</direction>
+				<parameterType isRef = "true">TibOrdersAdapter/OrdersClasses/OrderInfo</parameterType>
+			</parameter>
+			<raises>
+				<name>OrdersException</name>
+				<raisesType isRef = "true">TibOrdersAdapter/OrdersMainSchema/OrdersExceptionClass</raisesType>
+			</raises>
+		</operation>
+		<operation>
+			<name>CreateAccount</name>
+			<returnType isRef = "true">i4</returnType>
+			<oneway>false</oneway>
+			<parameter>
+				<name>acct</name>
+				<direction>in</direction>
+				<parameterType isRef = "true">TibOrdersAdapter/OrdersClasses/AccountInfo</parameterType>
+			</parameter>
+			<raises>
+				<name>OrdersException</name>
+				<raisesType isRef = "true">TibOrdersAdapter/OrdersMainSchema/OrdersExceptionClass</raisesType>
+			</raises>
+		</operation>
+		<operation>
+			<name>DeleteOrder</name>
+			<returnType isRef = "true">boolean</returnType>
+			<oneway>false</oneway>
+			<parameter>
+				<name>id</name>
+				<direction>in</direction>
+				<parameterType isRef = "true">i4</parameterType>
+			</parameter>
+			<raises>
+				<name>OrdersException</name>
+				<raisesType isRef = "true">TibOrdersAdapter/OrdersMainSchema/OrdersExceptionClass</raisesType>
+			</raises>
+		</operation>
+	</class>
+	<class xmlns = "http://www.tibco.com/namespaces/AESchema" name = "OrdersServiceUpdate" family = "ae" globalName = "TibOrdersAdapter/OrdersMainSchema/OrdersServiceUpdate">
+		<attribute>
+			<name>name</name>
+			<attributeType isRef = "true">string</attributeType>
+		</attribute>
+		<attribute>
+			<name>id</name>
+			<attributeType isRef = "true">i4</attributeType>
+		</attribute>
+	</class>
+	<class xmlns = "http://www.tibco.com/namespaces/AESchema" name = "OrdersExceptionClass" family = "ae" globalName = "TibOrdersAdapter/OrdersMainSchema/OrdersExceptionClass">
+		<attribute>
+			<name>exceptionName</name>
+			<attributeType isRef = "true">string</attributeType>
+		</attribute>
+		<attribute>
+			<name>exceptionMessage</name>
+			<attributeType isRef = "true">string</attributeType>
+		</attribute>
+	</class>
+	<designer globalName = "/tibco/public/designer/Schemas/Classes/ae/_TibOrdersAdapter">
+		<name>TibOrdersAdapter</name>
+		<resourceType>aa.classes.folder</resourceType>
+		<acceptsResources>true</acceptsResources>
+		<lockedProperties>name</lockedProperties>
+		<sortContents>false</sortContents>
+		<allowDuplicates>false</allowDuplicates>
+		<fixedChildren></fixedChildren>
+		<description></description>
+		<OrdersMainSchema isRef = "true">/tibco/public/designer/Schemas/Classes/ae/TibOrdersAdapter/_OrdersMainSchema</OrdersMainSchema>
+		<OrdersClasses isRef = "true">/tibco/public/designer/Schemas/Classes/ae/TibOrdersAdapter/_OrdersClasses</OrdersClasses>
+	</designer>
+	<designer globalName = "/tibco/public/designer/Schemas/Classes/ae/TibOrdersAdapter/_OrdersMainSchema">
+		<name>OrdersMainSchema</name>
+		<resourceType>aa.classes.folder</resourceType>
+		<acceptsResources>true</acceptsResources>
+		<lockedProperties>name</lockedProperties>
+		<sortContents>false</sortContents>
+		<allowDuplicates>false</allowDuplicates>
+		<fixedChildren></fixedChildren>
+		<description></description>
+		<OrdersServiceUpdate isRef = "true">/tibco/public/class/ae/TibOrdersAdapter/OrdersMainSchema/OrdersServiceUpdate</OrdersServiceUpdate>
+		<BillingService isRef = "true">/tibco/public/class/ae/TibOrdersAdapter/OrdersMainSchema/BillingService</BillingService>
+		<OrdersService isRef = "true">/tibco/public/class/ae/TibOrdersAdapter/OrdersMainSchema/OrdersService</OrdersService>
+		<OrderOperations isRef = "true">/tibco/public/class/ae/TibOrdersAdapter/OrdersMainSchema/OrderOperations</OrderOperations>
+		<OrdersExceptionClass isRef = "true">/tibco/public/class/ae/TibOrdersAdapter/OrdersMainSchema/OrdersExceptionClass</OrdersExceptionClass>
+	</designer>
+	<designer globalName = "/tibco/public/designer/Schemas/Classes/ae/TibOrdersAdapter/_OrdersClasses">
+		<name>OrdersClasses</name>
+		<resourceType>aa.classes.folder</resourceType>
+		<acceptsResources>true</acceptsResources>
+		<lockedProperties>name</lockedProperties>
+		<sortContents>false</sortContents>
+		<allowDuplicates>false</allowDuplicates>
+		<fixedChildren></fixedChildren>
+		<description></description>
+		<OrderInfo isRef = "true">/tibco/public/class/ae/TibOrdersAdapter/OrdersClasses/OrderInfo</OrderInfo>
+		<AccountInfo isRef = "true">/tibco/public/class/ae/TibOrdersAdapter/OrdersClasses/AccountInfo</AccountInfo>
+	</designer>
+</repository>

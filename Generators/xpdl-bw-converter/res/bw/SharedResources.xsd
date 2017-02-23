@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="BWSharedResource">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="name"/>
+        <xs:element ref="resourceType"/>
+        <xs:element ref="config"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="name" type="xs:string"/>
+  <xs:element name="resourceType" type="xs:NCName"/>
+  <xs:element name="config">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="NamingEnvironment"/>
+        <xs:element ref="ConnectionAttributes"/>
+        <xs:element ref="UseXACF"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NamingEnvironment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="UseJNDI"/>
+        <xs:element ref="ProviderURL"/>
+        <xs:element ref="NamingURL"/>
+        <xs:element ref="NamingInitialContextFactory"/>
+        <xs:element ref="TopicFactoryName"/>
+        <xs:element ref="QueueFactoryName"/>
+        <xs:element ref="NamingPrincipal"/>
+        <xs:element ref="NamingCredential"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UseJNDI" type="xs:boolean"/>
+  <xs:element name="ProviderURL" type="xs:anyURI"/>
+  <xs:element name="NamingURL" type="xs:anyURI"/>
+  <xs:element name="NamingInitialContextFactory" type="xs:string"/>
+  <xs:element name="TopicFactoryName" type="xs:NCName"/>
+  <xs:element name="QueueFactoryName" type="xs:NCName"/>
+  <xs:element name="NamingPrincipal">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="NamingCredential">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="ConnectionAttributes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="username"/>
+        <xs:element ref="password"/>
+        <xs:element ref="clientID"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="username" type="xs:NCName"/>
+  <xs:element name="password">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="clientID">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="UseXACF" type="xs:boolean"/>
+</xs:schema>

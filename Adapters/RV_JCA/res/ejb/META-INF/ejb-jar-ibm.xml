@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ejb-jar id="ejb-jar_ID" version="2.1"
+    xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/ejb-jar_2_1.xsd">
+    <display-name>BankCMRQLEJB</display-name>
+    <enterprise-beans>
+        <message-driven id="BankATMListener_Bnd">
+            <ejb-name>BankATMListener</ejb-name>
+            <ejb-class>com.ibm.websphere.samples.bank.ejb.BankATMListenerBean</ejb-class>
+            <messaging-type>com.ibm.websphere.samples.bank.adapter.BankMessageListener</messaging-type>
+            <transaction-type>Container</transaction-type>
+            <activation-config>
+                <activation-config-property>
+                    <activation-config-property-name>name</activation-config-property-name>
+                    <activation-config-property-value>BankATMListener</activation-config-property-value>
+                </activation-config-property>
+            </activation-config>
+            <ejb-local-ref id="EJBLocalRef_1037986243866">
+                <description/>
+                <ejb-ref-name>ejb/Account</ejb-ref-name>
+                <ejb-ref-type>Entity</ejb-ref-type>
+                <local-home>com.ibm.websphere.samples.bank.ejb.AccountLocalHome</local-home>
+                <local>com.ibm.websphere.samples.bank.ejb.AccountLocal</local>
+            </ejb-local-ref>
+        </message-driven>        
+        <message-driven id="MessageDriven_1037986117955">
+         	<ejb-name>BankListener</ejb-name>
+         	<ejb-class>com.ibm.websphere.samples.bank.ejb.BankListenerBean</ejb-class>
+            <messaging-type>javax.jms.MessageListener</messaging-type>
+         	<transaction-type>Container</transaction-type>
+         	<message-destination-type>javax.jms.Queue</message-destination-type>
+         	<message-destination-link>BankJSQueue</message-destination-link>
+                <activation-config>
+                   <activation-config-property>
+                      <activation-config-property-name>destinationType</activation-config-property-name>
+                      <activation-config-property-value>javax.jms.Queue</activation-config-property-value>
+                   </activation-config-property>
+                   <activation-config-property>
+                      <activation-config-property-name>acknowledgeMode</activation-config-property-name>
+                      <activation-config-property-value>Auto-acknowledge</activation-config-property-value>
+                   </activation-config-property>
+                   <activation-config-property>
+                      <activation-config-property-name>messageSelector</activation-config-property-name>
+                      <activation-config-property-value>JMSType = 'transfer'</activation-config-property-value>
+                   </activation-config-property>
+                </activation-config>
+         	<ejb-local-ref id="EJBLocalRef_1037986243867">
+         		<description></description>
+         		<ejb-ref-name>ejb/Transfer</ejb-ref-name>
+         		<ejb-ref-type>Session</ejb-ref-type>
+         		<local-home>com.ibm.websphere.samples.bank.ejb.TransferLocalHome</local-home>
+         		<local>com.ibm.websphere.samples.bank.ejb.TransferLocal</local>
+         		<ejb-link>Transfer</ejb-link>
+         	</ejb-local-ref>
+        </message-driven>
+    </enterprise-beans>
+    
+    <assembly-descriptor id="AssemblyDescriptor_1">    	               	
+        <container-transaction>
+        	<method>
+        		<ejb-name>BankATMListener</ejb-name>
+        		<method-name>*</method-name>
+        	</method>
+        	<trans-attribute>NotSupported</trans-attribute>
+        </container-transaction>
+        <message-destination>
+           <message-destination-name>BankJSQueue</message-destination-name>
+        </message-destination>
+    </assembly-descriptor>
+</ejb-jar>

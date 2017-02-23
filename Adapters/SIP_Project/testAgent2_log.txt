@@ -1,0 +1,362 @@
+<!-- Use the  Trace Viewer in src/tools/tracesviewer to view this  trace  
+Here are the stack configuration properties 
+javax.sip.IP_ADDRESS= null
+javax.sip.STACK_NAME= testAgent2
+javax.sip.ROUTER_PATH= null
+javax.sip.OUTBOUND_PROXY= null
+-->
+<message
+from="10.1.1.4:5060" 
+to="10.1.1.4:5090" 
+time="1186776496895"
+isSender="false" 
+transactionId="z9hg4bk0b4d3c3229c6b561eabc7dc2b1ffe6d1" 
+callId="8a854091fa42f66ce4d60252730ed85b@10.1.1.4" 
+firstLine="INVITE sip:becky@nist.gov SIP/2.0" 
+>
+<![CDATA[INVITE sip:becky@nist.gov SIP/2.0
+Call-ID: 8a854091fa42f66ce4d60252730ed85b@10.1.1.4
+CSeq: 1 INVITE
+From: <sip:amit@nist.gov>;tag=862840403
+To: <sip:becky@nist.gov>
+Via: SIP/2.0/UDP 10.1.1.4:5060;branch=z9hG4bK0b4d3c3229c6b561eabc7dc2b1ffe6d1
+Max-Forwards: 70
+Contact: <sip:amit@10.1.1.4:5060;lr;transport=udp>
+Route: <sip:10.1.1.4:5090;lr;transport=udp>
+Content-Length: 0
+
+]]>
+</message>
+
+<message
+from="10.1.1.4:5090" 
+to="10.1.1.4:5060" 
+time="1186776496989"
+isSender="true" 
+transactionId="z9hg4bk0b4d3c3229c6b561eabc7dc2b1ffe6d1" 
+callId="8a854091fa42f66ce4d60252730ed85b@10.1.1.4" 
+firstLine="SIP/2.0 180 Ringing" 
+>
+<![CDATA[SIP/2.0 180 Ringing
+Call-ID: 8a854091fa42f66ce4d60252730ed85b@10.1.1.4
+CSeq: 1 INVITE
+From: <sip:amit@nist.gov>;tag=862840403
+To: <sip:becky@nist.gov>;tag=12187933
+Via: SIP/2.0/UDP 10.1.1.4:5060;branch=z9hG4bK0b4d3c3229c6b561eabc7dc2b1ffe6d1
+Contact: <sip:becky@10.1.1.4:5090;lr;transport=udp>
+Content-Length: 0
+
+]]>
+</message>
+
+<message
+from="10.1.1.4:5090" 
+to="10.1.1.4:5060" 
+time="1186776497192"
+isSender="true" 
+transactionId="z9hg4bk0b4d3c3229c6b561eabc7dc2b1ffe6d1" 
+callId="8a854091fa42f66ce4d60252730ed85b@10.1.1.4" 
+firstLine="SIP/2.0 200 Answer - Hello world" 
+>
+<![CDATA[SIP/2.0 200 Answer - Hello world
+Call-ID: 8a854091fa42f66ce4d60252730ed85b@10.1.1.4
+CSeq: 1 INVITE
+From: <sip:amit@nist.gov>;tag=862840403
+To: <sip:becky@nist.gov>;tag=12187933
+Via: SIP/2.0/UDP 10.1.1.4:5060;branch=z9hG4bK0b4d3c3229c6b561eabc7dc2b1ffe6d1
+Contact: <sip:becky@10.1.1.4:5090;lr;transport=udp>
+Expires: 0
+Content-Length: 0
+
+]]>
+</message>
+
+<message
+from="10.1.1.4:5060" 
+to="10.1.1.4:5090" 
+time="1186776497301"
+isSender="false" 
+transactionId="z9hg4bk5bbf43783fecba354c43d19d3925163b" 
+callId="8a854091fa42f66ce4d60252730ed85b@10.1.1.4" 
+firstLine="ACK sip:becky@10.1.1.4:5090;lr;transport=udp SIP/2.0" 
+>
+<![CDATA[ACK sip:becky@10.1.1.4:5090;lr;transport=udp SIP/2.0
+Via: SIP/2.0/UDP 10.1.1.4:5060;branch=z9hG4bK5bbf43783fecba354c43d19d3925163b
+CSeq: 1 ACK
+Call-ID: 8a854091fa42f66ce4d60252730ed85b@10.1.1.4
+From: <sip:amit@nist.gov>;tag=862840403
+To: <sip:becky@nist.gov>;tag=12187933
+Expires: 0
+Max-Forwards: 70
+Content-Length: 0
+
+]]>
+</message>
+
+<message
+from="10.1.1.4:5090" 
+to="10.1.1.4:5060" 
+time="1186776497817"
+isSender="true" 
+transactionId="z9hg4bk4810587315124667836432af1b8be365" 
+callId="8a854091fa42f66ce4d60252730ed85b@10.1.1.4" 
+firstLine="BYE sip:amit@10.1.1.4:5060;lr;transport=udp SIP/2.0" 
+>
+<![CDATA[BYE sip:amit@10.1.1.4:5060;lr;transport=udp SIP/2.0
+Via: SIP/2.0/UDP 10.1.1.4:5090;branch=z9hG4bK4810587315124667836432af1b8be365
+CSeq: 1 BYE
+Call-ID: 8a854091fa42f66ce4d60252730ed85b@10.1.1.4
+From: <sip:becky@nist.gov>;tag=12187933
+To: <sip:amit@nist.gov>;tag=862840403
+Expires: 0
+Max-Forwards: 70
+Content-Length: 0
+
+]]>
+</message>
+
+<message
+from="10.1.1.4:5060" 
+to="10.1.1.4:5090" 
+time="1186776497832"
+isSender="false" 
+transactionId="z9hg4bk4810587315124667836432af1b8be365" 
+callId="8a854091fa42f66ce4d60252730ed85b@10.1.1.4" 
+firstLine="SIP/2.0 200 OK" 
+>
+<![CDATA[SIP/2.0 200 OK
+Via: SIP/2.0/UDP 10.1.1.4:5090;branch=z9hG4bK4810587315124667836432af1b8be365
+CSeq: 1 BYE
+Call-ID: 8a854091fa42f66ce4d60252730ed85b@10.1.1.4
+From: <sip:becky@nist.gov>;tag=12187933
+To: <sip:amit@nist.gov>;tag=862840403
+Content-Length: 0
+
+]]>
+</message>
+
+<message
+from="10.1.1.4:5090" 
+to="10.1.1.4:5060" 
+time="1186776497832"
+isSender="true" 
+transactionId="z9hg4bk12d744d1595d9f7ee60f8215a2076b67" 
+callId="8a854091fa42f66ce4d60252730ed85b@10.1.1.4" 
+firstLine="BYE sip:amit@10.1.1.4:5060;lr;transport=udp SIP/2.0" 
+>
+<![CDATA[BYE sip:amit@10.1.1.4:5060;lr;transport=udp SIP/2.0
+Via: SIP/2.0/UDP 10.1.1.4:5090;branch=z9hG4bK12d744d1595d9f7ee60f8215a2076b67
+CSeq: 2 BYE
+Call-ID: 8a854091fa42f66ce4d60252730ed85b@10.1.1.4
+From: <sip:becky@nist.gov>;tag=12187933
+To: <sip:amit@nist.gov>;tag=862840403
+Expires: 0
+Max-Forwards: 70
+Content-Length: 0
+
+]]>
+</message>
+
+<message
+from="10.1.1.4:5090" 
+to="10.1.1.4:5060" 
+time="1186776498332"
+isSender="true" 
+transactionId="z9hg4bk12d744d1595d9f7ee60f8215a2076b67" 
+callId="8a854091fa42f66ce4d60252730ed85b@10.1.1.4" 
+firstLine="BYE sip:amit@10.1.1.4:5060;lr;transport=udp SIP/2.0" 
+>
+<![CDATA[BYE sip:amit@10.1.1.4:5060;lr;transport=udp SIP/2.0
+Via: SIP/2.0/UDP 10.1.1.4:5090;branch=z9hG4bK12d744d1595d9f7ee60f8215a2076b67
+CSeq: 2 BYE
+Call-ID: 8a854091fa42f66ce4d60252730ed85b@10.1.1.4
+From: <sip:becky@nist.gov>;tag=12187933
+To: <sip:amit@nist.gov>;tag=862840403
+Expires: 0
+Max-Forwards: 70
+Content-Length: 0
+
+]]>
+</message>
+
+<!-- Use the  Trace Viewer in src/tools/tracesviewer to view this  trace  
+Here are the stack configuration properties 
+javax.sip.IP_ADDRESS= null
+javax.sip.STACK_NAME= testAgent2
+javax.sip.ROUTER_PATH= null
+javax.sip.OUTBOUND_PROXY= null
+-->
+<message
+from="10.1.1.4:5060" 
+to="10.1.1.4:5090" 
+time="1186776522942"
+isSender="false" 
+transactionId="z9hg4bk3f2f42cf14e8c6d7a6dc55391a05c74b" 
+callId="c7b60ed57b941ca1e46cdfdc90bea20c@10.1.1.4" 
+firstLine="INVITE sip:becky@nist.gov SIP/2.0" 
+>
+<![CDATA[INVITE sip:becky@nist.gov SIP/2.0
+Call-ID: c7b60ed57b941ca1e46cdfdc90bea20c@10.1.1.4
+CSeq: 1 INVITE
+From: <sip:amit@nist.gov>;tag=1670419365
+To: <sip:becky@nist.gov>
+Via: SIP/2.0/UDP 10.1.1.4:5060;branch=z9hG4bK3f2f42cf14e8c6d7a6dc55391a05c74b
+Max-Forwards: 70
+Contact: <sip:amit@10.1.1.4:5060;lr;transport=udp>
+Route: <sip:10.1.1.4:5090;lr;transport=udp>
+Content-Length: 0
+
+]]>
+</message>
+
+<message
+from="10.1.1.4:5090" 
+to="10.1.1.4:5060" 
+time="1186776523035"
+isSender="true" 
+transactionId="z9hg4bk3f2f42cf14e8c6d7a6dc55391a05c74b" 
+callId="c7b60ed57b941ca1e46cdfdc90bea20c@10.1.1.4" 
+firstLine="SIP/2.0 180 Ringing" 
+>
+<![CDATA[SIP/2.0 180 Ringing
+Call-ID: c7b60ed57b941ca1e46cdfdc90bea20c@10.1.1.4
+CSeq: 1 INVITE
+From: <sip:amit@nist.gov>;tag=1670419365
+To: <sip:becky@nist.gov>;tag=2092804503
+Via: SIP/2.0/UDP 10.1.1.4:5060;branch=z9hG4bK3f2f42cf14e8c6d7a6dc55391a05c74b
+Contact: <sip:becky@10.1.1.4:5090;lr;transport=udp>
+Content-Length: 0
+
+]]>
+</message>
+
+<message
+from="10.1.1.4:5090" 
+to="10.1.1.4:5060" 
+time="1186776523239"
+isSender="true" 
+transactionId="z9hg4bk3f2f42cf14e8c6d7a6dc55391a05c74b" 
+callId="c7b60ed57b941ca1e46cdfdc90bea20c@10.1.1.4" 
+firstLine="SIP/2.0 200 Answer - Hello world" 
+>
+<![CDATA[SIP/2.0 200 Answer - Hello world
+Call-ID: c7b60ed57b941ca1e46cdfdc90bea20c@10.1.1.4
+CSeq: 1 INVITE
+From: <sip:amit@nist.gov>;tag=1670419365
+To: <sip:becky@nist.gov>;tag=2092804503
+Via: SIP/2.0/UDP 10.1.1.4:5060;branch=z9hG4bK3f2f42cf14e8c6d7a6dc55391a05c74b
+Contact: <sip:becky@10.1.1.4:5090;lr;transport=udp>
+Expires: 0
+Content-Length: 0
+
+]]>
+</message>
+
+<message
+from="10.1.1.4:5060" 
+to="10.1.1.4:5090" 
+time="1186776523348"
+isSender="false" 
+transactionId="z9hg4bkb1536c9e3be70166a927c81b84b6620a" 
+callId="c7b60ed57b941ca1e46cdfdc90bea20c@10.1.1.4" 
+firstLine="ACK sip:becky@10.1.1.4:5090;lr;transport=udp SIP/2.0" 
+>
+<![CDATA[ACK sip:becky@10.1.1.4:5090;lr;transport=udp SIP/2.0
+Via: SIP/2.0/UDP 10.1.1.4:5060;branch=z9hG4bKb1536c9e3be70166a927c81b84b6620a
+CSeq: 1 ACK
+Call-ID: c7b60ed57b941ca1e46cdfdc90bea20c@10.1.1.4
+From: <sip:amit@nist.gov>;tag=1670419365
+To: <sip:becky@nist.gov>;tag=2092804503
+Expires: 0
+Max-Forwards: 70
+Content-Length: 0
+
+]]>
+</message>
+
+<message
+from="10.1.1.4:5090" 
+to="10.1.1.4:5060" 
+time="1186776523864"
+isSender="true" 
+transactionId="z9hg4bkc4d8b2bc29ae41cac67dea642d1d0b9b" 
+callId="c7b60ed57b941ca1e46cdfdc90bea20c@10.1.1.4" 
+firstLine="BYE sip:amit@10.1.1.4:5060;lr;transport=udp SIP/2.0" 
+>
+<![CDATA[BYE sip:amit@10.1.1.4:5060;lr;transport=udp SIP/2.0
+Via: SIP/2.0/UDP 10.1.1.4:5090;branch=z9hG4bKc4d8b2bc29ae41cac67dea642d1d0b9b
+CSeq: 1 BYE
+Call-ID: c7b60ed57b941ca1e46cdfdc90bea20c@10.1.1.4
+From: <sip:becky@nist.gov>;tag=2092804503
+To: <sip:amit@nist.gov>;tag=1670419365
+Expires: 0
+Max-Forwards: 70
+Content-Length: 0
+
+]]>
+</message>
+
+<message
+from="10.1.1.4:5060" 
+to="10.1.1.4:5090" 
+time="1186776523879"
+isSender="false" 
+transactionId="z9hg4bkc4d8b2bc29ae41cac67dea642d1d0b9b" 
+callId="c7b60ed57b941ca1e46cdfdc90bea20c@10.1.1.4" 
+firstLine="SIP/2.0 200 OK" 
+>
+<![CDATA[SIP/2.0 200 OK
+Via: SIP/2.0/UDP 10.1.1.4:5090;branch=z9hG4bKc4d8b2bc29ae41cac67dea642d1d0b9b
+CSeq: 1 BYE
+Call-ID: c7b60ed57b941ca1e46cdfdc90bea20c@10.1.1.4
+From: <sip:becky@nist.gov>;tag=2092804503
+To: <sip:amit@nist.gov>;tag=1670419365
+Content-Length: 0
+
+]]>
+</message>
+
+<message
+from="10.1.1.4:5090" 
+to="10.1.1.4:5060" 
+time="1186776523879"
+isSender="true" 
+transactionId="z9hg4bkbefb5a0dbff5bda87f301b9234a9ffa9" 
+callId="c7b60ed57b941ca1e46cdfdc90bea20c@10.1.1.4" 
+firstLine="BYE sip:amit@10.1.1.4:5060;lr;transport=udp SIP/2.0" 
+>
+<![CDATA[BYE sip:amit@10.1.1.4:5060;lr;transport=udp SIP/2.0
+Via: SIP/2.0/UDP 10.1.1.4:5090;branch=z9hG4bKbefb5a0dbff5bda87f301b9234a9ffa9
+CSeq: 2 BYE
+Call-ID: c7b60ed57b941ca1e46cdfdc90bea20c@10.1.1.4
+From: <sip:becky@nist.gov>;tag=2092804503
+To: <sip:amit@nist.gov>;tag=1670419365
+Expires: 0
+Max-Forwards: 70
+Content-Length: 0
+
+]]>
+</message>
+
+<message
+from="10.1.1.4:5090" 
+to="10.1.1.4:5060" 
+time="1186776524379"
+isSender="true" 
+transactionId="z9hg4bkbefb5a0dbff5bda87f301b9234a9ffa9" 
+callId="c7b60ed57b941ca1e46cdfdc90bea20c@10.1.1.4" 
+firstLine="BYE sip:amit@10.1.1.4:5060;lr;transport=udp SIP/2.0" 
+>
+<![CDATA[BYE sip:amit@10.1.1.4:5060;lr;transport=udp SIP/2.0
+Via: SIP/2.0/UDP 10.1.1.4:5090;branch=z9hG4bKbefb5a0dbff5bda87f301b9234a9ffa9
+CSeq: 2 BYE
+Call-ID: c7b60ed57b941ca1e46cdfdc90bea20c@10.1.1.4
+From: <sip:becky@nist.gov>;tag=2092804503
+To: <sip:amit@nist.gov>;tag=1670419365
+Expires: 0
+Max-Forwards: 70
+Content-Length: 0
+
+]]>
+</message>
+

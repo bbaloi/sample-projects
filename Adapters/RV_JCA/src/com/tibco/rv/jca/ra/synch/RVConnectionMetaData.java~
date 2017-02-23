@@ -1,0 +1,43 @@
+package com.tibco.rv.jca.ra.synch;
+
+//import java.sql.*;
+import javax.resource.ResourceException;
+import javax.resource.spi.*;
+import com.tibco.rv.jca.util.Constants;
+
+
+{
+
+	private RVManagedConnection mc;
+	private String userName;
+
+    public RVConnectionMetaData(RVManagedConnection mc)
+    {
+        System.out.println("In RVConnectionMetaData.constructor");
+        this.mc = mc;
+    }
+
+    public String getEISProductName()
+        throws ResourceException
+    {
+        System.out.println("In RVConnectionMetaData.getEISProductName");
+        return Constants.EIS_PRODUCT_NAME;
+    }
+
+    public String getEISProductVersion()
+        throws ResourceException
+    {
+        System.out.println("In RVConnectionMetaData.getEISProductVersion");
+        return Constants.EIS_PRODUCT_VERSION;
+
+    }
+
+    public int getMaxConnections()
+        throws ResourceException
+    {
+            System.out.println("In RVConnectionMetaData.getMaxConnections");
+            return Constants.EIS_MAX_CONNECTIONS;
+    }
+   
+
+}

@@ -1,0 +1,220 @@
+<?xml version="1.0"?>
+
+<!-- ============================================================== -->
+<!-- Ant XML Inbound Connector sample application as deployed to    -->
+<!--  Application Server.                                   		-->
+<!--                                                                -->
+<!--
+ Copyright 2005 TIBCO Inc. All rights reserved.
+ TIBCO PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+-->
+<!-- ============================================================== -->
+
+<project name="tibco-rv-jca" default="all">
+
+	<!-- set global properties -->	
+		<property file="build.properties"/>
+		<property name="src.dir" location="${root.dir}/src" />
+		<property name="resource.dir" location="${root.dir}/res" />
+		<property name="lib.dir" location="${root.dir}/lib" />
+		<property name="base.dir" location="${root.dir}" />
+		<property name="build.dir" location="${base.dir}/build" />
+		<property name="dist.dir" location="${base.dir}/dist" />
+		<property name="ear.file" value="tibco-rv-jca-test.ear"/>
+		<property name="rar.file" value="tibco-rv-jca.rar"/>
+		<property name="adapter.jar" value="tibco-rv-jca.jar"/>
+		<property name="mdb.jar" value="tibco-rv-jca-samples.jar"/>
+		<property name="test.jar" value="tibco-rv-jca-tests.jar"/>
+	
+		<!--Compiler properties -->
+		<property name="compile.debug" value="on"/>	
+		<property name="compile.optimize" value="on"/>	
+		<property name="compiler-jikes" value="jikes"/>
+	
+		
+		<path id="base.build.classpath">
+			<pathelement location="${lib.dir}/tibrvj.jar"/>
+			<pathelement location="${lib.dir}/tibrvjsd.jar"/>	
+			<pathelement location="${lib.dir}/j2ee.jar"/>	
+		</path>
+		
+		<target name="init">
+			<echo message="Initializing... "/>
+			<mkdir dir="${build.dir}" />
+			<mkdir dir="${build.dir}/classes" />
+			<mkdir dir="${build.dir}/ear" />
+			<mkdir dir="${build.dir}/rar" />
+			<mkdir dir="${build.dir}/unittest" />
+			<mkdir dir="${build.dir}/unittest/output" />
+			<mkdir dir="${build.dir}/unittest/classes" />
+			<mkdir dir="${base.dir}/dist" />
+			<mkdir dir="${base.dir}/dist/rar" />
+			<mkdir dir="${base.dir}/dist/ear" />
+			<mkdir dir="${base.dir}/dist/bin" />
+			<mkdir dir="${base.dir}/dist/docs" />
+		</target>
+	<!--==============Compile adapter,mdb,test code============= -->
+		
+		<target name="compile-adapter" depends="init">
+			 <echo message="Compiling adapter code... "/>
+			<javac srcdir="${src.dir}" classpathref="base.build.classpath"
+				includes = "**/com/tibco/**"
+				excludes = "**/tests/*,**/samples/*"
+				destdir="${build.dir}/classes" 		
+				debug="${compile.debug}" 
+				optimize="${compile.optimze}"
+				failonerror="true"
+				compiler="${compiler-jikes}"
+			/>
+		</target>	
+		<target name="compile-client" depends="init">
+			 <echo message="Compiling ejb/mdb code... "/>
+				<javac srcdir="${src.dir}" classpathref="base.build.classpath"
+					includes = "**/ra/**,**/samples/**"
+					destdir="${build.dir}/classes" 		
+					debug="${compile.debug}"
+					optimize="${compile.optimze}"
+					failonerror="true"
+					compiler="${compiler-jikes}"
+				/>
+			</target>
+		<target name="compile-tests" depends="init">
+			 <echo message="Compiling tests... "/>
+					<javac srcdir="${src.dir}" classpathref="base.build.classpath"
+						includes = "**/tests/**"
+						destdir="${build.dir}/classes" 		
+						debug="${compile.debug}"
+						optimize="${compile.optimze}"
+						failonerror="true"
+						compiler="${compiler-jikes}"
+					/>
+		</target>
+	
+<!-- =================== ASSEMBLE: Create TIBCO rendezvous RAR ========= -->
+
+  <target name="assemble-rar"  depends="compile-adapter" description="Create TIBCO Rendezvous RAR"> 
+    <echo message="Creating TIBCO Rendezvous RAR... "/>
+  
+    <jar jarfile="${base.dir}/dist/rar/${adapter.jar}" basedir="${build.dir}/classes">
+        <include name="**/com/tibco/rv/jca/**/*.properties"/>
+    	<include name="**/com/tibco/rv/jca/**/*.class"/> 
+    	<exclude name="**/com/tibco/rv/jca/samples/**"/> 
+    	<exclude name="**/com/tibco/rv/jca/tests/**"/> 
+    </jar>
+  	  	
+  	<copy todir="${base.dir}/dist/rar"> 
+  		  		<fileset dir="${lib.dir}">
+  		  		    <include name="tibrvj.jar"/>   	
+  		  		    <include name="tibrvjsd.jar"/>
+  		  			<!--
+  		  				<include name="libtibrvj.so"/>
+  		  		   		 <include name="libtibrvjsd.so"/>
+  		  		    -->
+  		  		</fileset> 
+  	</copy>
+  	
+  	<jar jarfile="${base.dir}/dist/rar/${rar.file}" basedir="${base.dir}/dist/rar">
+  		<include name="*.jar"/> 
+  		<include name="*.so"/> 
+  		<fileset dir="${resource.dir}/ra">
+  			<include name="META-INF/ra.xml"/>
+  		</fileset>
+   	</jar> 	
+  	
+ </target>
+	
+<!-- =================== ASSEMBLE: Create MDB samples   ========= -->
+
+	<target name="assemble-ear"  depends="compile-client" description="Create sample MDBs"> 
+	    <echo message="Creating samples MDBs... "/>	  
+	   <!-- copy classes-->
+		<copy todir="${base.dir}/build/ear"> 
+		  <fileset dir="${base.dir}/build/classes">
+		  		  <include name="**/com/tibco/rv/jca/samples/**"/> 	
+		  		  <include name="**/com/tibco/rv/jca/**"/> 	
+		  		  <exclude name="**/com/tibco/rv/jca/listeners/**"/> 	
+		  		  <exclude name="**/com/tibco/rv/jca/ra/**"/> 
+		  		  <exclude name="**/com/tibco/rv/jca/tests/**"/>
+		  	 	  <exclude name="**/com/tibco/rv/jca/vo/**"/>	  		  
+		  </fileset> 
+		</copy>
+		 <!-- copy ejb-jar.xml-->
+				<copy todir="${base.dir}/build/ear"> 
+				  <fileset dir="${resource.dir}/ejb">
+				  		  <include name="META-INF/ejb-jar.xml"/> 	
+				  		  <include name="META-INF/MANIFEST.MF"/> 	
+				  </fileset> 
+				</copy>
+		
+		<jar jarfile="${base.dir}/dist/ear/${mdb.jar}" basedir="${build.dir}/ear">
+	        <include name="**"/>	    	
+	    </jar>	  	   
+	  	
+	  	<ear destfile="${base.dir}/dist/ear/${ear.file}" appxml="${resource.dir}/ejb/META-INF/application.xml">
+	  	      <fileset dir="${base.dir}/dist/ear" includes="*.jar,*.war"/>
+	  	    </ear>
+	 </target>
+
+  <!-- ======================================================= -->
+  <!-- Clean up various files and directories.                 -->
+  <!-- ======================================================= -->
+   <target name="clean">
+    <delete dir="${build.dir}"/>
+    <delete dir="${dist.dir}"/>
+  </target>
+
+  <target name="fixforunix">
+    <fixcrlf srcdir="${src}"
+       cr="remove" eof="remove"
+       includes="**/*.jsp,**/*.html,**/*.tld,**/*.xml,**/*.java,**/*.sh,**/*.sql"
+    />
+  </target>
+  
+ 
+
+  <!-- ======================================================= -->
+  <!-- Verify connector rar.                                         -->
+  <!-- ======================================================= -->
+
+  <property name="rar.file" value="${connector.assemble}/${rar}"/>
+
+  <target name="verify-rar" depends="assemble-rar">
+    <echo message="Verifying Process for ${rar.file}" />
+    <java classname="com.sun.enterprise.tools.verifier.Verifier" fork="yes" dir=".">
+      <sysproperty key="java.endorsed.dirs" value="${com.sun.aas.installRoot}/lib/endorsed"/>
+      <sysproperty key="com.sun.aas.installRoot" value="${com.sun.aas.installRoot}"/>
+      <sysproperty key="com.sun.aas.verifier.xsl" value="${com.sun.aas.installRoot}/lib/verifier/" />
+      <!-- uncomment the following for verbose output -->
+      <!--<arg value="-v"/>-->
+      <arg value="${rar.file}"/>
+      <classpath path="${build.classpath}"/>
+    </java>
+  </target>
+
+   <!-- Standard targets -->
+	<target name="check-conditions">
+	      <condition property="deploy.file" value="${assemble.ear}/${ear}"> 
+	        <available file="${assemble.ear}/${ear}"/>   
+	    </condition>
+	    <property name="deploy.file" value="../${ear}"/>
+	    
+	    <condition property="verify.file" value="${assemble.ear}/${ear}"> 
+	        <available file="${assemble.ear}/${ear}"/>   
+	    </condition>
+	    <property name="verify.file" value="../${ear}"/>
+	  </target>
+
+  <target name="copy_ear" depends="init">
+      <delete file="../${ear}"/>
+      <copy file="${assemble.ear}/${ear}" todir=".." />
+      <delete file="../${rar}"/>
+      <copy file="${connector.assemble}/${rar}" 
+		tofile="../${rar}"/>
+  </target>
+
+  <target name="compile-all" depends="compile-adapter,compile-client,compile-tests"/>
+  <target name="package-all" depends="assemble-rar,assemble-ear"/> 
+  <target name="verify" depends="init,verify-rar"/>
+  <target name="all" depends="package-all"/>
+	
+  </project>

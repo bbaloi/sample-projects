@@ -1,0 +1,1927 @@
+
+C:\Eclipse3.2\eclipse\workspace\xpdl-bw-converter\distro\bin>java -jar ../lib/xpdl-bw-converter.jar -properties_file xpdlbw.properties 
+[Nov 12 15:08:55] INFO  (XPDLBWConverter.java:22) - Starting XPDL-BW conversion... !
+[Nov 12 15:08:58] DEBUG (BWBuilder.java:63) - Processing XPDL with XmlBeans !
+[Nov 12 15:08:58] DEBUG (BWBuilder.java:78) - Count of workflow processes: 3
+[Nov 12 15:08:58] DEBUG (BWBuilder.java:118) - Process Name: InquireEquipmentOrder
+[Nov 12 15:08:58] DEBUG (BWBuilder.java:135) - Activity Count:13
+[Nov 12 15:08:58] DEBUG (BWBuilder.java:139) - 	Activity Name: Receive JMS Message
+[Nov 12 15:08:58] DEBUG (BWXmlbeansAssembler.java:213) - -Processing Activity:Name=Receive JMS Message,id=1
+[Nov 12 15:08:58] DEBUG (BWXmlbeansAssembler.java:214) - NumExtAttrs:5
+[Nov 12 15:08:58] DEBUG (BWAbstractAssembler.java:122) - $$getting ExtAttrValues for:org.apache.xmlbeans.impl.store.Xobj$ElementXobj@d42d08
+[Nov 12 15:08:58] DEBUG (BWAbstractAssembler.java:125) - $$num children:3
+[Nov 12 15:08:58] DEBUG (BWAbstractAssembler.java:157) - Node:Location
+[Nov 12 15:08:58] DEBUG (BWAbstractAssembler.java:177) - Location len:9
+[Nov 12 15:08:58] DEBUG (BWAbstractAssembler.java:180) - cntr:1
+[Nov 12 15:08:58] DEBUG (BWAbstractAssembler.java:187) - ExtAttr-X:59
+[Nov 12 15:08:58] DEBUG (BWAbstractAssembler.java:180) - cntr:3
+[Nov 12 15:08:58] DEBUG (BWAbstractAssembler.java:194) - ExtAttr-Y:70
+[Nov 12 15:08:58] DEBUG (BWAbstractAssembler.java:180) - cntr:5
+[Nov 12 15:08:58] DEBUG (BWAbstractAssembler.java:180) - cntr:7
+[Nov 12 15:08:58] DEBUG (BWAbstractAssembler.java:157) - Node:ActivityType
+[Nov 12 15:08:58] DEBUG (BWAbstractAssembler.java:164) - ExtAttr-ActivityType:EVENT
+[Nov 12 15:08:58] DEBUG (BWAbstractAssembler.java:157) - Node:EventFlowType
+[Nov 12 15:08:58] DEBUG (BWAbstractAssembler.java:170) - ExtAttr-EventFlowType:START
+[Nov 12 15:08:58] DEBUG (BWXmlbeansAssembler.java:225) - ++++++ActivtyType:_ActivityType:value=START
+[Nov 12 15:08:58] DEBUG (BWXmlbeansAssembler.java:458) - StarterMapValues:key=JMS_REQUEST,val=$Receive-JMS-Message/root/dataInput
+[Nov 12 15:08:58] DEBUG (BWBuilder.java:139) - 	Activity Name: Test Order Type
+[Nov 12 15:08:58] DEBUG (BWXmlbeansAssembler.java:213) - -Processing Activity:Name=Test Order Type,id=3
+[Nov 12 15:08:58] DEBUG (BWXmlbeansAssembler.java:214) - NumExtAttrs:4
+[Nov 12 15:08:58] DEBUG (BWAbstractAssembler.java:122) - $$getting ExtAttrValues for:org.apache.xmlbeans.impl.store.Xobj$ElementXobj@12452e8
+[Nov 12 15:08:58] DEBUG (BWAbstractAssembler.java:125) - $$num children:3
+[Nov 12 15:08:58] DEBUG (BWAbstractAssembler.java:157) - Node:Location
+[Nov 12 15:08:58] DEBUG (BWAbstractAssembler.java:177) - Location len:9
+[Nov 12 15:08:58] DEBUG (BWAbstractAssembler.java:180) - cntr:1
+[Nov 12 15:08:58] DEBUG (BWAbstractAssembler.java:187) - ExtAttr-X:160
+[Nov 12 15:08:58] DEBUG (BWAbstractAssembler.java:180) - cntr:3
+[Nov 12 15:08:58] DEBUG (BWAbstractAssembler.java:194) - ExtAttr-Y:241
+[Nov 12 15:08:58] DEBUG (BWAbstractAssembler.java:180) - cntr:5
+[Nov 12 15:08:58] DEBUG (BWAbstractAssembler.java:180) - cntr:7
+[Nov 12 15:08:58] DEBUG (BWAbstractAssembler.java:157) - Node:ActivityType
+[Nov 12 15:08:58] DEBUG (BWAbstractAssembler.java:164) - ExtAttr-ActivityType:GATEWAY
+[Nov 12 15:08:58] DEBUG (BWAbstractAssembler.java:157) - Node:GatewayType
+[Nov 12 15:08:58] DEBUG (BWXmlbeansAssembler.java:225) - ++++++ActivtyType:_ActivityType:value=CONDITION
+[Nov 12 15:08:58] DEBUG (BWXmlbeansAssembler.java:652) - ParamValue:"ORDER_TYPE.VALUE='1'"
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:569) - value-x:160
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:581) - ActivityType:CONDITION
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:606) - ****Condition:Id3,value="ORDER_TYPE.VALUE='1'"
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:828) - =====ActivityType:CONDITION,output:''
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:139) - 	Activity Name: null
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:213) - -Processing Activity:Name=null,id=4
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:214) - NumExtAttrs:2
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:122) - $$getting ExtAttrValues for:org.apache.xmlbeans.impl.store.Xobj$ElementXobj@1cd0888
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:125) - $$num children:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:157) - Node:Location
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:177) - Location len:9
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:187) - ExtAttr-X:690
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:194) - ExtAttr-Y:450
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:7
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:157) - Node:ActivityType
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:164) - ExtAttr-ActivityType:EVENT
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:157) - Node:EventFlowType
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:170) - ExtAttr-EventFlowType:END
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:225) - ++++++ActivtyType:_ActivityType:value=END
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:581) - ActivityType:END
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:669) - adding Endpoint,inputvalue:null
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:139) - 	Activity Name: Tranform by Order Document
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:213) - -Processing Activity:Name=Tranform by Order Document,id=5
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:214) - NumExtAttrs:6
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:122) - $$getting ExtAttrValues for:org.apache.xmlbeans.impl.store.Xobj$ElementXobj@ac6a45
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:125) - $$num children:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:157) - Node:Location
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:177) - Location len:9
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:187) - ExtAttr-X:289
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:194) - ExtAttr-Y:140
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:7
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:225) - ++++++ActivtyType:_ActivityType:value=PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:652) - ParamValue:Utils.Contivo.InvokeContivo
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:569) - value-x:289
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:581) - ActivityType:PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:904) - -------ProcCallName:Utils.Contivo.InvokeContivogenerateFramework:false
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:828) - =====ActivityType:PROCESS_CALL,output:PRIVATE_REQUEST
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:843) - =====OutputVarKey:PRIVATE_REQUEST,output:$Tranform-by-Order-Document/OutputData/outputValue
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:139) - 	Activity Name: Transform by External Order
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:213) - -Processing Activity:Name=Transform by External Order,id=6
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:214) - NumExtAttrs:6
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:122) - $$getting ExtAttrValues for:org.apache.xmlbeans.impl.store.Xobj$ElementXobj@175078b
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:125) - $$num children:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:157) - Node:Location
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:177) - Location len:9
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:187) - ExtAttr-X:289
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:194) - ExtAttr-Y:276
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:7
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:225) - ++++++ActivtyType:_ActivityType:value=PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:652) - ParamValue:Utils.Contivo.InvokeContivo
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:569) - value-x:289
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:581) - ActivityType:PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:904) - -------ProcCallName:Utils.Contivo.InvokeContivogenerateFramework:false
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:828) - =====ActivityType:PROCESS_CALL,output:PRIVATE_REQUEST
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:843) - =====OutputVarKey:PRIVATE_REQUEST,output:$Tranform-by-Order-Document/OutputData/outputValue
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:139) - 	Activity Name: Validate Pub Request
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:213) - -Processing Activity:Name=Validate Pub Request,id=7
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:214) - NumExtAttrs:5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:122) - $$getting ExtAttrValues for:org.apache.xmlbeans.impl.store.Xobj$ElementXobj@19e15c
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:125) - $$num children:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:157) - Node:Location
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:177) - Location len:9
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:187) - ExtAttr-X:136
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:194) - ExtAttr-Y:37
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:7
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:225) - ++++++ActivtyType:_ActivityType:value=PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:652) - ParamValue:Utils.General.ValidateXML
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:569) - value-x:136
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:581) - ActivityType:PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:904) - -------ProcCallName:Utils.General.ValidateXMLgenerateFramework:false
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:828) - =====ActivityType:PROCESS_CALL,output:''
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:139) - 	Activity Name: Search Order Invoice
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:213) - -Processing Activity:Name=Search Order Invoice,id=8
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:214) - NumExtAttrs:6
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:122) - $$getting ExtAttrValues for:org.apache.xmlbeans.impl.store.Xobj$ElementXobj@210b5b
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:125) - $$num children:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:157) - Node:Location
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:177) - Location len:9
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:187) - ExtAttr-X:420
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:194) - ExtAttr-Y:140
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:7
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:225) - ++++++ActivtyType:_ActivityType:value=PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:652) - ParamValue:Adapters.Compass.InvokeCompass
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:569) - value-x:420
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:581) - ActivityType:PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:904) - -------ProcCallName:Adapters.Compass.InvokeCompassgenerateFramework:false
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:828) - =====ActivityType:PROCESS_CALL,output:SEARCH_RESPONSE
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:843) - =====OutputVarKey:SEARCH_RESPONSE,output:$Search-Order-Invoice/OutputData/outputValue
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:139) - 	Activity Name: Get An Order
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:213) - -Processing Activity:Name=Get An Order,id=9
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:214) - NumExtAttrs:6
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:122) - $$getting ExtAttrValues for:org.apache.xmlbeans.impl.store.Xobj$ElementXobj@11563ff
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:125) - $$num children:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:157) - Node:Location
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:177) - Location len:9
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:187) - ExtAttr-X:420
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:194) - ExtAttr-Y:276
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:7
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:225) - ++++++ActivtyType:_ActivityType:value=PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:652) - ParamValue:Adapters.Compass.InvokeCompass
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:569) - value-x:420
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:581) - ActivityType:PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:904) - -------ProcCallName:Adapters.Compass.InvokeCompassgenerateFramework:false
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:828) - =====ActivityType:PROCESS_CALL,output:PRIVATE_RESPONSE
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:843) - =====OutputVarKey:PRIVATE_RESPONSE,output:$Get-An-Order/OutputData/outputValue
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:139) - 	Activity Name: Create Response
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:213) - -Processing Activity:Name=Create Response,id=10
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:214) - NumExtAttrs:5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:122) - $$getting ExtAttrValues for:org.apache.xmlbeans.impl.store.Xobj$ElementXobj@1d62270
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:125) - $$num children:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:157) - Node:Location
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:177) - Location len:9
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:187) - ExtAttr-X:420
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:194) - ExtAttr-Y:417
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:7
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:225) - ++++++ActivtyType:_ActivityType:value=PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:652) - ParamValue:Utils.Jms.CreateJmsResponse
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:569) - value-x:420
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:581) - ActivityType:PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:904) - -------ProcCallName:Utils.Jms.CreateJmsResponsegenerateFramework:false
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:828) - =====ActivityType:PROCESS_CALL,output:JMS_RESPONSE
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:843) - =====OutputVarKey:JMS_RESPONSE,output:$Create-Response/OutputData/outputValue
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:139) - 	Activity Name: Transform Prv to Pub
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:213) - -Processing Activity:Name=Transform Prv to Pub,id=11
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:214) - NumExtAttrs:6
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:122) - $$getting ExtAttrValues for:org.apache.xmlbeans.impl.store.Xobj$ElementXobj@176cad3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:125) - $$num children:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:157) - Node:Location
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:177) - Location len:9
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:187) - ExtAttr-X:555
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:194) - ExtAttr-Y:276
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:7
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:225) - ++++++ActivtyType:_ActivityType:value=PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:652) - ParamValue:Utils.Contivo.InvokeContivo
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:569) - value-x:555
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:581) - ActivityType:PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:904) - -------ProcCallName:Utils.Contivo.InvokeContivogenerateFramework:false
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:828) - =====ActivityType:PROCESS_CALL,output:PUBLIC_RESPONSE
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:843) - =====OutputVarKey:PUBLIC_RESPONSE,output:$Transform-Prv-to-Pub/OutputData/outputValue
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:139) - 	Activity Name: Send Response
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:213) - -Processing Activity:Name=Send Response,id=12
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:214) - NumExtAttrs:5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:122) - $$getting ExtAttrValues for:org.apache.xmlbeans.impl.store.Xobj$ElementXobj@1fe1feb
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:125) - $$num children:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:157) - Node:Location
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:177) - Location len:9
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:187) - ExtAttr-X:548
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:194) - ExtAttr-Y:417
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:7
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:225) - ++++++ActivtyType:_ActivityType:value=PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:652) - ParamValue:Utils.Jms.SendJmsResponse
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:569) - value-x:548
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:581) - ActivityType:PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:904) - -------ProcCallName:Utils.Jms.SendJmsResponsegenerateFramework:false
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:828) - =====ActivityType:PROCESS_CALL,output:''
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:139) - 	Activity Name: Get Order Type
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:213) - -Processing Activity:Name=Get Order Type,id=13
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:214) - NumExtAttrs:6
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:122) - $$getting ExtAttrValues for:org.apache.xmlbeans.impl.store.Xobj$ElementXobj@1113622
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:125) - $$num children:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:157) - Node:Location
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:177) - Location len:9
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:187) - ExtAttr-X:279
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:194) - ExtAttr-Y:37
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:7
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:225) - ++++++ActivtyType:_ActivityType:value=PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:652) - ParamValue:Utils.General.SearchTagExists
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:569) - value-x:279
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:581) - ActivityType:PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:904) - -------ProcCallName:Utils.General.SearchTagExistsgenerateFramework:false
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:828) - =====ActivityType:PROCESS_CALL,output:ORDER_TYPE
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:843) - =====OutputVarKey:ORDER_TYPE,output:$Get-Order-Type/OutputData/outputValue
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:139) - 	Activity Name: Get An Order from Invoice
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:213) - -Processing Activity:Name=Get An Order from Invoice,id=14
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:214) - NumExtAttrs:6
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:122) - $$getting ExtAttrValues for:org.apache.xmlbeans.impl.store.Xobj$ElementXobj@79ed7f
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:125) - $$num children:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:157) - Node:Location
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:177) - Location len:9
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:187) - ExtAttr-X:555
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:194) - ExtAttr-Y:140
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:7
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:225) - ++++++ActivtyType:_ActivityType:value=PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:652) - ParamValue:Adapters.Compass.InvokeCompass
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:569) - value-x:555
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:581) - ActivityType:PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:904) - -------ProcCallName:Adapters.Compass.InvokeCompassgenerateFramework:false
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:828) - =====ActivityType:PROCESS_CALL,output:PRIVATE_RESPONSE
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:843) - =====OutputVarKey:PRIVATE_RESPONSE,output:$Get-An-Order/OutputData/outputValue
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:156) - Transition Count:13
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:158) - 	Transition Name: 4 From: 3 To: 5 Name: null
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:343) - addtransition-Condition:"ORDER_TYPE.VALUE='1'"
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:364) - Cond Str:"ORDER_TYPE.VALUE='1'"
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:1108) - Original Val:ORDER_TYPE.VALUE,Proc root:$Get-Order-Type/OutputData/outputValue
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:369) - CondVar:ORDER_TYPE.VALUE,CondExpr:1
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:1068) - ProcName:Tranform by Order Document,Condition:1
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:1090) - Proc name:$Get-Order-Type/OutputData/outputValue,cond=ORDER_TYPE.VALUE,expr:1
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:1098) - cond var:$Get-Order-Type/OutputData/outputValue='1'
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:158) - 	Transition Name: 5 From: 3 To: 6 Name: null
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:343) - addtransition-Condition:"ORDER_TYPE.VALUE='1'"
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:158) - 	Transition Name: 8 From: 5 To: 8 Name: null
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:343) - addtransition-Condition:null
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:158) - 	Transition Name: 9 From: 6 To: 9 Name: null
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:343) - addtransition-Condition:null
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:158) - 	Transition Name: 11 From: 9 To: 11 Name: null
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:343) - addtransition-Condition:null
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:158) - 	Transition Name: 12 From: 11 To: 10 Name: null
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:343) - addtransition-Condition:null
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:158) - 	Transition Name: 13 From: 10 To: 12 Name: null
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:343) - addtransition-Condition:null
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:158) - 	Transition Name: 14 From: 12 To: 4 Name: null
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:336) - from:Send Response-to:null
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:343) - addtransition-Condition:null
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:158) - 	Transition Name: 15 From: 1 To: 7 Name: null
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:343) - addtransition-Condition:null
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:158) - 	Transition Name: 17 From: 7 To: 13 Name: null
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:343) - addtransition-Condition:null
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:158) - 	Transition Name: 18 From: 13 To: 3 Name: null
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:343) - addtransition-Condition:null
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:158) - 	Transition Name: 19 From: 8 To: 14 Name: null
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:343) - addtransition-Condition:null
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:158) - 	Transition Name: 20 From: 14 To: 11 Name: null
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:343) - addtransition-Condition:null
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:302) - setChoseElements; transitions list size:13
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:314) - Handling:5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:340) - Constructing bindings for:activity 5with # inputs:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:477) - from path:null,inVar:JMS_REQUEST
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:531) - candidateVarList:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:487) - Null value for input path, chosing inputva:$Receive-JMS-Message/root/dataInput
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:410) - Adding input to activity 5 from activity 3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:314) - Handling:6
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:340) - Constructing bindings for:activity 6with # inputs:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:477) - from path:null,inVar:JMS_REQUEST
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:531) - candidateVarList:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:487) - Null value for input path, chosing inputva:$Receive-JMS-Message/root/dataInput
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:410) - Adding input to activity 6 from activity 3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:314) - Handling:8
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:340) - Constructing bindings for:activity 8with # inputs:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:477) - from path:$Tranform-by-Order-Document/OutputData/outputValue,inVar:PRIVATE_REQUEST
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:531) - candidateVarList:2
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:410) - Adding input to activity 8 from activity 5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:314) - Handling:9
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:340) - Constructing bindings for:activity 9with # inputs:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:477) - from path:$Transform-by-External-Order/OutputData/outputValue,inVar:PRIVATE_REQUEST
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:531) - candidateVarList:2
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:410) - Adding input to activity 9 from activity 6
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:314) - Handling:11
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:340) - Constructing bindings for:activity 11with # inputs:2
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:314) - Handling:10
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:340) - Constructing bindings for:activity 10with # inputs:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:477) - from path:$Transform-Prv-to-Pub/OutputData/outputValue,inVar:PUBLIC_RESPONSE
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:531) - candidateVarList:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:410) - Adding input to activity 10 from activity 11
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:314) - Handling:12
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:340) - Constructing bindings for:activity 12with # inputs:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:477) - from path:$Create-Response/OutputData/outputValue,inVar:JMS_RESPONSE
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:531) - candidateVarList:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:410) - Adding input to activity 12 from activity 10
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:314) - Handling:4
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:340) - Constructing bindings for:activity 4with # inputs:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:347) - This is the endpoint !
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:477) - from path:$Send-Response/OutputData/outputValue,inVar:null
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:444) - Ret Binding input Proc:12:null
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:449) - COuldn't find value for Endpoint !
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:314) - Handling:7
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:340) - Constructing bindings for:activity 7with # inputs:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:477) - from path:$Receive-JMS-Message/root/dataInput,inVar:JMS_REQUEST
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:531) - candidateVarList:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:410) - Adding input to activity 7 from activity 1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:314) - Handling:13
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:340) - Constructing bindings for:activity 13with # inputs:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:477) - from path:$Validate-Pub-Request/OutputData/outputValue,inVar:JMS_REQUEST
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:531) - candidateVarList:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:410) - Adding input to activity 13 from activity 7
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:314) - Handling:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:340) - Constructing bindings for:activity 3with # inputs:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:477) - from path:$Get-Order-Type/OutputData/outputValue,inVar:null
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:410) - Adding input to activity 3 from activity 13
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:314) - Handling:14
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:340) - Constructing bindings for:activity 14with # inputs:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:477) - from path:$Search-Order-Invoice/OutputData/outputValue,inVar:SEARCH_RESPONSE
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:531) - candidateVarList:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:410) - Adding input to activity 14 from activity 8
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:328) - Already handled:11
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:422) - ========This is my new Project:=======
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:937) - New Header:<ProcessDefinition xmlns="http://xmlns.tibco.com/bw/process/2003" xmlns:tran="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns="http://www.tibco.com/namespaces/tnt/plugins/jms">
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:424) - <?xml version="1.0" encoding="UTF-8"?><ProcessDefinition xmlns="http://xmlns.tibco.com/bw/process/2003" xmlns:tran="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns="http://www.tibco.com/namespaces/tnt/plugins/jms">
+  <name>/Processes/Generated/InquireEquipmentOrder.process</name>
+  <startName>Receive JMS Message</startName>
+  <startX>0</startX>
+  <startY>0</startY>
+  <returnBindings>
+    <returnValue xmlns="">
+      <outData>
+        <tran:value-of select=""/>
+      </outData>
+    </returnValue>
+  </returnBindings>
+  <startType>
+    <xs:element name="root">
+      <xs:complexType>
+        <xs:sequence>
+          <xs:element name="dataInput" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:element>
+  </startType>
+  <endName>End</endName>
+  <endType>
+    <xs:element name="returnValue">
+      <xs:complexType>
+        <xs:sequence>
+          <xs:element name="outData" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:element>
+  </endType>
+  <endX>690</endX>
+  <endY>450</endY>
+  <activity name="Test Order Type">
+    <type>com.tibco.plugin.timer.NullActivity</type>
+    <resourceType>ae.activities.null</resourceType>
+    <x>160</x>
+    <y>241</y>
+    <config xmlns=""/>
+    <inputBindings>
+      <inputVars xmlns="">
+        <staticVar>
+          <tran:value-of select="''"/>
+        </staticVar>
+      </inputVars>
+    </inputBindings>
+  </activity>
+  <activity name="Tranform by Order Document">
+    <type>com.tibco.pe.core.CallProcessActivity</type>
+    <resourceType>ae.process.subprocess</resourceType>
+    <x>289</x>
+    <y>140</y>
+    <config xmlns="">
+      <processName>/Processes/Utils/Contivo/InvokeContivo.process</processName>
+    </config>
+    <inputBindings>
+      <inputVars xmlns="">
+        <dynamicVar>
+          <tran:value-of select="$Receive-JMS-Message/root/dataInput"/>
+        </dynamicVar>
+        <staticVar>
+          <tran:value-of select="'CONTIVO_TRANSFORM=com.cingular.csi.transforms.Transform_CSI_2_COMPASS_InquireEquipmentOrder_ByOrderDocument_Request'"/>
+        </staticVar>
+      </inputVars>
+    </inputBindings>
+  </activity>
+  <activity name="Transform by External Order">
+    <type>com.tibco.pe.core.CallProcessActivity</type>
+    <resourceType>ae.process.subprocess</resourceType>
+    <x>289</x>
+    <y>276</y>
+    <config xmlns="">
+      <processName>/Processes/Utils/Contivo/InvokeContivo.process</processName>
+    </config>
+    <inputBindings>
+      <inputVars xmlns="">
+        <dynamicVar>
+          <tran:value-of select="$Receive-JMS-Message/root/dataInput"/>
+        </dynamicVar>
+        <staticVar>
+          <tran:value-of select="'CONTIVO_TRANSFORM=com.cingular.csi.transforms.Transform_CSI_2_COMPASS_InquireEquipmentOrder_ByExternalOrder_Request'"/>
+        </staticVar>
+      </inputVars>
+    </inputBindings>
+  </activity>
+  <activity name="Validate Pub Request">
+    <type>com.tibco.pe.core.CallProcessActivity</type>
+    <resourceType>ae.process.subprocess</resourceType>
+    <x>136</x>
+    <y>37</y>
+    <config xmlns="">
+      <processName>/Processes/Utils/General/ValidateXML.process</processName>
+    </config>
+    <inputBindings>
+      <inputVars xmlns="">
+        <dynamicVar>
+          <tran:value-of select="$Receive-JMS-Message/root/dataInput"/>
+        </dynamicVar>
+        <staticVar>
+          <tran:value-of select="'VALIDATION_SCHEMA=com.cingular.csi.schemas.pub.InquireEquipmentOrderRequestDocument'"/>
+        </staticVar>
+      </inputVars>
+    </inputBindings>
+  </activity>
+  <activity name="Search Order Invoice">
+    <type>com.tibco.pe.core.CallProcessActivity</type>
+    <resourceType>ae.process.subprocess</resourceType>
+    <x>420</x>
+    <y>140</y>
+    <config xmlns="">
+      <processName>/Processes/Adapters/Compass/InvokeCompass.process</processName>
+    </config>
+    <inputBindings>
+      <inputVars xmlns="">
+        <dynamicVar>
+          <tran:value-of select="$Tranform-by-Order-Document/OutputData/outputValue"/>
+        </dynamicVar>
+        <staticVar>
+          <tran:value-of select="'METHOD_NAME=searchOrderInvoice'"/>
+        </staticVar>
+      </inputVars>
+    </inputBindings>
+  </activity>
+  <activity name="Get An Order">
+    <type>com.tibco.pe.core.CallProcessActivity</type>
+    <resourceType>ae.process.subprocess</resourceType>
+    <x>420</x>
+    <y>276</y>
+    <config xmlns="">
+      <processName>/Processes/Adapters/Compass/InvokeCompass.process</processName>
+    </config>
+    <inputBindings>
+      <inputVars xmlns="">
+        <dynamicVar>
+          <tran:value-of select="$Transform-by-External-Order/OutputData/outputValue"/>
+        </dynamicVar>
+        <staticVar>
+          <tran:value-of select="'METHOD_NAME=getAnOrder'"/>
+        </staticVar>
+      </inputVars>
+    </inputBindings>
+  </activity>
+  <activity name="Create Response">
+    <type>com.tibco.pe.core.CallProcessActivity</type>
+    <resourceType>ae.process.subprocess</resourceType>
+    <x>420</x>
+    <y>417</y>
+    <config xmlns="">
+      <processName>/Processes/Utils/Jms/CreateJmsResponse.process</processName>
+    </config>
+    <inputBindings>
+      <inputVars xmlns="">
+        <dynamicVar>
+          <tran:value-of select="$Transform-Prv-to-Pub/OutputData/outputValue"/>
+        </dynamicVar>
+        <staticVar>
+          <tran:value-of select="''"/>
+        </staticVar>
+      </inputVars>
+    </inputBindings>
+  </activity>
+  <activity name="Transform Prv to Pub">
+    <type>com.tibco.pe.core.CallProcessActivity</type>
+    <resourceType>ae.process.subprocess</resourceType>
+    <x>555</x>
+    <y>276</y>
+    <config xmlns="">
+      <processName>/Processes/Utils/Contivo/InvokeContivo.process</processName>
+    </config>
+    <inputBindings>
+      <inputVars xmlns="">
+        <tran:choose>
+          <tran:when test="exists($Get-An-Order/OutputData/outputValue)">
+            <dynamicVar>
+              <tran:value-of select="$Get-An-Order/OutputData/outputValue"/>
+            </dynamicVar>
+          </tran:when>
+          <tran:otherwise>
+            <dynamicVar>
+              <tran:value-of select="$Get-An-Order-from-Invoice/OutputData/outputValue"/>
+            </dynamicVar>
+          </tran:otherwise>
+        </tran:choose>
+        <staticVar>
+          <tran:value-of select="'CONTIVO_TRANSFORM=com.cingular.csi.transforms.Transform_COMPASS_2_CSI_InquireEquipmentOrderResponse'"/>
+        </staticVar>
+      </inputVars>
+    </inputBindings>
+  </activity>
+  <activity name="Send Response">
+    <type>com.tibco.pe.core.CallProcessActivity</type>
+    <resourceType>ae.process.subprocess</resourceType>
+    <x>548</x>
+    <y>417</y>
+    <config xmlns="">
+      <processName>/Processes/Utils/Jms/SendJmsResponse.process</processName>
+    </config>
+    <inputBindings>
+      <inputVars xmlns="">
+        <dynamicVar>
+          <tran:value-of select="$Create-Response/OutputData/outputValue"/>
+        </dynamicVar>
+        <staticVar>
+          <tran:value-of select="'JMS_RESPONSE_QUEUE=pub.inquireequipmentorder.response'"/>
+        </staticVar>
+      </inputVars>
+    </inputBindings>
+  </activity>
+  <activity name="Get Order Type">
+    <type>com.tibco.pe.core.CallProcessActivity</type>
+    <resourceType>ae.process.subprocess</resourceType>
+    <x>279</x>
+    <y>37</y>
+    <config xmlns="">
+      <processName>/Processes/Utils/General/SearchTagExists.process</processName>
+    </config>
+    <inputBindings>
+      <inputVars xmlns="">
+        <dynamicVar>
+          <tran:value-of select="$Receive-JMS-Message/root/dataInput"/>
+        </dynamicVar>
+        <staticVar>
+          <tran:value-of select="'SEARCH_TAG=Order'"/>
+        </staticVar>
+      </inputVars>
+    </inputBindings>
+  </activity>
+  <activity name="Get An Order from Invoice">
+    <type>com.tibco.pe.core.CallProcessActivity</type>
+    <resourceType>ae.process.subprocess</resourceType>
+    <x>555</x>
+    <y>140</y>
+    <config xmlns="">
+      <processName>/Processes/Adapters/Compass/InvokeCompass.process</processName>
+    </config>
+    <inputBindings>
+      <inputVars xmlns="">
+        <dynamicVar>
+          <tran:value-of select="$Search-Order-Invoice/OutputData/outputValue"/>
+        </dynamicVar>
+        <staticVar>
+          <tran:value-of select="'METHOD_NAME=getAnOrder'"/>
+        </staticVar>
+      </inputVars>
+    </inputBindings>
+  </activity>
+  <transition>
+    <from>Test Order Type</from>
+    <to>Tranform by Order Document</to>
+    <lineType>Default</lineType>
+    <lineColor>-16777216</lineColor>
+    <conditionType>xpath</conditionType>
+    <xpath>$Get-Order-Type/OutputData/outputValue='1'</xpath>
+  </transition>
+  <transition>
+    <from>Test Order Type</from>
+    <to>Transform by External Order</to>
+    <lineType>Default</lineType>
+    <lineColor>-16777216</lineColor>
+    <conditionType>otherwise</conditionType>
+  </transition>
+  <transition>
+    <from>Tranform by Order Document</from>
+    <to>Search Order Invoice</to>
+    <lineType>Default</lineType>
+    <lineColor>-16777216</lineColor>
+    <conditionType>always</conditionType>
+  </transition>
+  <transition>
+    <from>Transform by External Order</from>
+    <to>Get An Order</to>
+    <lineType>Default</lineType>
+    <lineColor>-16777216</lineColor>
+    <conditionType>always</conditionType>
+  </transition>
+  <transition>
+    <from>Get An Order</from>
+    <to>Transform Prv to Pub</to>
+    <lineType>Default</lineType>
+    <lineColor>-16777216</lineColor>
+    <conditionType>always</conditionType>
+  </transition>
+  <transition>
+    <from>Transform Prv to Pub</from>
+    <to>Create Response</to>
+    <lineType>Default</lineType>
+    <lineColor>-16777216</lineColor>
+    <conditionType>always</conditionType>
+  </transition>
+  <transition>
+    <from>Create Response</from>
+    <to>Send Response</to>
+    <lineType>Default</lineType>
+    <lineColor>-16777216</lineColor>
+    <conditionType>always</conditionType>
+  </transition>
+  <transition>
+    <from>Send Response</from>
+    <to>End</to>
+    <lineType>Default</lineType>
+    <lineColor>-16777216</lineColor>
+    <conditionType>always</conditionType>
+  </transition>
+  <transition>
+    <from>Receive JMS Message</from>
+    <to>Validate Pub Request</to>
+    <lineType>Default</lineType>
+    <lineColor>-16777216</lineColor>
+    <conditionType>always</conditionType>
+  </transition>
+  <transition>
+    <from>Validate Pub Request</from>
+    <to>Get Order Type</to>
+    <lineType>Default</lineType>
+    <lineColor>-16777216</lineColor>
+    <conditionType>always</conditionType>
+  </transition>
+  <transition>
+    <from>Get Order Type</from>
+    <to>Test Order Type</to>
+    <lineType>Default</lineType>
+    <lineColor>-16777216</lineColor>
+    <conditionType>always</conditionType>
+  </transition>
+  <transition>
+    <from>Search Order Invoice</from>
+    <to>Get An Order from Invoice</to>
+    <lineType>Default</lineType>
+    <lineColor>-16777216</lineColor>
+    <conditionType>always</conditionType>
+  </transition>
+  <transition>
+    <from>Get An Order from Invoice</from>
+    <to>Transform Prv to Pub</to>
+    <lineType>Default</lineType>
+    <lineColor>-16777216</lineColor>
+    <conditionType>always</conditionType>
+  </transition>
+</ProcessDefinition>
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:92) - -----Generating call framework-----
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:669) - adding Endpoint,inputvalue:ProcOut
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:1054) - ========This is my new Framework:=======
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:937) - New Header:<ProcessDefinition xmlns="http://xmlns.tibco.com/bw/process/2003" xmlns:tran="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns="http://www.tibco.com/namespaces/tnt/plugins/jms">
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:1056) - <?xml version="1.0" encoding="UTF-8"?><ProcessDefinition xmlns="http://xmlns.tibco.com/bw/process/2003" xmlns:tran="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns="http://www.tibco.com/namespaces/tnt/plugins/jms">
+  <name>/Processes/Generated/InquireEquipmentOrder-Main.process</name>
+  <startName>JMS Receiver</startName>
+  <startX>0</startX>
+  <startY>0</startY>
+  <returnBindings>
+    <returnValue xmlns="">
+      <outData>
+        <tran:value-of select=""/>
+      </outData>
+    </returnValue>
+  </returnBindings>
+  <starter name="JMS Receiver">
+    <type>com.tibco.plugin.jms.JMSQueueEventSource</type>
+    <resourceType>ae.activities.JMSQueueEventSource</resourceType>
+    <x>0</x>
+    <y>0</y>
+    <config xmlns="">
+      <PermittedMessageType>Text</PermittedMessageType>
+      <SessionAttributes>
+        <transacted>false</transacted>
+        <acknowledgeMode>1</acknowledgeMode>
+        <maxSessions>1</maxSessions>
+        <destination>pub.inquireequipmentorder.request</destination>
+      </SessionAttributes>
+      <ConfigurableHeaders>
+        <JMSDeliveryMode>PERSISTENT</JMSDeliveryMode>
+        <JMSExpiration>0</JMSExpiration>
+        <JMSPriority>4</JMSPriority>
+      </ConfigurableHeaders>
+      <ConnectionReference>/Shared Resources/Transports/JMS/JMS Connection.sharedjmscon</ConnectionReference>
+      <OutDataxsdString/>
+      <OutDataxsdString>
+        <xs:element name="root">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="JMSMessageIn" type="xsd:string"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </OutDataxsdString>
+    </config>
+  </starter>
+  <endName>End</endName>
+  <endType>
+    <xs:element name="returnValue">
+      <xs:complexType>
+        <xs:sequence>
+          <xs:element name="outData" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:element>
+  </endType>
+  <endX>300</endX>
+  <endY>0</endY>
+  <activity name="Framework">
+    <type>com.tibco.pe.core.CallProcessActivity</type>
+    <resourceType>ae.process.subprocess</resourceType>
+    <x>150</x>
+    <y>0</y>
+    <config xmlns="">
+      <processName>/Processes/Main/Framework.process</processName>
+    </config>
+    <inputBindings>
+      <frameworkInput xmlns="">
+        <Properties>
+          <tran:value-of select="'SERVICE_NAME=InquireEquipmentOrder,PAYLOAD_NAMESPACE=http://csi.cingular.com/CSI/Namespaces/Container/Public/InquireEquipmentOrderRequest.xsd,PAYLOAD_TAG=InquireEquipmentOrderRequest'"/>
+        </Properties>
+        <processName>
+          <tran:value-of select="'/Processes/Generated/InquireEquipmentOrder.process'"/>
+        </processName>
+        <tran:copy-of select="$JMS-Receiver/ns:ActivityOutput"/>
+      </frameworkInput>
+    </inputBindings>
+  </activity>
+  <transition>
+    <from>JMS Receiver</from>
+    <to>Framework</to>
+    <lineType>Default</lineType>
+    <lineColor>-16777216</lineColor>
+    <conditionType>always</conditionType>
+  </transition>
+  <transition>
+    <from>Framework</from>
+    <to>End</to>
+    <lineType>Default</lineType>
+    <lineColor>-16777216</lineColor>
+    <conditionType>always</conditionType>
+  </transition>
+</ProcessDefinition>
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:118) - Process Name: ValidateAddress
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:135) - Activity Count:8
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:139) - 	Activity Name: Receive JMS Message
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:213) - -Processing Activity:Name=Receive JMS Message,id=1
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:214) - NumExtAttrs:5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:122) - $$getting ExtAttrValues for:org.apache.xmlbeans.impl.store.Xobj$ElementXobj@633e5e
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:125) - $$num children:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:157) - Node:Location
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:177) - Location len:9
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:187) - ExtAttr-X:56
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:194) - ExtAttr-Y:63
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:7
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:157) - Node:ActivityType
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:164) - ExtAttr-ActivityType:EVENT
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:157) - Node:EventFlowType
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:170) - ExtAttr-EventFlowType:START
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:225) - ++++++ActivtyType:_ActivityType:value=START
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:458) - StarterMapValues:key=JMS_REQUEST,val=$Receive-JMS-Message/root/dataInput
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:139) - 	Activity Name: Validate Pub Request
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:213) - -Processing Activity:Name=Validate Pub Request,id=9
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:214) - NumExtAttrs:5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:122) - $$getting ExtAttrValues for:org.apache.xmlbeans.impl.store.Xobj$ElementXobj@e020c9
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:125) - $$num children:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:157) - Node:Location
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:177) - Location len:9
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:187) - ExtAttr-X:119
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:194) - ExtAttr-Y:30
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:7
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:225) - ++++++ActivtyType:_ActivityType:value=PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:652) - ParamValue:Utils.General.ValidateXML
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:569) - value-x:119
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:581) - ActivityType:PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:904) - -------ProcCallName:Utils.General.ValidateXMLgenerateFramework:false
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:828) - =====ActivityType:PROCESS_CALL,output:''
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:139) - 	Activity Name: Transform Pub to Prv
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:213) - -Processing Activity:Name=Transform Pub to Prv,id=3
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:214) - NumExtAttrs:6
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:122) - $$getting ExtAttrValues for:org.apache.xmlbeans.impl.store.Xobj$ElementXobj@888e6c
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:125) - $$num children:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:157) - Node:Location
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:177) - Location len:9
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:187) - ExtAttr-X:238
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:194) - ExtAttr-Y:30
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:7
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:225) - ++++++ActivtyType:_ActivityType:value=PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:652) - ParamValue:Utils.Contivo.InvokeContivo
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:569) - value-x:238
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:581) - ActivityType:PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:904) - -------ProcCallName:Utils.Contivo.InvokeContivogenerateFramework:false
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:828) - =====ActivityType:PROCESS_CALL,output:PRIVATE_REQUEST
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:843) - =====OutputVarKey:PRIVATE_REQUEST,output:$Transform-Pub-to-Prv/OutputData/outputValue
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:139) - 	Activity Name: Call Compass Verify Address
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:213) - -Processing Activity:Name=Call Compass Verify Address,id=5
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:214) - NumExtAttrs:6
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:122) - $$getting ExtAttrValues for:org.apache.xmlbeans.impl.store.Xobj$ElementXobj@39e5b5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:125) - $$num children:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:157) - Node:Location
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:177) - Location len:9
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:187) - ExtAttr-X:238
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:194) - ExtAttr-Y:153
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:7
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:225) - ++++++ActivtyType:_ActivityType:value=PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:652) - ParamValue:Adapters.Compass.InvokeCompass
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:569) - value-x:238
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:581) - ActivityType:PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:904) - -------ProcCallName:Adapters.Compass.InvokeCompassgenerateFramework:false
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:828) - =====ActivityType:PROCESS_CALL,output:PRIVATE_RESPONSE
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:843) - =====OutputVarKey:PRIVATE_RESPONSE,output:$Call-Compass-Verify-Address/OutputData/outputValue
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:139) - 	Activity Name: Transform Prv to Pub
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:213) - -Processing Activity:Name=Transform Prv to Pub,id=6
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:214) - NumExtAttrs:6
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:122) - $$getting ExtAttrValues for:org.apache.xmlbeans.impl.store.Xobj$ElementXobj@117f31e
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:125) - $$num children:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:157) - Node:Location
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:177) - Location len:9
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:187) - ExtAttr-X:367
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:194) - ExtAttr-Y:153
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:7
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:225) - ++++++ActivtyType:_ActivityType:value=PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:652) - ParamValue:Utils.Contivo.InvokeContivo
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:569) - value-x:367
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:581) - ActivityType:PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:904) - -------ProcCallName:Utils.Contivo.InvokeContivogenerateFramework:false
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:828) - =====ActivityType:PROCESS_CALL,output:PUBLIC_RESPONSE
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:843) - =====OutputVarKey:PUBLIC_RESPONSE,output:$Transform-Prv-to-Pub/OutputData/outputValue
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:139) - 	Activity Name: Create Response
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:213) - -Processing Activity:Name=Create Response,id=10
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:214) - NumExtAttrs:5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:122) - $$getting ExtAttrValues for:org.apache.xmlbeans.impl.store.Xobj$ElementXobj@32784a
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:125) - $$num children:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:157) - Node:Location
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:177) - Location len:9
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:187) - ExtAttr-X:367
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:194) - ExtAttr-Y:273
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:7
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:225) - ++++++ActivtyType:_ActivityType:value=PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:652) - ParamValue:Utils.Jms.CreateJmsResponse
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:569) - value-x:367
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:581) - ActivityType:PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:904) - -------ProcCallName:Utils.Jms.CreateJmsResponsegenerateFramework:false
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:828) - =====ActivityType:PROCESS_CALL,output:JMS_RESPONSE
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:843) - =====OutputVarKey:JMS_RESPONSE,output:$Create-Response/OutputData/outputValue
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:139) - 	Activity Name: Send Response
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:213) - -Processing Activity:Name=Send Response,id=7
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:214) - NumExtAttrs:5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:122) - $$getting ExtAttrValues for:org.apache.xmlbeans.impl.store.Xobj$ElementXobj@3fa5ac
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:125) - $$num children:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:157) - Node:Location
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:177) - Location len:9
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:187) - ExtAttr-X:495
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:194) - ExtAttr-Y:273
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:7
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:225) - ++++++ActivtyType:_ActivityType:value=PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:652) - ParamValue:Utils.Jms.SendJmsResponse
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:569) - value-x:495
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:581) - ActivityType:PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:904) - -------ProcCallName:Utils.Jms.SendJmsResponsegenerateFramework:false
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:828) - =====ActivityType:PROCESS_CALL,output:''
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:139) - 	Activity Name: null
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:213) - -Processing Activity:Name=null,id=8
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:214) - NumExtAttrs:2
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:122) - $$getting ExtAttrValues for:org.apache.xmlbeans.impl.store.Xobj$ElementXobj@1e58cb8
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:125) - $$num children:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:157) - Node:Location
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:177) - Location len:9
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:187) - ExtAttr-X:641
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:194) - ExtAttr-Y:306
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:7
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:157) - Node:ActivityType
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:164) - ExtAttr-ActivityType:EVENT
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:157) - Node:EventFlowType
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:170) - ExtAttr-EventFlowType:END
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:225) - ++++++ActivtyType:_ActivityType:value=END
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:581) - ActivityType:END
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:669) - adding Endpoint,inputvalue:null
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:156) - Transition Count:7
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:158) - 	Transition Name: 5 From: 5 To: 6 Name: null
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:343) - addtransition-Condition:null
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:158) - 	Transition Name: 7 From: 7 To: 8 Name: null
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:336) - from:Send Response-to:null
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:343) - addtransition-Condition:null
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:158) - 	Transition Name: 9 From: 9 To: 3 Name: null
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:343) - addtransition-Condition:null
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:158) - 	Transition Name: 10 From: 6 To: 10 Name: null
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:343) - addtransition-Condition:null
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:158) - 	Transition Name: 11 From: 10 To: 7 Name: null
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:343) - addtransition-Condition:null
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:158) - 	Transition Name: 12 From: 3 To: 5 Name: null
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:343) - addtransition-Condition:null
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:158) - 	Transition Name: 13 From: 1 To: 9 Name: null
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:343) - addtransition-Condition:null
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:302) - setChoseElements; transitions list size:7
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:314) - Handling:6
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:340) - Constructing bindings for:activity 6with # inputs:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:477) - from path:$Call-Compass-Verify-Address/OutputData/outputValue,inVar:PRIVATE_RESPONSE
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:531) - candidateVarList:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:410) - Adding input to activity 6 from activity 5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:314) - Handling:8
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:340) - Constructing bindings for:activity 8with # inputs:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:347) - This is the endpoint !
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:477) - from path:$Send-Response/OutputData/outputValue,inVar:null
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:444) - Ret Binding input Proc:7:null
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:449) - COuldn't find value for Endpoint !
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:314) - Handling:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:340) - Constructing bindings for:activity 3with # inputs:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:477) - from path:$Validate-Pub-Request/OutputData/outputValue,inVar:JMS_REQUEST
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:531) - candidateVarList:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:410) - Adding input to activity 3 from activity 9
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:314) - Handling:10
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:340) - Constructing bindings for:activity 10with # inputs:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:477) - from path:$Transform-Prv-to-Pub/OutputData/outputValue,inVar:PUBLIC_RESPONSE
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:531) - candidateVarList:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:410) - Adding input to activity 10 from activity 6
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:314) - Handling:7
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:340) - Constructing bindings for:activity 7with # inputs:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:477) - from path:$Create-Response/OutputData/outputValue,inVar:JMS_RESPONSE
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:531) - candidateVarList:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:410) - Adding input to activity 7 from activity 10
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:314) - Handling:5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:340) - Constructing bindings for:activity 5with # inputs:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:477) - from path:$Transform-Pub-to-Prv/OutputData/outputValue,inVar:PRIVATE_REQUEST
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:531) - candidateVarList:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:410) - Adding input to activity 5 from activity 3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:314) - Handling:9
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:340) - Constructing bindings for:activity 9with # inputs:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:477) - from path:$Receive-JMS-Message/root/dataInput,inVar:JMS_REQUEST
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:531) - candidateVarList:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:410) - Adding input to activity 9 from activity 1
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:422) - ========This is my new Project:=======
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:937) - New Header:<ProcessDefinition xmlns="http://xmlns.tibco.com/bw/process/2003" xmlns:tran="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns="http://www.tibco.com/namespaces/tnt/plugins/jms">
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:424) - <?xml version="1.0" encoding="UTF-8"?><ProcessDefinition xmlns="http://xmlns.tibco.com/bw/process/2003" xmlns:tran="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns="http://www.tibco.com/namespaces/tnt/plugins/jms">
+  <name>/Processes/Generated/ValidateAddress.process</name>
+  <startName>Receive JMS Message</startName>
+  <startX>0</startX>
+  <startY>0</startY>
+  <returnBindings>
+    <returnValue xmlns="">
+      <outData>
+        <tran:value-of select=""/>
+      </outData>
+    </returnValue>
+  </returnBindings>
+  <startType>
+    <xs:element name="root">
+      <xs:complexType>
+        <xs:sequence>
+          <xs:element name="dataInput" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:element>
+  </startType>
+  <endName>End</endName>
+  <endType>
+    <xs:element name="returnValue">
+      <xs:complexType>
+        <xs:sequence>
+          <xs:element name="outData" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:element>
+  </endType>
+  <endX>641</endX>
+  <endY>306</endY>
+  <activity name="Validate Pub Request">
+    <type>com.tibco.pe.core.CallProcessActivity</type>
+    <resourceType>ae.process.subprocess</resourceType>
+    <x>119</x>
+    <y>30</y>
+    <config xmlns="">
+      <processName>/Processes/Utils/General/ValidateXML.process</processName>
+    </config>
+    <inputBindings>
+      <inputVars xmlns="">
+        <dynamicVar>
+          <tran:value-of select="$Receive-JMS-Message/root/dataInput"/>
+        </dynamicVar>
+        <staticVar>
+          <tran:value-of select="'VALIDATION_SCHEMA=com.cingular.csi.schemas.pub.ValidateAddressRequestDocument'"/>
+        </staticVar>
+      </inputVars>
+    </inputBindings>
+  </activity>
+  <activity name="Transform Pub to Prv">
+    <type>com.tibco.pe.core.CallProcessActivity</type>
+    <resourceType>ae.process.subprocess</resourceType>
+    <x>238</x>
+    <y>30</y>
+    <config xmlns="">
+      <processName>/Processes/Utils/Contivo/InvokeContivo.process</processName>
+    </config>
+    <inputBindings>
+      <inputVars xmlns="">
+        <dynamicVar>
+          <tran:value-of select="$Receive-JMS-Message/root/dataInput"/>
+        </dynamicVar>
+        <staticVar>
+          <tran:value-of select="'CONTIVO_TRANSFORM=com.cingular.csi.transforms.Transform_CSI_2_COMPASS_ValidateAddressRequest'"/>
+        </staticVar>
+      </inputVars>
+    </inputBindings>
+  </activity>
+  <activity name="Call Compass Verify Address">
+    <type>com.tibco.pe.core.CallProcessActivity</type>
+    <resourceType>ae.process.subprocess</resourceType>
+    <x>238</x>
+    <y>153</y>
+    <config xmlns="">
+      <processName>/Processes/Adapters/Compass/InvokeCompass.process</processName>
+    </config>
+    <inputBindings>
+      <inputVars xmlns="">
+        <dynamicVar>
+          <tran:value-of select="$Transform-Pub-to-Prv/OutputData/outputValue"/>
+        </dynamicVar>
+        <staticVar>
+          <tran:value-of select="'METHOD_NAME=validateAddress'"/>
+        </staticVar>
+      </inputVars>
+    </inputBindings>
+  </activity>
+  <activity name="Transform Prv to Pub">
+    <type>com.tibco.pe.core.CallProcessActivity</type>
+    <resourceType>ae.process.subprocess</resourceType>
+    <x>367</x>
+    <y>153</y>
+    <config xmlns="">
+      <processName>/Processes/Utils/Contivo/InvokeContivo.process</processName>
+    </config>
+    <inputBindings>
+      <inputVars xmlns="">
+        <dynamicVar>
+          <tran:value-of select="$Call-Compass-Verify-Address/OutputData/outputValue"/>
+        </dynamicVar>
+        <staticVar>
+          <tran:value-of select="'CONTIVO_TRANSFORM=com.cingular.csi.transforms.Transform_COMPASS_2_CSI_ValidateAddressResponse'"/>
+        </staticVar>
+      </inputVars>
+    </inputBindings>
+  </activity>
+  <activity name="Create Response">
+    <type>com.tibco.pe.core.CallProcessActivity</type>
+    <resourceType>ae.process.subprocess</resourceType>
+    <x>367</x>
+    <y>273</y>
+    <config xmlns="">
+      <processName>/Processes/Utils/Jms/CreateJmsResponse.process</processName>
+    </config>
+    <inputBindings>
+      <inputVars xmlns="">
+        <dynamicVar>
+          <tran:value-of select="$Transform-Prv-to-Pub/OutputData/outputValue"/>
+        </dynamicVar>
+        <staticVar>
+          <tran:value-of select="''"/>
+        </staticVar>
+      </inputVars>
+    </inputBindings>
+  </activity>
+  <activity name="Send Response">
+    <type>com.tibco.pe.core.CallProcessActivity</type>
+    <resourceType>ae.process.subprocess</resourceType>
+    <x>495</x>
+    <y>273</y>
+    <config xmlns="">
+      <processName>/Processes/Utils/Jms/SendJmsResponse.process</processName>
+    </config>
+    <inputBindings>
+      <inputVars xmlns="">
+        <dynamicVar>
+          <tran:value-of select="$Create-Response/OutputData/outputValue"/>
+        </dynamicVar>
+        <staticVar>
+          <tran:value-of select="'JMS_RESPONSE_QUEUE=pub.validateaddress.response'"/>
+        </staticVar>
+      </inputVars>
+    </inputBindings>
+  </activity>
+  <transition>
+    <from>Call Compass Verify Address</from>
+    <to>Transform Prv to Pub</to>
+    <lineType>Default</lineType>
+    <lineColor>-16777216</lineColor>
+    <conditionType>always</conditionType>
+  </transition>
+  <transition>
+    <from>Send Response</from>
+    <to>End</to>
+    <lineType>Default</lineType>
+    <lineColor>-16777216</lineColor>
+    <conditionType>always</conditionType>
+  </transition>
+  <transition>
+    <from>Validate Pub Request</from>
+    <to>Transform Pub to Prv</to>
+    <lineType>Default</lineType>
+    <lineColor>-16777216</lineColor>
+    <conditionType>always</conditionType>
+  </transition>
+  <transition>
+    <from>Transform Prv to Pub</from>
+    <to>Create Response</to>
+    <lineType>Default</lineType>
+    <lineColor>-16777216</lineColor>
+    <conditionType>always</conditionType>
+  </transition>
+  <transition>
+    <from>Create Response</from>
+    <to>Send Response</to>
+    <lineType>Default</lineType>
+    <lineColor>-16777216</lineColor>
+    <conditionType>always</conditionType>
+  </transition>
+  <transition>
+    <from>Transform Pub to Prv</from>
+    <to>Call Compass Verify Address</to>
+    <lineType>Default</lineType>
+    <lineColor>-16777216</lineColor>
+    <conditionType>always</conditionType>
+  </transition>
+  <transition>
+    <from>Receive JMS Message</from>
+    <to>Validate Pub Request</to>
+    <lineType>Default</lineType>
+    <lineColor>-16777216</lineColor>
+    <conditionType>always</conditionType>
+  </transition>
+</ProcessDefinition>
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:92) - -----Generating call framework-----
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:669) - adding Endpoint,inputvalue:ProcOut
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:1054) - ========This is my new Framework:=======
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:937) - New Header:<ProcessDefinition xmlns="http://xmlns.tibco.com/bw/process/2003" xmlns:tran="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns="http://www.tibco.com/namespaces/tnt/plugins/jms">
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:1056) - <?xml version="1.0" encoding="UTF-8"?><ProcessDefinition xmlns="http://xmlns.tibco.com/bw/process/2003" xmlns:tran="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns="http://www.tibco.com/namespaces/tnt/plugins/jms">
+  <name>/Processes/Generated/ValidateAddress-Main.process</name>
+  <startName>JMS Receiver</startName>
+  <startX>0</startX>
+  <startY>0</startY>
+  <returnBindings>
+    <returnValue xmlns="">
+      <outData>
+        <tran:value-of select=""/>
+      </outData>
+    </returnValue>
+  </returnBindings>
+  <starter name="JMS Receiver">
+    <type>com.tibco.plugin.jms.JMSQueueEventSource</type>
+    <resourceType>ae.activities.JMSQueueEventSource</resourceType>
+    <x>0</x>
+    <y>0</y>
+    <config xmlns="">
+      <PermittedMessageType>Text</PermittedMessageType>
+      <SessionAttributes>
+        <transacted>false</transacted>
+        <acknowledgeMode>1</acknowledgeMode>
+        <maxSessions>1</maxSessions>
+        <destination>pub.validateaddress.request</destination>
+      </SessionAttributes>
+      <ConfigurableHeaders>
+        <JMSDeliveryMode>PERSISTENT</JMSDeliveryMode>
+        <JMSExpiration>0</JMSExpiration>
+        <JMSPriority>4</JMSPriority>
+      </ConfigurableHeaders>
+      <ConnectionReference>/Shared Resources/Transports/JMS/JMS Connection.sharedjmscon</ConnectionReference>
+      <OutDataxsdString/>
+      <OutDataxsdString>
+        <xs:element name="root">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="JMSMessageIn" type="xsd:string"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </OutDataxsdString>
+    </config>
+  </starter>
+  <endName>End</endName>
+  <endType>
+    <xs:element name="returnValue">
+      <xs:complexType>
+        <xs:sequence>
+          <xs:element name="outData" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:element>
+  </endType>
+  <endX>300</endX>
+  <endY>0</endY>
+  <activity name="Framework">
+    <type>com.tibco.pe.core.CallProcessActivity</type>
+    <resourceType>ae.process.subprocess</resourceType>
+    <x>150</x>
+    <y>0</y>
+    <config xmlns="">
+      <processName>/Processes/Main/Framework.process</processName>
+    </config>
+    <inputBindings>
+      <frameworkInput xmlns="">
+        <Properties>
+          <tran:value-of select="'SERVICE_NAME=ValidateAddress,PAYLOAD_NAMESPACE=http://csi.cingular.com/CSI/Namespaces/Container/Public/ValidateAddressRequest.xsd,PAYLOAD_TAG=ValidateAddressRequest'"/>
+        </Properties>
+        <processName>
+          <tran:value-of select="'/Processes/Generated/ValidateAddress.process'"/>
+        </processName>
+        <tran:copy-of select="$JMS-Receiver/ns:ActivityOutput"/>
+      </frameworkInput>
+    </inputBindings>
+  </activity>
+  <transition>
+    <from>JMS Receiver</from>
+    <to>Framework</to>
+    <lineType>Default</lineType>
+    <lineColor>-16777216</lineColor>
+    <conditionType>always</conditionType>
+  </transition>
+  <transition>
+    <from>Framework</from>
+    <to>End</to>
+    <lineType>Default</lineType>
+    <lineColor>-16777216</lineColor>
+    <conditionType>always</conditionType>
+  </transition>
+</ProcessDefinition>
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:118) - Process Name: ParallelTest
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:135) - Activity Count:10
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:139) - 	Activity Name: Receive JMS Message
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:213) - -Processing Activity:Name=Receive JMS Message,id=1
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:214) - NumExtAttrs:5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:122) - $$getting ExtAttrValues for:org.apache.xmlbeans.impl.store.Xobj$ElementXobj@297ffb
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:125) - $$num children:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:157) - Node:Location
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:177) - Location len:9
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:187) - ExtAttr-X:56
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:194) - ExtAttr-Y:63
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:7
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:157) - Node:ActivityType
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:164) - ExtAttr-ActivityType:EVENT
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:157) - Node:EventFlowType
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:170) - ExtAttr-EventFlowType:START
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:225) - ++++++ActivtyType:_ActivityType:value=START
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:458) - StarterMapValues:key=JMS_REQUEST,val=$Receive-JMS-Message/root/dataInput
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:139) - 	Activity Name: Validate Pub Request
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:213) - -Processing Activity:Name=Validate Pub Request,id=9
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:214) - NumExtAttrs:5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:122) - $$getting ExtAttrValues for:org.apache.xmlbeans.impl.store.Xobj$ElementXobj@914f6a
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:125) - $$num children:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:157) - Node:Location
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:177) - Location len:9
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:187) - ExtAttr-X:119
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:194) - ExtAttr-Y:30
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:7
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:225) - ++++++ActivtyType:_ActivityType:value=PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:652) - ParamValue:Utils.General.ValidateXML
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:569) - value-x:119
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:581) - ActivityType:PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:904) - -------ProcCallName:Utils.General.ValidateXMLgenerateFramework:false
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:828) - =====ActivityType:PROCESS_CALL,output:''
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:139) - 	Activity Name: Transform Pub to Prv
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:213) - -Processing Activity:Name=Transform Pub to Prv,id=3
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:214) - NumExtAttrs:6
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:122) - $$getting ExtAttrValues for:org.apache.xmlbeans.impl.store.Xobj$ElementXobj@71dc3d
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:125) - $$num children:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:157) - Node:Location
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:177) - Location len:9
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:187) - ExtAttr-X:119
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:194) - ExtAttr-Y:152
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:7
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:225) - ++++++ActivtyType:_ActivityType:value=PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:652) - ParamValue:Utils.Contivo.InvokeContivo
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:569) - value-x:119
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:581) - ActivityType:PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:904) - -------ProcCallName:Utils.Contivo.InvokeContivogenerateFramework:false
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:828) - =====ActivityType:PROCESS_CALL,output:PRIVATE_REQUEST
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:843) - =====OutputVarKey:PRIVATE_REQUEST,output:$Transform-Pub-to-Prv/OutputData/outputValue
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:139) - 	Activity Name: Call Compass Verify Address
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:213) - -Processing Activity:Name=Call Compass Verify Address,id=5
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:214) - NumExtAttrs:6
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:122) - $$getting ExtAttrValues for:org.apache.xmlbeans.impl.store.Xobj$ElementXobj@16546ef
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:125) - $$num children:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:157) - Node:Location
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:177) - Location len:9
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:187) - ExtAttr-X:119
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:194) - ExtAttr-Y:261
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:7
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:225) - ++++++ActivtyType:_ActivityType:value=PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:652) - ParamValue:Adapters.Compass.InvokeCompass
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:569) - value-x:119
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:581) - ActivityType:PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:904) - -------ProcCallName:Adapters.Compass.InvokeCompassgenerateFramework:false
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:828) - =====ActivityType:PROCESS_CALL,output:PRIVATE_RESPONSE
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:843) - =====OutputVarKey:PRIVATE_RESPONSE,output:$Call-Compass-Verify-Address/OutputData/outputValue
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:139) - 	Activity Name: Transform Prv to Pub
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:213) - -Processing Activity:Name=Transform Prv to Pub,id=6
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:214) - NumExtAttrs:6
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:122) - $$getting ExtAttrValues for:org.apache.xmlbeans.impl.store.Xobj$ElementXobj@1428ea
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:125) - $$num children:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:157) - Node:Location
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:177) - Location len:9
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:187) - ExtAttr-X:260
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:194) - ExtAttr-Y:261
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:7
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:225) - ++++++ActivtyType:_ActivityType:value=PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:652) - ParamValue:Utils.Contivo.InvokeContivo
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:569) - value-x:260
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:581) - ActivityType:PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:904) - -------ProcCallName:Utils.Contivo.InvokeContivogenerateFramework:false
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:828) - =====ActivityType:PROCESS_CALL,output:PUBLIC_RESPONSE
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:843) - =====OutputVarKey:PUBLIC_RESPONSE,output:$Transform-Prv-to-Pub/OutputData/outputValue
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:139) - 	Activity Name: Create Response
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:213) - -Processing Activity:Name=Create Response,id=10
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:214) - NumExtAttrs:5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:122) - $$getting ExtAttrValues for:org.apache.xmlbeans.impl.store.Xobj$ElementXobj@1f82982
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:125) - $$num children:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:157) - Node:Location
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:177) - Location len:9
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:187) - ExtAttr-X:395
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:194) - ExtAttr-Y:261
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:7
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:225) - ++++++ActivtyType:_ActivityType:value=PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:652) - ParamValue:Utils.Jms.CreateJmsResponse
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:569) - value-x:395
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:581) - ActivityType:PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:904) - -------ProcCallName:Utils.Jms.CreateJmsResponsegenerateFramework:false
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:828) - =====ActivityType:PROCESS_CALL,output:JMS_RESPONSE
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:843) - =====OutputVarKey:JMS_RESPONSE,output:$Create-Response/OutputData/outputValue
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:139) - 	Activity Name: Send Response
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:213) - -Processing Activity:Name=Send Response,id=7
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:214) - NumExtAttrs:5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:122) - $$getting ExtAttrValues for:org.apache.xmlbeans.impl.store.Xobj$ElementXobj@e70e30
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:125) - $$num children:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:157) - Node:Location
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:177) - Location len:9
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:187) - ExtAttr-X:522
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:194) - ExtAttr-Y:254
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:7
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:225) - ++++++ActivtyType:_ActivityType:value=PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:652) - ParamValue:Utils.Jms.SendJmsResponse
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:569) - value-x:522
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:581) - ActivityType:PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:904) - -------ProcCallName:Utils.Jms.SendJmsResponsegenerateFramework:false
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:828) - =====ActivityType:PROCESS_CALL,output:''
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:139) - 	Activity Name: null
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:213) - -Processing Activity:Name=null,id=8
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:214) - NumExtAttrs:2
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:122) - $$getting ExtAttrValues for:org.apache.xmlbeans.impl.store.Xobj$ElementXobj@3c9217
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:125) - $$num children:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:157) - Node:Location
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:177) - Location len:9
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:187) - ExtAttr-X:566
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:194) - ExtAttr-Y:389
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:7
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:157) - Node:ActivityType
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:164) - ExtAttr-ActivityType:EVENT
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:157) - Node:EventFlowType
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:170) - ExtAttr-EventFlowType:END
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:225) - ++++++ActivtyType:_ActivityType:value=END
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:581) - ActivityType:END
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:669) - adding Endpoint,inputvalue:null
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:139) - 	Activity Name: Send Msg Test 
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:213) - -Processing Activity:Name=Send Msg Test ,id=11
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:214) - NumExtAttrs:4
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:122) - $$getting ExtAttrValues for:org.apache.xmlbeans.impl.store.Xobj$ElementXobj@9b42e6
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:125) - $$num children:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:157) - Node:Location
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:177) - Location len:9
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:187) - ExtAttr-X:306
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:194) - ExtAttr-Y:30
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:7
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:225) - ++++++ActivtyType:_ActivityType:value=PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:652) - ParamValue:Utils.General.SendMsgTest
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:569) - value-x:306
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:581) - ActivityType:PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:904) - -------ProcCallName:Utils.General.SendMsgTestgenerateFramework:false
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:828) - =====ActivityType:PROCESS_CALL,output:''
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:139) - 	Activity Name: Wait for Some Time
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:213) - -Processing Activity:Name=Wait for Some Time,id=12
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:214) - NumExtAttrs:4
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:122) - $$getting ExtAttrValues for:org.apache.xmlbeans.impl.store.Xobj$ElementXobj@16c79d7
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:125) - $$num children:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:157) - Node:Location
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:177) - Location len:9
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:187) - ExtAttr-X:522
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:194) - ExtAttr-Y:30
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:180) - cntr:7
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:225) - ++++++ActivtyType:_ActivityType:value=PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:652) - ParamValue:Utils.General.WaitForSomeTime
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:569) - value-x:522
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:581) - ActivityType:PROCESS_CALL
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:904) - -------ProcCallName:Utils.General.WaitForSomeTimegenerateFramework:false
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:828) - =====ActivityType:PROCESS_CALL,output:''
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:156) - Transition Count:10
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:158) - 	Transition Name: 5 From: 5 To: 6 Name: null
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:343) - addtransition-Condition:null
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:158) - 	Transition Name: 7 From: 7 To: 8 Name: null
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:336) - from:Send Response-to:null
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:343) - addtransition-Condition:null
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:158) - 	Transition Name: 9 From: 9 To: 3 Name: null
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:343) - addtransition-Condition:null
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:158) - 	Transition Name: 10 From: 6 To: 10 Name: null
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:343) - addtransition-Condition:null
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:158) - 	Transition Name: 11 From: 10 To: 7 Name: null
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:343) - addtransition-Condition:null
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:158) - 	Transition Name: 12 From: 3 To: 5 Name: null
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:343) - addtransition-Condition:null
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:158) - 	Transition Name: 13 From: 1 To: 9 Name: null
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:343) - addtransition-Condition:null
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:158) - 	Transition Name: 14 From: 9 To: 11 Name: null
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:343) - addtransition-Condition:null
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:158) - 	Transition Name: 15 From: 11 To: 12 Name: null
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:343) - addtransition-Condition:null
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:158) - 	Transition Name: 16 From: 12 To: 7 Name: null
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:343) - addtransition-Condition:null
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:302) - setChoseElements; transitions list size:10
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:314) - Handling:6
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:340) - Constructing bindings for:activity 6with # inputs:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:477) - from path:$Call-Compass-Verify-Address/OutputData/outputValue,inVar:PRIVATE_RESPONSE
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:531) - candidateVarList:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:410) - Adding input to activity 6 from activity 5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:314) - Handling:8
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:340) - Constructing bindings for:activity 8with # inputs:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:347) - This is the endpoint !
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:477) - from path:$Send-Response/OutputData/outputValue,inVar:null
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:444) - Ret Binding input Proc:7:null
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:449) - COuldn't find value for Endpoint !
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:314) - Handling:3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:340) - Constructing bindings for:activity 3with # inputs:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:477) - from path:$Validate-Pub-Request/OutputData/outputValue,inVar:JMS_REQUEST
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:531) - candidateVarList:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:410) - Adding input to activity 3 from activity 9
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:314) - Handling:10
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:340) - Constructing bindings for:activity 10with # inputs:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:477) - from path:$Transform-Prv-to-Pub/OutputData/outputValue,inVar:PUBLIC_RESPONSE
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:531) - candidateVarList:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:410) - Adding input to activity 10 from activity 6
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:314) - Handling:7
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:340) - Constructing bindings for:activity 7with # inputs:2
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:314) - Handling:5
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:340) - Constructing bindings for:activity 5with # inputs:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:477) - from path:$Transform-Pub-to-Prv/OutputData/outputValue,inVar:PRIVATE_REQUEST
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:531) - candidateVarList:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:410) - Adding input to activity 5 from activity 3
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:314) - Handling:9
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:340) - Constructing bindings for:activity 9with # inputs:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:477) - from path:$Receive-JMS-Message/root/dataInput,inVar:JMS_REQUEST
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:531) - candidateVarList:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:410) - Adding input to activity 9 from activity 1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:314) - Handling:11
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:340) - Constructing bindings for:activity 11with # inputs:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:477) - from path:$Validate-Pub-Request/OutputData/outputValue,inVar:JMS_REQUEST
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:531) - candidateVarList:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:410) - Adding input to activity 11 from activity 9
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:314) - Handling:12
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:340) - Constructing bindings for:activity 12with # inputs:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:477) - from path:$Send-Msg-Test/OutputData/outputValue,inVar:JMS_REQUEST
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:531) - candidateVarList:1
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:410) - Adding input to activity 12 from activity 11
+[Nov 12 15:08:59] DEBUG (BWAbstractAssembler.java:328) - Already handled:7
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:422) - ========This is my new Project:=======
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:937) - New Header:<ProcessDefinition xmlns="http://xmlns.tibco.com/bw/process/2003" xmlns:tran="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns="http://www.tibco.com/namespaces/tnt/plugins/jms">
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:424) - <?xml version="1.0" encoding="UTF-8"?><ProcessDefinition xmlns="http://xmlns.tibco.com/bw/process/2003" xmlns:tran="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns="http://www.tibco.com/namespaces/tnt/plugins/jms">
+  <name>/Processes/Generated/ParallelTest.process</name>
+  <startName>Receive JMS Message</startName>
+  <startX>0</startX>
+  <startY>0</startY>
+  <returnBindings>
+    <returnValue xmlns="">
+      <outData>
+        <tran:value-of select=""/>
+      </outData>
+    </returnValue>
+  </returnBindings>
+  <startType>
+    <xs:element name="root">
+      <xs:complexType>
+        <xs:sequence>
+          <xs:element name="dataInput" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:element>
+  </startType>
+  <endName>End</endName>
+  <endType>
+    <xs:element name="returnValue">
+      <xs:complexType>
+        <xs:sequence>
+          <xs:element name="outData" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:element>
+  </endType>
+  <endX>566</endX>
+  <endY>389</endY>
+  <activity name="Validate Pub Request">
+    <type>com.tibco.pe.core.CallProcessActivity</type>
+    <resourceType>ae.process.subprocess</resourceType>
+    <x>119</x>
+    <y>30</y>
+    <config xmlns="">
+      <processName>/Processes/Utils/General/ValidateXML.process</processName>
+    </config>
+    <inputBindings>
+      <inputVars xmlns="">
+        <dynamicVar>
+          <tran:value-of select="$Receive-JMS-Message/root/dataInput"/>
+        </dynamicVar>
+        <staticVar>
+          <tran:value-of select="'VALIDATION_SCHEMA=com.cingular.csi.schemas.pub.ValidateAddressRequestDocument'"/>
+        </staticVar>
+      </inputVars>
+    </inputBindings>
+  </activity>
+  <activity name="Transform Pub to Prv">
+    <type>com.tibco.pe.core.CallProcessActivity</type>
+    <resourceType>ae.process.subprocess</resourceType>
+    <x>119</x>
+    <y>152</y>
+    <config xmlns="">
+      <processName>/Processes/Utils/Contivo/InvokeContivo.process</processName>
+    </config>
+    <inputBindings>
+      <inputVars xmlns="">
+        <dynamicVar>
+          <tran:value-of select="$Receive-JMS-Message/root/dataInput"/>
+        </dynamicVar>
+        <staticVar>
+          <tran:value-of select="'CONTIVO_TRANSFORM=com.cingular.csi.transforms.Transform_CSI_2_COMPASS_ValidateAddressRequest'"/>
+        </staticVar>
+      </inputVars>
+    </inputBindings>
+  </activity>
+  <activity name="Call Compass Verify Address">
+    <type>com.tibco.pe.core.CallProcessActivity</type>
+    <resourceType>ae.process.subprocess</resourceType>
+    <x>119</x>
+    <y>261</y>
+    <config xmlns="">
+      <processName>/Processes/Adapters/Compass/InvokeCompass.process</processName>
+    </config>
+    <inputBindings>
+      <inputVars xmlns="">
+        <dynamicVar>
+          <tran:value-of select="$Transform-Pub-to-Prv/OutputData/outputValue"/>
+        </dynamicVar>
+        <staticVar>
+          <tran:value-of select="'METHOD_NAME=validateAddress'"/>
+        </staticVar>
+      </inputVars>
+    </inputBindings>
+  </activity>
+  <activity name="Transform Prv to Pub">
+    <type>com.tibco.pe.core.CallProcessActivity</type>
+    <resourceType>ae.process.subprocess</resourceType>
+    <x>260</x>
+    <y>261</y>
+    <config xmlns="">
+      <processName>/Processes/Utils/Contivo/InvokeContivo.process</processName>
+    </config>
+    <inputBindings>
+      <inputVars xmlns="">
+        <dynamicVar>
+          <tran:value-of select="$Call-Compass-Verify-Address/OutputData/outputValue"/>
+        </dynamicVar>
+        <staticVar>
+          <tran:value-of select="'CONTIVO_TRANSFORM=com.cingular.csi.transforms.Transform_COMPASS_2_CSI_ValidateAddressResponse'"/>
+        </staticVar>
+      </inputVars>
+    </inputBindings>
+  </activity>
+  <activity name="Create Response">
+    <type>com.tibco.pe.core.CallProcessActivity</type>
+    <resourceType>ae.process.subprocess</resourceType>
+    <x>395</x>
+    <y>261</y>
+    <config xmlns="">
+      <processName>/Processes/Utils/Jms/CreateJmsResponse.process</processName>
+    </config>
+    <inputBindings>
+      <inputVars xmlns="">
+        <dynamicVar>
+          <tran:value-of select="$Transform-Prv-to-Pub/OutputData/outputValue"/>
+        </dynamicVar>
+        <staticVar>
+          <tran:value-of select="''"/>
+        </staticVar>
+      </inputVars>
+    </inputBindings>
+  </activity>
+  <activity name="Send Response">
+    <type>com.tibco.pe.core.CallProcessActivity</type>
+    <resourceType>ae.process.subprocess</resourceType>
+    <x>522</x>
+    <y>254</y>
+    <config xmlns="">
+      <processName>/Processes/Utils/Jms/SendJmsResponse.process</processName>
+    </config>
+    <inputBindings>
+      <inputVars xmlns="">
+        <tran:choose>
+          <tran:when test="exists($Create-Response/OutputData/outputValue)">
+            <dynamicVar>
+              <tran:value-of select="$Create-Response/OutputData/outputValue"/>
+            </dynamicVar>
+          </tran:when>
+          <tran:otherwise>
+            <dynamicVar>
+              <tran:value-of select="$Wait-for-Some-Time/OutputData/outputValue"/>
+            </dynamicVar>
+          </tran:otherwise>
+        </tran:choose>
+        <staticVar>
+          <tran:value-of select="'JMS_RESPONSE_QUEUE=pub.validateaddress.response'"/>
+        </staticVar>
+      </inputVars>
+    </inputBindings>
+  </activity>
+  <activity name="Send Msg Test ">
+    <type>com.tibco.pe.core.CallProcessActivity</type>
+    <resourceType>ae.process.subprocess</resourceType>
+    <x>306</x>
+    <y>30</y>
+    <config xmlns="">
+      <processName>/Processes/Utils/General/SendMsgTest.process</processName>
+    </config>
+    <inputBindings>
+      <inputVars xmlns="">
+        <dynamicVar>
+          <tran:value-of select="$Receive-JMS-Message/root/dataInput"/>
+        </dynamicVar>
+        <staticVar>
+          <tran:value-of select="''"/>
+        </staticVar>
+      </inputVars>
+    </inputBindings>
+  </activity>
+  <activity name="Wait for Some Time">
+    <type>com.tibco.pe.core.CallProcessActivity</type>
+    <resourceType>ae.process.subprocess</resourceType>
+    <x>522</x>
+    <y>30</y>
+    <config xmlns="">
+      <processName>/Processes/Utils/General/WaitForSomeTime.process</processName>
+    </config>
+    <inputBindings>
+      <inputVars xmlns="">
+        <dynamicVar>
+          <tran:value-of select="$Receive-JMS-Message/root/dataInput"/>
+        </dynamicVar>
+        <staticVar>
+          <tran:value-of select="''"/>
+        </staticVar>
+      </inputVars>
+    </inputBindings>
+  </activity>
+  <transition>
+    <from>Call Compass Verify Address</from>
+    <to>Transform Prv to Pub</to>
+    <lineType>Default</lineType>
+    <lineColor>-16777216</lineColor>
+    <conditionType>always</conditionType>
+  </transition>
+  <transition>
+    <from>Send Response</from>
+    <to>End</to>
+    <lineType>Default</lineType>
+    <lineColor>-16777216</lineColor>
+    <conditionType>always</conditionType>
+  </transition>
+  <transition>
+    <from>Validate Pub Request</from>
+    <to>Transform Pub to Prv</to>
+    <lineType>Default</lineType>
+    <lineColor>-16777216</lineColor>
+    <conditionType>always</conditionType>
+  </transition>
+  <transition>
+    <from>Transform Prv to Pub</from>
+    <to>Create Response</to>
+    <lineType>Default</lineType>
+    <lineColor>-16777216</lineColor>
+    <conditionType>always</conditionType>
+  </transition>
+  <transition>
+    <from>Create Response</from>
+    <to>Send Response</to>
+    <lineType>Default</lineType>
+    <lineColor>-16777216</lineColor>
+    <conditionType>always</conditionType>
+  </transition>
+  <transition>
+    <from>Transform Pub to Prv</from>
+    <to>Call Compass Verify Address</to>
+    <lineType>Default</lineType>
+    <lineColor>-16777216</lineColor>
+    <conditionType>always</conditionType>
+  </transition>
+  <transition>
+    <from>Receive JMS Message</from>
+    <to>Validate Pub Request</to>
+    <lineType>Default</lineType>
+    <lineColor>-16777216</lineColor>
+    <conditionType>always</conditionType>
+  </transition>
+  <transition>
+    <from>Validate Pub Request</from>
+    <to>Send Msg Test</to>
+    <lineType>Default</lineType>
+    <lineColor>-16777216</lineColor>
+    <conditionType>always</conditionType>
+  </transition>
+  <transition>
+    <from>Send Msg Test</from>
+    <to>Wait for Some Time</to>
+    <lineType>Default</lineType>
+    <lineColor>-16777216</lineColor>
+    <conditionType>always</conditionType>
+  </transition>
+  <transition>
+    <from>Wait for Some Time</from>
+    <to>Send Response</to>
+    <lineType>Default</lineType>
+    <lineColor>-16777216</lineColor>
+    <conditionType>always</conditionType>
+  </transition>
+</ProcessDefinition>
+[Nov 12 15:08:59] DEBUG (BWBuilder.java:92) - -----Generating call framework-----
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:669) - adding Endpoint,inputvalue:ProcOut
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:1054) - ========This is my new Framework:=======
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:937) - New Header:<ProcessDefinition xmlns="http://xmlns.tibco.com/bw/process/2003" xmlns:tran="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns="http://www.tibco.com/namespaces/tnt/plugins/jms">
+[Nov 12 15:08:59] DEBUG (BWXmlbeansAssembler.java:1056) - <?xml version="1.0" encoding="UTF-8"?><ProcessDefinition xmlns="http://xmlns.tibco.com/bw/process/2003" xmlns:tran="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns="http://www.tibco.com/namespaces/tnt/plugins/jms">
+  <name>/Processes/Generated/ParallelTest-Main.process</name>
+  <startName>JMS Receiver</startName>
+  <startX>0</startX>
+  <startY>0</startY>
+  <returnBindings>
+    <returnValue xmlns="">
+      <outData>
+        <tran:value-of select=""/>
+      </outData>
+    </returnValue>
+  </returnBindings>
+  <starter name="JMS Receiver">
+    <type>com.tibco.plugin.jms.JMSQueueEventSource</type>
+    <resourceType>ae.activities.JMSQueueEventSource</resourceType>
+    <x>0</x>
+    <y>0</y>
+    <config xmlns="">
+      <PermittedMessageType>Text</PermittedMessageType>
+      <SessionAttributes>
+        <transacted>false</transacted>
+        <acknowledgeMode>1</acknowledgeMode>
+        <maxSessions>1</maxSessions>
+        <destination>pub.request</destination>
+      </SessionAttributes>
+      <ConfigurableHeaders>
+        <JMSDeliveryMode>PERSISTENT</JMSDeliveryMode>
+        <JMSExpiration>0</JMSExpiration>
+        <JMSPriority>4</JMSPriority>
+      </ConfigurableHeaders>
+      <ConnectionReference>/Shared Resources/Transports/JMS/JMS Connection.sharedjmscon</ConnectionReference>
+      <OutDataxsdString/>
+      <OutDataxsdString>
+        <xs:element name="root">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="JMSMessageIn" type="xsd:string"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </OutDataxsdString>
+    </config>
+  </starter>
+  <endName>End</endName>
+  <endType>
+    <xs:element name="returnValue">
+      <xs:complexType>
+        <xs:sequence>
+          <xs:element name="outData" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:element>
+  </endType>
+  <endX>300</endX>
+  <endY>0</endY>
+  <activity name="Framework">
+    <type>com.tibco.pe.core.CallProcessActivity</type>
+    <resourceType>ae.process.subprocess</resourceType>
+    <x>150</x>
+    <y>0</y>
+    <config xmlns="">
+      <processName>/Processes/Main/Framework.process</processName>
+    </config>
+    <inputBindings>
+      <frameworkInput xmlns="">
+        <Properties>
+          <tran:value-of select="'SERVICE_NAME=ParallelTest,PAYLOAD_NAMESPACE=http://csi.cingular.com/CSI/Namespaces/Container/Public/ValidateAddressRequest.xsd,PAYLOAD_TAG=ValidateAddressRequest'"/>
+        </Properties>
+        <processName>
+          <tran:value-of select="'/Processes/Generated/ParallelTest.process'"/>
+        </processName>
+        <tran:copy-of select="$JMS-Receiver/ns:ActivityOutput"/>
+      </frameworkInput>
+    </inputBindings>
+  </activity>
+  <transition>
+    <from>JMS Receiver</from>
+    <to>Framework</to>
+    <lineType>Default</lineType>
+    <lineColor>-16777216</lineColor>
+    <conditionType>always</conditionType>
+  </transition>
+  <transition>
+    <from>Framework</from>
+    <to>End</to>
+    <lineType>Default</lineType>
+    <lineColor>-16777216</lineColor>
+    <conditionType>always</conditionType>
+  </transition>
+</ProcessDefinition>
+[Nov 12 15:08:59] INFO  (XPDLBWConverter.java:32) - Succeffully generated BW Process Definition !

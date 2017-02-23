@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="dist"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="build"/>
+	<classpathentry kind="src" path="res"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="C:/Eclipse3.2/eclipse/workspace/RV_JCA/lib/tibrvjsd.jar"/>
+	<classpathentry kind="lib" path="C:/Eclipse3.2/eclipse/workspace/RV_JCA/lib/j2ee.jar"/>
+	<classpathentry kind="lib" path="C:/Eclipse3.2/eclipse/workspace/RV_JCA/lib/j2eetools.jar"/>
+	<classpathentry kind="lib" path="C:/Eclipse3.2/eclipse/workspace/RV_JCA/lib/rvconfig.jar"/>
+	<classpathentry kind="lib" path="C:/Eclipse3.2/eclipse/workspace/RV_JCA/lib/startupbean.jar"/>
+	<classpathentry kind="lib" path="C:/Eclipse3.2/eclipse/workspace/RV_JCA/lib/tibrvj.jar"/>
+	<classpathentry kind="lib" path="C:/Eclipse3.2/eclipse/workspace/RV_JCA/lib/tibrvjms.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

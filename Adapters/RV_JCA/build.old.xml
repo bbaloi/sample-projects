@@ -1,0 +1,138 @@
+
+<project name="tibco-test" default="package">
+
+<!-- set global properties -->
+	<property file="build.properties"/>
+	<property name="src.dir" location="${root.dir}/src" />
+	<property name="resource.dir" location="${root.dir}/res" />
+	<property name="lib.dir" location="${root.dir}/lib" />
+	<property name="base.dir" location="${root.dir}" />
+	<property name="build.dir" location="${base.dir}/build" />
+	<property name="dist.dir" location="${base.dir}/dist" />
+	<property name="package.file" value="tibco-rv-test"/>
+			
+	<property name="compile.debug" value="on"/>	
+	
+	<path id="base.build.classpath">
+		<pathelement location="${lib.dir}/tibrvj.jar"/>
+		<pathelement location="${lib.dir}/tibrvjsd.jar"/>		
+	</path>
+	
+	<target name="init">
+		<mkdir dir="${build.dir}" />
+		<mkdir dir="${build.dir}/classes" />
+		<mkdir dir="${build.dir}/unittest" />
+		<mkdir dir="${build.dir}/unittest/output" />
+		<mkdir dir="${build.dir}/unittest/classes" />
+		<mkdir dir="${base.dir}/dist" />
+		<mkdir dir="${base.dir}/dist/lib" />
+		<mkdir dir="${base.dir}/dist/res" />
+		<mkdir dir="${base.dir}/dist/config" />
+		<mkdir dir="${base.dir}/dist/log" />
+		<mkdir dir="${base.dir}/dist/bin" />
+		<mkdir dir="${base.dir}/dist/docs" />
+	</target>
+	
+	<target name="compile" depends="init">
+		<javac srcdir="${src.dir}" classpathref="base.build.classpath"
+			includes = "**/com/tibco/**"
+			excludes = "**/tests/*"
+			destdir="${build.dir}/classes" 		
+			debug="${compile.debug}"
+		/>
+	</target>
+
+	<target name="dist" depends="compile" >
+	<echo message="Building jar ..."/>
+		<jar destfile="${dist.dir}/lib/${package.file}.jar" basedir="${build.dir}/classes">
+			<manifest>
+      				<!--
+					<attribute name="Main-Class" value="com.perpetual.application.collector.Controller"/>
+      				<attribute name="Class-Path" value="res/ ../lib/log4j-1.2.8.jar ../lib/commons-cli-1.0.jar ../lib/xmojo.jar ../lib/xmojoadaptors.jar ../lib/xmojotools.jar ../lib/xmojoutils.jar ../lib/AdventNetSnmp.jar ../lib/AdventNetSnmpAgent.jar ../lib/AdventNetManagedEngine.jar ../lib/AdventNetManagedEngineRuntime.jar ../lib/AdventNetLogging.jar"/>
+					-->
+			</manifest>
+		</jar>
+		<!--
+		<copy todir="${dist.dir}/lib" flatten="true">
+			<fileset dir="${lib.dir}" 
+				 includes=" jakarta/log4j-1.2.8.jar \
+				   		jakarta/commons-cli-1.0.jar \
+						xmojo/xmojo.jar \
+						xmojo/xmojoadaptors.jar \
+						xmojo/xmojotools.jar \
+						xmojo/xmojoutils.jar \
+						adventnet/AdventNetSnmp.jar \
+						adventnet/AdventNetSnmpAgent.jar \
+						adventnet/AdventNetManagedAgentEngine.jar \
+						adventnet/AdventNetManagedAgentEngineRuntime.jar \
+						adventnet/AdventNetLogging.jar"
+			/>
+		</copy>
+	
+		<copy todir="${dist.dir}/res/licenses">
+			<fileset dir="${base.dir}/res/licenses" />
+		</copy>
+		<copy todir="${dist.dir}/config">
+			<fileset dir="${base.dir}/res/config" />
+			<fileset dir="${base.dir}/res/properties" />
+		</copy>
+		<copy todir="${dist.dir}/docs">
+			<fileset dir="${docs.dir}/collector" includes="CollectorInstallConfig.doc"/>
+		</copy>
+		<exec  executable="cp" >
+			<arg line="-f ${base.dir}/res/bin/startcollector.sh ${dist.dir}/bin"/>
+		</exec>
+		-->
+	</target>
+	
+	<target name="package" depends="dist" >
+		<echo message="Creating package zip ..."/>
+		<!--<zip destfile="${base.dir}/${package.file}" basedir="${base.dir}/dist" />-->
+		<tar destfile="${base.dir}/${package.file}.tar">
+			<tarfileset dir="${base.dir}/dist"/>
+		</tar>
+		<gzip zipfile="${base.dir}/${package.file}.tar.gz" src="${base.dir}/${package.file}.tar"/>
+	</target>
+	
+	<target name="run" depends="dist" >
+		<echo message="Running jar ..."/>
+		<java jar="${dist.dir}/${executable.jar}" fork="true">
+		  	<arg value="-l"/>
+			<arg value="${base.dir}/logstore"/>
+			<arg value="-r"/>
+			<arg value="3600000"/>
+		</java>
+	</target>
+	
+	<target name="compile_unit_tests" depends="init" >
+		<javac srcdir="${src.dir}" classpathref="base.build.classpath"
+			includes = "**/AllTests.java"
+			destdir="${build.dir}/unittest/classes"
+			debug="${compile.debug}"
+		/>
+	</target>
+	
+	<target name="run_unit_tests" depends="compile_unit_tests" >
+
+		<junit printsummary="yes" fork="no" haltonfailure="yes">
+			<!--
+			<formatter type="plain" usefile="no"/>
+  			<test name="com.perpetual.application.collector.tests.AllTests"/>
+  			<classpath>
+				<path refid="base.build.classpath"/>
+				<pathelement location="${build.dir}/unittest/classes" />
+			</classpath>
+ 			-->
+		</junit>
+
+	</target>	
+	
+	<target name="clean">
+		<delete dir="${build.dir}" />
+		<delete dir="${dist.dir}" />
+		<delete file="${package.file}" />
+		<delete file="${package.file}.tar" />
+		<delete file="${package.file}.tar.gz" />
+	</target>
+	
+</project>	

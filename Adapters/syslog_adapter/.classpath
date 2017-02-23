@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="lib"/>
+	<classpathentry kind="src" path="bin"/>
+	<classpathentry kind="src" path="distro"/>
+	<classpathentry kind="src" path="res"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Eclipse3.2/eclipse/workspace/syslog_adapter/lib/xmlParserAPIs.jar"/>
+	<classpathentry kind="lib" path="C:/Eclipse3.2/eclipse/workspace/syslog_adapter/lib/dom4j-full.jar"/>
+	<classpathentry kind="lib" path="C:/Eclipse3.2/eclipse/workspace/syslog_adapter/lib/log4j-1.2.13.jar"/>
+	<classpathentry kind="lib" path="C:/Eclipse3.2/eclipse/workspace/syslog_adapter/lib/TIBCOjms.jar"/>
+	<classpathentry kind="lib" path="C:/Eclipse3.2/eclipse/workspace/syslog_adapter/lib/TIBCOrt.jar"/>
+	<classpathentry kind="lib" path="C:/Eclipse3.2/eclipse/workspace/syslog_adapter/lib/TIBCOxml.jar"/>
+	<classpathentry kind="lib" path="C:/Eclipse3.2/eclipse/workspace/syslog_adapter/lib/TIBCrypt.jar"/>
+	<classpathentry kind="lib" path="C:/Eclipse3.2/eclipse/workspace/syslog_adapter/lib/tibrvjsd.jar"/>
+	<classpathentry kind="lib" path="C:/Eclipse3.2/eclipse/workspace/syslog_adapter/lib/xercesImpl.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

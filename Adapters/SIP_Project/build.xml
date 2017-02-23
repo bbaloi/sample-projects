@@ -1,0 +1,198 @@
+<?xml version="1.0"?>
+
+<!-- ============================================================== -->     
+<!--
+ Copyright 2006 Bullseye. All rights reserved.
+ TIBCO PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+-->
+<!-- ============================================================== -->
+
+<project name="tibco-sip-adapter" default="all">
+
+		
+		<!-- set global properties -->	
+		<property file="build.properties"/>
+		<property name="base.dir" location="${project.root.dir}" />
+		<property name="src.dir" location="${base.dir}/src" />
+		<property name="res.dir" location="${base.dir}/res" />
+		<property name="lib.dir" location="${base.dir}/lib" />	
+		<property name="lib.sip.dir" location="${base.dir}/lib_sip" />	
+		<property name="build.dir" location="${base.dir}/build" />
+		<property name="dist.dir" location="${base.dir}/distro" />
+		<property name="builder" value="B2"/>
+	
+		<!--Compiler properties -->
+		<property name="compile.debug" value="on"/>	
+		<property name="compile.optimize" value="on"/>	
+		<!--<property name="compiler-jikes" value="jikes"/>-->
+		<property name="compiler-jikes" value="modern"/>
+		<!--<property name="compiler-jikes" value="javac1.6"/>-->
+			
+		<path id="base.build.classpath">
+			<pathelement location="${lib.dir}/log4j-1.2.13.jar"/>
+			<pathelement location="${lib.dir}/jpcap.jar"/>
+			<pathelement location="${lib.dir}/net.sourceforge.jpcap-0.01.16.jar"/>
+			<pathelement location="${lib.dir}/junit-4.1.jar"/>
+			<pathelement location="${lib.dir}/tibrvj.jar"/>
+			<pathelement location="${lib.dir}/tibrvjsd.jar"/>
+			<pathelement location="${lib.sip.dir}/sipunit.jar"/>
+			<pathelement location="${lib.sip.dir}/JainSipApi1.2.jar"/>	
+			<pathelement location="${lib.sip.dir}/JainSipRi1.2.jar"/>	
+		</path>
+		
+		<target name="init">
+			<echo message="Initializing... "/>
+			<mkdir dir="${build.dir}" />
+			<mkdir dir="${build.dir}/classes" />
+			<mkdir dir="${build.dir}/unittest" />
+			<mkdir dir="${build.dir}/unittest/output" />
+			<mkdir dir="${build.dir}/unittest/classes" />
+			<mkdir dir="${dist.dir}" />
+			<mkdir dir="${dist.dir}/lib" />
+			<mkdir dir="${dist.dir}/conf" />
+			<mkdir dir="${dist.dir}/logs" />
+			<mkdir dir="${dist.dir}/bin" />
+			<mkdir dir="${build.dir}/staging" />			
+		</target>
+	<!--==============Compile dbserver,test code============= -->
+		<target name="compile-sip-sniffer" depends="init">
+			 <echo message="Compiling sniffer code... "/>
+			<javac srcdir="${src.dir}" classpathref="base.build.classpath"
+				includes = "**/com/tibco/sip/base64/**,**/com/tibco/sip/hdl/**,**/com/tibco/sip/util/**,**/com/tibco/sip/controller/**,**/com/tibco/sip/vo/**,**/com/tibco/sip/rv/**"
+				destdir="${build.dir}/classes" 		
+				debug="${compile.debug}" 
+				optimize="${compile.optimze}"
+				failonerror="true"
+				compiler="${compiler-jikes}"
+			/>
+		</target>		
+		<target name="compile-sip-samples" depends="init">
+				 <echo message="Compiling sniffer code... "/>
+				<javac srcdir="${src.dir}" classpathref="base.build.classpath"
+					includes = "**/com/tibco/sip/samples/**"
+					destdir="${build.dir}/classes" 		
+					debug="${compile.debug}" 
+					optimize="${compile.optimze}"
+					failonerror="true"
+					compiler="${compiler-jikes}"
+				/>
+			</target>		
+<!-- =================== ASSEMBLE: Create sip-snifferdistro ========= -->
+
+  <target name="assemble-jar"  depends="compile-sip-sniffer" description="Create TIBCO SIP Sniffer"> 
+    <echo message="Creating TIBCO SIP Sniffer distro... "/>
+  	
+	<copy todir="${build.dir}/staging"> 
+  	  		   <fileset dir="${build.dir}/classes">
+  	  		  		    <include name="**"/> 	  		  		   		  			
+  	  		   </fileset> 
+			   <fileset dir="${res.dir}">
+		  	  		  	<include name="log4j.properties"/> 	  		  		   		  			
+		  	   </fileset>
+  			 </copy>  
+    <jar jarfile="${dist.dir}/lib/tibco-sip-sniffer.jar" basedir="${build.dir}/staging">
+       	<include name="**/com/tibco/sip/controller/**"/> 
+    	<include name="**/com/tibco/sip/util/**"/>  
+    	<include name="**/com/tibco/sip/hdl/**"/> 
+    	<include name="**/com/tibco/sip/rv/**"/>
+    	<include name="**/com/tibco/sip/vo/**"/>
+    	<include name="**/com/tibco/sip/base64/**"/> 
+    	<include name="log4j.properties"/>  
+    	<manifest>
+			  <attribute name="Built-By" value="${builder}"/>
+			  <attribute name="Main-Class" value="com.tibco.sip.controller.TibcoSipSniffer"/>
+			  <attribute name="Class-Path" value="log4j-1.2.13.jar jpcap.jar net.sourceforge.jpcap-0.01.16.jar tibrvj.jar tibrvjsd.jar"/>
+			</manifest>		
+    </jar>  	  	
+  	<copy todir="${dist.dir}/conf"> 
+  			<fileset dir="${res.dir}">
+  		  	  		<include name="sip_sniffer.properties"/> 	  		  		   		  			
+  		  	 </fileset>   		  	
+  	</copy>  	
+  	<copy todir="${dist.dir}/bin"> 
+	  		<fileset dir="${res.dir}">
+	  		    <include name="start-sip-sniffer.bat"/> 	  	  		
+	  		</fileset> 
+  			<fileset dir="${res.dir}">
+  		  		<include name="create_schemas.bat"/>  		  			
+  		  	</fileset>
+  	 </copy>  	
+  	 <copy todir="${dist.dir}/lib"> 
+  	  	  	  <fileset dir="${lib.dir}">
+	  		    <include name="log4j-1.2.13.jar"/> 
+  	  	  		<include name="jpcap.jar"/> 
+  	  	  		<include name="tibrvj.jar"/> 
+  	  	  	  	<include name="tibrvjsd.jar"/> 
+  	  	  		<include name="jpcap.dll"/>   	  	  		
+	  		  </fileset> 		  	 
+    </copy>   	
+ </target>
+	<!-- =================== Compile Tests & exec tests: Create db-server distro ========= -->
+	<target name="compile-sip-tests" depends="init">
+		<echo message="Compiling SIP test code... "/>
+			<javac srcdir="${src.dir}" classpathref="base.build.classpath"
+				includes = "**/com/tibco/sip/tests/**"
+				destdir="${build.dir}/unittest/classes" 		
+				debug="${compile.debug}" 
+				optimize="${compile.optimze}"
+				failonerror="true"
+				compiler="${compiler-jikes}"
+			/>
+	</target>	
+	<target name="test-sip-shootist">
+		<java classname="com.tibco.sip.tests.Shootist" fork="true" failonerror="true" maxmemory="128m" output="build/unittest/output/sip-shootist.result.txt">	         
+			<classpath>	
+					<pathelement location="${build.dir}/unittest/classes"/>					 	
+					<pathelement location="${lib.dir}/log4j-1.2.13.jar"/>
+					<pathelement location="${lib.sip.dir}/sipunit.jar"/>
+					<pathelement location="${lib.sip.dir}/JainSipApi1.2.jar"/>	
+					<pathelement location="${lib.sip.dir}/JainSipRi1.2.jar"/>
+					<pathelement location="${lib.sip.dir}/concurrent.jar"/>
+			</classpath>				
+		  </java>
+	</target>
+	<target name="test-sip-shootme">
+		<java classname="com.tibco.sip.tests.Shootme" fork="true" failonerror="true" maxmemory="128m" output="build/unittest/output/sip-shootme.result.txt">	         
+					<classpath>	
+							<pathelement location="${build.dir}/unittest/classes"/>					 	
+							<pathelement location="${lib.dir}/log4j-1.2.13.jar"/>
+							<pathelement location="${lib.sip.dir}/sipunit.jar"/>
+							<pathelement location="${lib.sip.dir}/JainSipApi1.2.jar"/>	
+							<pathelement location="${lib.sip.dir}/JainSipRi1.2.jar"/>
+							<pathelement location="${lib.sip.dir}/concurrent.jar"/>
+					</classpath>				
+		</java>
+	</target>
+	<target name="test-sip-traffic">
+				<junit printsummary="yes" fork="yes" haltonfailure="yes">			
+					<classpath>	
+						<pathelement location="${build.dir}/unittest/classes"/>					 	
+						<pathelement location="${lib.dir}/log4j-1.2.13.jar"/>
+						<pathelement location="${lib.sip.dir}/sipunit.jar"/>
+						<pathelement location="${lib.sip.dir}/JainSipApi1.2.jar"/>	
+						<pathelement location="${lib.sip.dir}/JainSipRi1.2.jar"/>
+						<pathelement location="${lib.sip.dir}/concurrent.jar"/>
+					</classpath>				 
+					<test name="com.tibco.sip.tests.TestSipSuite" haltonfailure="yes" outfile="build/unittest/output/sip-traffic.result">
+						<formatter type="plain"/>						
+					</test>											
+				</junit>
+		</target>	
+  <!-- ======================================================= -->
+  <!-- Clean up various files and directories.                 -->
+  <!-- ======================================================= -->
+   <target name="clean">
+    <delete dir="${build.dir}"/>
+    <delete dir="${dist.dir}"/>
+  </target>
+	
+  <!--===========summary tragets============== -->
+	
+	<target name="run-all-tests">
+		<antcall target="test-sip-sniffer"/> 		
+	</target>
+		
+  <target name="compile-all" depends="compile-sip-sniffer"/>
+  <target name="package-all" depends="compile-all,assemble-jar"/> 
+  <target name="all" depends="package-all"/>	
+  </project>

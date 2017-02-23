@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Repository:repository xmlns:Repository="http://www.tibco.com/xmlns/repo/types/2002">
+    <enterpriseArchive>
+        <sharedArchive name="Shared Archive">
+            <resourceType>shared.archive.resource</resourceType>
+            <authorProperty>bbaloi</authorProperty>
+        </sharedArchive>
+        <processArchive name="Process Archive">
+            <resourceType>process.archive.resource</resourceType>
+            <authorProperty>bbaloi</authorProperty>
+            <processProperty>/Processes/Generated/ValidateAddress-Main.process###/Processes/Generated/ValidateAddress.process###/Processes/Generated/InquireEquipmentOrder-Main.process###/Processes/Generated/InquireEquipmentOrder.process###/Processes/Generated/ParallelTest-Main.process###/Processes/Generated/ParallelTest.process</processProperty>
+        </processArchive>
+        <versionProperty>1</versionProperty>
+        <authorProperty>bbaloi</authorProperty>
+        <addServiceSettableGvars>true</addServiceSettableGvars>
+        <name>Cingular-BW-Project</name>
+        <designer/>
+        <fileLocationProperty>C:\temp\Cingular-BW-Project.ear</fileLocationProperty>
+    </enterpriseArchive>
+</Repository:repository>

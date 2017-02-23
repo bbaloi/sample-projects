@@ -1,0 +1,586 @@
+Buildfile: build.xml
+
+fix-spaces:
+     [echo] -Preparing XPDL for conversion...
+
+run-converter:
+     [echo] -Executing the XPDL/BW conversion...
+
+build-deploy-ear:
+     [echo] -Update EAR...
+     [echo] -Build EAR and deploy...
+
+clean-deployment:
+
+ear:
+     [exec] Starting up...
+     [exec] Duplicate palette skipped: ae.palette.BEpalette
+     [exec] Duplicate palette skipped: tibco.be.semantic
+     [exec] Duplicate palette skipped: tibco.be.semantic
+     [exec] Duplicate palette skipped: tibco.be.semantic
+     [exec] Duplicate palette skipped: tibco.be.semantic
+     [exec] Duplicate palette skipped: tibco.be.semantic
+     [exec] Duplicate palette skipped: tibco.be.semantic
+     [exec] Duplicate palette skipped: tibco.be.semantic
+     [exec] Duplicate palette skipped: tibco.be.statemodel
+     [exec] Duplicate palette skipped: tibco.be.statemodel
+     [exec] Duplicate palette skipped: tibco.be.statemodel
+     [exec] java.lang.ClassNotFoundException: com.tibco.ae.processapi.BWActivityObjectFactory
+     [exec] 	at java.net.URLClassLoader$1.run(URLClassLoader.java:200)
+     [exec] 	at java.security.AccessController.doPrivileged(Native Method)
+     [exec] 	at java.net.URLClassLoader.findClass(URLClassLoader.java:188)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:306)
+     [exec] 	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:268)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:251)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.getFactories(AEResourceUtils.java:495)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.initializeProvider(AEResourceUtils.java:515)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.getObjectProvider(AEApplication.java:131)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.startup(AEApplication.java:1045)
+     [exec] 	at com.tibco.ae.tools.designer.cmdline.DesignerCommandLineApp.initializeApp(DesignerCommandLineApp.java:37)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.execute(ArchiveProject.java:93)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.main(ArchiveProject.java:37)
+     [exec] Error creating factory for ale.activities.rtlsquery
+     [exec] java.lang.ClassNotFoundException: com.tibco.ae.processapi.BWActivityObjectFactory
+     [exec] 	at java.net.URLClassLoader$1.run(URLClassLoader.java:200)
+     [exec] 	at java.security.AccessController.doPrivileged(Native Method)
+     [exec] 	at java.net.URLClassLoader.findClass(URLClassLoader.java:188)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:306)
+     [exec] 	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:268)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:251)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.getFactories(AEResourceUtils.java:495)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.initializeProvider(AEResourceUtils.java:515)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.getObjectProvider(AEApplication.java:131)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.startup(AEApplication.java:1045)
+     [exec] 	at com.tibco.ae.tools.designer.cmdline.DesignerCommandLineApp.initializeApp(DesignerCommandLineApp.java:37)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.execute(ArchiveProject.java:93)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.main(ArchiveProject.java:37)
+     [exec] Error creating factory for ale.activities.subscribe
+     [exec] java.lang.ClassNotFoundException: com.tibco.ae.processapi.BWActivityObjectFactory
+     [exec] 	at java.net.URLClassLoader$1.run(URLClassLoader.java:200)
+     [exec] 	at java.security.AccessController.doPrivileged(Native Method)
+     [exec] 	at java.net.URLClassLoader.findClass(URLClassLoader.java:188)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:306)
+     [exec] 	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:268)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:251)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.getFactories(AEResourceUtils.java:495)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.initializeProvider(AEResourceUtils.java:515)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.getObjectProvider(AEApplication.java:131)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.startup(AEApplication.java:1045)
+     [exec] 	at com.tibco.ae.tools.designer.cmdline.DesignerCommandLineApp.initializeApp(DesignerCommandLineApp.java:37)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.execute(ArchiveProject.java:93)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.main(ArchiveProject.java:37)
+     [exec] Error creating factory for xref.activity.CreateMappingActivity
+     [exec] java.lang.ClassNotFoundException: com.tibco.ae.processapi.BWActivityObjectFactory
+     [exec] 	at java.net.URLClassLoader$1.run(URLClassLoader.java:200)
+     [exec] 	at java.security.AccessController.doPrivileged(Native Method)
+     [exec] 	at java.net.URLClassLoader.findClass(URLClassLoader.java:188)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:306)
+     [exec] 	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:268)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:251)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.getFactories(AEResourceUtils.java:495)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.initializeProvider(AEResourceUtils.java:515)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.getObjectProvider(AEApplication.java:131)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.startup(AEApplication.java:1045)
+     [exec] 	at com.tibco.ae.tools.designer.cmdline.DesignerCommandLineApp.initializeApp(DesignerCommandLineApp.java:37)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.execute(ArchiveProject.java:93)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.main(ArchiveProject.java:37)
+     [exec] Error creating factory for xref.activity.DynamicLookupActivity
+     [exec] java.lang.NoClassDefFoundError: com/tibco/ae/processapi/BasicSharedResourceObjectFactory
+     [exec] 	at java.lang.ClassLoader.defineClass1(Native Method)
+     [exec] 	at java.lang.ClassLoader.defineClass(ClassLoader.java:620)
+     [exec] 	at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:124)
+     [exec] 	at java.net.URLClassLoader.defineClass(URLClassLoader.java:260)
+     [exec] 	at java.net.URLClassLoader.access$100(URLClassLoader.java:56)
+     [exec] 	at java.net.URLClassLoader$1.run(URLClassLoader.java:195)
+     [exec] 	at java.security.AccessController.doPrivileged(Native Method)
+     [exec] 	at java.net.URLClassLoader.findClass(URLClassLoader.java:188)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:306)
+     [exec] 	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:268)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:251)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.getFactories(AEResourceUtils.java:495)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.initializeProvider(AEResourceUtils.java:515)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.getObjectProvider(AEApplication.java:131)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.startup(AEApplication.java:1045)
+     [exec] 	at com.tibco.ae.tools.designer.cmdline.DesignerCommandLineApp.initializeApp(DesignerCommandLineApp.java:37)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.execute(ArchiveProject.java:93)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.main(ArchiveProject.java:37)
+     [exec] Error creating factory for ae.shared.EJBSharedConnection
+     [exec] java.lang.ClassNotFoundException: com.tibco.ae.processapi.BWActivityObjectFactory
+     [exec] 	at java.net.URLClassLoader$1.run(URLClassLoader.java:200)
+     [exec] 	at java.security.AccessController.doPrivileged(Native Method)
+     [exec] 	at java.net.URLClassLoader.findClass(URLClassLoader.java:188)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:306)
+     [exec] 	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:268)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:251)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.getFactories(AEResourceUtils.java:495)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.initializeProvider(AEResourceUtils.java:515)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.getObjectProvider(AEApplication.java:131)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.startup(AEApplication.java:1045)
+     [exec] 	at com.tibco.ae.tools.designer.cmdline.DesignerCommandLineApp.initializeApp(DesignerCommandLineApp.java:37)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.execute(ArchiveProject.java:93)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.main(ArchiveProject.java:37)
+     [exec] Error creating factory for ae.activities.BEReceiveEvent
+     [exec] java.lang.ClassNotFoundException: com.tibco.ae.processapi.BWActivityObjectFactory
+     [exec] 	at java.net.URLClassLoader$1.run(URLClassLoader.java:200)
+     [exec] 	at java.security.AccessController.doPrivileged(Native Method)
+     [exec] 	at java.net.URLClassLoader.findClass(URLClassLoader.java:188)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:306)
+     [exec] 	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:268)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:251)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.getFactories(AEResourceUtils.java:495)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.initializeProvider(AEResourceUtils.java:515)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.getObjectProvider(AEApplication.java:131)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.startup(AEApplication.java:1045)
+     [exec] 	at com.tibco.ae.tools.designer.cmdline.DesignerCommandLineApp.initializeApp(DesignerCommandLineApp.java:37)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.execute(ArchiveProject.java:93)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.main(ArchiveProject.java:37)
+     [exec] Error creating factory for ale.activities.poll
+     [exec] java.lang.ClassNotFoundException: com.tibco.ae.processapi.BWActivityObjectFactory
+     [exec] 	at java.net.URLClassLoader$1.run(URLClassLoader.java:200)
+     [exec] 	at java.security.AccessController.doPrivileged(Native Method)
+     [exec] 	at java.net.URLClassLoader.findClass(URLClassLoader.java:188)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:306)
+     [exec] 	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:268)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:251)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.getFactories(AEResourceUtils.java:495)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.initializeProvider(AEResourceUtils.java:515)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.getObjectProvider(AEApplication.java:131)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.startup(AEApplication.java:1045)
+     [exec] 	at com.tibco.ae.tools.designer.cmdline.DesignerCommandLineApp.initializeApp(DesignerCommandLineApp.java:37)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.execute(ArchiveProject.java:93)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.main(ArchiveProject.java:37)
+     [exec] Error creating factory for xref.activity.BulkLoadActivity
+     [exec] java.lang.ClassNotFoundException: com.tibco.ae.processapi.BWActivityObjectFactory
+     [exec] 	at java.net.URLClassLoader$1.run(URLClassLoader.java:200)
+     [exec] 	at java.security.AccessController.doPrivileged(Native Method)
+     [exec] 	at java.net.URLClassLoader.findClass(URLClassLoader.java:188)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:306)
+     [exec] 	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:268)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:251)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.getFactories(AEResourceUtils.java:495)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.initializeProvider(AEResourceUtils.java:515)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.getObjectProvider(AEApplication.java:131)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.startup(AEApplication.java:1045)
+     [exec] 	at com.tibco.ae.tools.designer.cmdline.DesignerCommandLineApp.initializeApp(DesignerCommandLineApp.java:37)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.execute(ArchiveProject.java:93)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.main(ArchiveProject.java:37)
+     [exec] Error creating factory for ale.activities.listsubscriptions
+     [exec] java.lang.ClassNotFoundException: com.tibco.ae.processapi.BWActivityObjectFactory
+     [exec] 	at java.net.URLClassLoader$1.run(URLClassLoader.java:200)
+     [exec] 	at java.security.AccessController.doPrivileged(Native Method)
+     [exec] 	at java.net.URLClassLoader.findClass(URLClassLoader.java:188)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:306)
+     [exec] 	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:268)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:251)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.getFactories(AEResourceUtils.java:495)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.initializeProvider(AEResourceUtils.java:515)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.getObjectProvider(AEApplication.java:131)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.startup(AEApplication.java:1045)
+     [exec] 	at com.tibco.ae.tools.designer.cmdline.DesignerCommandLineApp.initializeApp(DesignerCommandLineApp.java:37)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.execute(ArchiveProject.java:93)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.main(ArchiveProject.java:37)
+     [exec] Error creating factory for xref.activity.CreateXRefObjectsActivity
+     [exec] java.lang.ClassNotFoundException: com.tibco.ae.processapi.BWActivityObjectFactory
+     [exec] 	at java.net.URLClassLoader$1.run(URLClassLoader.java:200)
+     [exec] 	at java.security.AccessController.doPrivileged(Native Method)
+     [exec] 	at java.net.URLClassLoader.findClass(URLClassLoader.java:188)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:306)
+     [exec] 	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:268)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:251)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.getFactories(AEResourceUtils.java:495)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.initializeProvider(AEResourceUtils.java:515)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.getObjectProvider(AEApplication.java:131)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.startup(AEApplication.java:1045)
+     [exec] 	at com.tibco.ae.tools.designer.cmdline.DesignerCommandLineApp.initializeApp(DesignerCommandLineApp.java:37)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.execute(ArchiveProject.java:93)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.main(ArchiveProject.java:37)
+     [exec] Error creating factory for xref.activity.UpdateXRefObjectActivity
+     [exec] java.lang.ClassNotFoundException: com.tibco.ae.processapi.BWActivityObjectFactory
+     [exec] 	at java.net.URLClassLoader$1.run(URLClassLoader.java:200)
+     [exec] 	at java.security.AccessController.doPrivileged(Native Method)
+     [exec] 	at java.net.URLClassLoader.findClass(URLClassLoader.java:188)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:306)
+     [exec] 	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:268)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:251)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.getFactories(AEResourceUtils.java:495)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.initializeProvider(AEResourceUtils.java:515)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.getObjectProvider(AEApplication.java:131)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.startup(AEApplication.java:1045)
+     [exec] 	at com.tibco.ae.tools.designer.cmdline.DesignerCommandLineApp.initializeApp(DesignerCommandLineApp.java:37)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.execute(ArchiveProject.java:93)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.main(ArchiveProject.java:37)
+     [exec] Error creating factory for xref.activity.AddEntriesToMappingActivity
+     [exec] java.lang.ClassNotFoundException: com.tibco.ae.processapi.BWActivityObjectFactory
+     [exec] 	at java.net.URLClassLoader$1.run(URLClassLoader.java:200)
+     [exec] 	at java.security.AccessController.doPrivileged(Native Method)
+     [exec] 	at java.net.URLClassLoader.findClass(URLClassLoader.java:188)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:306)
+     [exec] 	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:268)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:251)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.getFactories(AEResourceUtils.java:495)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.initializeProvider(AEResourceUtils.java:515)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.getObjectProvider(AEApplication.java:131)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.startup(AEApplication.java:1045)
+     [exec] 	at com.tibco.ae.tools.designer.cmdline.DesignerCommandLineApp.initializeApp(DesignerCommandLineApp.java:37)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.execute(ArchiveProject.java:93)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.main(ArchiveProject.java:37)
+     [exec] Error creating factory for xref.activity.WizardActivity
+     [exec] java.lang.ClassNotFoundException: com.tibco.ae.processapi.BWActivityObjectFactory
+     [exec] 	at java.net.URLClassLoader$1.run(URLClassLoader.java:200)
+     [exec] 	at java.security.AccessController.doPrivileged(Native Method)
+     [exec] 	at java.net.URLClassLoader.findClass(URLClassLoader.java:188)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:306)
+     [exec] 	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:268)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:251)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.getFactories(AEResourceUtils.java:495)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.initializeProvider(AEResourceUtils.java:515)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.getObjectProvider(AEApplication.java:131)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.startup(AEApplication.java:1045)
+     [exec] 	at com.tibco.ae.tools.designer.cmdline.DesignerCommandLineApp.initializeApp(DesignerCommandLineApp.java:37)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.execute(ArchiveProject.java:93)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.main(ArchiveProject.java:37)
+     [exec] Error creating factory for ale.activities.printtag
+     [exec] java.lang.ClassNotFoundException: com.tibco.ae.processapi.BWActivityObjectFactory
+     [exec] 	at java.net.URLClassLoader$1.run(URLClassLoader.java:200)
+     [exec] 	at java.security.AccessController.doPrivileged(Native Method)
+     [exec] 	at java.net.URLClassLoader.findClass(URLClassLoader.java:188)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:306)
+     [exec] 	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:268)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:251)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.getFactories(AEResourceUtils.java:495)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.initializeProvider(AEResourceUtils.java:515)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.getObjectProvider(AEApplication.java:131)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.startup(AEApplication.java:1045)
+     [exec] 	at com.tibco.ae.tools.designer.cmdline.DesignerCommandLineApp.initializeApp(DesignerCommandLineApp.java:37)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.execute(ArchiveProject.java:93)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.main(ArchiveProject.java:37)
+     [exec] Error creating factory for xref.activity.BulkExtractActivity
+     [exec] java.lang.ClassNotFoundException: com.tibco.ae.processapi.BWActivityObjectFactory
+     [exec] 	at java.net.URLClassLoader$1.run(URLClassLoader.java:200)
+     [exec] 	at java.security.AccessController.doPrivileged(Native Method)
+     [exec] 	at java.net.URLClassLoader.findClass(URLClassLoader.java:188)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:306)
+     [exec] 	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:268)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:251)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.getFactories(AEResourceUtils.java:495)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.initializeProvider(AEResourceUtils.java:515)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.getObjectProvider(AEApplication.java:131)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.startup(AEApplication.java:1045)
+     [exec] 	at com.tibco.ae.tools.designer.cmdline.DesignerCommandLineApp.initializeApp(DesignerCommandLineApp.java:37)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.execute(ArchiveProject.java:93)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.main(ArchiveProject.java:37)
+     [exec] Error creating factory for ae.activities.EJBRemoteActivity
+     [exec] java.lang.ClassNotFoundException: com.tibco.ae.processapi.BWActivityObjectFactory
+     [exec] 	at java.net.URLClassLoader$1.run(URLClassLoader.java:200)
+     [exec] 	at java.security.AccessController.doPrivileged(Native Method)
+     [exec] 	at java.net.URLClassLoader.findClass(URLClassLoader.java:188)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:306)
+     [exec] 	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:268)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:251)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.getFactories(AEResourceUtils.java:495)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.initializeProvider(AEResourceUtils.java:515)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.getObjectProvider(AEApplication.java:131)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.startup(AEApplication.java:1045)
+     [exec] 	at com.tibco.ae.tools.designer.cmdline.DesignerCommandLineApp.initializeApp(DesignerCommandLineApp.java:37)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.execute(ArchiveProject.java:93)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.main(ArchiveProject.java:37)
+     [exec] Error creating factory for ae.activities.BESignalInEvent
+     [exec] java.lang.ClassNotFoundException: com.tibco.ae.processapi.BWSharedResourceObjectFactory
+     [exec] 	at java.net.URLClassLoader$1.run(URLClassLoader.java:200)
+     [exec] 	at java.security.AccessController.doPrivileged(Native Method)
+     [exec] 	at java.net.URLClassLoader.findClass(URLClassLoader.java:188)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:306)
+     [exec] 	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:268)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:251)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.getFactories(AEResourceUtils.java:495)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.initializeProvider(AEResourceUtils.java:515)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.getObjectProvider(AEApplication.java:131)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.startup(AEApplication.java:1045)
+     [exec] 	at com.tibco.ae.tools.designer.cmdline.DesignerCommandLineApp.initializeApp(DesignerCommandLineApp.java:37)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.execute(ArchiveProject.java:93)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.main(ArchiveProject.java:37)
+     [exec] Error creating factory for ale.shared.connection
+     [exec] java.lang.ClassNotFoundException: com.tibco.ae.processapi.BWActivityObjectFactory
+     [exec] 	at java.net.URLClassLoader$1.run(URLClassLoader.java:200)
+     [exec] 	at java.security.AccessController.doPrivileged(Native Method)
+     [exec] 	at java.net.URLClassLoader.findClass(URLClassLoader.java:188)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:306)
+     [exec] 	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:268)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:251)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.getFactories(AEResourceUtils.java:495)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.initializeProvider(AEResourceUtils.java:515)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.getObjectProvider(AEApplication.java:131)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.startup(AEApplication.java:1045)
+     [exec] 	at com.tibco.ae.tools.designer.cmdline.DesignerCommandLineApp.initializeApp(DesignerCommandLineApp.java:37)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.execute(ArchiveProject.java:93)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.main(ArchiveProject.java:37)
+     [exec] Error creating factory for xref.activity.DeleteMappingActivity
+     [exec] java.lang.ClassNotFoundException: com.tibco.ae.processapi.BWActivityObjectFactory
+     [exec] 	at java.net.URLClassLoader$1.run(URLClassLoader.java:200)
+     [exec] 	at java.security.AccessController.doPrivileged(Native Method)
+     [exec] 	at java.net.URLClassLoader.findClass(URLClassLoader.java:188)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:306)
+     [exec] 	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:268)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:251)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.getFactories(AEResourceUtils.java:495)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.initializeProvider(AEResourceUtils.java:515)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.getObjectProvider(AEApplication.java:131)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.startup(AEApplication.java:1045)
+     [exec] 	at com.tibco.ae.tools.designer.cmdline.DesignerCommandLineApp.initializeApp(DesignerCommandLineApp.java:37)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.execute(ArchiveProject.java:93)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.main(ArchiveProject.java:37)
+     [exec] Error creating factory for ale.activities.unsubscribe
+     [exec] java.lang.ClassNotFoundException: com.tibco.ae.processapi.BWActivityObjectFactory
+     [exec] 	at java.net.URLClassLoader$1.run(URLClassLoader.java:200)
+     [exec] 	at java.security.AccessController.doPrivileged(Native Method)
+     [exec] 	at java.net.URLClassLoader.findClass(URLClassLoader.java:188)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:306)
+     [exec] 	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:268)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:251)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.getFactories(AEResourceUtils.java:495)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.initializeProvider(AEResourceUtils.java:515)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.getObjectProvider(AEApplication.java:131)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.startup(AEApplication.java:1045)
+     [exec] 	at com.tibco.ae.tools.designer.cmdline.DesignerCommandLineApp.initializeApp(DesignerCommandLineApp.java:37)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.execute(ArchiveProject.java:93)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.main(ArchiveProject.java:37)
+     [exec] Error creating factory for ale.activities.listprinters
+     [exec] java.lang.ClassNotFoundException: com.tibco.ae.processapi.BWActivityObjectFactory
+     [exec] 	at java.net.URLClassLoader$1.run(URLClassLoader.java:200)
+     [exec] 	at java.security.AccessController.doPrivileged(Native Method)
+     [exec] 	at java.net.URLClassLoader.findClass(URLClassLoader.java:188)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:306)
+     [exec] 	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:268)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:251)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.getFactories(AEResourceUtils.java:495)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.initializeProvider(AEResourceUtils.java:515)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.getObjectProvider(AEApplication.java:131)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.startup(AEApplication.java:1045)
+     [exec] 	at com.tibco.ae.tools.designer.cmdline.DesignerCommandLineApp.initializeApp(DesignerCommandLineApp.java:37)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.execute(ArchiveProject.java:93)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.main(ArchiveProject.java:37)
+     [exec] Error creating factory for xref.activity.DeleteXRefObjectsActivity
+     [exec] java.lang.ClassNotFoundException: com.tibco.ae.processapi.BWActivityObjectFactory
+     [exec] 	at java.net.URLClassLoader$1.run(URLClassLoader.java:200)
+     [exec] 	at java.security.AccessController.doPrivileged(Native Method)
+     [exec] 	at java.net.URLClassLoader.findClass(URLClassLoader.java:188)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:306)
+     [exec] 	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:268)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:251)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.getFactories(AEResourceUtils.java:495)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.initializeProvider(AEResourceUtils.java:515)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.getObjectProvider(AEApplication.java:131)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.startup(AEApplication.java:1045)
+     [exec] 	at com.tibco.ae.tools.designer.cmdline.DesignerCommandLineApp.initializeApp(DesignerCommandLineApp.java:37)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.execute(ArchiveProject.java:93)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.main(ArchiveProject.java:37)
+     [exec] Error creating factory for ale.activities.defineECSpec
+     [exec] java.lang.ClassNotFoundException: com.tibco.ae.processapi.BWActivityObjectFactory
+     [exec] 	at java.net.URLClassLoader$1.run(URLClassLoader.java:200)
+     [exec] 	at java.security.AccessController.doPrivileged(Native Method)
+     [exec] 	at java.net.URLClassLoader.findClass(URLClassLoader.java:188)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:306)
+     [exec] 	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:268)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:251)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.getFactories(AEResourceUtils.java:495)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.initializeProvider(AEResourceUtils.java:515)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.getObjectProvider(AEApplication.java:131)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.startup(AEApplication.java:1045)
+     [exec] 	at com.tibco.ae.tools.designer.cmdline.DesignerCommandLineApp.initializeApp(DesignerCommandLineApp.java:37)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.execute(ArchiveProject.java:93)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.main(ArchiveProject.java:37)
+     [exec] Error creating factory for ale.activities.immediate
+     [exec] java.lang.ClassNotFoundException: com.tibco.ae.processapi.BWActivityObjectFactory
+     [exec] 	at java.net.URLClassLoader$1.run(URLClassLoader.java:200)
+     [exec] 	at java.security.AccessController.doPrivileged(Native Method)
+     [exec] 	at java.net.URLClassLoader.findClass(URLClassLoader.java:188)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:306)
+     [exec] 	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:268)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:251)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.getFactories(AEResourceUtils.java:495)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.initializeProvider(AEResourceUtils.java:515)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.getObjectProvider(AEApplication.java:131)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.startup(AEApplication.java:1045)
+     [exec] 	at com.tibco.ae.tools.designer.cmdline.DesignerCommandLineApp.initializeApp(DesignerCommandLineApp.java:37)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.execute(ArchiveProject.java:93)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.main(ArchiveProject.java:37)
+     [exec] Error creating factory for ae.activities.BESendEvent
+     [exec] java.lang.ClassNotFoundException: com.tibco.ae.processapi.BWActivityObjectFactory
+     [exec] 	at java.net.URLClassLoader$1.run(URLClassLoader.java:200)
+     [exec] 	at java.security.AccessController.doPrivileged(Native Method)
+     [exec] 	at java.net.URLClassLoader.findClass(URLClassLoader.java:188)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:306)
+     [exec] 	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:268)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:251)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.getFactories(AEResourceUtils.java:495)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.initializeProvider(AEResourceUtils.java:515)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.getObjectProvider(AEApplication.java:131)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.startup(AEApplication.java:1045)
+     [exec] 	at com.tibco.ae.tools.designer.cmdline.DesignerCommandLineApp.initializeApp(DesignerCommandLineApp.java:37)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.execute(ArchiveProject.java:93)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.main(ArchiveProject.java:37)
+     [exec] Error creating factory for ae.activities.EJBHomeActivity
+     [exec] java.lang.ClassNotFoundException: com.tibco.ae.processapi.BWActivityObjectFactory
+     [exec] 	at java.net.URLClassLoader$1.run(URLClassLoader.java:200)
+     [exec] 	at java.security.AccessController.doPrivileged(Native Method)
+     [exec] 	at java.net.URLClassLoader.findClass(URLClassLoader.java:188)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:306)
+     [exec] 	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:268)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:251)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.getFactories(AEResourceUtils.java:495)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.initializeProvider(AEResourceUtils.java:515)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.getObjectProvider(AEApplication.java:131)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.startup(AEApplication.java:1045)
+     [exec] 	at com.tibco.ae.tools.designer.cmdline.DesignerCommandLineApp.initializeApp(DesignerCommandLineApp.java:37)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.execute(ArchiveProject.java:93)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.main(ArchiveProject.java:37)
+     [exec] Error creating factory for ale.activities.listdefinitions
+     [exec] java.lang.ClassNotFoundException: com.tibco.ae.processapi.BWActivityObjectFactory
+     [exec] 	at java.net.URLClassLoader$1.run(URLClassLoader.java:200)
+     [exec] 	at java.security.AccessController.doPrivileged(Native Method)
+     [exec] 	at java.net.URLClassLoader.findClass(URLClassLoader.java:188)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:306)
+     [exec] 	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:268)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:251)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.getFactories(AEResourceUtils.java:495)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.initializeProvider(AEResourceUtils.java:515)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.getObjectProvider(AEApplication.java:131)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.startup(AEApplication.java:1045)
+     [exec] 	at com.tibco.ae.tools.designer.cmdline.DesignerCommandLineApp.initializeApp(DesignerCommandLineApp.java:37)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.execute(ArchiveProject.java:93)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.main(ArchiveProject.java:37)
+     [exec] Error creating factory for xref.activity.LookupActivity
+     [exec] java.lang.ClassNotFoundException: com.tibco.ae.processapi.BWActivityObjectFactory
+     [exec] 	at java.net.URLClassLoader$1.run(URLClassLoader.java:200)
+     [exec] 	at java.security.AccessController.doPrivileged(Native Method)
+     [exec] 	at java.net.URLClassLoader.findClass(URLClassLoader.java:188)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:306)
+     [exec] 	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:268)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:251)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.getFactories(AEResourceUtils.java:495)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.initializeProvider(AEResourceUtils.java:515)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.getObjectProvider(AEApplication.java:131)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.startup(AEApplication.java:1045)
+     [exec] 	at com.tibco.ae.tools.designer.cmdline.DesignerCommandLineApp.initializeApp(DesignerCommandLineApp.java:37)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.execute(ArchiveProject.java:93)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.main(ArchiveProject.java:37)
+     [exec] Error creating factory for ale.activities.undefineECSpec
+     [exec] java.lang.ClassNotFoundException: com.tibco.ae.processapi.BWSharedResourceObjectFactory
+     [exec] 	at java.net.URLClassLoader$1.run(URLClassLoader.java:200)
+     [exec] 	at java.security.AccessController.doPrivileged(Native Method)
+     [exec] 	at java.net.URLClassLoader.findClass(URLClassLoader.java:188)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:306)
+     [exec] 	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:268)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:251)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.getFactories(AEResourceUtils.java:495)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.initializeProvider(AEResourceUtils.java:515)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.getObjectProvider(AEApplication.java:131)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.startup(AEApplication.java:1045)
+     [exec] 	at com.tibco.ae.tools.designer.cmdline.DesignerCommandLineApp.initializeApp(DesignerCommandLineApp.java:37)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.execute(ArchiveProject.java:93)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.main(ArchiveProject.java:37)
+     [exec] Error creating factory for ale.shared.ecspec
+     [exec] java.lang.ClassNotFoundException: com.tibco.ae.processapi.BWActivityObjectFactory
+     [exec] 	at java.net.URLClassLoader$1.run(URLClassLoader.java:200)
+     [exec] 	at java.security.AccessController.doPrivileged(Native Method)
+     [exec] 	at java.net.URLClassLoader.findClass(URLClassLoader.java:188)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:306)
+     [exec] 	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:268)
+     [exec] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:251)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.getFactories(AEResourceUtils.java:495)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.initializeProvider(AEResourceUtils.java:515)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.getObjectProvider(AEApplication.java:131)
+     [exec] 	at com.tibco.ae.tools.designer.AEApplication.startup(AEApplication.java:1045)
+     [exec] 	at com.tibco.ae.tools.designer.cmdline.DesignerCommandLineApp.initializeApp(DesignerCommandLineApp.java:37)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.execute(ArchiveProject.java:93)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.main(ArchiveProject.java:37)
+     [exec] Error creating factory for xref.activity.GenerateIdActivity
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:Tests/Utils/testForkJoin.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:Tests/Utils/GetOrderType.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:Tests/Utils/DynProcTemplate.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:Tests/Utils/testLoop.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:Tests/Utils/Framework -Bak.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:Tests/Utils/ValidateXML.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:Tests/Utils/InvokeCompass.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:Tests/Utils/InvokeContivoPrivate.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:Tests/Utils/CreateJmsResponse.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:Tests/Utils/Process Definition.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:Tests/Utils/Framework.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:Tests/Utils/TimerProc.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:Tests/Utils/InvokeContivoPublic.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:Tests/Utils/SendJmsResponse.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:Tests/Utils/Search.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:Tests/SchemaTests/Process Definition.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:Tests/GenTests/MessageSend.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:Tests/GenTests/testPlain.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:Tests/GenTests/MessageReceive.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:Tests/FrameworkTests/ExecutionConfirmation.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:Tests/FrameworkTests/ParallelTest.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:Tests/FrameworkTests/InquireEquipOrder.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:Tests/FrameworkTests/ValidateAddressTest.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:SharedConnections/JMS Connection.sharedjmscon using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:SharedConnections/HTTP Connection.sharedhttp using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:Shared Resources/Transports/JMS/JMS Connection.sharedjmscon using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:Processes/Utils/Jms/CreateJmsResponse.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:Processes/Utils/Jms/SendJmsResponse.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:Processes/Utils/General/WaitForSomeTime.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:Processes/Utils/General/ValidateXML.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:Processes/Utils/General/GetOrderType.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:Processes/Utils/General/SendMsgTest.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:Processes/Utils/General/SearchTagExists.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:Processes/Utils/Contivo/InvokeContivo.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:Processes/Main/Framework.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:Processes/Generated/ValidateAddress.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:Processes/Generated/ValidateAddress-Main.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:Processes/Generated/ParallelTest-Main.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:Processes/Generated/ParallelTest.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:Processes/Generated/InquireEquipmentOrder.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:Processes/Generated/InquireEquipmentOrder-Main.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:Processes/ComplexServices/InquireAccount/InvokeInquireAccount.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:Processes/Common/MarketLookup/Lookup.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:Processes/Adapters/Compass/InvokeCompass.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:Processes/Adapters/CAM/InvokeCAM.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:ProcessDefinitions/Workflow/ValidateAddress.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:ProcessDefinitions/Workflow/testjmsbindings.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:ProcessDefinitions/Workflow/EnquireEquipmentOrder.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:ProcessDefinitions/Workflow/VerifyAddress.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:ProcessDefinitions/Workflow/Workflow1.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:ProcessDefinitions/Workflow/SoapTest.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:ProcessDefinitions/Workflow/SchemaTest.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:ProcessDefinitions/Workflow/TransformPubToPriv.process using unknown file type resource.
+     [exec] Exception in DesignerResourceStore.loadResourceFrom() uri:ProcessDefinitions/Workflow/ValidateRequest.process using unknown file type resource.
+     [exec] java.util.MissingResourceException: Can't get bundle for class process.archive.resource.class.name
+     [exec] 	at com.tibco.util.ResourceManager.getClass(ResourceManager.java:638)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.getClassForType(AEResourceUtils.java:785)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.createResourceOfType(AEResourceUtils.java:827)
+     [exec] 	at com.tibco.ae.designerapi.AEResourceUtils.createResourceOfType(AEResourceUtils.java:793)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveBuilderObjectFactory.addChildren(ArchiveBuilderObjectFactory.java:42)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveBuilderObjectFactory.createObjectForData(ArchiveBuilderObjectFactory.java:20)
+     [exec] 	at com.tibco.ae.designerapi.objectfactories.XiNodeObjectFactory.readFromStream(XiNodeObjectFactory.java:241)
+     [exec] 	at com.tibco.ae.designerapi.objectfactories.XiNodeObjectFactory.newInstance(XiNodeObjectFactory.java:104)
+     [exec] 	at com.tibco.objectrepo.object.ObjectProvider.a(ObjectProvider.java:522)
+     [exec] 	at com.tibco.objectrepo.object.ObjectProvider.getObject(ObjectProvider.java:312)
+     [exec] 	at com.tibco.ae.designerapi.DesignerResourceStore.loadResourceFrom(DesignerResourceStore.java:735)
+     [exec] 	at com.tibco.ae.designerapi.DesignerResourceStore.loadResourcesFrom(DesignerResourceStore.java:699)
+     [exec] 	at com.tibco.ae.designerapi.DesignerResourceStore.initializeResource(DesignerResourceStore.java:1051)
+     [exec] 	at com.tibco.ae.designerapi.DesignerResourceStore.insureFoldersAreInitialized(DesignerResourceStore.java:1185)
+     [exec] 	at com.tibco.ae.designerapi.DesignerResourceStore.insureFoldersAreInitialized(DesignerResourceStore.java:1160)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.execute(ArchiveProject.java:114)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.main(ArchiveProject.java:37)
+     [exec] Enterprise Archive File has not built correctly.  See error log for details.
+     [exec] Archive Cingular-BW-Project must have at least one service archive
+     [exec] java.lang.IllegalArgumentException: Archive Cingular-BW-Project must have at least one service archive
+     [exec] 	at com.tibco.archive.impl.ApplicationArchiveImpl.save(ApplicationArchiveImpl.java:137)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.EnterpriseArchiveBuilderResource.buildArchive(EnterpriseArchiveBuilderResource.java:583)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.execute(ArchiveProject.java:175)
+     [exec] 	at com.tibco.ae.tools.palettes.archivebuilderpalette.ArchiveProject.main(ArchiveProject.java:37)
+
+     [exec] Ear created in: C:\temp\Cingular\Deployment.ear
+
+dpconfiguration:
+     [exec] Initializing ...
+     [exec] Finished initialization
+     [exec] Exporting application configuration ...
+     [exec] Failed. Please check log file
+
+assignMachine:

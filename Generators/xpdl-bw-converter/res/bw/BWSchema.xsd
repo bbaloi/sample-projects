@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://xmlns.tibco.com/bw/process/2003" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:ns="http://www.tibco.com/namespaces/tnt/plugins/jms" xmlns:pd="http://xmlns.tibco.com/bw/process/2003">
+  <xsd:import namespace="http://www.tibco.com/namespaces/tnt/plugins/jms" schemaLocation="ns.xsd"/>
+  <xsd:import namespace="http://www.w3.org/1999/XSL/Transform" schemaLocation="xsl.xsd"/>
+  <xsd:import namespace="http://www.w3.org/2001/XMLSchema" schemaLocation="xsd.xsd"/>
+  <xsd:element name="ProcessDefinition">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="pd:name"/>
+        <xsd:element ref="pd:startName"/>
+        <xsd:element ref="pd:startX"/>
+        <xsd:element ref="pd:startY"/>
+        <xsd:element ref="pd:returnBindings"/>
+	    <xsd:element ref="pd:startType"/>
+        <xsd:element ref="pd:starter"/>
+        <xsd:element ref="pd:endName"/>
+        <xsd:element ref="pd:endType"/>
+        <xsd:element ref="pd:endX"/>
+        <xsd:element ref="pd:endY"/>
+        <xsd:element ref="pd:errorSchemas"/>
+        <xsd:element ref="pd:processVariables"/>
+        <xsd:element maxOccurs="unbounded" ref="pd:activity"/>
+        <xsd:element maxOccurs="unbounded" ref="pd:transition"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="returnBindings">
+      <xsd:complexType>
+       <xsd:choice minOccurs="0">
+          <xsd:element name="returnValue" form="unqualified">
+           <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="outData" form="unqualified" type="pd:xsl.value-of"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          </xsd:element>
+       </xsd:choice>
+      </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="startType">
+   <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element ref="xsd:element"/>
+    </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="returnValue" type="pd:xsl.value-of"/>
+  <xsd:element name="startRoot" type="xsd:string"/>
+  <xsd:element name="name" type="xsd:string"/>
+  <xsd:element name="startName" type="xsd:string"/>
+  <xsd:element name="startX" type="xsd:integer"/>
+  <xsd:element name="startY" type="xsd:integer"/>
+  <xsd:element name="starter">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="pd:type"/>
+        <xsd:element ref="pd:resourceType"/>
+        <xsd:element ref="pd:x"/>
+        <xsd:element ref="pd:y"/>
+        <xsd:group ref="pd:config"/>
+        <xsd:element ref="pd:inputBindings"/>
+      </xsd:sequence>
+      <xsd:attribute name="name" use="required"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="endName" type="xsd:NCName"/>
+  <xsd:element name="endType">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="xsd:element"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="endX" type="xsd:integer"/>
+  <xsd:element name="endY" type="xsd:integer"/>
+  <xsd:element name="errorSchemas">
+    <xsd:complexType/>
+  </xsd:element>
+  <xsd:element name="processVariables">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="Schema0" form="unqualified">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element ref="xsd:element"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="activity">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="pd:type"/>
+        <xsd:element ref="pd:resourceType"/>
+        <xsd:element ref="pd:x"/>
+        <xsd:element ref="pd:y"/>
+        <xsd:group ref="pd:config"/>
+        <xsd:element ref="pd:inputBindings"/>
+      </xsd:sequence>
+      <xsd:attribute name="name" use="required"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="transition">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="pd:from"/>
+        <xsd:element ref="pd:to"/>
+        <xsd:element ref="pd:lineType"/>
+        <xsd:element ref="pd:lineColor"/>
+        <xsd:element ref="pd:conditionType"/>
+        <xsd:element minOccurs="0" ref="pd:xpath"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="from" type="xsd:string"/>
+  <xsd:element name="to" type="xsd:string"/>
+  <xsd:element name="lineType" type="xsd:NCName"/>
+  <xsd:element name="lineColor" type="xsd:integer"/>
+  <xsd:element name="conditionType" type="xsd:NCName"/>
+  <xsd:element name="xpath" type="xsd:string"/>
+  <xsd:complexType name="root">
+    <xsd:sequence>
+      <xsd:element name="root" form="unqualified">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="param" form="unqualified" type="pd:xsl.value-of"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="type" type="xsd:string"/>
+  <xsd:element name="resourceType" type="xsd:NCName"/>
+  <xsd:element name="x" type="xsd:integer"/>
+  <xsd:element name="y" type="xsd:integer"/>
+  <xsd:group name="config">
+    <xsd:sequence>
+      <xsd:element name="config" form="unqualified">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="processName" form="unqualified" type="xsd:string"/>
+            <xsd:sequence minOccurs="0">
+              <xsd:element name="PermittedMessageType" form="unqualified" type="xsd:string"/>
+              <xsd:element name="SessionAttributes" form="unqualified">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="transacted" form="unqualified" type="xsd:boolean"/>
+                    <xsd:element name="acknowledgeMode" form="unqualified" type="xsd:integer"/>
+                    <xsd:element name="maxSessions" form="unqualified" type="xsd:integer"/>
+                    <xsd:element name="destination" form="unqualified" type="xsd:NCName"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="ConfigurableHeaders" form="unqualified">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="JMSDeliveryMode" form="unqualified" type="xsd:NCName"/>
+                    <xsd:element name="JMSExpiration" form="unqualified" type="xsd:integer"/>
+                    <xsd:element name="JMSPriority" form="unqualified" type="xsd:integer"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="ConnectionReference" form="unqualified" type="xsd:string"/>
+            </xsd:sequence>
+            <xsd:choice minOccurs="0">
+              <xsd:element name="InDataxsdString" form="unqualified">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element ref="xsd:element"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="OutDataxsdString" form="unqualified">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element ref="xsd:element"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:choice>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:group>
+  <xsd:element name="inputBindings">
+    <xsd:complexType>
+      <xsd:choice minOccurs="0">         	
+	    <xsd:element name="frameworkInput" form="unqualified">
+           <xsd:complexType mixed="true">
+             <xsd:sequence>
+                 <xsd:element name="Properties" form="unqualified" type="pd:xsl.value-of"/>
+                 <xsd:element name="processName" form="unqualified" type="pd:xsl.value-of"/>
+                 <xsd:element ref="xsl:copy-of"/>
+             </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="root" form="unqualified">
+          <xsd:complexType>
+             <xsd:sequence>
+                <xsd:element name="dataInput" form="unqualified" type="pd:xsl.value-of"/>
+             </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="inputVars" form="unqualified">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:choice minOccurs="0">
+                    <xsd:element name="dynamicVar" form="unqualified" type="pd:xsl.value-of"/>
+                    <xsd:element ref="xsl:choose"/>
+              </xsd:choice>
+               <xsd:element name="staticVar" form="unqualified" type="pd:xsl.value-of"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element ref="ns:ActivityInput"/>
+      </xsd:choice>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="xsl.value-of">
+    <xsd:sequence>
+      <xsd:element ref="xsl:value-of"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

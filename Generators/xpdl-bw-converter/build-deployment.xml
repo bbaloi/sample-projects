@@ -1,0 +1,128 @@
+<project name="CingularPOC" default="admin" basedir=".">
+    <description>
+        Cingular POC -- Automated deployment
+    </description>
+    
+    <!-- ****************************************************************
+         *  The following properties should be passed in from Ant       *   
+         *  Command-line. The hardcoded value is only used for testing. *
+         *  Properties values from the Command-line overwrite the       *
+         *  hard-coded default values. To overwrite the default values, *
+         *  run Ant with property values. For example:                  *
+         *  Ant -DAppName="myPOC"                                       *
+         ****************************************************************
+    -->
+    
+    <!-- BW project root folder absolute path -->
+    <property name="BWProjectPath" location="C:/Bruno/TIBCO/TIBCO-clients/Cingular/Cingular-BW-Project"/>
+    
+    <!-- Enterprise Archieve Resoruce URI -->
+    <property name="EAURI" value="/Archive/Cingular-BW-Project.archive"/>
+
+    <!-- Targe Deployment Machine Name -->
+    <property name="Machine" value="bbaloi-t60"/>
+    
+    <!-- Application Name for BW Engine -->
+    <property name="AppName" value="Cingular-BW-Project"/>
+
+    <!-- Targe Domain for Deployment   -->
+    <property name="Domain" value="bbaloi-t60-domain"/>
+
+
+    <!-- ****************************************************************
+         *                Set global internal properties                *
+         ****************************************************************
+    -->
+
+    <!-- Working directory   -->
+    <property name="workdir" value="c:/temp/Cingular/"/>    
+    <!-- Deployment configuration file -->
+    <property name="DeploymentConfigFile" value="Deployment.xml"/>
+    <!-- Deployment Ear file -->
+    <property name="DeploymentEarFile" value="Deployment.ear"/>
+    <!-- Administrator User Name -->
+    <property name="AdminUser" value="admin"/>
+    <!-- Administrator password -->
+    <property name="AdminPwd" value="admin"/>    
+    <!-- Process Archive Machine Token -->
+    <property name="ProcessMachineToken" value="%%Process Archive.par-machine%%"/>
+    <!-- Get OS environment   -->
+    <property environment="env"/>
+
+    
+
+    <!-- ************   Deploy and Start the Engine (Target)  ***********
+         *  Execute AppManage to upload the application, deploy and     *  
+         *  start the BW engine in the Administrator domain. To execute *
+         *  AppManage.exe correctly, OS environment path should include *
+         *  something similar to c:\tibco\tra\5.3\bin                   *
+         ****************************************************************
+    -->
+    <target name="admin" depends="clean-deployment,assignMachine"
+        description="deploying to TIBCO Administrator" >
+	<exec executable="AppManage.exe">
+ 	  <arg value="-deploy"/>
+	  <arg line="-ear ${workdir}${DeploymentEarFile}"/>
+	  <arg line="-deployconfig ${workdir}${DeploymentConfigFile}"/>
+	  <arg line="-app ${AppName}"/>
+	  <arg line="-domain ${Domain}"/>
+	  <arg line="-user ${AdminUser}"/>
+	  <arg line="-pw ${AdminPwd}"/>
+	</exec>
+    </target>
+
+
+    <!-- ***********************  Build EAR File ************************
+         *  Execute BuildEar utility to create Ear file.                *
+         ****************************************************************
+    -->
+     <target name="ear" description="Building Ear file">
+	<exec executable="BuildEAr.exe">
+ 	 <arg line="-s -ear ${EAURI}"/>
+	 <arg line="-o ${workdir}${DeploymentEarFile}"/>
+	 <arg line="-p ${BWProjectPath}"/>
+	</exec>
+    </target>
+
+
+    <!-- **********   Build Deployment Configuration File   *************
+         *  Execute AppManage to build the deployment configuration     *
+         *  file						        *
+         ****************************************************************
+    -->
+    <target name="dpconfiguration" depends="ear" 
+        description="Build the deployment configuration " >
+        
+	<exec executable="AppManage.exe">
+ 	 <arg value="-export"/>
+	 <arg line="-ear ${workdir}${DeploymentEarFile}"/>
+	 <arg line="-out ${workdir}${DeploymentConfigFile}"/>
+	</exec>   
+    </target>
+
+
+    <!-- *******************  Set Machine Name  *************************
+         *  Replace machine name in Deployment Configuration File       *
+         ****************************************************************
+    -->
+    <target name="assignMachine" depends="dpconfiguration" 
+        description="Assign physical machine name " >
+        
+        <replace summary="true"
+                file="${workdir}${DeploymentConfigFile}" 
+                token="${ProcessMachineToken}"
+                value="${Machine}">
+	  
+	</replace>
+    </target>
+
+    <!-- ***********************  Clean Target  *************************
+         * The clean target deletes both ear file and deployment        *
+	 * configuration file from the working directory.               *
+	 ****************************************************************
+    -->
+    <target name="clean-deployment" description="clean up">
+        <delete file="${workdir}${DeploymentConfigFile}"/>
+        <delete file="${workdir}${DeploymentEarFile}"/>
+    </target>
+</project>

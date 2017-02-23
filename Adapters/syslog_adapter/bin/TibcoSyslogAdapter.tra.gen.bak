@@ -1,0 +1,36 @@
+#
+# Copyright (c) 2003 TIBCO Software Inc.
+# All Rights Reserved.
+#
+# This software is the confidential and proprietary information of
+# TIBCO Software Inc.
+#
+
+# Set the PATH and LIBRARY_PATH
+tibco.env.PATH=.\:/opt/tibco/tra/5.4/hotfix/bin\:/opt/tibco/tra/5.4/bin\:/opt/tibco/tpcl/5.4/bin\:/opt/tibco/tibrv/bin\:/opt/tibco/hawk/bin\:%PATH%
+tibco.env.LD_LIBRARY_PATH=/opt/tibco/tra/5.4/hotfix/lib\:/opt/tibco/tra/5.4/lib\:/opt/tibco/tpcl/5.4/lib\:/opt/tibco/tibrv/lib\:/opt/tibco/jre/1.5.0/lib/i386/client\:/opt/tibco/jre/1.5.0/lib/i386
+tibco.env.SHLIB_PATH=/opt/tibco/tra/5.4/hotfix/lib\:/opt/tibco/tra/5.4/lib\:/opt/tibco/tpcl/5.4/lib\:/opt/tibco/tibrv/lib\:/opt/tibco/jre/1.5.0/lib/i386/hotspot\:/opt/tibco/jre/1.5.0/lib/i386
+tibco.env.LIBPATH=/opt/tibco/tra/5.4/hotfix/lib\:/opt/tibco/tra/5.4/lib\:/opt/tibco/tpcl/5.4/lib\:/opt/tibco/tibrv/lib\:/opt/tibco/jre/1.5.0/lib/i386/classic\:/opt/tibco/jre/1.5.0/lib/i386
+tibco.env.PSP=\:
+
+# Specifies the JVM to be used to launch this application
+java.library=/opt/tibco/jre/1.5.0/lib/i386/client/libjvm.so
+java.heap.size.initial=8m
+java.heap.size.max=32m
+java.thread.stack.size=128k
+
+
+# Specifies the class to launch
+java.start.class=com.tibco.syslog.adapter.TibcoSyslogAdapter
+
+# Specifies the main function to invoke
+java.start.method=main
+
+# Specifies the function to shutdown
+java.stop.method=shutdown
+
+#java properties
+tibco.class.path.extended=\:/home/brunob/workspace/syslog_adapter/bin\:/home/brunob/workspace/syslog_adapter/lib\:/opt/tibco/tra/5.4/hotfix/lib\:/opt/tibco/hawk/lib\:/opt/tibco/tra/5.4/lib\:/opt/tibco/tpcl/5.4/lib\:/opt/tibco/tibrv/bin\:/opt/tibco/tibrv/lib\:/opt/tibco/tpcl/5.4/tomcat/lib\:/opt/tibco/tpcl/5.4/tomcat/server/lib\:/opt/tibco/tpcl/5.4/tomcat/common/lib\:/opt/tibco/tpcl/5.4/ant/lib\:/opt/tibco/tpcl/5.4/lib/entrust
+
+# Define application command line.
+application.args=-properties_file SyslogAdapter.properties -system\:propFile /home/brunob/workspace/syslog_adapter/bin/TibcoSyslogAdapter.tra 

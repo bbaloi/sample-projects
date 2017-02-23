@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/xpd/XpdlExtensions1.0.0" xmlns:extensions="http://www.tibco.com/xpd/XpdlExtensions1.0.0" xmlns:xpdl="http://www.wfmc.org/2002/XPDL1.0">  
+  <xs:import namespace="http://www.wfmc.org/2002/XPDL1.0" schemaLocation="TC-1025_schema_10_xpdl.xsd"/>
+  <xs:element name="Activity">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="extensions:Location"/>
+        <xs:element minOccurs="0" ref="extensions:ActivityType"/>
+        <xs:choice minOccurs="0">
+          <xs:element ref="extensions:EventFlowType"/>
+          <xs:element ref="extensions:GatewayType"/>
+        </xs:choice>
+      </xs:sequence>
+      <xs:attribute name="LaneId" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Location">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="extensions:XOffset"/>
+        <xs:element ref="extensions:YOffset"/>
+        <xs:element ref="extensions:Width"/>
+        <xs:element ref="extensions:Height"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="XOffset" type="xs:integer"/>
+  <xs:element name="YOffset" type="xs:integer"/>
+  <xs:element name="Width" type="xs:integer"/>
+  <xs:element name="Height" type="xs:integer"/>
+  <xs:element name="ActivityType" type="xs:NCName"/>
+  <xs:element name="EventFlowType" type="xs:NCName"/>
+  <xs:element name="GatewayType" type="xs:NCName"/>
+  <xs:element name="Diagram">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="extensions:ZoomLevel"/>
+        <xs:element ref="extensions:Pool"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ZoomLevel" type="xs:decimal"/>
+  <xs:element name="Pool">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="extensions:Name"/>
+        <xs:element ref="extensions:IsVisible"/>
+        <xs:element ref="extensions:IsDefault"/>
+        <xs:element ref="extensions:Lane"/>
+      </xs:sequence>
+      <xs:attribute name="Id" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsVisible" type="xs:boolean"/>
+  <xs:element name="Lane">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="extensions:Name"/>
+        <xs:element ref="extensions:IsDefault"/>
+        <xs:element ref="extensions:Size"/>
+      </xs:sequence>
+      <xs:attribute name="Id" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Size" type="xs:integer"/>
+  <xs:element name="Name" type="xs:string"/>
+  <xs:element name="IsDefault" type="xs:boolean"/>
+</xs:schema>

@@ -1,0 +1,73 @@
+Testsuite: com.tibco.sip.tests.TestSipSuite
+Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 3.141 sec
+------------- Standard Output ---------------
+SIPUNIT TRACE:  1187392212168  SS.waitRequest() - about to block, waiting
+SIPUNIT TRACE:  1187392212246  SipStack: request received !
+SIPUNIT TRACE:  1187392212246  SipStack: calling listener
+SIPUNIT TRACE:  1187392212246  SipSession: request received !
+SIPUNIT TRACE:  1187392212246       me ('To' check) = sip:amit@10.1.1.4:5061
+SIPUNIT TRACE:  1187392212246       my local contact info ('Request URI' check) = sip:amit@10.1.1.4:5060;lr;transport=udp
+SIPUNIT TRACE:  1187392212246       INVITE sip:bbaloi@10.1.1.4:5060 SIP/2.0
+Call-ID: c12e7fdf9a5336ceacff6ec629780a00@10.1.1.4
+CSeq: 1 INVITE
+From: <sip:amit@10.1.1.4:5061>;tag=1777736572
+To: <sip:becky@10.1.1.4:5062>
+Via: SIP/2.0/UDP 10.1.1.4:5060;branch=z9hG4bKb3a7290094a04384f484554464e31cf4,SIP/2.0/UDP 10.1.1.4:5060;branch=z9hG4bKb3a7290094a04384f484554464e31cf4
+Max-Forwards: 5
+Contact: <sip:amit@10.1.1.4:5060>
+Content-Length: 0
+
+
+SIPUNIT TRACE:  1187392212246  SipStack: calling listener
+SIPUNIT TRACE:  1187392212246  SipSession: request received !
+SIPUNIT TRACE:  1187392212246       me ('To' check) = sip:becky@10.1.1.4:5062
+SIPUNIT TRACE:  1187392212246       my local contact info ('Request URI' check) = sip:becky@10.1.1.4:5060;lr;transport=udp
+SIPUNIT TRACE:  1187392212246       INVITE sip:bbaloi@10.1.1.4:5060 SIP/2.0
+Call-ID: c12e7fdf9a5336ceacff6ec629780a00@10.1.1.4
+CSeq: 1 INVITE
+From: <sip:amit@10.1.1.4:5061>;tag=1777736572
+To: <sip:becky@10.1.1.4:5062>
+Via: SIP/2.0/UDP 10.1.1.4:5060;branch=z9hG4bKb3a7290094a04384f484554464e31cf4,SIP/2.0/UDP 10.1.1.4:5060;branch=z9hG4bKb3a7290094a04384f484554464e31cf4
+Max-Forwards: 5
+Contact: <sip:amit@10.1.1.4:5060>
+Content-Length: 0
+
+
+SIPUNIT TRACE:  1187392212246  SipSession: notifying block object
+SIPUNIT TRACE:  1187392212246  SS.waitRequest() - we've come out of the block
+SIPUNIT TRACE:  1187392212246  SS.waitRequest() - either we got the request, or timed out
+SIPUNIT TRACE:  1187392212261  Response before sending out through stack..........
+SIPUNIT TRACE:  1187392212261  SIP/2.0 100 Trying
+Call-ID: c12e7fdf9a5336ceacff6ec629780a00@10.1.1.4
+CSeq: 1 INVITE
+From: <sip:amit@10.1.1.4:5061>;tag=1777736572
+To: <sip:becky@10.1.1.4:5062>
+Via: SIP/2.0/UDP 10.1.1.4:5060;branch=z9hG4bKb3a7290094a04384f484554464e31cf4,SIP/2.0/UDP 10.1.1.4:5060;branch=z9hG4bKb3a7290094a04384f484554464e31cf4
+Content-Length: 0
+
+
+SIPUNIT TRACE:  1187392212761  Response before sending out through stack..........
+SIPUNIT TRACE:  1187392212761  SIP/2.0 180 Ringing
+Call-ID: c12e7fdf9a5336ceacff6ec629780a00@10.1.1.4
+CSeq: 1 INVITE
+From: <sip:amit@10.1.1.4:5061>;tag=1777736572
+To: <sip:becky@10.1.1.4:5062>;tag=2006353670
+Via: SIP/2.0/UDP 10.1.1.4:5060;branch=z9hG4bKb3a7290094a04384f484554464e31cf4,SIP/2.0/UDP 10.1.1.4:5060;branch=z9hG4bKb3a7290094a04384f484554464e31cf4
+Contact: <sip:becky@10.1.1.4:5060>
+Content-Length: 0
+
+
+SIPUNIT TRACE:  1187392213277  Response before sending out through stack..........
+SIPUNIT TRACE:  1187392213277  SIP/2.0 200 OK
+Call-ID: c12e7fdf9a5336ceacff6ec629780a00@10.1.1.4
+CSeq: 1 INVITE
+From: <sip:amit@10.1.1.4:5061>;tag=1777736572
+To: <sip:becky@10.1.1.4:5062>
+Via: SIP/2.0/UDP 10.1.1.4:5060;branch=z9hG4bKb3a7290094a04384f484554464e31cf4,SIP/2.0/UDP 10.1.1.4:5060;branch=z9hG4bKb3a7290094a04384f484554464e31cf4
+Contact: <sip:becky@10.1.1.4:5060>
+Content-Length: 0
+
+
+------------- ---------------- ---------------
+
+Testcase: testSendInviteWithRouteHeader took 3.141 sec

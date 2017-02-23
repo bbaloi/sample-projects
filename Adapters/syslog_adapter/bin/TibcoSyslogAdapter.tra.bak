@@ -1,0 +1,45 @@
+#
+# Copyright (c) 2003 TIBCO Software Inc.
+# All Rights Reserved.
+#
+# This software is the confidential and proprietary information of
+# TIBCO Software Inc.
+#
+
+# Set the PATH and LIBRARY_PATH
+#tibco.env.PATH=C:/tibco/tra/5.3/hotfix/bin;C:/tibco/tra/5.3/bin;C:/tibco/tpcl/5.3/bin;C:/tibco/tibrv/bin;C:/tibco/hawk/bin;%PATH%
+tibco.env.PATH=/opt/tibco/tra/5.4/bin:/opt/tibco/tra/5.3/bin:/opt/tibco/tpcl/5.4/bin:/opt/tibco/tibrv/bin:/opt/tibco/hawk/bin:%PATH%
+tibco.env.PSP=;
+
+#----NT service related properties----
+ntservice.name=TibcoSyslogAdapter
+ntservice.displayname=TibcoSyslogAdapter
+ntservice.binary.path.absolute=c:/Eclipse3.1/eclipse/workspace/syslog_adapter/bin/TibcoSyslogAdapter.exe
+ntservice.starttype=manual
+#---application related properties------
+application.start.dir=c:/Elipse3.1/eclipse/workspace/syslog_adapter/bin
+application.args=-properties_file SyslogAdapter.properties  
+
+
+# Specifies the JVM to be used to launch this application
+java.library=C:/Program Files/Java/jdk1.5.0_06/jre/bin/client/jvm.dll
+
+java.heap.size.initial=64m
+java.heap.size.max=128m
+java.thread.stack.size=128k
+
+
+# Specifies the class to launch
+java.start.class=com/tibco/syslog/adapter/TibcoSyslogAdapter
+
+# Specifies the main function to invoke
+java.start.method=main
+
+# Specifies the function to shutdown
+java.stop.method=shutdown
+
+#java properties
+tibco.class.path.extended=c:/Eclipse3.1/eclipse/workspace/syslog_adapter/bin;c:/Eclipse3.1/eclipse/workspace/syslog_adapter/bin;C:/tibco/hawk/lib;C:/tibco/tra/5.3/lib;C:/tibco/tpcl/5.3/lib;C:/tibco/tibrv/bin;c:/tibco/tibrv/lib;C:/tibco/tpcl/5.3/tomcat/lib;C:/tibco/tpcl/5.3/tomcat/server/lib;C:/tibco/tpcl/5.3/tomcat/common/lib;C:/tibco/tpcl/5.3/ant/lib;C:/tibco/tpcl/5.3/lib/entrust
+
+# Define application command line.
+#application.args=-system\:propFile c\:/tibco/adapter/diameter/bin/TibcoDiameterAdapter.tra

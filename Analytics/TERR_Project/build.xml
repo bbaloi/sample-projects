@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<project name="terr.events" default="all">
+	
+	<!-- set global properties -->	
+		<property file="build.properties"/>
+		<property file="build-deployment.xml"/>
+		<property name="src.dir" location="${root.dir}/src" />		
+		<property name="bin.dir" location="${root.dir}/bin" />
+		<property name="resource.dir" location="${root.dir}/res" />
+		<property name="lib.dir" location="${root.dir}/lib" />
+		<property name="base.dir" location="${root.dir}" />
+		<property name="build.dir" location="${base.dir}/build" />
+		<property name="dist.dir" location="${base.dir}/distro" />
+		<property name="builder" value="B2" />		
+	
+		<property name="JDK_1.7_32_dir" location="C:/Program Files (x86)/Java/jdk1.7.0_07" />
+		<property name="javac1.7_c" location="${JDK_1.7_32_dir}/bin/javac" />
+		<property name="javac1.7_r" location="${JDK_1.7_32_dir}/bin/java" />
+		 		
+		<!--====Compiler properties=====-->
+		<property name="compile.debug" value="on"/>	
+		<property name="compile.optimize" value="on"/>	
+		<!--property name="compiler-jikes" value="jikes"/-->
+			
+		<target name="init">
+			<echo message="Initializing... "/>
+			<mkdir dir="${build.dir}" />
+			<mkdir dir="${build.dir}/classes" />
+			<mkdir dir="${build.dir}/unittest" />			
+			<mkdir dir="${base.dir}/distro" />
+			<mkdir dir="${base.dir}/distro/pkg" />
+			<mkdir dir="${base.dir}/distro/bin" />
+			<mkdir dir="${base.dir}/distro/docs" />
+			<mkdir dir="${base.dir}/distro/lib" />
+			<mkdir dir="${base.dir}/distro/classes" />
+		</target>
+						
+			<path id="composite.classpath">
+					<pathelement location="${lib.dir}/as-common-2.0.jar"/>
+					<pathelement location="${lib.dir}/terrJava-1.5.jar"/>
+			</path>
+	<!--==============Compile code============= -->
+	<target name="compile-code" depends="init">
+		<echo message="Compiling source code... "/>
+		<javac executable="${javac1.7_c}"	srcdir="${src.dir}" classpathref="composite.classpath"
+				includes = "**/com/tibco/terr/**"
+				destdir="${build.dir}/classes" 		
+				debug="${compile.debug}" 
+				optimize="${compile.optimze}"
+				failonerror="true"/>
+		</target>		
+
+		<target name="distro">
+			<jar jarfile="${dist.dir}/lib/terr.events.jar" basedir="${build.dir}/classes">
+			        <include name="**/com/tibco/terr/**"/> 			 	
+					<manifest>
+						<attribute name="Built-By" value="b2"/>		
+						<attribute name="Main-Class"  value="com.tibco.terr.events.EngineStarter"/>
+					  	<attribute name="Class-Path" value="as-common-2.0.jar terrJava-1.5.jar"/>
+					</manifest>								
+			    </jar>
+				<copy todir="${dist.dir}/lib" flatten="true">
+			          <file file="${lib.dir}/as-common-2.0.jar"/>
+			          <file file="${lib.dir}/terrJava-1.5.jar"/>
+					  <file file="${lib.dir}/terrJava.dll"/>	
+			   </copy>
+				<copy todir="${dist.dir}/bin" flatten="true">
+					 <file file="${resource.dir}/start_terr_engine.bat"/>
+					<file file="${resource.dir}/start_terr_test.bat"/>
+					 <file file="${resource.dir}/terr_events.properties"/>			                 
+				</copy>
+		</target>
+			
+
+	<target name="run_terr">
+		   <echo>"Starting TerrEventsEngine..."</echo>
+			 <exec executable="cmd.exe">
+			   	<arg value="set JAVA_HOME=${javac1.7_r}"/>		    	
+			  </exec>
+	
+	      <java jar="${dist.dir}/lib/terr.events.jar" fork="true" failonerror="true" maxmemory="256m">
+	         <arg value="-props"/>
+	       	 <arg value="res/terr_events.properties"/>
+	         <classpath>
+	         	<pathelement location="${lib.dir}/as-common-2.0.jar"/>
+	         	<pathelement location="${lib.dir}/terrJava-1.5.jar"/>
+	         	<pathelement location="${dist.dir}/lib/terr.events.jar"/>
+	         </classpath>
+	       </java>	
+	</target>
+	<target name="run_test_terr">
+			   <echo>"Starting TerrEventsEngine..."</echo>
+				 <exec executable="cmd.exe">
+				   	<arg value="set JAVA_HOME=${javac1.7_r}"/>		    	
+				  </exec>		
+		      <java classname="com.tibco.terr.events.tests.LinearModelTest" fork="true" failonerror="true" maxmemory="256m">
+		         <classpath>
+		         	<pathelement location="${lib.dir}/as-common-2.0.jar"/>
+		         	<pathelement location="${lib.dir}/terrJava-1.5.jar"/>
+		         	<pathelement location="${dist.dir}/lib/terr.events.jar"/>
+		         </classpath>
+		       </java>	
+		</target>
+	<target name="run_terr_bat">
+		  <exec executable="${dist.dir}/bin/start_terr_engine.bat">		   
+		  </exec>
+	</target>
+	<target name="run_terr_test_bat">
+		  <exec executable="${dist.dir}/bin/start_terr_test.bat">		   
+		  </exec>
+		</target>
+	   
+	 <target name="clean">
+	    <delete dir="${build.dir}"/>
+	    <delete dir="${dist.dir}"/>	  	 	
+	  </target>	
+	
+	<target name="compile" depends="compile-code"/>  	
+	<target name="all" depends="compile-code,distro"/>
+  </project>

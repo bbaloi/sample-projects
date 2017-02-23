@@ -1,0 +1,2 @@
+arg 1 = ../xpdl_src/CingularProcesses_v9.xpdl
+arg 2 = ../samples/CingularProcesses_converted.xpdl

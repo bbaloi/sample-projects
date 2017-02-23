@@ -1,0 +1,4 @@
+arg 1 = /Processes/Generated/ValidateAddress-Main.process###/Processes/Generated/ValidateAddress.process###/Processes/Generated/InquireEquipmentOrder-Main.process###/Processes/Generated/InquireEquipmentOrder.process###/Processes/Generated/ParallelTest-Main.process###/Processes/Generated/ParallelTest.process
+arg 2 = C:\Bruno\TIBCO\TIBCO-clients\Cingular\Cingular-BW-Project\Archive\Cingular-BW-Project.archive
+arg 3 = C:\Eclipse3.2\eclipse\workspace\xpdl-bw-converter\distro\bw_template\Cingular-BW-Project.archive.Template
+arg 4 = C:\Eclipse3.2\eclipse\workspace\xpdl-bw-converter\distro\bw_template\Cingular-BW-Project-mod.archive

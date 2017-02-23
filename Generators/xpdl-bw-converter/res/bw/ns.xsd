@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/namespaces/tnt/plugins/jms" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:ns="http://www.tibco.com/namespaces/tnt/plugins/jms" xmlns:pd="http://xmlns.tibco.com/bw/process/2003">
+  <xsd:import namespace="http://www.w3.org/1999/XSL/Transform" schemaLocation="xsl.xsd"/>
+  <xsd:import namespace="http://www.w3.org/2001/XMLSchema" schemaLocation="xsd.xsd"/>
+  <xsd:import namespace="http://xmlns.tibco.com/bw/process/2003" schemaLocation="BWSchema.xsd"/>
+  <xsd:element name="ActivityInput">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="Body" form="unqualified" type="pd:root"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

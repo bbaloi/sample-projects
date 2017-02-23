@@ -1,0 +1,238 @@
+<?xml version="1.0"?>
+
+<!-- ============================================================== -->
+<!-- Ant XPDL - BW Converter                             		-->
+<!--                                                                -->
+<!--
+ Copyright 2006 TIBCO Inc. All rights reserved.
+ TIBCO PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+-->
+<!-- ============================================================== -->
+
+<project name="xpdl-bw-converter" default="all">
+	
+	<import file="build-deployment.xml"/>
+
+	<!-- set global properties -->	
+		<property file="build.properties"/>
+		<property file="build-deployment.xml"/>
+		<property name="src.dir" location="${root.dir}/src"/>		
+		<property name="gen.dir" location="${root.dir}/generated"/>
+		<property name="bin.dir" location="${root.dir}/bin"/>
+		<property name="resource.dir" location="${root.dir}/res"/>
+		<property name="lib.dir" location="${root.dir}/lib"/>
+		<property name="base.dir" location="${root.dir}"/>
+		<property name="build.dir" location="${base.dir}/build"/>
+		<property name="dist.dir" location="${base.dir}/distro"/>
+		<property name="xpdl.xmlbeans" value="xpdl-xmlbeans.jar"/>	
+		<property name="bw.xmlbeans" value="bw-xmlbeans.jar"/>	
+		<property name="xpdl.xmlbeans" value="xpdl-xmlbeans.jar"/>		
+		<property name="converter.pkg" value="xpdl-bw-converter.jar"/>
+		<property name="builder" value="B2"/>		
+		<property name="bwarchive.dir" location="C:/projects/Cingular/Solution/Cingular-BW-Project/Archive"/>
+		<property name="archive.files" value="/Processes/Generated/ValidateAddress-Main.process###/Processes/Generated/ValidateAddress.process###/Processes/Generated/InquireEquipmentOrder-Main.process###/Processes/Generated/InquireEquipmentOrder.process"/>
+   		
+		<!--====Compiler properties=====-->
+		<property name="compile.debug" value="on"/>	
+		<property name="compile.optimize" value="on"/>	
+		<!--property name="compiler-jikes" value="jikes"/-->
+			
+		<path id="base.build.classpath">
+			<pathelement location="${lib.dir}/log4j-1.2.13.jar"/>	
+		</path>
+		<path id="xmlbeans.classpath">
+				<pathelement location="${lib.dir}/xbean.jar"/>
+				<pathelement location="${lib.dir}/xmlpublic.jar"/>
+				<pathelement location="${lib.dir}/resolver.jar"/>	
+				<pathelement location="${lib.dir}/xbean_xpath.jar"/>					
+				<pathelement location="${lib.dir}/jsr173_1.0_api.jar"/>					
+		</path>
+		<path id="composite.classpath">
+					<pathelement location="${lib.dir}/xbean.jar"/>
+					<pathelement location="${lib.dir}/xmlpublic.jar"/>
+					<pathelement location="${lib.dir}/log4j-1.2.13.jar"/>	
+					<pathelement location="${lib.dir}/xbean_xpath.jar"/>
+					<pathelement location="${lib.dir}/jsr173_1.0_api.jar"/>	
+					<pathelement location="${lib.dir}/log4j-1.2.13.jar"/>
+					<pathelement location="${gen.dir}/${xpdl.xmlbeans}"/>
+					<pathelement location="${gen.dir}/${bw.xmlbeans}"/>
+		</path>
+		
+		<target name="init">
+			<echo message="Initializing... "/>
+			<mkdir dir="${build.dir}"/>
+			<mkdir dir="${gen.dir}"/>
+			<mkdir dir="${build.dir}/classes"/>			
+			<mkdir dir="${base.dir}/distro"/>
+			<mkdir dir="${base.dir}/distro/bin"/>
+			<mkdir dir="${base.dir}/distro/docs"/>
+			<mkdir dir="${base.dir}/distro/lib"/>
+			<mkdir dir="${base.dir}/distro/classes"/>
+			<mkdir dir="${base.dir}/distro/staging"/>
+			<mkdir dir="${base.dir}/distro/samples"/>
+			<mkdir dir="${base.dir}/distro/xpdl-src"/>
+			
+			<taskdef name="xmlbean"  
+					classname="org.apache.xmlbeans.impl.tool.XMLBean" 
+			 		classpathref="xmlbeans.classpath"/>
+				
+		</target>
+	
+	<!--====generate XML Beans componets===========-->
+	<target name="generate-xpdl" depends="init">
+		<!--<exec dir="${bin.dir}" executable="makexpdlbeans.bat" os="Windows XP" output="${gen.dir}"/>-->
+			
+		<echo message="Generating XPDL code..."/>
+	   	<xmlbean schema="${resource.dir}/xpdl"
+	            destfile="${gen.dir}/${xpdl.xmlbeans}"
+	            classpathref="xmlbeans.classpath"
+	            debug="on"
+	 			/>
+	</target>
+	<target name="generate-bw-xml" depends="init">
+				
+		<echo message="Generating BW-XML code..."/>
+		<xmlbean schema="${resource.dir}/bw"
+		            destfile="${gen.dir}/${bw.xmlbeans}"
+		            classpathref="xmlbeans.classpath"
+		            debug="on"
+					failonerror="true">			
+		</xmlbean>
+	</target>
+	
+	<!--==============Compile code============= -->
+	<target name="compile-code" depends="init">
+		<echo message="Compiling source code... "/>
+		<javac srcdir="${src.dir}" classpathref="composite.classpath"
+				includes = "**/com/tibco/xpdl/**"
+				destdir="${build.dir}/classes" 		
+				debug="${compile.debug}" 
+				optimize="${compile.optimze}"
+				failonerror="true"
+				compiler="modern"/>
+		</target>		
+			
+<!-- =================== Package Converter jar ========= -->
+<target name="pkg-converter" depends="compile-code">
+	<echo message="Creating XPDL-BW Converter package... "/>  
+	<copy todir="${dist.dir}/staging"> 
+	  		  		<fileset dir="${build.dir}/classes">
+	  		  			<include name = "**/com/tibco/xpdl/**"/>	
+	  		  			<exclude name = "**/com/tibco/xpdl/tests/**"/>	
+	  		  		</fileset>   
+					<fileset dir="${resource.dir}">
+			  		  	<include name = "log4j.properties"/>	  		    
+			  		 </fileset>	             
+	</copy>
+	 <jar jarfile="${dist.dir}/lib/${converter.pkg}" basedir="${dist.dir}/staging">
+	  	        <include name="**"/> 
+	 			<manifest>
+	 				  <attribute name="Built-By" value="${builder}"/>
+	 				  <attribute name="Main-Class" value="com.tibco.xpdl.controller.XPDLBWConverter"/>
+	 				  <attribute name="Class-Path" value="../lib/saxon8-xpath.jar ../lib/xbean.jar ../lib/log4j-1.2.13.jar ../lib/xpdl-xmlbeans.jar ../lib/bw-xmlbeans.jar ../lib/xmlpublic.jar ../lib/jsr173_1.0_api.jar ../lib/xbean_xpath.jar xpdlbw.properties"/>
+	  			</manifest>			 		   
+	  	</jar>  	
+	<copy todir="${dist.dir}/lib"> 
+		<fileset dir="${gen.dir}">
+  			<include name = "**"/>	  			
+  		</fileset>  			
+		<fileset dir="${lib.dir}">
+			 <include name = "xbean.jar"/>
+			 <include name = "xmlpublic.jar"/>
+			 <include name = "jsr173_1.0_api.jar"/>
+			 <include name = "log4j-1.2.13.jar"/>
+			 <include name = "xbean_xpath.jar"/>
+			 <include name = "saxon8-xpath.jar"/>
+	    </fileset>  
+	</copy>	
+	<copy todir="${dist.dir}/bin"> 
+				<fileset dir="${bin.dir}">
+		  			<include name = "start_converter.bat"/>	
+					<include name = "add_space.bat"/>	
+		  			<include name = "add_archive.bat"/>	
+					<include name = "run-conversion-process.bat"/>
+					<include name = "sed.exe"/>
+		  		</fileset>  
+				<fileset dir="${resource.dir}">
+				  	<include name = "xpdlbw.properties"/>	  			
+				</fileset>  
+		</copy>
+	<copy todir="${dist.dir}/samples"> 
+			<fileset dir="${resource.dir}/samples">
+	  			<include name = "*.xpdl"/>	  			
+	  		</fileset> 					
+	</copy>
+	<copy todir="${dist.dir}/xpdl_src"> 
+				<fileset dir="${resource.dir}/xpdl-original">
+		  			<include name = "*.xpdl"/>	  			
+		  		</fileset> 					
+		</copy>	
+</target>		
+	
+	<target name="fix-spaces">		
+		<echo message="-Preparing XPDL for conversion..."/>
+		<exec dir="${dist.dir}/bin" executable="${dist.dir}/bin/add_space.bat" output="${dist.dir}/bin/add_space.out.txt">
+			 <env key="PATH" path="${dist.dir}/bin"/>
+			 <arg line="../xpdl_src/CingularProcesses_v1.xpdl ../samples/CingularProcesses_converted.xpdl"/>
+		</exec>
+	</target>	
+	
+	<target name="run-converter">
+		<echo message="-Executing the XPDL/BW conversion..."/>
+		<exec dir="${dist.dir}/bin" executable="${dist.dir}/bin/start_converter.bat" os="Windows XP" output="start_converter.out.txt">
+		</exec>			
+	</target>
+	
+	<target name="update-archive">
+		<java classname="com.tibco.xpdl.pkg.BWProcessPackager">
+				         <arg value="-propertiess_file"/>
+						 <arg value="${dist.dir}/bin/xpdlbw.properties"/>
+				         <classpath>
+				              <pathelement path="${java.class.path}"/>
+				         	  <pathelement path="${dist.dir}/lib/${converter.pkg}"/>
+				         </classpath>
+				       </java>
+	</target>	
+	<!--<target name="build-deploy-ear" depends="update-archive">-->	
+	<target name="build-deploy-ear">	
+		<echo message="-Update EAR..."/>	
+		<exec dir="${dist.dir}/bin" executable="${dist.dir}/bin/add_procs_to_ear.bat" os="Windows XP" output="${dist.dir}/bin/add_archive.out.txt">
+			<arg line="${archive.files}"/>
+			<arg line="../../../Cingular-BW-Project/Archive/Cingular-BW-Project.archive"/>
+			<arg line="../../../Cingular-BW-Project/Archive/Cingular-BW-Project.archive.Template"/>
+			<arg line="../../../Cingular-BW-Project/Archive/Cingular-BW-Project-mod.archive"/>
+		</exec>	
+		<!--<move file="/Archive/Cingular-BW-Project-mod.archive" tofile="/Archive/Cingular-BW-Project.archive"/>-->
+		<echo message="-Build EAR and deploy..."/>
+		<!--<antcall target="admin"/>-->		
+	</target>
+	
+	
+  <!-- ======================================================= -->
+  <!-- Clean up various files and directories.                 -->
+  <!-- ======================================================= -->
+   <target name="clean-all">
+    <delete dir="${build.dir}"/>
+    <delete dir="${dist.dir}"/>
+   	<delete dir="${gen.dir}"/>   	
+  </target>
+	
+	 <target name="clean-gen">	    
+	   	<delete dir="${gen.dir}"/>
+	  </target>
+	 <target name="clean">
+	    <delete dir="${build.dir}"/>
+	    <delete dir="${dist.dir}"/>	  	 	
+	  </target>
+	
+	<target name="gen-all" depends="generate-xpdl,generate-bw-xml"/>
+	<target name="compile-all" depends="compile-code"/>
+  	<!--<target name="package-all" depends="pkg-converter,fix-spaces"/>-->
+	<target name="package-all" depends="pkg-converter"/>
+  	<target name="all" depends="gen-all,compile-all,package-all"/>
+	<target name="run-conversion-process" depends="fix-spaces,run-converter,build-deploy-ear"/>	
+	<!--<target name="all" depends="generate-xml-components,package-all"/>-->	
+
+ <!--Tests -->
+	
+  </project>

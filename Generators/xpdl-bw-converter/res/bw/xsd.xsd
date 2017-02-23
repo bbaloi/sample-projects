@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.w3.org/2001/XMLSchema" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:ns="http://www.tibco.com/namespaces/tnt/plugins/jms" xmlns:pd="http://xmlns.tibco.com/bw/process/2003">
+  <xsd:import namespace="http://www.tibco.com/namespaces/tnt/plugins/jms" schemaLocation="ns.xsd"/>
+  <xsd:import namespace="http://www.w3.org/1999/XSL/Transform" schemaLocation="xsl.xsd"/>
+  <xsd:import namespace="http://xmlns.tibco.com/bw/process/2003" schemaLocation="BWSchema.xsd"/>
+  <xsd:element name="element">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element minOccurs="0" ref="xsd:complexType"/>
+      </xsd:sequence>
+      <xsd:attribute name="name" use="required" type="xsd:NCName"/>
+      <xsd:attribute name="type" type="xsd:NMTOKEN"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="complexType">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="xsd:sequence"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="sequence">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element minOccurs="0" ref="xsd:element"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

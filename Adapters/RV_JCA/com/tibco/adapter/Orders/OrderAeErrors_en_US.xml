@@ -1,0 +1,188 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE TIBCOAeErrors SYSTEM "TIBCOAeErrors.dtd">
+<TIBCOAeErrors>
+	<locale>en_US</locale>
+	<applicationName>OrdersAdapter</applicationName>
+	<applicationDescription>TIB/Adapter for Orders</applicationDescription>
+	<applicationCode>ORDERS</applicationCode>
+	<message>
+		<messageCode>ADORDERS-0010</messageCode>
+		<messageSymbol>ADORDERS_STARTED</messageSymbol>
+		<role>infoRole</role>
+		<category>adapter</category>
+		<dataRich>false</dataRich>
+		<description>****Adapter started. Serving now****</description>
+		<longDescription>Adapter started notice</longDescription>
+		<resolution>No Action required</resolution>
+	</message>
+	<message>
+		<messageCode>ADORDERS-0011</messageCode>
+		<messageSymbol>ADORDERS_STOPPED</messageSymbol>
+		<role>infoRole</role>
+		<category>adapter</category>
+		<dataRich>false</dataRich>
+		<description>****Adapter stopped. Exiting now****</description>
+		<longDescription>Adapter stopped notice</longDescription>
+		<resolution>No Action required</resolution>
+	</message>
+	<message>
+		<messageCode>ADORDERS-0012</messageCode>
+		<messageSymbol>ADORDERS_SUBJECT_USED</messageSymbol>
+		<role>infoRole</role>
+		<category>adapter</category>
+		<dataRich>false</dataRich>
+		<description>Adapter subject used - %1</description>
+		<longDescription/>
+		<resolution/>
+	</message>
+	<message>
+		<messageCode>ADORDERS-0013</messageCode>
+		<messageSymbol>ADORDERS_STOP_RECEIVED</messageSymbol>
+		<role>infoRole</role>
+		<category>adapter</category>
+		<dataRich>false</dataRich>
+		<description>Received stop message. Exiting in about %1</description>
+		<longDescription/>
+		<resolution/>
+	</message>
+	<message>
+		<messageCode>ADORDERS-0020</messageCode>
+		<messageSymbol>ADORDERS_ACCOUNT_OP</messageSymbol>
+		<role>infoRole</role>
+		<category>comm</category>
+		<dataRich>flase</dataRich>
+		<description>OrdersOperation: %1 Account ID=%2</description>
+		<longDescription>Executing Order operation on account ID</longDescription>
+		<resolution/>
+	</message>
+	<message>
+		<messageCode>ADORDERS-0030</messageCode>
+		<messageSymbol>ADORDERS_ORDERS_OP</messageSymbol>
+		<role>infoRole</role>
+		<category>comm</category>
+		<dataRich>flase</dataRich>
+		<description>OrdersOperation: %1 Orders ID=%2</description>
+		<longDescription/>
+		<resolution>not applicable</resolution>
+	</message>
+	<message>
+		<messageCode>ADORDERS-0040</messageCode>
+		<messageSymbol>ADORDERS_EVENT_RECEIVED</messageSymbol>
+		<role>infoRole</role>
+		<category>comm</category>
+		<dataRich>false</dataRich>
+		<description>Received event name = %1</description>
+		<longDescription/>
+		<resolution>not applicable</resolution>
+	</message>
+	<message>
+		<messageCode>ADORDERS-0050</messageCode>
+		<messageSymbol>ADORDERS_EVENT_UPDATE</messageSymbol>
+		<role>infoRole</role>
+		<category>comm</category>
+		<dataRich>false</dataRich>
+		<description>%1 Event update sent</description>
+		<longDescription/>
+		<resolution>not applicable</resolution>
+	</message>
+	<message>
+		<messageCode>ADORDERS-1010</messageCode>
+		<messageSymbol>ADORDERS_EXCEPTION</messageSymbol>
+		<role>errorRole</role>
+		<category>adapter</category>
+		<dataRich>false</dataRich>
+		<description>Exception in '%1' - Message : '%2'</description>
+		<longDescription>catch all exception message</longDescription>
+		<resolution>Ignore if Timeout exception</resolution>
+	</message>
+	<message>
+		<messageCode>ADORDERS-1020</messageCode>
+		<messageSymbol>ADORDERS_NO_MICROAGENT</messageSymbol>
+		<role>warnRole</role>
+		<category>adapter</category>
+		<dataRich>false</dataRich>
+		<description>Adapter microagent '%1' not defined in repository.</description>
+		<longDescription/>
+		<resolution/>
+	</message>
+	<message>
+		<messageCode>ADORDERS-2010</messageCode>
+		<messageSymbol>ADORDERS_DEBUG_INITIALIZING</messageSymbol>
+		<role>debugRole</role>
+		<category>adapter</category>
+		<dataRich>false</dataRich>
+		<description>Initializing TIBCO Orders Adapter.</description>
+		<longDescription/>
+		<resolution/>
+	</message>
+	<message>
+		<messageCode>ADORDERS-2020</messageCode>
+		<messageSymbol>ADORDERS_DEBUG_INITIALIZED</messageSymbol>
+		<role>debugRole</role>
+		<category>adapter</category>
+		<dataRich>false</dataRich>
+		<description>Initialized TIBCO Orders Adapter.</description>
+		<longDescription/>
+		<resolution/>
+	</message>
+	<message>
+		<messageCode>ADORDERS-2030</messageCode>
+		<messageSymbol>ADORDERS_BILLING_OP_CREATE</messageSymbol>
+		<role>debugRole</role>
+		<category>app</category>
+		<dataRich>false</dataRich>
+		<description>BillingListner: CreateAccount billing event %1</description>
+		<longDescription/>
+		<resolution/>
+	</message>
+	<message>
+		<messageCode>ADORDERS-2040</messageCode>
+		<messageSymbol>ADORDERS_BILLING_OP_DELETE</messageSymbol>
+		<role>debugRole</role>
+		<category>app</category>
+		<dataRich>false</dataRich>
+		<description>BillingListner: DeleteAccount billing event %1</description>
+		<longDescription/>
+		<resolution/>
+	</message>
+	<message>
+		<messageCode>ADORDERS-2050</messageCode>
+		<messageSymbol>ADORDERS_BILLING_OP_MODIFY</messageSymbol>
+		<role>debugRole</role>
+		<category>app</category>
+		<dataRich>false</dataRich>
+		<description>BillingListner: ModifyAccount billing event %1</description>
+		<longDescription/>
+		<resolution/>
+	</message>
+	<message>
+		<messageCode>ADORDERS-2060</messageCode>
+		<messageSymbol>ADORDERS_BILLING_OPERATION</messageSymbol>
+		<role>debugRole</role>
+		<category>app</category>
+		<dataRich>false</dataRich>
+		<description>Billing Operation %1 done</description>
+		<longDescription/>
+		<resolution/>
+	</message>
+	<message>
+		<messageCode>ADORDERS-2070</messageCode>
+		<messageSymbol>ADORDERS_OPERATION_DONE</messageSymbol>
+		<role>debugRole</role>
+		<category>comm</category>
+		<dataRich>false</dataRich>
+		<description>Operation %1 done</description>
+		<longDescription/>
+		<resolution/>
+	</message>
+	<message>
+		<messageCode>ADORDERS-2080</messageCode>
+		<messageSymbol>ADORDERS_HAWK_METHOD</messageSymbol>
+		<role>debugRole</role>
+		<category>adapter</category>
+		<dataRich>false</dataRich>
+		<description>Microagent method - %1</description>
+		<longDescription/>
+		<resolution/>
+	</message>
+</TIBCOAeErrors>

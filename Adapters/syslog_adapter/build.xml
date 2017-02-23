@@ -1,0 +1,67 @@
+<project name="SyslogAdapter" default="all">
+   <property file="build.properties"/>
+   <property environment='env'/>
+   <property name="src.dir" value="${root.dir}/src"/>
+   <property name="build.dir" value="${root.dir}/build"/>
+   <property name="class.dir" value="${root.dir}/build/classes"/>
+   <property name="distro.dir" value="${root.dir}/build/distro"/>
+   <property name="distro.tmp.dir" value="${root.dir}/build/distro/tmp"/>
+   <property name="lib.dir" value="${root.dir}/lib"/>
+   <property name="res.dir" value="${root.dir}/res"/>
+   <property name="builder" value="Bruno R. Baloi"/>	
+	
+   
+  <target name="all" depends="build,distro-adapter"/>
+   <target name="clean">
+   		<delete dir="${class.dir}"/>   
+   		<delete dir="${distro.dir}"/>   
+       <delete dir="${build.dir}"/>   	   
+   </target>
+   <target name="build">
+   	   <mkdir dir="${distro.dir}"/>
+       <mkdir dir="${build.dir}"/>
+       <mkdir dir="${class.dir}"/>   	   
+   	   <mkdir dir="${distro.tmp.dir}"/>
+     
+      <javac srcdir="${src.dir}"  includes="**com/tibco/syslog/**" destdir="${class.dir}" debug="on" deprecation="on" compiler="modern">
+        <classpath>	   		
+        	<pathelement path="${lib.dir}/TIBCOrt.jar"/>
+       		<pathelement path="${lib.dir}/log4j-1.2.13.jar"/>
+        	<pathelement path="${lib.dir}/TIBCOxml.jar"/>
+        	<pathelement path="${lib.dir}/TIBCrypt.jar"/>
+        	<pathelement path="${lib.dir}/TIBCOjms.jar"/>   
+        	<pathelement path="${lib.dir}/tibrvjsd.jar"/>
+        </classpath>
+      </javac>
+   </target>
+	<target name="distro-adapter">	
+		<copy todir="${distro.tmp.dir}">
+		    <fileset dir="${class.dir}" />
+			<fileset dir="${res.dir}" includes="SyslogAdapterResBundle.properties"/>
+			<fileset dir="${res.dir}" includes="log4j.properties"/>
+		</copy>
+		
+		<jar jarfile="${distro.dir}/tibco-syslog-adapter.jar" basedir="${distro.tmp.dir}">
+		    <include name="**"/> 	
+			<manifest>
+			  <attribute name="Built-By" value="${builder}"/>
+			  <attribute name="Main-Class" value="com.tibco.syslog.adapter.TibcoSyslogAdapter"/>
+			  <!--<attribute name="Class-Path" value="../lib/xercesImpl.jar ../xmlParserAPIs.jar ../lib/log4j-1.2.13.jar ../lib/TIBCOrt.jar ../lib/TIBCOxml.jar ../lib/TIBCrypt.jar ../lib/tibrvjsd.jar ../lib/TIBCOjms.jar ../res/SyslogAdapter.properties"/>-->
+			  <attribute name="Class-Path" value="../lib/log4j-1.2.13.jar ../lib/tibrvjsd.jar ../lib/TIBCOrt.jar ../lib/TIBCOxml.jar ../lib/TIBCrypt.jar ../lib/TIBCOjms.jar ../res/SyslogAdapter.properties"/>
+							
+			</manifest>		
+	    </jar>	
+		<copy file="${distro.dir}/tibco-syslog-adapter.jar" todir="bin"/>
+	</target>
+	<!--
+	<target name="run-test">
+        <java classname="com.tibco.diameter.adapter.tests.DiameterACRTest" fork="true">
+      	<classpath>
+		    <pathelement path="${class.dir}"/>
+	      	<pathelement path="${distro.dir}/tibco-diameter-stack.jar"/>
+      		
+		</classpath>
+      </java>
+   </target>	
+   -->
+</project>

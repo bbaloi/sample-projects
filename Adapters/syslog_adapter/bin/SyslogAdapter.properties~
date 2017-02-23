@@ -1,0 +1,26 @@
+#RepositoryURL=C:/Bruno/TIBCO/TIBCO-clients/Sprint/LocalRepository/SprintDiameterProject/SprintDiameterProject.dat	
+RepositoryURL=TibcoSyslogRepo.dat		
+#-------operation modes----------------
+app.operation=adapter
+#app.operation=bw.service
+#app.operation=gateway
+#-------properties-------
+host_name=localhost
+host_id=127.0.0.1
+realm=localhost.diameter.net
+vendor_id=10415
+application_id=167772152
+port=3838
+product_name=TIBCO_Diameter_Client_Adapter
+#-------capabilities------
+capability.GPP=16777217
+capability.NASREQ=1
+capability.COMMON=0
+capability.ACCOUNTING=3
+#-------peers----------------
+peer.1=localhost:3838
+#-------Adapter Control Params------
+auto.start=false
+#------Logging-----
+diameter.log.file=c:/temp/diameter/diameter.log
+

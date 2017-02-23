@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE connector PUBLIC '-//Sun Microsystems, Inc.//DTD Connector 1.0//EN' 'http://java.sun.com/j2ee/dtds/connector_1_0.dtd'>
+
+<connector>
+    <display-name>MyJCA</display-name>
+    <vendor-name>MyJCA</vendor-name>
+    <spec-version>1.0</spec-version>
+    <eis-type>My Data</eis-type>
+    <version>1.0</version>
+    <resourceadapter>
+        <managedconnectionfactory-class>myjca.MyManagedConnectionFactory</managedconnectionfactory-class>
+        <connectionfactory-interface>javax.sql.DataSource</connectionfactory-interface>
+        <connectionfactory-impl-class>myjca.MyDataSource</connectionfactory-impl-class>
+        <connection-interface>java.sql.Connection</connection-interface>
+        <connection-impl-class>myjca.MyConnection</connection-impl-class>
+        <transaction-support>NoTransaction</transaction-support>
+        <authentication-mechanism>
+            <authentication-mechanism-type>BasicPassword</authentication-mechanism-type>
+            <credential-interface>javax.resource.security.PasswordCredential</credential-interface>
+        </authentication-mechanism>
+        <reauthentication-support>false</reauthentication-support>
+    </resourceadapter>
+</connector>

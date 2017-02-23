@@ -1,0 +1,756 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:extensions="http://www.tibco.com/xpd/XpdlExtensions1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdl="http://www.wfmc.org/2002/XPDL1.0" xsi:schemaLocation="http://www.wfmc.org/2002/XPDL1.0 http://wfmc.org/standards/docs/TC-1025_schema_10_xpdl.xsd" Id="CingularProcesses" Name="CingularProcesses">
+  <xpdl:PackageHeader>
+    <xpdl:XPDLVersion>1.0</xpdl:XPDLVersion>
+    <xpdl:Vendor>TIBCO</xpdl:Vendor>
+    <xpdl:Created>Tue Oct 10 11:17:45 PDT 2006</xpdl:Created>
+  </xpdl:PackageHeader>
+  <xpdl:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl:Author>pasmar</xpdl:Author>
+    <xpdl:Version>1.0</xpdl:Version>
+  </xpdl:RedefinableHeader>
+  <xpdl:WorkflowProcesses>
+    <xpdl:WorkflowProcess Id="1" Name="InquireEquipmentOrder">
+      <xpdl:ProcessHeader/>
+      <xpdl:RedefinableHeader/>
+      <xpdl:Activities>
+        <xpdl:Activity Name="Receive JMS Message" Id="1">
+          <xpdl:Implementation>
+            <xpdl:No/>
+          </xpdl:Implementation>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity LaneId="0">
+                <extensions:Location>
+                  <extensions:XOffset>59</extensions:XOffset>
+                  <extensions:YOffset>70</extensions:YOffset>
+                  <extensions:Width>107</extensions:Width>
+                  <extensions:Height>43</extensions:Height>
+                </extensions:Location>
+                <extensions:ActivityType>EVENT</extensions:ActivityType>
+                <extensions:EventFlowType>START</extensions:EventFlowType>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="_ActivityType" Value="START"/>
+            <xpdl:ExtendedAttribute Name="_Parameters" Value="QUEUE_NAME=pub.inquireequipmentorder.request"/>
+            <xpdl:ExtendedAttribute Name="_SetProperties" Value="SERVICE_NAME=InquireEquipmentOrder,PAYLOAD_NAMESPACE=http://csi.cingular.com/CSI/Namespaces/Container/Public/InquireEquipmentOrderRequest.xsd,PAYLOAD_TAG=InquireEquipmentOrderRequest"/>
+            <xpdl:ExtendedAttribute Name="_Output" Value="JMS_REQUEST"/>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Name="Test Order Type" Id="3">
+          <xpdl:Route/>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity LaneId="0">
+                <extensions:Location>
+                  <extensions:XOffset>160</extensions:XOffset>
+                  <extensions:YOffset>241</extensions:YOffset>
+                  <extensions:Width>81</extensions:Width>
+                  <extensions:Height>58</extensions:Height>
+                </extensions:Location>
+                <extensions:ActivityType>GATEWAY</extensions:ActivityType>
+                <extensions:GatewayType>XOR_DATA</extensions:GatewayType>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="SplitSimulationData"><simulation:SplitSimulationData>
+                <simulation:ParameterDeterminedSplit>true</simulation:ParameterDeterminedSplit>
+                <simulation:SplitParameter ParameterId=""/>
+              </simulation:SplitSimulationData></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="_ActivityType" Value="CONDITION"/>
+            <xpdl:ExtendedAttribute Name="_Parameters" Value="EXPRESSION=&quot;ORDER_TYPE.VALUE='1'&quot;"/>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Id="4">
+          <xpdl:Implementation>
+            <xpdl:No/>
+          </xpdl:Implementation>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity LaneId="0">
+                <extensions:Location>
+                  <extensions:XOffset>690</extensions:XOffset>
+                  <extensions:YOffset>450</extensions:YOffset>
+                  <extensions:Width>29</extensions:Width>
+                  <extensions:Height>29</extensions:Height>
+                </extensions:Location>
+                <extensions:ActivityType>EVENT</extensions:ActivityType>
+                <extensions:EventFlowType>END</extensions:EventFlowType>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="_ActivityType" Value="END"/>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Name="Tranform by Order Document" Id="5">
+          <xpdl:Implementation>
+            <xpdl:Tool Id="0" Type="APPLICATION"/>
+          </xpdl:Implementation>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity LaneId="0">
+                <extensions:Location>
+                  <extensions:XOffset>289</extensions:XOffset>
+                  <extensions:YOffset>140</extensions:YOffset>
+                  <extensions:Width>90</extensions:Width>
+                  <extensions:Height>68</extensions:Height>
+                </extensions:Location>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="_ActivityType" Value="PROCESS_CALL"/>
+            <xpdl:ExtendedAttribute Name="_Parameters" Value="PROCESS_NAME=Utils.Contivo.InvokeContivo"/>
+            <xpdl:ExtendedAttribute Name="_SetProperties" Value="CONTIVO_TRANSFORM=com.cingular.csi.transforms.Transform_CSI_2_COMPASS_InquireEquipmentOrder_ByOrderDocument_Request"/>
+            <xpdl:ExtendedAttribute Name="_Input" Value="JMS_REQUEST"/>
+            <xpdl:ExtendedAttribute Name="_Output" Value="PRIVATE_REQUEST"/>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Name="Transform by External Order" Id="6">
+          <xpdl:Implementation>
+            <xpdl:Tool Id="0" Type="APPLICATION"/>
+          </xpdl:Implementation>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity LaneId="0">
+                <extensions:Location>
+                  <extensions:XOffset>289</extensions:XOffset>
+                  <extensions:YOffset>276</extensions:YOffset>
+                  <extensions:Width>90</extensions:Width>
+                  <extensions:Height>68</extensions:Height>
+                </extensions:Location>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="_ActivityType" Value="PROCESS_CALL"/>
+            <xpdl:ExtendedAttribute Name="_Parameters" Value="PROCESS_NAME=Utils.Contivo.InvokeContivo"/>
+            <xpdl:ExtendedAttribute Name="_SetProperties" Value="CONTIVO_TRANSFORM=com.cingular.csi.transforms.Transform_CSI_2_COMPASS_InquireEquipmentOrder_ByExternalOrder_Request"/>
+            <xpdl:ExtendedAttribute Name="_Input" Value="JMS_REQUEST"/>
+            <xpdl:ExtendedAttribute Name="_Output" Value="PRIVATE_REQUEST"/>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Name="Validate Pub Request" Id="7">
+          <xpdl:Implementation>
+            <xpdl:Tool Id="0" Type="APPLICATION"/>
+          </xpdl:Implementation>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity LaneId="0">
+                <extensions:Location>
+                  <extensions:XOffset>136</extensions:XOffset>
+                  <extensions:YOffset>37</extensions:YOffset>
+                  <extensions:Width>90</extensions:Width>
+                  <extensions:Height>68</extensions:Height>
+                </extensions:Location>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="_ActivityType" Value="PROCESS_CALL"/>
+            <xpdl:ExtendedAttribute Name="_Parameters" Value="PROCESS_NAME=Utils.General.ValidateXML"/>
+            <xpdl:ExtendedAttribute Name="_SetProperties" Value="VALIDATION_SCHEMA=com.cingular.csi.schemas.pub.InquireEquipmentOrderRequestDocument"/>
+            <xpdl:ExtendedAttribute Name="_Input" Value="JMS_REQUEST"/>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Name="Search Order Invoice" Id="8">
+          <xpdl:Implementation>
+            <xpdl:Tool Id="0" Type="APPLICATION"/>
+          </xpdl:Implementation>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity LaneId="0">
+                <extensions:Location>
+                  <extensions:XOffset>420</extensions:XOffset>
+                  <extensions:YOffset>140</extensions:YOffset>
+                  <extensions:Width>90</extensions:Width>
+                  <extensions:Height>68</extensions:Height>
+                </extensions:Location>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="_ActivityType" Value="PROCESS_CALL"/>
+            <xpdl:ExtendedAttribute Name="_Parameters" Value="PROCESS_NAME=Adapters.Compass.InvokeCompass"/>
+            <xpdl:ExtendedAttribute Name="_SetProperties" Value="METHOD_NAME=searchOrderInvoice"/>
+            <xpdl:ExtendedAttribute Name="_Input" Value="PRIVATE_REQUEST"/>
+            <xpdl:ExtendedAttribute Name="_Output" Value="SEARCH_RESPONSE"/>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Name="Get An Order" Id="9">
+          <xpdl:Implementation>
+            <xpdl:Tool Id="0" Type="APPLICATION"/>
+          </xpdl:Implementation>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity LaneId="0">
+                <extensions:Location>
+                  <extensions:XOffset>420</extensions:XOffset>
+                  <extensions:YOffset>276</extensions:YOffset>
+                  <extensions:Width>90</extensions:Width>
+                  <extensions:Height>68</extensions:Height>
+                </extensions:Location>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="_ActivityType" Value="PROCESS_CALL"/>
+            <xpdl:ExtendedAttribute Name="_Parameters" Value="PROCESS_NAME=Adapters.Compass.InvokeCompass"/>
+            <xpdl:ExtendedAttribute Name="_SetProperties" Value="METHOD_NAME=getAnOrder"/>
+            <xpdl:ExtendedAttribute Name="_Input" Value="PRIVATE_REQUEST"/>
+            <xpdl:ExtendedAttribute Name="_Output" Value="PRIVATE_RESPONSE"/>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Name="Create Response" Id="10">
+          <xpdl:Implementation>
+            <xpdl:Tool Id="0" Type="APPLICATION"/>
+          </xpdl:Implementation>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity LaneId="0">
+                <extensions:Location>
+                  <extensions:XOffset>420</extensions:XOffset>
+                  <extensions:YOffset>417</extensions:YOffset>
+                  <extensions:Width>90</extensions:Width>
+                  <extensions:Height>68</extensions:Height>
+                </extensions:Location>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="_ActivityType" Value="PROCESS_CALL"/>
+            <xpdl:ExtendedAttribute Name="_Parameters" Value="PROCESS_NAME=Utils.Jms.CreateJmsResponse"/>
+            <xpdl:ExtendedAttribute Name="_Input" Value="PUBLIC_RESPONSE"/>
+            <xpdl:ExtendedAttribute Name="_Output" Value="JMS_RESPONSE"/>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Name="Transform Prv to Pub" Id="11">
+          <xpdl:Implementation>
+            <xpdl:Tool Id="0" Type="APPLICATION"/>
+          </xpdl:Implementation>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity LaneId="0">
+                <extensions:Location>
+                  <extensions:XOffset>555</extensions:XOffset>
+                  <extensions:YOffset>276</extensions:YOffset>
+                  <extensions:Width>90</extensions:Width>
+                  <extensions:Height>68</extensions:Height>
+                </extensions:Location>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="_ActivityType" Value="PROCESS_CALL"/>
+            <xpdl:ExtendedAttribute Name="_Parameters" Value="PROCESS_NAME=Utils.Contivo.InvokeContivo"/>
+            <xpdl:ExtendedAttribute Name="_SetProperties" Value="CONTIVO_TRANSFORM=com.cingular.csi.transforms.Transform_COMPASS_2_CSI_InquireEquipmentOrderResponse"/>
+            <xpdl:ExtendedAttribute Name="_Input" Value="PRIVATE_RESPONSE"/>
+            <xpdl:ExtendedAttribute Name="_Output" Value="PUBLIC_RESPONSE"/>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Name="Send Response" Id="12">
+          <xpdl:Implementation>
+            <xpdl:Tool Id="0" Type="APPLICATION"/>
+          </xpdl:Implementation>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity LaneId="0">
+                <extensions:Location>
+                  <extensions:XOffset>548</extensions:XOffset>
+                  <extensions:YOffset>417</extensions:YOffset>
+                  <extensions:Width>90</extensions:Width>
+                  <extensions:Height>68</extensions:Height>
+                </extensions:Location>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="_ActivityType" Value="PROCESS_CALL"/>
+            <xpdl:ExtendedAttribute Name="_Parameters" Value="PROCESS_NAME=Utils.Jms.SendJmsResponse"/>
+            <xpdl:ExtendedAttribute Name="_SetProperties" Value="JMS_RESPONSE_QUEUE=pub.inquireequipmentorder.response"/>
+            <xpdl:ExtendedAttribute Name="_Input" Value="JMS_RESPONSE"/>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Name="Get Order Type" Id="13">
+          <xpdl:Implementation>
+            <xpdl:Tool Id="0" Type="APPLICATION"/>
+          </xpdl:Implementation>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity LaneId="0">
+                <extensions:Location>
+                  <extensions:XOffset>279</extensions:XOffset>
+                  <extensions:YOffset>37</extensions:YOffset>
+                  <extensions:Width>90</extensions:Width>
+                  <extensions:Height>68</extensions:Height>
+                </extensions:Location>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="_ActivityType" Value="PROCESS_CALL"/>
+            <xpdl:ExtendedAttribute Name="_Parameters" Value="PROCESS_NAME=Utils.General.SearchTagExists"/>
+            <xpdl:ExtendedAttribute Name="_SetProperties" Value="SEARCH_TAG=Order"/>
+            <xpdl:ExtendedAttribute Name="_Input" Value="JMS_REQUEST"/>
+            <xpdl:ExtendedAttribute Name="_Output" Value="ORDER_TYPE"/>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Name="Get An Order from Invoice" Id="14">
+          <xpdl:Implementation>
+            <xpdl:Tool Id="0" Type="APPLICATION"/>
+          </xpdl:Implementation>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity LaneId="0">
+                <extensions:Location>
+                  <extensions:XOffset>555</extensions:XOffset>
+                  <extensions:YOffset>140</extensions:YOffset>
+                  <extensions:Width>90</extensions:Width>
+                  <extensions:Height>68</extensions:Height>
+                </extensions:Location>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="_ActivityType" Value="PROCESS_CALL"/>
+            <xpdl:ExtendedAttribute Name="_Parameters" Value="PROCESS_NAME=Adapters.Compass.InvokeCompass"/>
+            <xpdl:ExtendedAttribute Name="_SetProperties" Value="METHOD_NAME=getAnOrder"/>
+            <xpdl:ExtendedAttribute Name="_Input" Value="SEARCH_RESPONSE"/>
+            <xpdl:ExtendedAttribute Name="_Output" Value="PRIVATE_RESPONSE"/>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+      </xpdl:Activities>
+      <xpdl:Transitions>
+        <xpdl:Transition Id="4" From="3" To="5">
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Transition/></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="TransitionSimulationData"><simulation:TransitionSimulationData>
+                <simulation:ParameterDeterminedCondition>true</simulation:ParameterDeterminedCondition>
+                <simulation:StructuredCondition>
+                  <simulation:ParameterId></simulation:ParameterId>
+                  <simulation:Operator>=</simulation:Operator>
+                  <simulation:ParameterValue></simulation:ParameterValue>
+                </simulation:StructuredCondition>
+              </simulation:TransitionSimulationData></xpdl:ExtendedAttribute>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Transition>
+        <xpdl:Transition Id="5" From="3" To="6"/>
+        <xpdl:Transition Id="8" From="5" To="8"/>
+        <xpdl:Transition Id="9" From="6" To="9"/>
+        <xpdl:Transition Id="11" From="9" To="11"/>
+        <xpdl:Transition Id="12" From="11" To="10"/>
+        <xpdl:Transition Id="13" From="10" To="12"/>
+        <xpdl:Transition Id="14" From="12" To="4"/>
+        <xpdl:Transition Id="15" From="1" To="7"/>
+        <xpdl:Transition Id="17" From="7" To="13"/>
+        <xpdl:Transition Id="18" From="13" To="3"/>
+        <xpdl:Transition Id="19" From="8" To="14"/>
+        <xpdl:Transition Id="20" From="14" To="11"/>
+      </xpdl:Transitions>
+      <xpdl:ExtendedAttributes>
+        <xpdl:ExtendedAttribute Name="XPD"><extensions:Diagram>
+            <extensions:ZoomLevel>1.0</extensions:ZoomLevel>
+            <extensions:Pool Id="0">
+              <extensions:Name>Default Pool</extensions:Name>
+              <extensions:IsVisible>true</extensions:IsVisible>
+              <extensions:IsDefault>true</extensions:IsDefault>
+              <extensions:Lane Id="0">
+                <extensions:Name>Default Lane</extensions:Name>
+                <extensions:Note Id="n1">
+                  <extensions:Location>
+                    <extensions:XOffset>190</extensions:XOffset>
+                    <extensions:YOffset>183</extensions:YOffset>
+                    <extensions:Width>84</extensions:Width>
+                    <extensions:Height>17</extensions:Height>
+                  </extensions:Location>
+                  <extensions:Text>Order Document</extensions:Text>
+                </extensions:Note>
+                <extensions:Note Id="n2">
+                  <extensions:Location>
+                    <extensions:XOffset>184</extensions:XOffset>
+                    <extensions:YOffset>295</extensions:YOffset>
+                    <extensions:Width>96</extensions:Width>
+                    <extensions:Height>17</extensions:Height>
+                  </extensions:Location>
+                  <extensions:Text>External Document</extensions:Text>
+                </extensions:Note>
+                <extensions:IsDefault>true</extensions:IsDefault>
+                <extensions:Size>533</extensions:Size>
+              </extensions:Lane>
+            </extensions:Pool>
+          </extensions:Diagram></xpdl:ExtendedAttribute>
+      </xpdl:ExtendedAttributes>
+    </xpdl:WorkflowProcess>
+    <xpdl:WorkflowProcess Id="2" Name="ValidateAddress">
+      <xpdl:ProcessHeader/>
+      <xpdl:RedefinableHeader/>
+      <xpdl:Activities>
+        <xpdl:Activity Name="Receive JMS Message" Id="1">
+          <xpdl:Implementation>
+            <xpdl:No/>
+          </xpdl:Implementation>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity LaneId="0">
+                <extensions:Location>
+                  <extensions:XOffset>56</extensions:XOffset>
+                  <extensions:YOffset>63</extensions:YOffset>
+                  <extensions:Width>107</extensions:Width>
+                  <extensions:Height>43</extensions:Height>
+                </extensions:Location>
+                <extensions:ActivityType>EVENT</extensions:ActivityType>
+                <extensions:EventFlowType>START</extensions:EventFlowType>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="_ActivityType" Value="START"/>
+            <xpdl:ExtendedAttribute Name="_Parameters" Value="QUEUE_NAME=pub.validateaddress.request"/>
+            <xpdl:ExtendedAttribute Name="_SetProperties" Value="SERVICE_NAME=ValidateAddress,PAYLOAD_NAMESPACE=http://csi.cingular.com/CSI/Namespaces/Container/Public/ValidateAddressRequest.xsd,PAYLOAD_TAG=ValidateAddressRequest"></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="_Output" Value="JMS_REQUEST"/>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Name="Validate Pub Request" Id="9">
+          <xpdl:Implementation>
+            <xpdl:Tool Id="0" Type="APPLICATION"/>
+          </xpdl:Implementation>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity LaneId="0">
+                <extensions:Location>
+                  <extensions:XOffset>119</extensions:XOffset>
+                  <extensions:YOffset>30</extensions:YOffset>
+                  <extensions:Width>90</extensions:Width>
+                  <extensions:Height>68</extensions:Height>
+                </extensions:Location>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="_ActivityType" Value="PROCESS_CALL"/>
+            <xpdl:ExtendedAttribute Name="_Parameters" Value="PROCESS_NAME=Utils.General.ValidateXML"/>
+            <xpdl:ExtendedAttribute Name="_SetProperties" Value="VALIDATION_SCHEMA=com.cingular.csi.schemas.pub.ValidateAddressRequestDocument"/>
+            <xpdl:ExtendedAttribute Name="_Input" Value="JMS_REQUEST"/>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Name="Transform Pub to Prv" Id="3">
+          <xpdl:Implementation>
+            <xpdl:Tool Id="0" Type="APPLICATION"/>
+          </xpdl:Implementation>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity LaneId="0">
+                <extensions:Location>
+                  <extensions:XOffset>238</extensions:XOffset>
+                  <extensions:YOffset>30</extensions:YOffset>
+                  <extensions:Width>90</extensions:Width>
+                  <extensions:Height>68</extensions:Height>
+                </extensions:Location>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="_ActivityType" Value="PROCESS_CALL"/>
+            <xpdl:ExtendedAttribute Name="_Parameters" Value="PROCESS_NAME=Utils.Contivo.InvokeContivo"/>
+            <xpdl:ExtendedAttribute Name="_SetProperties" Value="CONTIVO_TRANSFORM=com.cingular.csi.transforms.Transform_CSI_2_COMPASS_ValidateAddressRequest"/>
+            <xpdl:ExtendedAttribute Name="_Input" Value="JMS_REQUEST"/>
+            <xpdl:ExtendedAttribute Name="_Output" Value="PRIVATE_REQUEST"/>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Name="Call Compass Verify Address" Id="5">
+          <xpdl:Implementation>
+            <xpdl:Tool Id="0" Type="APPLICATION"/>
+          </xpdl:Implementation>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity LaneId="0">
+                <extensions:Location>
+                  <extensions:XOffset>238</extensions:XOffset>
+                  <extensions:YOffset>153</extensions:YOffset>
+                  <extensions:Width>90</extensions:Width>
+                  <extensions:Height>68</extensions:Height>
+                </extensions:Location>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="_ActivityType" Value="PROCESS_CALL"/>
+            <xpdl:ExtendedAttribute Name="_Parameters" Value="PROCESS_NAME=Adapters.Compass.InvokeCompass"/>
+            <xpdl:ExtendedAttribute Name="_SetProperties" Value="METHOD_NAME=validateAddress"/>
+            <xpdl:ExtendedAttribute Name="_Input" Value="PRIVATE_REQUEST"/>
+            <xpdl:ExtendedAttribute Name="_Output" Value="PRIVATE_RESPONSE"/>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Name="Transform Prv to Pub" Id="6">
+          <xpdl:Implementation>
+            <xpdl:Tool Id="0" Type="APPLICATION"/>
+          </xpdl:Implementation>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity LaneId="0">
+                <extensions:Location>
+                  <extensions:XOffset>367</extensions:XOffset>
+                  <extensions:YOffset>153</extensions:YOffset>
+                  <extensions:Width>90</extensions:Width>
+                  <extensions:Height>68</extensions:Height>
+                </extensions:Location>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="_ActivityType" Value="PROCESS_CALL"/>
+            <xpdl:ExtendedAttribute Name="_Parameters" Value="PROCESS_NAME=Utils.Contivo.InvokeContivo"/>
+            <xpdl:ExtendedAttribute Name="_SetProperties" Value="CONTIVO_TRANSFORM=com.cingular.csi.transforms.Transform_COMPASS_2_CSI_ValidateAddressResponse"/>
+            <xpdl:ExtendedAttribute Name="_Input" Value="PRIVATE_RESPONSE"/>
+            <xpdl:ExtendedAttribute Name="_Output" Value="PUBLIC_RESPONSE"/>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Name="Create Response" Id="10">
+          <xpdl:Implementation>
+            <xpdl:Tool Id="0" Type="APPLICATION"/>
+          </xpdl:Implementation>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity LaneId="0">
+                <extensions:Location>
+                  <extensions:XOffset>367</extensions:XOffset>
+                  <extensions:YOffset>273</extensions:YOffset>
+                  <extensions:Width>90</extensions:Width>
+                  <extensions:Height>68</extensions:Height>
+                </extensions:Location>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="_ActivityType" Value="PROCESS_CALL"/>
+            <xpdl:ExtendedAttribute Name="_Parameters" Value="PROCESS_NAME=Utils.Jms.CreateJmsResponse"/>
+            <xpdl:ExtendedAttribute Name="_Input" Value="PUBLIC_RESPONSE"/>
+            <xpdl:ExtendedAttribute Name="_Output" Value="JMS_RESPONSE"/>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Name="Send Response" Id="7">
+          <xpdl:Implementation>
+            <xpdl:Tool Id="0" Type="APPLICATION"/>
+          </xpdl:Implementation>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity LaneId="0">
+                <extensions:Location>
+                  <extensions:XOffset>495</extensions:XOffset>
+                  <extensions:YOffset>273</extensions:YOffset>
+                  <extensions:Width>90</extensions:Width>
+                  <extensions:Height>68</extensions:Height>
+                </extensions:Location>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="_ActivityType" Value="PROCESS_CALL"/>
+            <xpdl:ExtendedAttribute Name="_Parameters" Value="PROCESS_NAME=Utils.Jms.SendJmsResponse"/>
+            <xpdl:ExtendedAttribute Name="_SetProperties" Value="JMS_RESPONSE_QUEUE=pub.validateaddress.response"/>
+            <xpdl:ExtendedAttribute Name="_Input" Value="JMS_RESPONSE"/>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Id="8">
+          <xpdl:Implementation>
+            <xpdl:No/>
+          </xpdl:Implementation>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity LaneId="0">
+                <extensions:Location>
+                  <extensions:XOffset>641</extensions:XOffset>
+                  <extensions:YOffset>306</extensions:YOffset>
+                  <extensions:Width>29</extensions:Width>
+                  <extensions:Height>29</extensions:Height>
+                </extensions:Location>
+                <extensions:ActivityType>EVENT</extensions:ActivityType>
+                <extensions:EventFlowType>END</extensions:EventFlowType>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="_ActivityType" Value="END"/>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+      </xpdl:Activities>
+      <xpdl:Transitions>
+        <xpdl:Transition Id="5" From="5" To="6"/>
+        <xpdl:Transition Id="7" From="7" To="8"/>
+        <xpdl:Transition Id="9" From="9" To="3"/>
+        <xpdl:Transition Id="10" From="6" To="10"/>
+        <xpdl:Transition Id="11" From="10" To="7"/>
+        <xpdl:Transition Id="12" From="3" To="5"/>
+        <xpdl:Transition Id="13" From="1" To="9"/>
+      </xpdl:Transitions>
+      <xpdl:ExtendedAttributes>
+        <xpdl:ExtendedAttribute Name="XPD"><extensions:Diagram>
+            <extensions:ZoomLevel>1.0</extensions:ZoomLevel>
+            <extensions:Pool Id="0">
+              <extensions:Name>Default Pool</extensions:Name>
+              <extensions:IsVisible>true</extensions:IsVisible>
+              <extensions:IsDefault>true</extensions:IsDefault>
+              <extensions:Lane Id="0">
+                <extensions:Name>Default Lane</extensions:Name>
+                <extensions:IsDefault>true</extensions:IsDefault>
+                <extensions:Size>521</extensions:Size>
+              </extensions:Lane>
+            </extensions:Pool>
+          </extensions:Diagram></xpdl:ExtendedAttribute>
+        <xpdl:ExtendedAttribute Name="WorkflowProcessSimulationData"><simulation:WorkflowProcessSimulationData/></xpdl:ExtendedAttribute>
+      </xpdl:ExtendedAttributes>
+    </xpdl:WorkflowProcess>
+    <xpdl:WorkflowProcess Id="3" Name="ParallelTest">
+      <xpdl:ProcessHeader/>
+      <xpdl:RedefinableHeader/>
+      <xpdl:Activities>
+        <xpdl:Activity Name="Receive JMS Message" Id="1">
+          <xpdl:Implementation>
+            <xpdl:No/>
+          </xpdl:Implementation>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity LaneId="0">
+                <extensions:Location>
+                  <extensions:XOffset>56</extensions:XOffset>
+                  <extensions:YOffset>63</extensions:YOffset>
+                  <extensions:Width>107</extensions:Width>
+                  <extensions:Height>43</extensions:Height>
+                </extensions:Location>
+                <extensions:ActivityType>EVENT</extensions:ActivityType>
+                <extensions:EventFlowType>START</extensions:EventFlowType>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="_ActivityType" Value="START"/>
+            <xpdl:ExtendedAttribute Name="_Parameters" Value="QUEUE_NAME=pub.request"/>
+            <xpdl:ExtendedAttribute Name="_SetProperties" Value="SERVICE_NAME=ParallelTest,PAYLOAD_NAMESPACE=http://csi.cingular.com/CSI/Namespaces/Container/Public/ValidateAddressRequest.xsd,PAYLOAD_TAG=ValidateAddressRequest"/>
+            <xpdl:ExtendedAttribute Name="_Output" Value="JMS_REQUEST"/>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Name="Validate Pub Request" Id="9">
+          <xpdl:Implementation>
+            <xpdl:Tool Id="0" Type="APPLICATION"/>
+          </xpdl:Implementation>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity LaneId="0">
+                <extensions:Location>
+                  <extensions:XOffset>119</extensions:XOffset>
+                  <extensions:YOffset>30</extensions:YOffset>
+                  <extensions:Width>90</extensions:Width>
+                  <extensions:Height>68</extensions:Height>
+                </extensions:Location>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="_ActivityType" Value="PROCESS_CALL"/>
+            <xpdl:ExtendedAttribute Name="_Parameters" Value="PROCESS_NAME=Utils.General.ValidateXML"/>
+            <xpdl:ExtendedAttribute Name="_SetProperties" Value="VALIDATION_SCHEMA=com.cingular.csi.schemas.pub.ValidateAddressRequestDocument"/>
+            <xpdl:ExtendedAttribute Name="_Input" Value="JMS_REQUEST"/>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Name="Transform Pub to Prv" Id="3">
+          <xpdl:Implementation>
+            <xpdl:Tool Id="0" Type="APPLICATION"/>
+          </xpdl:Implementation>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity LaneId="0">
+                <extensions:Location>
+                  <extensions:XOffset>119</extensions:XOffset>
+                  <extensions:YOffset>152</extensions:YOffset>
+                  <extensions:Width>90</extensions:Width>
+                  <extensions:Height>68</extensions:Height>
+                </extensions:Location>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="_ActivityType" Value="PROCESS_CALL"/>
+            <xpdl:ExtendedAttribute Name="_Parameters" Value="PROCESS_NAME=Utils.Contivo.InvokeContivo"/>
+            <xpdl:ExtendedAttribute Name="_SetProperties" Value="CONTIVO_TRANSFORM=com.cingular.csi.transforms.Transform_CSI_2_COMPASS_ValidateAddressRequest"/>
+            <xpdl:ExtendedAttribute Name="_Input" Value="JMS_REQUEST"/>
+            <xpdl:ExtendedAttribute Name="_Output" Value="PRIVATE_REQUEST"/>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Name="Call Compass Verify Address" Id="5">
+          <xpdl:Implementation>
+            <xpdl:Tool Id="0" Type="APPLICATION"/>
+          </xpdl:Implementation>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity LaneId="0">
+                <extensions:Location>
+                  <extensions:XOffset>119</extensions:XOffset>
+                  <extensions:YOffset>261</extensions:YOffset>
+                  <extensions:Width>90</extensions:Width>
+                  <extensions:Height>68</extensions:Height>
+                </extensions:Location>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="_ActivityType" Value="PROCESS_CALL"/>
+            <xpdl:ExtendedAttribute Name="_Parameters" Value="PROCESS_NAME=Adapters.Compass.InvokeCompass"/>
+            <xpdl:ExtendedAttribute Name="_SetProperties" Value="METHOD_NAME=validateAddress"/>
+            <xpdl:ExtendedAttribute Name="_Input" Value="PRIVATE_REQUEST"/>
+            <xpdl:ExtendedAttribute Name="_Output" Value="PRIVATE_RESPONSE"/>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Name="Transform Prv to Pub" Id="6">
+          <xpdl:Implementation>
+            <xpdl:Tool Id="0" Type="APPLICATION"/>
+          </xpdl:Implementation>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity LaneId="0">
+                <extensions:Location>
+                  <extensions:XOffset>260</extensions:XOffset>
+                  <extensions:YOffset>261</extensions:YOffset>
+                  <extensions:Width>90</extensions:Width>
+                  <extensions:Height>68</extensions:Height>
+                </extensions:Location>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="_ActivityType" Value="PROCESS_CALL"/>
+            <xpdl:ExtendedAttribute Name="_Parameters" Value="PROCESS_NAME=Utils.Contivo.InvokeContivo"/>
+            <xpdl:ExtendedAttribute Name="_SetProperties" Value="CONTIVO_TRANSFORM=com.cingular.csi.transforms.Transform_COMPASS_2_CSI_ValidateAddressResponse"/>
+            <xpdl:ExtendedAttribute Name="_Input" Value="PRIVATE_RESPONSE"/>
+            <xpdl:ExtendedAttribute Name="_Output" Value="PUBLIC_RESPONSE"/>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Name="Create Response" Id="10">
+          <xpdl:Implementation>
+            <xpdl:Tool Id="0" Type="APPLICATION"/>
+          </xpdl:Implementation>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity LaneId="0">
+                <extensions:Location>
+                  <extensions:XOffset>395</extensions:XOffset>
+                  <extensions:YOffset>261</extensions:YOffset>
+                  <extensions:Width>90</extensions:Width>
+                  <extensions:Height>68</extensions:Height>
+                </extensions:Location>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="_ActivityType" Value="PROCESS_CALL"/>
+            <xpdl:ExtendedAttribute Name="_Parameters" Value="PROCESS_NAME=Utils.Jms.CreateJmsResponse"/>
+            <xpdl:ExtendedAttribute Name="_Input" Value="PUBLIC_RESPONSE"/>
+            <xpdl:ExtendedAttribute Name="_Output" Value="JMS_RESPONSE"/>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Name="Send Response" Id="7">
+          <xpdl:Implementation>
+            <xpdl:Tool Id="0" Type="APPLICATION"/>
+          </xpdl:Implementation>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity LaneId="0">
+                <extensions:Location>
+                  <extensions:XOffset>522</extensions:XOffset>
+                  <extensions:YOffset>254</extensions:YOffset>
+                  <extensions:Width>90</extensions:Width>
+                  <extensions:Height>68</extensions:Height>
+                </extensions:Location>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="_ActivityType" Value="PROCESS_CALL"/>
+            <xpdl:ExtendedAttribute Name="_Parameters" Value="PROCESS_NAME=Utils.Jms.SendJmsResponse"/>
+            <xpdl:ExtendedAttribute Name="_SetProperties" Value="JMS_RESPONSE_QUEUE=pub.validateaddress.response"/>
+            <xpdl:ExtendedAttribute Name="_Input" Value="JMS_RESPONSE"/>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Id="8">
+          <xpdl:Implementation>
+            <xpdl:No/>
+          </xpdl:Implementation>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity LaneId="0">
+                <extensions:Location>
+                  <extensions:XOffset>566</extensions:XOffset>
+                  <extensions:YOffset>389</extensions:YOffset>
+                  <extensions:Width>29</extensions:Width>
+                  <extensions:Height>29</extensions:Height>
+                </extensions:Location>
+                <extensions:ActivityType>EVENT</extensions:ActivityType>
+                <extensions:EventFlowType>END</extensions:EventFlowType>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="_ActivityType" Value="END"/>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Name="Send Msg Test " Id="11">
+          <xpdl:Implementation>
+            <xpdl:Tool Id="0" Type="APPLICATION"/>
+          </xpdl:Implementation>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity LaneId="0">
+                <extensions:Location>
+                  <extensions:XOffset>306</extensions:XOffset>
+                  <extensions:YOffset>30</extensions:YOffset>
+                  <extensions:Width>90</extensions:Width>
+                  <extensions:Height>68</extensions:Height>
+                </extensions:Location>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="_ActivityType" Value="PROCESS_CALL"/>
+            <xpdl:ExtendedAttribute Name="_Parameters" Value="PROCESS_NAME=Utils.General.SendMsgTest"/>
+            <xpdl:ExtendedAttribute Name="_Input" Value="JMS_REQUEST"/>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Name="Wait for Some Time" Id="12">
+          <xpdl:Implementation>
+            <xpdl:Tool Id="0" Type="APPLICATION"/>
+          </xpdl:Implementation>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity LaneId="0">
+                <extensions:Location>
+                  <extensions:XOffset>522</extensions:XOffset>
+                  <extensions:YOffset>30</extensions:YOffset>
+                  <extensions:Width>90</extensions:Width>
+                  <extensions:Height>68</extensions:Height>
+                </extensions:Location>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="_ActivityType" Value="PROCESS_CALL"/>
+            <xpdl:ExtendedAttribute Name="_Parameters" Value="PROCESS_CALL=Utils.General.WaitForSomeTime"/>
+            <xpdl:ExtendedAttribute Name="_Input" Value="JMS_REQUEST"/>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+      </xpdl:Activities>
+      <xpdl:Transitions>
+        <xpdl:Transition Id="5" From="5" To="6"/>
+        <xpdl:Transition Id="7" From="7" To="8"/>
+        <xpdl:Transition Id="9" From="9" To="3"/>
+        <xpdl:Transition Id="10" From="6" To="10"/>
+        <xpdl:Transition Id="11" From="10" To="7"/>
+        <xpdl:Transition Id="12" From="3" To="5"/>
+        <xpdl:Transition Id="13" From="1" To="9"/>
+        <xpdl:Transition Id="14" From="9" To="11"/>
+        <xpdl:Transition Id="15" From="11" To="12"/>
+        <xpdl:Transition Id="16" From="12" To="7"/>
+      </xpdl:Transitions>
+      <xpdl:ExtendedAttributes>
+        <xpdl:ExtendedAttribute Name="XPD"><extensions:Diagram>
+            <extensions:ZoomLevel>1.0</extensions:ZoomLevel>
+            <extensions:Pool Id="0">
+              <extensions:Name>Default Pool</extensions:Name>
+              <extensions:IsVisible>true</extensions:IsVisible>
+              <extensions:IsDefault>true</extensions:IsDefault>
+              <extensions:Lane Id="0">
+                <extensions:Name>Default Lane</extensions:Name>
+                <extensions:IsDefault>true</extensions:IsDefault>
+                <extensions:Size>521</extensions:Size>
+              </extensions:Lane>
+            </extensions:Pool>
+          </extensions:Diagram></xpdl:ExtendedAttribute>
+        <xpdl:ExtendedAttribute Name="WorkflowProcessSimulationData"><simulation:WorkflowProcessSimulationData/></xpdl:ExtendedAttribute>
+      </xpdl:ExtendedAttributes>
+    </xpdl:WorkflowProcess>
+  </xpdl:WorkflowProcesses>
+  <xpdl:ExtendedAttributes>
+    <xpdl:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl:ExtendedAttribute Name="FormatVersion" Value="2"/>
+    <xpdl:ExtendedAttribute Name="ReportingCurrencyUnit" Value="USD"/>
+    <xpdl:ExtendedAttribute Name="ReportingTimeUnit" Value="Minute"/>
+  </xpdl:ExtendedAttributes>
+</xpdl:Package>
