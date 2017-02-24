@@ -1,0 +1,311 @@
+Buildfile: build.xml
+
+run-short:
+     [java] Parsing file:c:/Eclipse3.2/eclipse/workspace/STAX-BW/res/rona-sample-file.xml
+     [java] Node name:Record,Action class:com.tibco.stax.action.ext.JMSAction, dest:rona.sc4.queue
+     [java] numtries=2;host:tcp://esbsvr2:7222,user:admin,pass:
+     [java] -###Starting processing file: c:/Eclipse3.2/eclipse/workspace/STAX-BW/res/rona-sample-file.xml ###-
+     [java] READER:com.bea.xml.stream.XMLEventReaderBase@1c29ab2
+     [java] Handling Event:<?xml version="1.0" encoding='UTF-8'?>
+     [java] Handling Event:
+
+     [java] Handling Event:<RecordSet>
+     [java] Node:RecordSet,hdl:null
+     [java] ---StartElement:<RecordSet>, hdl:null
+     [java] Handling Event:
+     [java] 	
+     [java] Handling Event:<Record>
+     [java] Node:Record,hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] ---StartElement:<Record>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:
+     [java] 		
+     [java] Handling Event:<seqNum>
+     [java] Node:seqNum,hdl:null
+     [java] ---StartElement:<seqNum>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:</seqNum>
+     [java] Handling Event:
+     [java] 		
+     [java] Handling Event:<lineNum>
+     [java] Node:lineNum,hdl:null
+     [java] ---StartElement:<lineNum>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:1
+     [java] Handling Event:</lineNum>
+     [java] Handling Event:
+     [java] 		
+     [java] Handling Event:<dateCreation>
+     [java] Node:dateCreation,hdl:null
+     [java] ---StartElement:<dateCreation>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:</dateCreation>
+     [java] Handling Event:
+     [java] 		
+     [java] Handling Event:<timestamp>
+     [java] Node:timestamp,hdl:null
+     [java] ---StartElement:<timestamp>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:</timestamp>
+     [java] Handling Event:
+     [java] 		
+     [java] Handling Event:<data>
+     [java] Node:data,hdl:null
+     [java] ---StartElement:<data>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:dfhsflhsalkjfhalhfldahlahfa
+     [java] Handling Event:</data>
+     [java] Handling Event:
+     [java] 		
+     [java] Handling Event:<origin>
+     [java] Node:origin,hdl:null
+     [java] ---StartElement:<origin>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:rona
+     [java] Handling Event:</origin>
+     [java] Handling Event:
+     [java] 	
+     [java] Handling Event:</Record>
+     [java] +++End Element:</Record>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:
+     [java] 	
+     [java] Handling Event:<Record>
+     [java] Node:Record,hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] ---StartElement:<Record>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:
+     [java] 		
+     [java] Handling Event:<seqNum>
+     [java] Node:seqNum,hdl:null
+     [java] ---StartElement:<seqNum>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:</seqNum>
+     [java] Handling Event:
+     [java] 		
+     [java] Handling Event:<lineNum>
+     [java] Node:lineNum,hdl:null
+     [java] ---StartElement:<lineNum>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:2
+     [java] Handling Event:</lineNum>
+     [java] Handling Event:
+     [java] 		
+     [java] Handling Event:<dateCreation>
+     [java] Node:dateCreation,hdl:null
+     [java] ---StartElement:<dateCreation>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:</dateCreation>
+     [java] Handling Event:
+     [java] 		
+     [java] Handling Event:<timestamp>
+     [java] Node:timestamp,hdl:null
+     [java] ---StartElement:<timestamp>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:</timestamp>
+     [java] Handling Event:
+     [java] 		
+     [java] Handling Event:<data>
+     [java] Node:data,hdl:null
+     [java] ---StartElement:<data>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:fdsagsagsagsagdadagdagdagagda
+     [java] Handling Event:</data>
+     [java] Handling Event:
+     [java] 		
+     [java] Handling Event:<origin>
+     [java] Node:origin,hdl:null
+     [java] ---StartElement:<origin>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:rona
+     [java] Handling Event:</origin>
+     [java] Handling Event:
+     [java] 	
+     [java] Handling Event:</Record>
+     [java] +++End Element:</Record>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:
+     [java] 	
+     [java] Handling Event:<Record>
+     [java] Node:Record,hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] ---StartElement:<Record>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:
+     [java] 		
+     [java] Handling Event:<seqNum>
+     [java] Node:seqNum,hdl:null
+     [java] ---StartElement:<seqNum>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:</seqNum>
+     [java] Handling Event:
+     [java] 		
+     [java] Handling Event:<lineNum>
+     [java] Node:lineNum,hdl:null
+     [java] ---StartElement:<lineNum>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:3
+     [java] Handling Event:</lineNum>
+     [java] Handling Event:
+     [java] 		
+     [java] Handling Event:<dateCreation>
+     [java] Node:dateCreation,hdl:null
+     [java] ---StartElement:<dateCreation>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:</dateCreation>
+     [java] Handling Event:
+     [java] 		
+     [java] Handling Event:<timestamp>
+     [java] Node:timestamp,hdl:null
+     [java] ---StartElement:<timestamp>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:</timestamp>
+     [java] Handling Event:
+     [java] 		
+     [java] Handling Event:<data>
+     [java] Node:data,hdl:null
+     [java] ---StartElement:<data>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:yuorewiuytlwrehjtlkrewhtorwt
+     [java] Handling Event:</data>
+     [java] Handling Event:
+     [java] 		
+     [java] Handling Event:<origin>
+     [java] Node:origin,hdl:null
+     [java] ---StartElement:<origin>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:rona
+     [java] Handling Event:</origin>
+     [java] Handling Event:
+     [java] 	
+     [java] Handling Event:</Record>
+     [java] +++End Element:</Record>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:
+     [java] 	
+     [java] Handling Event:<Record>
+     [java] Node:Record,hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] ---StartElement:<Record>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:
+     [java] 		
+     [java] Handling Event:<seqNum>
+     [java] Node:seqNum,hdl:null
+     [java] ---StartElement:<seqNum>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:</seqNum>
+     [java] Handling Event:
+     [java] 		
+     [java] Handling Event:<lineNum>
+     [java] Node:lineNum,hdl:null
+     [java] ---StartElement:<lineNum>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:4
+     [java] Handling Event:</lineNum>
+     [java] Handling Event:
+     [java] 		
+     [java] Handling Event:<dateCreation>
+     [java] Node:dateCreation,hdl:null
+     [java] ---StartElement:<dateCreation>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:</dateCreation>
+     [java] Handling Event:
+     [java] 		
+     [java] Handling Event:<timestamp>
+     [java] Node:timestamp,hdl:null
+     [java] ---StartElement:<timestamp>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:</timestamp>
+     [java] Handling Event:
+     [java] 		
+     [java] Handling Event:<data>
+     [java] Node:data,hdl:null
+     [java] ---StartElement:<data>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:upoitewut025983504703270872oiuoyuoyoyuoyo
+     [java] Handling Event:</data>
+     [java] Handling Event:
+     [java] 		
+     [java] Handling Event:<origin>
+     [java] Node:origin,hdl:null
+     [java] ---StartElement:<origin>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:rona
+     [java] Handling Event:</origin>
+     [java] Handling Event:
+     [java] 	
+     [java] Handling Event:</Record>
+     [java] +++End Element:</Record>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:
+     [java] 	
+     [java] Handling Event:<Record>
+     [java] Node:Record,hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] ---StartElement:<Record>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:
+     [java] 		
+     [java] Handling Event:<seqNum>
+     [java] Node:seqNum,hdl:null
+     [java] ---StartElement:<seqNum>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:</seqNum>
+     [java] Handling Event:
+     [java] 		
+     [java] Handling Event:<lineNum>
+     [java] Node:lineNum,hdl:null
+     [java] ---StartElement:<lineNum>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:5
+     [java] Handling Event:</lineNum>
+     [java] Handling Event:
+     [java] 		
+     [java] Handling Event:<dateCreation>
+     [java] Node:dateCreation,hdl:null
+     [java] ---StartElement:<dateCreation>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:</dateCreation>
+     [java] Handling Event:
+     [java] 		
+     [java] Handling Event:<timestamp>
+     [java] Node:timestamp,hdl:null
+     [java] ---StartElement:<timestamp>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:</timestamp>
+     [java] Handling Event:
+     [java] 		
+     [java] Handling Event:<data>
+     [java] Node:data,hdl:null
+     [java] ---StartElement:<data>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:49873280325oyuoiuyoyuoyoyyoyo
+     [java] Handling Event:</data>
+     [java] Handling Event:
+     [java] 		
+     [java] Handling Event:<origin>
+     [java] Node:origin,hdl:null
+     [java] ---StartElement:<origin>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:rona
+     [java] Handling Event:</origin>
+     [java] Handling Event:
+     [java] 	
+     [java] Handling Event:</Record>
+     [java] +++End Element:</Record>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:
+     [java] 	
+     [java] Handling Event:<Record>
+     [java] Node:Record,hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] ---StartElement:<Record>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:
+     [java] 		
+     [java] Handling Event:<seqNum>
+     [java] Node:seqNum,hdl:null
+     [java] ---StartElement:<seqNum>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:</seqNum>
+     [java] Handling Event:
+     [java] 		
+     [java] Handling Event:<lineNum>
+     [java] Node:lineNum,hdl:null
+     [java] ---StartElement:<lineNum>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:6
+     [java] Handling Event:</lineNum>
+     [java] Handling Event:
+     [java] 		
+     [java] Handling Event:<dateCreation>
+     [java] Node:dateCreation,hdl:null
+     [java] ---StartElement:<dateCreation>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:</dateCreation>
+     [java] Handling Event:
+     [java] 		
+     [java] Handling Event:<timestamp>
+     [java] Node:timestamp,hdl:null
+     [java] ---StartElement:<timestamp>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:</timestamp>
+     [java] Handling Event:
+     [java] 		
+     [java] Handling Event:<data>
+     [java] Node:data,hdl:null
+     [java] ---StartElement:<data>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:53hjlh35h6lhjlhj356lhjljh
+     [java] Handling Event:</data>
+     [java] Handling Event:
+     [java] 		
+     [java] Handling Event:<origin>
+     [java] Node:origin,hdl:null
+     [java] ---StartElement:<origin>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:rona
+     [java] Handling Event:</origin>
+     [java] Handling Event:
+     [java] 	
+     [java] Handling Event:</Record>
+     [java] +++End Element:</Record>, hdl:com.tibco.stax.handler.ext.BaseHandler@18558d2
+     [java] Handling Event:
+
+     [java] Handling Event:</RecordSet>
+     [java] Handling Event:<? EndDocument ?>
+     [java] -###Finished processing; processed 6 records ###-
+     [java] Records Processed:6
+
+BUILD SUCCESSFUL
+Total time: 2 seconds

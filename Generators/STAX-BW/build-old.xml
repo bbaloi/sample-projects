@@ -1,0 +1,69 @@
+<project name="TibcoStaxParser" default="all">
+   <property file="build.properties"/>
+   <property environment='env'/>
+    <property name="src.dir" value="${root.dir}/src"/>
+   <property name="build.dir" value="${root.dir}/build"/>
+   <property name="class.dir" value="${root.dir}/build/classes"/>
+	<property name="distro.dir" value="${root.dir}/build/distro"/>
+   <property name="jsr173_api" value="${root.dir}/lib/jsr173_1.0_api.jar/"/>
+   <property name="jsr173_ri" value="${root.dir}/lib/jsr173_1.0_ri.jar/"/>
+   <property name="stax_utils" value="${root.dir}/lib/stax-utils.jar/"/>
+   <property name="jms" value="${root.dir}/lib/jms.jar/"/>
+   <property name="tibjms" value="${root.dir}/lib/tibjms.jar/"/>
+		
+   
+  <target name="all" depends="build,distro"/>
+   <target name="clean">
+       <delete dir="${build.dir}"/>
+   </target>
+   <target name="build">
+       <mkdir dir="${build.dir}"/>
+       <mkdir dir="${class.dir}"/>
+   	   <mkdir dir="${distro.dir}"/>
+     
+      <javac srcdir="${src.dir}"  includes="**com/tibco/**" destdir="${class.dir}">
+        <classpath>
+	   		<pathelement path="${jsr173_api}"/>
+	  		<pathelement path="${jsr173_ri}"/>
+       		<pathelement path="${stax_utils}"/>
+        	<pathelement path="${jms}"/>
+        	<pathelement path="${tibjms}"/>
+        </classpath>
+      </javac>
+   </target>
+	<target name="distro">
+		<jar jarfile="${distro.dir}/tib-stax.jar" basedir="${class.dir}">
+		        <include name="**/com/tibco/stax/**"/> 
+		    	<!--<exclude name="**/com/tibco/stax/tests/**"/>--> 
+		    </jar>
+	</target>
+   <target name="run-short">
+      <!-- Generate the files from the description -->
+      <java classname="com.tibco.stax.tests.TibcoStaxParserTest" fork="true">
+      	<arg line="-input_file c:/temp/MAA-short.xml -properties_file c:/Eclipse3.1/eclipse/workspace/STAX-BW/res/parse.properties"/>
+	<classpath>
+	    <!--<pathelement path="${distro.dir}/tib-stax.jar"/>-->
+		<pathelement path="${class.dir}"/>
+	   <pathelement path="${jsr173_api}"/>
+	   <pathelement path="${jsr173_ri}"/>
+	   <pathelement path="${tibjms}"/>
+	   <pathelement path="${jms}"/>
+        </classpath>
+      </java>
+   </target>
+	<target name="run-long">
+	      <!-- Generate the files from the description -->
+	      <java classname="com.tibco.stax.tests.TibcoStaxParserTest" fork="true">
+	      	<arg value="-input_file"/>
+	      	<arg value="-properties_file"/>
+	        <!--<arg line="-input_file c:/temp/MAA.xml -properties_file c:/Eclipse3.1/eclipse/workspace/STAX-BW/res/parse.properties"/>-->
+		<classpath>
+		   <pathelement path="${distro.dir}/tib-stax.jar"/>
+		   <pathelement path="${jsr173_api}"/>
+		   <pathelement path="${jsr173_ri}"/>
+		   <pathelement path="${tibjms}"/>
+		   <pathelement path="${jms}"/>
+	        </classpath>
+	      </java>
+	   </target>
+</project>

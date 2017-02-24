@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="lib"/>
+	<classpathentry kind="src" path="build"/>
+	<classpathentry kind="lib" path="C:/Eclipse3.2/eclipse/workspace/STAX-BW/lib/tibjms.jar"/>
+	<classpathentry kind="lib" path="C:/Eclipse3.2/eclipse/workspace/STAX-BW/lib/jms.jar"/>
+	<classpathentry kind="lib" path="C:/Eclipse3.2/eclipse/workspace/STAX-BW/lib/jsr173_1.0_api.jar"/>
+	<classpathentry kind="lib" path="C:/Eclipse3.2/eclipse/workspace/STAX-BW/lib/jsr173_1.0_ri.jar"/>
+	<classpathentry kind="lib" path="C:/Eclipse3.2/eclipse/workspace/STAX-BW/lib/stax-utils.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
