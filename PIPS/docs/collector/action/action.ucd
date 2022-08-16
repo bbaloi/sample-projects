@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" id="thunderbirddequeperpetualipcom0" metadata="nsuml-1.4" initialized="true" showWireOptions="1" scrolledX="40" scrolledY="40">
+  <children xsi:type="editmodel:PackageEditModel" location="45,45" size="1025,513" id="thunderbirddequeperpetualipcom1">
+    <children xsi:type="editmodel:ClassEditModel" location="356,76" size="124,121" targetConnections="//@children.0/@children.1/@sourceConnections.0 //@children.0/@children.5/@sourceConnections.0" id="thunderbirddequeperpetualipcom2" runTimeClassModel="thunderbirddequeperpetualipcom122;thunderbirddequeperpetualipcom112;thunderbirddequeperpetualipcom117;thunderbirddequeperpetualipcom110;thunderbirddequeperpetualipcom120;thunderbirddequeperpetualipcom109">
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <children xsi:type="editmodel:CompartmentEditModel" size="101,72">
+        <children xsi:type="editmodel:MethodEditModel" id="thunderbirddequeperpetualipcom120"/>
+        <children xsi:type="editmodel:MethodEditModel" id="thunderbirddequeperpetualipcom110"/>
+        <children xsi:type="editmodel:MethodEditModel" id="thunderbirddequeperpetualipcom122"/>
+        <children xsi:type="editmodel:MethodEditModel" id="thunderbirddequeperpetualipcom112"/>
+      </children>
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <sourceConnections xsi:type="editmodel:AssociationEditModel" id="thunderbirddequeperpetualipcom88" connectionRouterKind="Manhattan" source="//@children.0/@children.0" target="//@children.0/@children.2" targetEnd="//@children.0/@children.0/@sourceConnections.0/@children.1" label="//@children.0/@children.0/@sourceConnections.0/@children.2" sourceEnd="//@children.0/@children.0/@sourceConnections.0/@children.0">
+        <children xsi:type="editmodel:AssociationEndEditModel" location="124,108" id="thunderbirddequeperpetualipcom89" attachSource="true" navigable="true" flags="2" multiplicityLabel="//@children.0/@children.0/@sourceConnections.0/@children.0/@children.1" roleLabel="//@children.0/@children.0/@sourceConnections.0/@children.0/@children.0">
+          <children xsi:type="editmodel:LabelEditModel" size="63,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+          <children xsi:type="editmodel:LabelEditModel" size="7,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+        </children>
+        <children xsi:type="editmodel:AssociationEndEditModel" id="thunderbirddequeperpetualipcom90" navigable="true" flags="2" multiplicityLabel="//@children.0/@children.0/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.0/@children.0/@sourceConnections.0/@children.1/@children.0">
+          <children xsi:type="editmodel:LabelEditModel" size="47,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+          <children xsi:type="editmodel:LabelEditModel" size="7,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+        </children>
+        <children xsi:type="editmodel:WireLabelEditModel" size="101,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      </sourceConnections>
+      <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showPublicMethods="true" showPackageMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true"/>
+    </children>
+    <children xsi:type="editmodel:ClassEditModel" location="16,86" size="163,139" id="thunderbirddequeperpetualipcom4" runTimeClassModel="thunderbirddequeperpetualipcom56;thunderbirddequeperpetualipcom62;thunderbirddequeperpetualipcom60">
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <children xsi:type="editmodel:CompartmentEditModel" size="94,36">
+        <children xsi:type="editmodel:MethodEditModel" id="thunderbirddequeperpetualipcom60"/>
+        <children xsi:type="editmodel:MethodEditModel" id="thunderbirddequeperpetualipcom62"/>
+      </children>
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <sourceConnections xsi:type="editmodel:AssociationEditModel" id="thunderbirddequeperpetualipcom43" connectionRouterKind="Manhattan" source="//@children.0/@children.1" target="//@children.0/@children.0" targetEnd="//@children.0/@children.1/@sourceConnections.0/@children.1" label="//@children.0/@children.1/@sourceConnections.0/@children.2" sourceEnd="//@children.0/@children.1/@sourceConnections.0/@children.0">
+        <children xsi:type="editmodel:AssociationEndEditModel" location="163,26" id="thunderbirddequeperpetualipcom44" attachSource="true" roleLabel="//@children.0/@children.1/@sourceConnections.0/@children.0/@children.0">
+          <children xsi:type="editmodel:LabelEditModel" size="87,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+        </children>
+        <children xsi:type="editmodel:AssociationEndEditModel" id="thunderbirddequeperpetualipcom45" navigable="true" orderingKind="1" flags="2" multiplicityLabel="//@children.0/@children.1/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.0/@children.1/@sourceConnections.0/@children.1/@children.0">
+          <children xsi:type="editmodel:LabelEditModel" size="54,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+          <children xsi:type="editmodel:LabelEditModel" size="17,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+        </children>
+        <children xsi:type="editmodel:WireLabelEditModel" size="142,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      </sourceConnections>
+      <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showPublicMethods="true" showPackageMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true"/>
+    </children>
+    <children xsi:type="editmodel:ClassEditModel" location="673,51" size="125,121" targetConnections="//@children.0/@children.0/@sourceConnections.0" id="thunderbirddequeperpetualipcom86" runTimeClassModel="thunderbirddequeperpetualipcom102;thunderbirddequeperpetualipcom143;thunderbirddequeperpetualipcom101;thunderbirddequeperpetualipcom133;thunderbirddequeperpetualipcom104">
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <children xsi:type="editmodel:CompartmentEditModel" size="102,72">
+        <children xsi:type="editmodel:MethodEditModel" id="thunderbirddequeperpetualipcom143"/>
+        <children xsi:type="editmodel:MethodEditModel" id="thunderbirddequeperpetualipcom102"/>
+        <children xsi:type="editmodel:MethodEditModel" location="665,142" id="thunderbirddequeperpetualipcom133"/>
+        <children xsi:type="editmodel:MethodEditModel" id="thunderbirddequeperpetualipcom104"/>
+      </children>
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <sourceConnections xsi:type="editmodel:DependencyEditModel" connectionRouterKind="Manual" source="//@children.0/@children.2" target="//@children.0/@children.3" targetEnd="//@children.0/@children.2/@sourceConnections.0/@children.1" sourceEnd="//@children.0/@children.2/@sourceConnections.0/@children.0">
+        <children xsi:type="editmodel:AssociationEndEditModel" location="102,121" attachSource="true"/>
+        <children xsi:type="editmodel:AssociationEndEditModel" location="183,0"/>
+      </sourceConnections>
+      <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showPublicMethods="true" showPackageMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true"/>
+    </children>
+    <children xsi:type="editmodel:ClassEditModel" location="559,221" size="450,29" targetConnections="//@children.0/@children.2/@sourceConnections.0" id="thunderbirddequeperpetualipcom135" shortShow="true" runTimeClassModel="thunderbirddequeperpetualipcom262;thunderbirddequeperpetualipcom204;thunderbirddequeperpetualipcom248;thunderbirddequeperpetualipcom202;thunderbirddequeperpetualipcom268;thunderbirddequeperpetualipcom216;thunderbirddequeperpetualipcom178;thunderbirddequeperpetualipcom219;thunderbirddequeperpetualipcom224;thunderbirddequeperpetualipcom258;thunderbirddequeperpetualipcom208;thunderbirddequeperpetualipcom191;thunderbirddequeperpetualipcom214;thunderbirddequeperpetualipcom246;thunderbirddequeperpetualipcom188;thunderbirddequeperpetualipcom190;thunderbirddequeperpetualipcom187;thunderbirddequeperpetualipcom236;thunderbirddequeperpetualipcom198;thunderbirddequeperpetualipcom211;thunderbirddequeperpetualipcom176;thunderbirddequeperpetualipcom221;thunderbirddequeperpetualipcom266;thunderbirddequeperpetualipcom272;thunderbirddequeperpetualipcom250;thunderbirddequeperpetualipcom200;thunderbirddequeperpetualipcom244;thunderbirddequeperpetualipcom260;thunderbirddequeperpetualipcom256;thunderbirddequeperpetualipcom270;thunderbirddequeperpetualipcom172;thunderbirddequeperpetualipcom189;thunderbirddequeperpetualipcom184;thunderbirddequeperpetualipcom242;thunderbirddequeperpetualipcom180;thunderbirddequeperpetualipcom264;thunderbirddequeperpetualipcom194;thunderbirddequeperpetualipcom254;thunderbirddequeperpetualipcom196;thunderbirddequeperpetualipcom274;thunderbirddequeperpetualipcom192;thunderbirddequeperpetualipcom276;thunderbirddequeperpetualipcom239;thunderbirddequeperpetualipcom252;thunderbirddequeperpetualipcom228;thunderbirddequeperpetualipcom206;thunderbirddequeperpetualipcom232">
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <children xsi:type="editmodel:CompartmentEditModel" size="133,270">
+        <children xsi:type="editmodel:MethodEditModel" id="thunderbirddequeperpetualipcom211"/>
+        <children xsi:type="editmodel:MethodEditModel" id="thunderbirddequeperpetualipcom250"/>
+        <children xsi:type="editmodel:MethodEditModel" id="thunderbirddequeperpetualipcom252"/>
+        <children xsi:type="editmodel:MethodEditModel" id="thunderbirddequeperpetualipcom254"/>
+        <children xsi:type="editmodel:MethodEditModel" id="thunderbirddequeperpetualipcom256"/>
+        <children xsi:type="editmodel:MethodEditModel" id="thunderbirddequeperpetualipcom272"/>
+        <children xsi:type="editmodel:MethodEditModel" id="thunderbirddequeperpetualipcom258"/>
+        <children xsi:type="editmodel:MethodEditModel" id="thunderbirddequeperpetualipcom260"/>
+        <children xsi:type="editmodel:MethodEditModel" id="thunderbirddequeperpetualipcom262"/>
+        <children xsi:type="editmodel:MethodEditModel" id="thunderbirddequeperpetualipcom264"/>
+        <children xsi:type="editmodel:MethodEditModel" id="thunderbirddequeperpetualipcom276"/>
+        <children xsi:type="editmodel:MethodEditModel" id="thunderbirddequeperpetualipcom266"/>
+        <children xsi:type="editmodel:MethodEditModel" id="thunderbirddequeperpetualipcom274"/>
+        <children xsi:type="editmodel:MethodEditModel" id="thunderbirddequeperpetualipcom268"/>
+        <children xsi:type="editmodel:MethodEditModel" id="thunderbirddequeperpetualipcom270"/>
+      </children>
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showPublicMethods="true" showPackageMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true"/>
+    </children>
+    <children xsi:type="editmodel:ClassEditModel" location="187,446" size="473,29" targetConnections="//@children.0/@children.5/@sourceConnections.1" id="thunderbirddequeperpetualipcom149" runTimeClassModel="">
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showPublicMethods="true" showPackageMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true"/>
+    </children>
+    <children xsi:type="editmodel:ClassEditModel" location="172,287" size="486,85" id="thunderbirddequeperpetualipcom83" runTimeClassModel="thunderbirddequeperpetualipcom165;thunderbirddequeperpetualipcom167;thunderbirddequeperpetualipcom164">
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <children xsi:type="editmodel:CompartmentEditModel" size="127,36">
+        <children xsi:type="editmodel:MethodEditModel" id="thunderbirddequeperpetualipcom165"/>
+        <children xsi:type="editmodel:MethodEditModel" id="thunderbirddequeperpetualipcom167"/>
+      </children>
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <sourceConnections xsi:type="editmodel:GeneralizationEditModel" id="thunderbirddequeperpetualipcom85" connectionRouterKind="Manual" source="//@children.0/@children.5" target="//@children.0/@children.0" targetEnd="//@children.0/@children.5/@sourceConnections.0/@children.1" sourceEnd="//@children.0/@children.5/@sourceConnections.0/@children.0">
+        <children xsi:type="editmodel:AssociationEndEditModel" location="6,0" attachSource="true"/>
+        <children xsi:type="editmodel:AssociationEndEditModel" location="66,120"/>
+      </sourceConnections>
+      <sourceConnections xsi:type="editmodel:AssociationEditModel" id="thunderbirddequeperpetualipcom151" connectionRouterKind="Manhattan" source="//@children.0/@children.5" target="//@children.0/@children.4" targetEnd="//@children.0/@children.5/@sourceConnections.1/@children.1" label="//@children.0/@children.5/@sourceConnections.1/@children.2" sourceEnd="//@children.0/@children.5/@sourceConnections.1/@children.0">
+        <children xsi:type="editmodel:AssociationEndEditModel" location="479,26" id="thunderbirddequeperpetualipcom152" attachSource="true" roleLabel="//@children.0/@children.5/@sourceConnections.1/@children.0/@children.0">
+          <children xsi:type="editmodel:LabelEditModel" size="79,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+        </children>
+        <children xsi:type="editmodel:AssociationEndEditModel" id="thunderbirddequeperpetualipcom153" navigable="true" orderingKind="1" flags="2" multiplicityLabel="//@children.0/@children.5/@sourceConnections.1/@children.1/@children.1" roleLabel="//@children.0/@children.5/@sourceConnections.1/@children.1/@children.0">
+          <children xsi:type="editmodel:LabelEditModel" size="87,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+          <children xsi:type="editmodel:LabelEditModel" size="17,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+        </children>
+        <children xsi:type="editmodel:WireLabelEditModel" location="394,439" size="142,14" fontInfo="Arial-8-0" automaticRelocationAllowed="false" locationOnWireFromSource="0.7875" distanceFromWire="6.999999999999967" anchorKind="MiddlePart"/>
+      </sourceConnections>
+      <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showPublicMethods="true" showPackageMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true"/>
+    </children>
+    <packagePreferences xsi:type="editmodel:UMLClassDiagramPackagePreference" showStereotype="true"/>
+  </children>
+  <children xsi:type="editmodel:PackageEditModel" location="1121,61" size="362,271" id="thunderbirddequeperpetualipcom347">
+    <packagePreferences xsi:type="editmodel:UMLClassDiagramPackagePreference" showStereotype="true"/>
+  </children>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showPublicMethods="true" showPackageMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showInterfaceStereotype="true" showClassStereotype="true" showPackageStereotype="true"/>
+</editmodel:ClassDiagramEditModel>
