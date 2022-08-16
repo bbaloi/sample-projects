@@ -1,0 +1,13 @@
+/CiscoMessageParser.java/1.1/Thu Sep 25 18:41:55 2003//
+/CiscoMessagePattern.java/1.1/Thu Sep 25 18:41:22 2003//
+/CrondMessageParser.java/1.1/Fri Sep 19 14:42:02 2003//
+/CrondMessagePattern.java/1.2/Tue Sep 23 19:51:55 2003//
+/MailMessageParser.java/1.1/Fri Sep 19 14:42:32 2003//
+/MailMessagePattern.java/1.2/Tue Sep 23 19:52:05 2003//
+/SyslogRecordParser.java/1.1/Fri Sep 19 14:43:49 2003//
+/SyslogRecordPattern.java/1.1/Fri Sep 19 14:43:34 2003//
+/SyslogRecordPidParser.java/1.1/Fri Sep 19 14:44:12 2003//
+/SyslogRecordPidPattern.java/1.1/Fri Sep 19 14:44:26 2003//
+/XinetdMessageParser.java/1.1/Thu Sep 25 18:42:53 2003//
+/XinetdMessagePattern.java/1.1/Thu Sep 25 18:42:36 2003//
+D
