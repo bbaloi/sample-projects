@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<types:mule xmlns:types="http://www.mulesoft.org/schema/mule/types">
+  <types:catalog>
+    <types:type name="snmp_event" format="java">
+      <types:shape format="java" element="com.mule.connector.snmp.api.vo.SNMPEvent"/>
+    </types:type>
+  </types:catalog>
+  <types:enrichment select="#80f2a51a-0661-4ef5-b08e-0c176a0cc042">
+    <types:processor-declaration>
+      <types:output-event>
+        <types:message>
+          <types:payload type="snmp_event"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#f4029e9c-0dc3-4857-96fd-63a472592498">
+    <types:processor-declaration>
+      <types:output-event>
+        <types:message>
+          <types:payload type="snmp_event"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#2fb1294c-2341-447d-9d37-7666c83a349a">
+    <types:processor-declaration>
+      <types:output-event>
+        <types:message>
+          <types:payload type="snmp_event"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#1786add8-34da-40d3-96a0-111fbc85d71d">
+    <types:processor-declaration>
+      <types:output-event>
+        <types:message>
+          <types:payload type="snmp_event"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#89be9a8f-f76b-4054-810b-b0fe06e64686">
+    <types:processor-declaration>
+      <types:output-event>
+        <types:message>
+          <types:payload type="snmp_event"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+</types:mule>

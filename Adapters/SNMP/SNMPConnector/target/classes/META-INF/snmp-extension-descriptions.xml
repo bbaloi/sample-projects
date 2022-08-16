@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension-documentation>
+    <configs>
+        <config name="snmp-listener-config">
+            <description><![CDATA[This class represents an extension configuration, values set in this class are commonly used across multiple operations since they represent something core from the extension.]]></description>
+            <parameters>
+                <parameter name="configId">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="expirationPolicy">
+                    <description><![CDATA[Configures the minimum amount of time that a dynamic configuration instance can remain idle before the runtime considers it eligible for expiration. This does not mean that the platform will expire the instance at the exact moment that it becomes eligible. The runtime will actually purge the instances when it sees it fit.]]></description>
+                </parameter>
+            </parameters>
+        </config>
+        <config name="snmp-sender-config">
+            <description><![CDATA[This class represents an extension configuration, values set in this class are commonly used across multiple operations since they represent something core from the extension.]]></description>
+            <parameters>
+                <parameter name="configId">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="expirationPolicy">
+                    <description><![CDATA[Configures the minimum amount of time that a dynamic configuration instance can remain idle before the runtime considers it eligible for expiration. This does not mean that the platform will expire the instance at the exact moment that it becomes eligible. The runtime will actually purge the instances when it sees it fit.]]></description>
+                </parameter>
+            </parameters>
+        </config>
+    </configs>
+    <connections>
+        <connection name="snmp-listener">
+            <description><![CDATA[This class (as it's name implies) provides connection instances and the funcionality to disconnect and validate those connections. <p> All connection related parameters (values required in order to create a connection) must be declared in the connection providers. <p> This particular example is a PoolingConnectionProvider which declares that connections resolved by this provider will be pooled and reused. There are other implementations like CachedConnectionProvider which lazily creates and caches connections or simply ConnectionProvider if you want a new connection each time something requires one.]]></description>
+            <parameters>
+                <parameter name="requiredParameter">
+                    <description><![CDATA[A parameter that is not required to be configured by the user.]]></description>
+                </parameter>
+                <parameter name="optionalParameter">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="receiverProtocol">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="source_SNMP_hosts">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="snmpVersions">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="username">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="passphrase">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="privacypassphrase">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="reconnection">
+                    <description><![CDATA[When the application is deployed, a connectivity test is performed on all connectors. If set to true, deployment will fail if the test doesn't pass after exhausting the associated reconnection strategy]]></description>
+                </parameter>
+                <parameter name="poolingProfile">
+                    <description><![CDATA[Characteristics of the connection pool]]></description>
+                </parameter>
+            </parameters>
+        </connection>
+        <connection name="snmp-sender">
+            <description><![CDATA[This class (as it's name implies) provides connection instances and the funcionality to disconnect and validate those connections. <p> All connection related parameters (values required in order to create a connection) must be declared in the connection providers. <p> This particular example is a PoolingConnectionProvider which declares that connections resolved by this provider will be pooled and reused. There are other implementations like CachedConnectionProvider which lazily creates and caches connections or simply ConnectionProvider if you want a new connection each time something requires one.]]></description>
+            <parameters>
+                <parameter name="requiredConnectionId">
+                    <description><![CDATA[A parameter that is always required to be configured.]]></description>
+                </parameter>
+                <parameter name="optionalParameter">
+                    <description><![CDATA[A parameter that is not required to be configured by the user.]]></description>
+                </parameter>
+                <parameter name="username">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="authpassphrase">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="privacypassphrase">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="destination_SNMP_host">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="destination_SNMP_port">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="senderSnmpVersion">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="senderProtocol">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="community">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="reconnection">
+                    <description><![CDATA[When the application is deployed, a connectivity test is performed on all connectors. If set to true, deployment will fail if the test doesn't pass after exhausting the associated reconnection strategy]]></description>
+                </parameter>
+                <parameter name="poolingProfile">
+                    <description><![CDATA[Characteristics of the connection pool]]></description>
+                </parameter>
+            </parameters>
+        </connection>
+    </connections>
+    <extension name="SNMP">
+        <description><![CDATA[This is the main class of an extension, is the entry point from which configurations, connection providers, operations and sources are going to be declared.]]></description>
+        <parameters/>
+    </extension>
+    <operations>
+        <operation name="sendSNMPEventV1">
+            <description><![CDATA[Example of an operation that uses the configuration and a connection instance to perform some action.]]></description>
+            <parameters>
+                <parameter name="pEvent">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="outputMimeType">
+                    <description><![CDATA[The mime type of the payload that this operation outputs.]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="sendSNMPEventV2">
+            <description><![CDATA[]]></description>
+            <parameters>
+                <parameter name="pEvent">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="outputMimeType">
+                    <description><![CDATA[The mime type of the payload that this operation outputs.]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="sendSNMPEventV3">
+            <description><![CDATA[]]></description>
+            <parameters>
+                <parameter name="pEvent">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="outputMimeType">
+                    <description><![CDATA[The mime type of the payload that this operation outputs.]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+    </operations>
+    <sources>
+        <source name="snmpListener">
+            <description><![CDATA[]]></description>
+            <parameters>
+                <parameter name="port">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="primaryNodeOnly">
+                    <description><![CDATA[Whether this source should only be executed on the primary node when runnning in Cluster]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="redeliveryPolicy">
+                    <description><![CDATA[Defines a policy for processing the redelivery of the same message]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </source>
+    </sources>
+    <types>
+        <type name="com.mule.connector.snmp.api.vo.SNMPEvent">
+            <description><![CDATA[]]></description>
+            <parameters>
+                <parameter name="agentAddr">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="community">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="enterprise">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="enterpriseOid">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="errorIndex">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="errorStatus">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="genericTrap">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="messageId">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="payload">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="pduType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="requestId">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="snmpVersion">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="specificOid">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="specificTrap">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="trapOid">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="tstamp">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="variablList">
+                    <description><![CDATA[]]></description>
+                </parameter>
+            </parameters>
+        </type>
+        <type name="com.mule.connector.snmp.api.vo.SNMPListenerAttributes">
+            <description><![CDATA[]]></description>
+            <parameters>
+                <parameter name="headers">
+                    <description><![CDATA[Map of SNMP headers in the message. Former properties.]]></description>
+                </parameter>
+            </parameters>
+        </type>
+    </types>
+</extension-documentation>

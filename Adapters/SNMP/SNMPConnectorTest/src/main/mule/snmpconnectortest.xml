@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:kafka="http://www.mulesoft.org/schema/mule/kafka" xmlns:vm="http://www.mulesoft.org/schema/mule/vm"
+	xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:ftp="http://www.mulesoft.org/schema/mule/ftp" xmlns:snmp="http://www.mulesoft.org/schema/mule/snmp" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/snmp http://www.mulesoft.org/schema/mule/snmp/current/mule-snmp.xsd
+http://www.mulesoft.org/schema/mule/ftp http://www.mulesoft.org/schema/mule/ftp/current/mule-ftp.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd
+http://www.mulesoft.org/schema/mule/kafka http://www.mulesoft.org/schema/mule/kafka/current/mule-kafka.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="55092cda-9b73-4777-9309-fcb20c30facc" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<snmp:snmp-sender-config name="SNMP_Snmp_sender_config_v1" doc:name="SNMP Snmp sender config" doc:id="33f48fdc-870a-41b6-ab40-164b2108214e" configId="123" >
+		<snmp:snmp-sender-connection requiredConnectionId="123" destination_SNMP_host="localhost" senderSnmpVersion="V1" senderProtocol="UDP" community="public"/>
+	</snmp:snmp-sender-config>
+	<snmp:snmp-listener-config name="SNMP_Snmp_listener_config" doc:name="SNMP Snmp listener config" doc:id="d85c3ae0-c71f-49b0-93a7-73db6152668e" configId="123" >
+		<snmp:snmp-listener-connection requiredParameter="123" receiverProtocol="UDP" source_SNMP_hosts="*" snmpVersions="V1" />
+	</snmp:snmp-listener-config>
+	<snmp:snmp-sender-config name="SNMP_Snmp_sender_config_v2" doc:name="SNMP Snmp sender config" doc:id="aa7ebd4c-6421-442b-911a-f35743fd059c" configId="124">
+		<snmp:snmp-sender-connection requiredConnectionId="124" destination_SNMP_host="localhost" senderSnmpVersion="V2" senderProtocol="UDP" community="public"/>
+	</snmp:snmp-sender-config>
+	<snmp:snmp-sender-config name="SNMP_Snmp_sender_config_v3" doc:name="SNMP Snmp sender config" doc:id="52d385bb-50c8-43ef-89d5-330e7f86b179" configId="125" >
+		<snmp:snmp-sender-connection requiredConnectionId="125" destination_SNMP_host="localhost" senderSnmpVersion="V3" senderProtocol="UDP" community="public"/>
+	</snmp:snmp-sender-config>
+	<vm:config name="VM_Config" doc:name="VM Config" doc:id="d33c8e39-614f-4b77-ae14-f09759533de4" >
+		<vm:queues >
+			<vm:queue queueName="pub.queue" />
+		</vm:queues>
+	</vm:config>
+	
+	<kafka:producer-config name="Apache_Kafka_Producer_configuration_1" doc:name="Apache Kafka Producer configuration" doc:id="0ad056fb-43e3-416c-8eb7-73ab2d055093" >
+		<kafka:producer-plaintext-connection >
+			<kafka:bootstrap-servers >
+				<kafka:bootstrap-server value="localhost:9092" />
+			</kafka:bootstrap-servers>
+		</kafka:producer-plaintext-connection>
+	</kafka:producer-config>
+	<kafka:consumer-config name="Apache_Kafka_Consumer_configuration" doc:name="Apache Kafka Consumer configuration" doc:id="994e63d1-2e69-4d90-8df7-ba427b23e4e9" >
+		<kafka:consumer-plaintext-connection groupId="3">
+			<kafka:bootstrap-servers >
+				<kafka:bootstrap-server value="localhost:9092" />
+			</kafka:bootstrap-servers>
+			<kafka:topic-patterns >
+				<kafka:topic-pattern value="snmp.topic" />
+			</kafka:topic-patterns>
+		</kafka:consumer-plaintext-connection>
+	</kafka:consumer-config>
+	<flow name="snmpconnectortestFlow_V1" doc:id="d705a885-6983-499e-a386-910983f847d8" >
+		<http:listener doc:name="Listener" doc:id="11aea530-18c1-4a53-8ef3-808fcfdf2f2d" config-ref="HTTP_Listener_config" path="/snmp/v1"/>
+		<logger level="INFO" doc:name="Logger" doc:id="769cd75f-745e-4ab0-9d42-8388d2f638c2" message="Sendning V1 Message..."/>
+		<ee:transform doc:name="Transform Message" doc:id="2fb1294c-2341-447d-9d37-7666c83a349a" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/java
+---
+{
+	community: "public",
+	enterpriseOid: "1.3.6.1.4.1.1824",
+	genericTrap: "23",
+	messageId: uuid(),
+	payload: "xxxxxxxxxxxxxxxxxxxxxxxx",
+	requestId: "111",
+	snmpVersion: "V1",
+	specificOid: "1.3.6.1.4.1.1824.1",
+	specificTrap: 5,
+	trapOid: "1.3.6.1.4.1.1824.1.2",
+	tstamp: now()
+} as Object {
+	class : "com.mule.connector.snmp.api.vo.SNMPEvent"
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<snmp:send-snmp-event-v1 doc:name="Send snmp event v 1" doc:id="daac37af-ea1c-4428-a534-916000e601f7" config-ref="SNMP_Snmp_sender_config_v1" pEvent="#[payload]">
+		</snmp:send-snmp-event-v1>
+		<logger level="INFO" doc:name="Logger" doc:id="b44480f2-3be5-451a-b0a3-a6d70c58b1c7" message="SNMP V1 event sent ! #[payload]"/>
+	</flow>
+	<flow name="snmpconnectortestFlow_V2" doc:id="bf879c90-325f-464c-96be-662dd39a2e80">
+		<http:listener doc:name="Listener" doc:id="58273602-738b-487a-b38a-b729c2454189" config-ref="HTTP_Listener_config" path="/snmp/v2"/>
+		<logger level="INFO" doc:name="Logger" doc:id="5b06a253-1c6e-4612-abb1-66c687122e5c" message="Sendning V2 Message..."/>
+		<ee:transform doc:name="Transform Message" doc:id="1786add8-34da-40d3-96a0-111fbc85d71d" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/java
+---
+{
+	community: "public",
+	enterpriseOid: "1.3.6.1.4.1.1824",
+	genericTrap: "23",
+	messageId: uuid(),
+	payload: "xxxxxxxxxxxxxxxxxxxxxxxx",
+	requestId: "111",
+	snmpVersion: "V2",
+	specificOid: "1.3.6.1.4.1.1824.1",
+	specificTrap: 5,
+	trapOid: "1.3.6.1.4.1.1824.1.2",
+	tstamp: now()
+} as Object {
+	class : "com.mule.connector.snmp.api.vo.SNMPEvent"
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<snmp:send-snmp-event-v2 doc:name="Send snmp event v 2" doc:id="0245a461-606d-45fb-8446-ded4ce6005e6" config-ref="SNMP_Snmp_sender_config_v2" pEvent="#[payload]"/>
+		<logger level="INFO" doc:name="Logger" doc:id="b5ee3747-82fb-4108-afd7-8bd2bedc3f3b" message="SNMP V2 event sent ! #[payload]"/>
+	</flow>
+	<flow name="snmpconnectortestFlow_V3" doc:id="b1f8027c-ebf5-4b6c-b643-4e0f6be362ae">
+		<http:listener doc:name="Copy_of_Listener" doc:id="a3320407-c734-4eaa-b64a-236b0e193fdb" config-ref="HTTP_Listener_config" path="/snmp/v3" />
+		<logger level="INFO" doc:name="Copy_of_Logger" doc:id="3214de3e-ce61-4d00-8335-63c6ef1da9f8" message="Sending V3 Message..." />
+		<ee:transform doc:name="Copy_of_Transform Message" doc:id="89be9a8f-f76b-4054-810b-b0fe06e64686">
+			<ee:message>
+				<ee:set-payload><![CDATA[%dw 2.0
+output application/java
+---
+{
+	community: "public",
+	enterpriseOid: "1.3.6.1.4.1.1824",
+	errorIndex: "33",
+	errorStatus: "Failed CISCO Router",
+	genericTrap: "23",
+	messageId: uuid(),
+	payload: "xxxxxxxxxxxxxxxxxxxxxxxx",
+	requestId: "113",
+	snmpVersion: "V3",
+	specificOid: "1.3.6.1.4.1.1824.1",
+	specificTrap: 5,
+	trapOid: "1.3.6.1.4.1.1824.1.2",
+	tstamp: now()
+} as Object {
+	class : "com.mule.connector.snmp.api.vo.SNMPEvent"
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<snmp:send-snmp-event-v3 doc:name="Send snmp event v 3" doc:id="d92242ae-290b-46eb-b524-02dd765a4c46" pEvent="#[payload]" config-ref="SNMP_Snmp_sender_config_v3"/>
+		<logger level="INFO" doc:name="Copy_of_Logger" doc:id="96c6e4f9-e9f2-4c74-aa60-8c9867419cb7" message="SNMP V3 event sent ! #[payload]" />
+	</flow>
+	<flow name="snmpconnectortestFlow1" doc:id="32d0dbea-ffe6-4976-8c7c-f4ba86067cb3">
+		<snmp:snmp-listener doc:id="d6c34cac-78d4-4dca-80c8-4726fd5113e8" doc:name="" config-ref="SNMP_Snmp_listener_config" port="80"/>
+		<ee:transform doc:name="Transform Message" doc:id="844fa31e-1335-4b70-9f15-73bbe1c7e3f6" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="9a19631d-930b-435d-8230-3d29e950e16b" message="#### Got SNMP  Event: #[payload]"/>
+		<vm:publish doc:name="Publish" doc:id="3462979e-8154-434b-a063-ba1ca4682cdc" config-ref="VM_Config" queueName="pub.queue"/>
+	</flow>
+	<flow name="snmpconnectortestFlow" doc:id="166a6c2d-498d-4eaa-a686-270b361e421e" >
+		<vm:listener queueName="pub.queue" doc:name="Listener" doc:id="99e274c9-e2de-4a08-acee-705a36e5c3ff" config-ref="VM_Config" numberOfConsumers="1"/>
+		<logger level="INFO" doc:name="Logger" doc:id="a840fdef-050b-4ca9-a423-cbfb424febec" message="Got VM queue message..."/>
+		<kafka:publish doc:name="Publish" doc:id="896141f1-8849-4898-9b5e-e8ebb702c871" config-ref="Apache_Kafka_Producer_configuration_1" topic="snmp.topic" key="#[uuid()]"/>
+		<logger level="INFO" doc:name="Logger" doc:id="e216790d-8363-4519-96eb-6f5af4f1c6d3" message="++++Sent Event to Kafka !"/>
+	</flow>
+	<flow name="snmpconnectortestFlow2" doc:id="0bb6f203-c21f-4c4a-b587-e9d6af11725d" >
+		<kafka:message-listener doc:name="Message listener" doc:id="93879c96-9f9e-4a8b-bb70-c1f0b1ea8af6" config-ref="Apache_Kafka_Consumer_configuration" ackMode="AUTO"/>
+		<logger level="INFO" doc:name="Logger" doc:id="739e407d-1fe5-4f10-add2-b535d7199142" message="++++++++++ Got SNMP Message on Kafka: #[payload]"/>
+	</flow>
+</mule>
